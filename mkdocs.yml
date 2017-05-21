@@ -6,11 +6,6 @@ repo_url: https://github.com/xsio/open_api_docs
 
 theme_dir: themes/mkdocs
 
-theme_center_lead: false
-
-include_search: true
-
-include_next_prev: false
 
 copyright: Copyright &copy; 2017, Convertlab
 
