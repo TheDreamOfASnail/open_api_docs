@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="canonical" href="http://api-docs.convertlab.com/api/customer/"> 
-    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
     <title>客户信息 - Convertlab 文档中心</title>
     <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -65,31 +65,13 @@
                 
                 </ul>
             
-
-            
-            <!-- Search, Navigation and Repo links -->
-            <!-- <ul class="nav navbar-nav navbar-right">
-                
-                
-                
-                <li>
-                    <a href="https://github.com/xsio/open_api_docs">
-                        
-                            <i class="fa fa-github"></i>
-                        
-                        GitHub
-                    </a>
-                </li>
-                
-            </ul> -->
-            
         </div>
     </div>
 </div>
     <div class="container main">
          <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
-    <li><a href="../..">文档</a></li>
+    <li><a href="">文档</a></li>
     <li>客户信息</li>
   </ol>
 
@@ -183,10 +165,10 @@
 <h1>客户信息</h1>
 
 <h2 id="dm-hub">将客户数据传送给DM Hub</h2>
-<p>在DM Hub系统中创建客户可以使用/v1/customers API。但是为了避免同一个客户被多次创建，可以使用/v1/customerandidentities API，即在提供客户信息的同时，额外提供客户身份信息。这样如果DM Hub中存在相同身份的客户数据，那么并不会有新的客户被创建，而是已存在的客户信息被更新。</p>
+<p>在DM Hub系统中创建客户可以使用/v1/customers API。但是为了避免同一个客户被多次创建，可以使用/v1/customerAndIdentities API，即在提供客户信息的同时，额外提供客户身份信息。这样如果DM Hub中存在相同身份的客户数据，那么并不会有新的客户被创建，而是已存在的客户信息被更新。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: POST
-https://api.convertlab.com/v1/customerandidentities?access_token={access_token}
+https://api.convertlab.com/v1/customerAndIdentities?access_token={access_token}
 POST数据示例:
 {
   &quot;customerIdentities&quot;: [
