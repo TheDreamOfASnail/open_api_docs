@@ -1,10 +1,10 @@
 ## 将客户数据传送给DM Hub
-在DM Hub系统中创建客户可以使用/v1/customers API。但是为了避免同一个客户被多次创建，可以使用/v1/customerandidentities API，即在提供客户信息的同时，额外提供客户身份信息。这样如果DM Hub中存在相同身份的客户数据，那么并不会有新的客户被创建，而是已存在的客户信息被更新。
+在DM Hub系统中创建客户可以使用/v1/customers API。但是为了避免同一个客户被多次创建，可以使用/v1/customerAndIdentities API，即在提供客户信息的同时，额外提供客户身份信息。这样如果DM Hub中存在相同身份的客户数据，那么并不会有新的客户被创建，而是已存在的客户信息被更新。
 
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/customerandidentities?access_token={access_token}
+https://api.convertlab.com/v1/customerAndIdentities?access_token={access_token}
 POST数据示例:
 {
   "customerIdentities": [
