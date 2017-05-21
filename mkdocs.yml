@@ -9,6 +9,15 @@ theme_dir: themes/mkdocs
 
 copyright: Copyright &copy; 2017, Convertlab
 
+extra_css: 
+  - test/css/print.css
+#   - test/css/reset.css
+#   - test/css/screen.css
+#   - test/css/style.css
+#   - test/css/typography.css
+extra_javascript:
+  - test/swagger-ui.min.js
+
 pages:
 - OpenAPI V1:
   - '创建集成应用': 'index.md'
@@ -21,5 +30,5 @@ pages:
   - '设置埋点': 'track/index.md'
   - '客户自定义事件': 'track/customerevent.md'
   - '来源跟踪': 'track/sourcetracking.md'
-- 'TRY IT':
-  - 'TRY IT': 'test/index.md'
+# - 'TRY IT':
+#   - 'TRY IT': 'test/index.md'

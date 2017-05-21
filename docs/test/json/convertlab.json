@@ -143,376 +143,6 @@
                 "sortWeight": 1
             }
         },
-        "/v1/activities": {
-            "get": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "获取活动",
-                "description": "获取已经创建的活动信息",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {
-                    "activities": {
-                        "description": "返回的活动列表",
-                        "schema": {
-                            "type": "array",
-                            "format": "",
-                            "description": "返回的活动列表",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        "sortWeight": 0
-                    }
-                },
-                "sortWeight": 0
-            },
-            "post": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "创建活动",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "activity",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/activity"
-                        }
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {
-                    "activity": {
-                        "description": "",
-                        "schema": {
-                            "description": "",
-                            "$ref": "#/definitions/activity"
-                        },
-                        "sortWeight": 0
-                    }
-                },
-                "sortWeight": 1
-            }
-        },
-        "/v1/activities/{uuid}": {
-            "get": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "获取单个活动信息",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "uuid",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {
-                    "activity": {
-                        "description": "",
-                        "schema": {
-                            "description": "",
-                            "$ref": "#/definitions/activity"
-                        },
-                        "sortWeight": 0
-                    }
-                },
-                "sortWeight": 3
-            },
-            "put": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "更新活动",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "uuid",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "in": "body",
-                        "name": "activity",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/activity"
-                        }
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {
-                    "activity": {
-                        "description": "",
-                        "schema": {
-                            "description": "",
-                            "$ref": "#/definitions/activity"
-                        },
-                        "sortWeight": 0
-                    }
-                },
-                "sortWeight": 4
-            },
-            "delete": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "删除活动",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "uuid",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {},
-                "sortWeight": 5
-            }
-        },
-        "/v1/activities/{uuid}/publish": {
-            "post": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "发布活动",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "uuid",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {},
-                "sortWeight": 6
-            }
-        },
-        "/v1/activities/{uuid}/trackings": {
-            "get": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "获取埋点",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "uuid",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {
-                    "tracking": {
-                        "description": "",
-                        "schema": {
-                            "description": "",
-                            "$ref": "#/definitions/tracking"
-                        },
-                        "sortWeight": 0
-                    }
-                },
-                "sortWeight": 6
-            },
-            "put": {
-                "tags": [
-                    "活动"
-                ],
-                "summary": "添加埋点",
-                "description": "",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "uuid",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "in": "body",
-                        "name": "tracking",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/tracking_array"
-                        }
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    }
-                ],
-                "responses": {},
-                "sortWeight": 6
-            }
-        },
         "/v1/customerAndIdentities": {
             "post": {
                 "tags": [
@@ -2311,6 +1941,376 @@
                     }
                 },
                 "sortWeight": 7
+            }
+        },
+                "/v1/activities": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取活动",
+                "description": "获取已经创建的活动信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activities": {
+                        "description": "返回的活动列表",
+                        "schema": {
+                            "type": "array",
+                            "format": "",
+                            "description": "返回的活动列表",
+                            "items": {
+                                "type": "object"
+                            }
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "创建活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "activity",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/activity"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activity": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/activity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 1
+            }
+        },
+        "/v1/activities/{uuid}": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取单个活动信息",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activity": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/activity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 3
+            },
+            "put": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "更新活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "activity",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/activity"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activity": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/activity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 4
+            },
+            "delete": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "删除活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 5
+            }
+        },
+        "/v1/activities/{uuid}/publish": {
+            "post": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "发布活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 6
+            }
+        },
+        "/v1/activities/{uuid}/trackings": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取埋点",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "tracking": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/tracking"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 6
+            },
+            "put": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "添加埋点",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "tracking",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/tracking_array"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 6
             }
         }
     },
