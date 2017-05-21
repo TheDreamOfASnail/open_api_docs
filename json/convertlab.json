@@ -1,0 +1,2686 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Convertlab Open API",
+        "version": "0.1",
+        "title": "API参考文档"
+    },
+    "host": "api.convertlab.com",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "身份权限",
+            "description": "身份权限验证和测试接口",
+            "sortWeight": 0
+        },
+        {
+            "name": "客户",
+            "description": "客户基本信息",
+            "sortWeight": 1
+        },
+        {
+            "name": "账户管理",
+            "description": "查看access_token对应用户的相关信息",
+            "sortWeight": 1
+        },
+        {
+            "name": "客户身份",
+            "description": "客户身份接口",
+            "sortWeight": 2
+        },
+        {
+            "name": "客户事件",
+            "description": "客户事件相关接口",
+            "sortWeight": 3
+        },
+        {
+            "name": "客户订单",
+            "description": "客户订单",
+            "sortWeight": 4
+        },
+        {
+            "name": "元数据",
+            "description": "元数据",
+            "sortWeight": 5
+        },
+        {
+            "name": "活动",
+            "description": "外部应用可以创建活动，在DMHub可以跟踪和分析这些活动的运营情况",
+            "sortWeight": 7
+        },
+        {
+            "name": "标签接口",
+            "description": "标签接口",
+            "sortWeight": 8
+        },
+        {
+            "name": "群组接口",
+            "description": "群组接口",
+            "sortWeight": 9
+        }
+    ],
+    "schemes": [],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+        "/security/accesstoken": {
+            "get": {
+                "tags": [
+                    "身份权限"
+                ],
+                "summary": "获取AccessToken",
+                "description": "通过appid和appsecret获取access token, 并用于其它功能性API的请求。",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "grant_type",
+                        "in": "query",
+                        "description": "目前仅支持client_credentials方式验证",
+                        "required": true,
+                        "type": "string",
+                        "default": "client_credentials",
+                        "format": ""
+                    },
+                    {
+                        "name": "appid",
+                        "in": "query",
+                        "description": "分配给开发者的appid",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "secret",
+                        "in": "query",
+                        "description": "分配给开发者的secret",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 0
+            }
+        },
+        "/security/scope": {
+            "get": {
+                "tags": [
+                    "身份权限"
+                ],
+                "summary": "查看AppId对应的权限",
+                "description": "查看AppId对应的权限(oauth scope)",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 1
+            }
+        },
+        "/v1/activities": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取活动",
+                "description": "获取已经创建的活动信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activities": {
+                        "description": "返回的活动列表",
+                        "schema": {
+                            "type": "array",
+                            "format": "",
+                            "description": "返回的活动列表",
+                            "items": {
+                                "type": "object"
+                            }
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "创建活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "activity",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/activity"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activity": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/activity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 1
+            }
+        },
+        "/v1/activities/{uuid}": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取单个活动信息",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activity": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/activity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 3
+            },
+            "put": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "更新活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "activity",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/activity"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "activity": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/activity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 4
+            },
+            "delete": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "删除活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 5
+            }
+        },
+        "/v1/activities/{uuid}/publish": {
+            "post": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "发布活动",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 6
+            }
+        },
+        "/v1/activities/{uuid}/trackings": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取埋点",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "tracking": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/tracking"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 6
+            },
+            "put": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "添加埋点",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "tracking",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/tracking_array"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 6
+            }
+        },
+        "/v1/customerAndIdentities": {
+            "post": {
+                "tags": [
+                    "客户"
+                ],
+                "summary": "创建客户和客户身份",
+                "description": "同时创建客户和客户身份，传输的JSON应该包含customer和customerIdentities字段，customerIdentities对应的是一个数组，可以包含多个身份",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "customer and identity",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/customerandidentity"
+                        }
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/customer"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 2
+            }
+        },
+        "/v1/customerevents": {
+            "get": {
+                "tags": [
+                    "客户事件"
+                ],
+                "summary": "查看全部客户事件",
+                "description": "查看全部客户事件",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "客户事件"
+                ],
+                "summary": "创建客户事件",
+                "description": "创建客户事件",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 1
+            }
+        },
+        "/v1/customerevents/{id}": {
+            "get": {
+                "tags": [
+                    "客户事件"
+                ],
+                "summary": "获取一个客户事件",
+                "description": "获取一个客户事件",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 2
+            },
+            "put": {
+                "tags": [
+                    "客户事件"
+                ],
+                "summary": "更新客户事件",
+                "description": "更新客户事件",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 3
+            },
+            "delete": {
+                "tags": [
+                    "客户事件"
+                ],
+                "summary": "删除客户事件",
+                "description": "删除客户事件",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 4
+            }
+        },
+        "/v1/customeridentities": {
+            "get": {
+                "tags": [
+                    "客户身份"
+                ],
+                "summary": "查看客户身份",
+                "description": "查看客户的身份信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "customerId",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "identityType",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "identityValue",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "customerIds",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "format": "",
+                            "description": "",
+                            "items": {
+                                "description": "",
+                                "$ref": "#/definitions/customeridentity"
+                            }
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "客户身份"
+                ],
+                "summary": "创建客户身份",
+                "description": "创建客户客户身份信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/customeridentity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/customeridentity"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 1
+            }
+        },
+        "/v1/customers": {
+            "get": {
+                "tags": [
+                    "客户"
+                ],
+                "summary": "查看全部客户",
+                "description": "返回全部的客户详细信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "客户"
+                ],
+                "summary": "创建客户",
+                "description": "创建一个客户",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body内容为json格式",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "创建客户返回描述",
+                        "schema": {
+                            "description": "创建客户返回描述",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 1
+            }
+        },
+        "/v1/customers/{id}": {
+            "get": {
+                "tags": [
+                    "客户"
+                ],
+                "summary": "查看一个客户",
+                "description": "返回一条客户信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 2
+            },
+            "put": {
+                "tags": [
+                    "客户"
+                ],
+                "summary": "修改客户",
+                "description": "修改客户",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "json格式",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "修改客户返回描述",
+                        "schema": {
+                            "description": "修改客户返回描述",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 3
+            },
+            "delete": {
+                "tags": [
+                    "客户"
+                ],
+                "summary": "删除客户",
+                "description": "删除一个客户",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 4
+            }
+        },
+        "/v1/deals": {
+            "get": {
+                "tags": [
+                    "客户订单"
+                ],
+                "summary": "查看全部客户订单",
+                "description": "查看全部客户订单",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "客户订单"
+                ],
+                "summary": "创建客户订单",
+                "description": "创建客户订单",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 1
+            }
+        },
+        "/v1/deals/{id}": {
+            "get": {
+                "tags": [
+                    "客户订单"
+                ],
+                "summary": "获取一个客户订单",
+                "description": "获取一个客户订单",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 2
+            },
+            "put": {
+                "tags": [
+                    "客户订单"
+                ],
+                "summary": "更新客户订单",
+                "description": "更新客户订单",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 3
+            },
+            "delete": {
+                "tags": [
+                    "客户订单"
+                ],
+                "summary": "删除客户订单",
+                "description": "删除客户订单",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 4
+            }
+        },
+        "/v1/lists": {
+            "get": {
+                "tags": [
+                    "群组接口"
+                ],
+                "summary": "获取所有群组",
+                "description": "获取所有群组",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 5
+            },
+            "post": {
+                "tags": [
+                    "群组接口"
+                ],
+                "summary": "创建群组",
+                "description": "创建群组",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 6
+            }
+        },
+        "/v1/lists/{id}": {
+            "get": {
+                "tags": [
+                    "群组接口"
+                ],
+                "summary": "获取一个群组",
+                "description": "获取一个群组",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 7
+            },
+            "put": {
+                "tags": [
+                    "群组接口"
+                ],
+                "summary": "修改一个群组",
+                "description": "修改一个群组",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "json格式",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": " ",
+                        "schema": {
+                            "description": " ",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 8
+            },
+            "delete": {
+                "tags": [
+                    "群组接口"
+                ],
+                "summary": "删除群组",
+                "description": "删除群组",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 9
+            }
+        },
+        "/v1/listservice/members": {
+            "get": {
+                "tags": [
+                    "群组接口"
+                ],
+                "summary": "获取群组内客户",
+                "description": "获取群组内客户",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "listId",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "select",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 13
+            }
+        },
+        "/v1/meta/customer": {
+            "get": {
+                "tags": [
+                    "元数据"
+                ],
+                "summary": "客户字段元数据",
+                "description": "客户字段元数据",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 0
+            }
+        },
+        "/v1/meta/event": {
+            "get": {
+                "tags": [
+                    "元数据"
+                ],
+                "summary": "客户事件元数据",
+                "description": "客户事件元数据",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 1
+            }
+        },
+        "/v1/tagdimensions": {
+            "get": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "获取所有标签维度",
+                "description": "获取所有标签维度",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 0
+            },
+            "post": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "创建标签维度",
+                "description": "创建标签维度",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 1
+            }
+        },
+        "/v1/tagdimensions/{id}": {
+            "get": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "获取一个标签维度",
+                "description": "获取一个标签维度",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 2
+            },
+            "put": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "修改一个标签维度",
+                "description": "修改一个标签维度",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "json格式",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": " ",
+                        "schema": {
+                            "description": " ",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 3
+            },
+            "delete": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "删除标签维度",
+                "description": "删除标签维度",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 4
+            }
+        },
+        "/v1/tags": {
+            "get": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "获取所有标签",
+                "description": "获取所有标签\n\n/v1/tags?q=标签名  可以模糊查询标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 5
+            },
+            "post": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "创建标签",
+                "description": "创建标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 6
+            }
+        },
+        "/v1/tags/{id}": {
+            "get": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "获取一个标签",
+                "description": "获取一个标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 7
+            },
+            "put": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "修改一个标签",
+                "description": "修改一个标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "json格式",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": " ",
+                        "schema": {
+                            "description": " ",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 8
+            },
+            "delete": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "删除标签",
+                "description": "删除标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "客户id",
+                        "required": true,
+                        "type": "integer",
+                        "default": "",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 9
+            }
+        },
+        "/v1/tags/{id}/mergeto/{toId}": {
+            "post": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "合并标签",
+                "description": "合并标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "toId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 10
+            }
+        },
+        "/v1/tagservice/addCustomerTag": {
+            "post": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "客户打标签",
+                "description": "客户打标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 11
+            }
+        },
+        "/v1/tagservice/getCustomerTags": {
+            "get": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "获取客户标签",
+                "description": "获取所有标签\n\n/v1/tagservice/getCustomerTags?customerId=12345",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "从公共接口处获得的token",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "name": "customerId",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {},
+                "sortWeight": 13
+            }
+        },
+        "/v1/tagservice/removeCustomerTag": {
+            "post": {
+                "tags": [
+                    "标签接口"
+                ],
+                "summary": "客户移除标签",
+                "description": "客户移除标签",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/myjson"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/myjson"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 12
+            }
+        },
+        "/v1/users/current": {
+            "get": {
+                "tags": [
+                    "账户管理"
+                ],
+                "summary": "获取当前授权用户信息",
+                "description": "获取当前授权用户的登录名，邮箱和租户信息",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/currentuser"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 0
+            }
+        },
+        "/v1/wechataccounts": {
+            "get": {
+                "tags": [
+                    "活动"
+                ],
+                "summary": "获取绑定的微信公众号",
+                "description": "",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "default": "",
+                        "format": ""
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/definitions/wechataccount"
+                        },
+                        "sortWeight": 0
+                    }
+                },
+                "sortWeight": 7
+            }
+        }
+    },
+    "definitions": {
+        "tracking_array": {
+            "type": "array",
+            "description": "",
+            "items": {
+                "description": "",
+                "$ref": "#/definitions/tracking"
+            }
+        },
+        "customeridentity": {
+            "type": "object",
+            "properties": {
+                "identityType": {
+                    "type": "string",
+                    "description": "身份类型，如：email, mobile"
+                },
+                "customerId": {
+                    "type": "string",
+                    "description": "对应的客户Id"
+                },
+                "identityName": {
+                    "type": "string",
+                    "description": "昵称，如：张三"
+                },
+                "identityValue": {
+                    "type": "string",
+                    "description": "身份信息，如：abc@example.com"
+                }
+            },
+            "description": "客户身份信息"
+        },
+        "customerandidentity": {
+            "type": "object",
+            "properties": {
+                "customerIdentities": {
+                    "type": "array",
+                    "format": "",
+                    "description": "客户身份的集合",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "customer": {
+                    "description": "",
+                    "$ref": "#/definitions/customer"
+                }
+            },
+            "description": ""
+        },
+        "promotion": {
+            "type": "object",
+            "properties": {
+                "promotionId": {
+                    "type": "string",
+                    "description": "活动编号"
+                },
+                "giftItemName": {
+                    "type": "string",
+                    "description": "赠品名称"
+                },
+                "promotionName": {
+                    "type": "string",
+                    "description": "促销活动名称"
+                },
+                "promotionDesc": {
+                    "type": "string",
+                    "description": "活动描述"
+                },
+                "giftItemNum": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "赠品数目"
+                },
+                "giftItemId": {
+                    "type": "string",
+                    "description": "赠品编号"
+                },
+                "discount": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "优惠额度"
+                }
+            },
+            "description": "促销活动信息"
+        },
+        "wechataccount": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "公众号id"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "公众号client id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "公众号名称"
+                },
+                "serverTypeInfo": {
+                    "type": "string",
+                    "description": "公众号类型"
+                },
+                "verifyTypeInfo": {
+                    "type": "string",
+                    "description": "是否已授权"
+                }
+            },
+            "description": ""
+        },
+        "customer": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "邮箱"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "姓名"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "性别"
+                },
+                "mobile": {
+                    "type": "string",
+                    "description": "手机号"
+                }
+            },
+            "description": ""
+        },
+        "tracking": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "埋点id, 该值为自定义值, 以id_开头，后跟当前时间戳, 如: \"id_1470732121071\""
+                },
+                "pageName": {
+                    "type": "string",
+                    "description": "活动页面名"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "埋点位置描述"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "埋点位置名"
+                },
+                "img": {
+                    "type": "string",
+                    "description": "埋点示意图地址"
+                }
+            },
+            "description": ""
+        },
+        "deal": {
+            "type": "object",
+            "properties": {
+                "amountTotal": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "支付总额"
+                },
+                "dateOrder": {
+                    "type": "string",
+                    "description": "订单生产时间"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "店铺名称"
+                },
+                "remark": {
+                    "type": "string",
+                    "description": "备注"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "订单编号"
+                },
+                "amountPaid": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "支付价格"
+                },
+                "productQuantity": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "商品总数"
+                },
+                "lines": {
+                    "type": "string",
+                    "description": "具体商品信息"
+                },
+                "targetName": {
+                    "type": "string",
+                    "description": "订单名称"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "description": "店铺id"
+                }
+            },
+            "description": "订单信息"
+        },
+        "myjson": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "邮箱"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "姓名"
+                },
+                "city": {
+                    "type": "string",
+                    "description": "城市"
+                }
+            },
+            "description": "定义json\n为什么要这么做？如果在接口管理里面类型采用自定义json的话，预览可以，但是下载下来放在系统中不可以用。\n目测是BUG"
+        },
+        "currentuser": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "邮箱"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "用户名"
+                },
+                "tname": {
+                    "type": "string",
+                    "description": "租户名"
+                },
+                "tid": {
+                    "type": "string",
+                    "description": "租户id"
+                },
+                "loginName": {
+                    "type": "string",
+                    "description": "登录名"
+                }
+            },
+            "description": ""
+        },
+        "buyer": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "客户邮箱"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "客户账号"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "客户名称"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "客户来源，如天猫，微信"
+                },
+                "mobile": {
+                    "type": "string",
+                    "description": "客户手机"
+                }
+            },
+            "description": "订单客户信息"
+        },
+        "dealgroup": {
+            "type": "array",
+            "description": "批量导入订单数据结构",
+            "items": {
+                "title": "dealgroup",
+                "properties": {
+                    "deal": {
+                        "description": "订单信息",
+                        "$ref": "#/definitions/deal"
+                    },
+                    "promotion": {
+                        "description": "赠品信息",
+                        "$ref": "#/definitions/promotion"
+                    },
+                    "customer": {
+                        "description": "客户信息",
+                        "$ref": "#/definitions/buyer"
+                    }
+                }
+            }
+        },
+        "touchpointtype": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "类别名称"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "类别键值"
+                }
+            },
+            "description": "渠道类别"
+        },
+        "activity": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "活动名，必填"
+                },
+                "wechatImg": {
+                    "type": "string",
+                    "description": "微信分享的题图"
+                },
+                "wechatAccount": {
+                    "type": "string",
+                    "description": "通过wechataccounts接口获得的id"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "活动的标签"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "活动URL"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "修改时间"
+                },
+                "dateCreated": {
+                    "type": "string",
+                    "description": "创建时间"
+                },
+                "wechatSummary": {
+                    "type": "string",
+                    "description": "微信分享的摘要"
+                },
+                "uuid": {
+                    "type": "string",
+                    "description": "自动生成的唯一标识符"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "活动类型"
+                },
+                "wechatTitle": {
+                    "type": "string",
+                    "description": "微信分享的标题"
+                },
+                "wechatRequireAuth": {
+                    "type": "string",
+                    "description": "微信用户访问是否需要用户授权"
+                }
+            },
+            "description": "活动的数据结构"
+        }
+    }
+}
