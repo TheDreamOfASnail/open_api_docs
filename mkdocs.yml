@@ -10,14 +10,16 @@ theme_dir: themes/mkdocs
 copyright: Copyright &copy; 2017, Convertlab
 
 pages:
-#- [index.md, '文档首页', '文档首页']
-- [index.md, 'OpenAPI V1', '创建集成应用']
-- [api/accesstoken.md, 'OpenAPI V1', '获取身份权限']
-- [api/customer.md, 'OpenAPI V1', '客户信息']
-- [api/customerevent.md, 'OpenAPI V1', '客户事件']
-- [api/tag.md, 'OpenAPI V1', '客户标签']
-- [api/deal.md, 'OpenAPI V1', '客户订单']
-- [track/index.md, '网页埋点', '设置埋点']
-- [track/customevent.md, '网页埋点', '客户自定义事件']
-- [track/sourcetracking.md, '网页埋点', '来源跟踪']
-- [test/index.md, 'TRY IT', 'TRY IT']
+- OpenAPI V1:
+  - '创建集成应用': 'index.md'
+  - '获取身份权限': 'api/accesstoken.md'
+  - '客户信息': 'api/customer.md'
+  - '客户事件': 'api/customerevent.md'
+  - '客户标签': 'api/tag.md'
+  - '客户订单': 'api/deal.md'
+- '网页埋点':
+  - '设置埋点': 'track/index.md'
+  - '客户自定义事件': 'track/customerevent.md'
+  - '来源跟踪': 'track/sourcetracking.md'
+- 'TRY IT':
+  - 'TRY IT': 'test/index.md'
