@@ -4,7 +4,7 @@
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/customerAndIdentities?access_token={access_token}
+https://api.convertlab.com/v1/customerandidentities?access_token={access_token}
 POST数据示例:
 {
   "customerIdentities": [

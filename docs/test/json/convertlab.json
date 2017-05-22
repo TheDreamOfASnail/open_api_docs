@@ -143,7 +143,7 @@
                 "sortWeight": 1
             }
         },
-        "/v1/customerAndIdentities": {
+        "/v1/customerandidentities": {
             "post": {
                 "tags": [
                     "客户"
