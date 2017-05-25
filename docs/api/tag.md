@@ -14,8 +14,9 @@
 }
 ```
 
-## 标签分组的创建**调用请求**
-```
+## 标签分组的创建
+**调用请求**
+```
 POST /v1/tagdimensions
 ```
 **Payload**
@@ -27,14 +28,16 @@ POST /v1/tagdimensions
 ```
 - - -
 
-## 向客户添加标签**调用请求**
-```
+## 向客户添加标签
+**调用请求**
+```
 POST  /v1/tagservice/addCustomerTag
 ```
-**Payload**```
+**Payload**
+```
 {
   "customerId": 1234,
-  "tag": [
+  "tags": [
     {
        "name": "小学生",
        "dimension": "students"
