@@ -52,7 +52,7 @@
         }, 
         {
             "location": "/api/tag/", 
-            "text": "\u6807\u7b7e(tag)\u6570\u636e\u7ed3\u6784\n\n\n{\n  \nname\n: \n\u6807\u7b7e\u540d\u79f0\n,\n  \ndimension\n: \n\u6807\u7b7e\u5206\u7ec4\u4e3b\u952e\n\n}\n\n\n\n\n\u6807\u7b7e\u5206\u7ec4(tagdimension)\u6570\u636e\u7ed3\u6784\n\n\n{\n  \ndimensionKey\n: \n\u5206\u7ec4\u4e3b\u952e\n,\n  \nname\n: \n\u5206\u7ec4\u540d\u5b57\n,\n  \nparentKey\n: \n\u4e0a\u7ea7\u5206\u7ec4\uff08\u53ef\u7701\u7565\uff09\n\n}\n\n\n\n\n\u6807\u7b7e\u5206\u7ec4\u7684\u521b\u5efa\n\n\n\u8c03\u7528\u8bf7\u6c42\n\n\nPOST /v1/tagdimensions\n\n\n\n\nPayload\n\n\n{\n  \ndimensionKey\n: \nstudents\n,\n  \nname\n: \n\u5b66\u751f\n\n}\n\n\n\n\n\n\n\u5411\u5ba2\u6237\u6dfb\u52a0\u6807\u7b7e\n\n\n\u8c03\u7528\u8bf7\u6c42\n\n\nPOST  /v1/tagservice/addCustomerTag\n\n\n\n\nPayload\n\n\n{\n  \ncustomerId\n: 1234,\n  \ntag\n: [\n    {\n       \nname\n: \n\u5c0f\u5b66\u751f\n,\n       \ndimension\n: \nstudents\n\n    }\n  ]\n}", 
+            "text": "\u6807\u7b7e(tag)\u6570\u636e\u7ed3\u6784\n\n\n{\n  \nname\n: \n\u6807\u7b7e\u540d\u79f0\n,\n  \ndimension\n: \n\u6807\u7b7e\u5206\u7ec4\u4e3b\u952e\n\n}\n\n\n\n\n\u6807\u7b7e\u5206\u7ec4(tagdimension)\u6570\u636e\u7ed3\u6784\n\n\n{\n  \ndimensionKey\n: \n\u5206\u7ec4\u4e3b\u952e\n,\n  \nname\n: \n\u5206\u7ec4\u540d\u5b57\n,\n  \nparentKey\n: \n\u4e0a\u7ea7\u5206\u7ec4\uff08\u53ef\u7701\u7565\uff09\n\n}\n\n\n\n\n\u6807\u7b7e\u5206\u7ec4\u7684\u521b\u5efa\n\n\n\u8c03\u7528\u8bf7\u6c42\n\n\nPOST /v1/tagdimensions\n\n\n\n\nPayload\n\n\n{\n  \ndimensionKey\n: \nstudents\n,\n  \nname\n: \n\u5b66\u751f\n\n}\n\n\n\n\n\n\n\u5411\u5ba2\u6237\u6dfb\u52a0\u6807\u7b7e\n\n\n\u8c03\u7528\u8bf7\u6c42\n\n\nPOST  /v1/tagservice/addCustomerTag\n\n\n\n\nPayload\n\n\n{\n  \ncustomerId\n: 1234,\n  \ntags\n: [\n    {\n       \nname\n: \n\u5c0f\u5b66\u751f\n,\n       \ndimension\n: \nstudents\n\n    }\n  ]\n}", 
             "title": "\u5ba2\u6237\u6807\u7b7e"
         }, 
         {
@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/api/tag/#_2", 
-            "text": "\u8c03\u7528\u8bf7\u6c42  POST  /v1/tagservice/addCustomerTag  Payload  {\n   customerId : 1234,\n   tag : [\n    {\n        name :  \u5c0f\u5b66\u751f ,\n        dimension :  students \n    }\n  ]\n}", 
+            "text": "\u8c03\u7528\u8bf7\u6c42  POST  /v1/tagservice/addCustomerTag  Payload  {\n   customerId : 1234,\n   tags : [\n    {\n        name :  \u5c0f\u5b66\u751f ,\n        dimension :  students \n    }\n  ]\n}", 
             "title": "\u5411\u5ba2\u6237\u6dfb\u52a0\u6807\u7b7e"
         }, 
         {
