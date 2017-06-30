@@ -104,7 +104,10 @@
                 
                   <ul class="nav">
                   
-                    <li class="active "><a href="#dm-hub">将客户数据传送给DM Hub</a></li>
+                    <li class="active "><a href="#_1">创建客户</a></li>
+                    
+                  
+                    <li class=""><a href="#dm-hub">将客户数据传送给DM Hub</a></li>
                     
                   
                     <li class=""><a href="#api">查询客户的API</a></li>
@@ -155,6 +158,7 @@
 
 <h1>客户信息</h1>
 
+<h2 id="_1">创建客户</h2>
 <h2 id="dm-hub">将客户数据传送给DM Hub</h2>
 <p>在DM Hub系统中创建客户可以使用/v1/customers API。但是为了避免同一个客户被多次创建，可以使用/v1/customerAndIdentities API，即在提供客户信息的同时，额外提供客户身份信息。这样如果DM Hub中存在相同身份的客户数据，那么并不会有新的客户被创建，而是已存在的客户信息被更新。</p>
 <p><strong>调用请求</strong></p>
