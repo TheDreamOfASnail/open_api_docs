@@ -104,16 +104,28 @@
                 
                   <ul class="nav">
                   
-                    <li class="active "><a href="#_1">创建客户</a></li>
+                    <li class="active "><a href="#dm-hub">将客户数据传送给DM Hub</a></li>
                     
                   
-                    <li class=""><a href="#dm-hub">将客户数据传送给DM Hub</a></li>
+                    <li class=""><a href="#api">普通创建客户API</a></li>
                     
                   
-                    <li class=""><a href="#api">查询客户的API</a></li>
+                    <li class=""><a href="#api_1">更新客户的API</a></li>
                     
                   
-                    <li class=""><a href="#api_1">获取单个客户的API</a></li>
+                    <li class=""><a href="#api_2">删除用户的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_3">查询客户的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_4">获取客户数量的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_5">获取单个客户的API</a></li>
+                    
+                  
+                    <li class=""><a href="#_1">获取客户信息的元数据</a></li>
                     
                   
                   </ul>
@@ -124,6 +136,13 @@
 
               <li class="">
                 <a class="itm-l1" href="../customerevent/">客户事件</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customeridentities/">客户身份</a>
                 
               </li>
 
@@ -158,7 +177,6 @@
 
 <h1>客户信息</h1>
 
-<h2 id="_1">创建客户</h2>
 <h2 id="dm-hub">将客户数据传送给DM Hub</h2>
 <p>在DM Hub系统中创建客户可以使用/v1/customers API。但是为了避免同一个客户被多次创建，可以使用/v1/customerAndIdentities API，即在提供客户信息的同时，额外提供客户身份信息。这样如果DM Hub中存在相同身份的客户数据，那么并不会有新的客户被创建，而是已存在的客户信息被更新。</p>
 <p><strong>调用请求</strong></p>
@@ -166,33 +184,27 @@
 https://api.convertlab.com/v1/customerandidentities?access_token={access_token}
 POST数据示例:
 {
-  &quot;customerIdentities&quot;: [
-    {
-       &quot;identityType&quot;: &quot;wechat &quot;,
-       &quot;identityValue&quot;: {openid},
-       &quot;identityName&quot;: &quot;nickname&quot;
+    &quot;customer&quot;: {
+        &quot;name&quot;: &quot;小D&quot;,
+        &quot;mobile&quot;: &quot;18612341234&quot;,
+        &quot;mobileVerified&quot;: true,
+        &quot;gender&quot;: 1
     },
-    {
-       &quot;identityType&quot;: &quot;wechat-unionid&quot;,
-       &quot;identityValue&quot;: {unionid},
-       &quot;identityName&quot;: &quot;nickname&quot;
-    },
-    // 以下以淘宝为例，说明自定义身份的写法
-    {
-       &quot;identityType&quot;:&quot;taobao-account&quot;, // 自定义的身份类型，请使用小写拼音
-       &quot;identityValue&quot;:&quot;user123&quot;,  // 客户在你系统中的id
-       &quot;identityName&quot;:&quot;小明&quot;, // 客户在你系统中的名字
-    }
-  ],
-  &quot;customer&quot;: {
-    &quot;email&quot;: &quot;string&quot;,
-    &quot;name&quot;: &quot;string&quot;,
-    &quot;gender&quot;: &quot;string&quot;,
-    &quot;mobile&quot;: &quot;string&quot;,
-    &quot;source&quot;: &quot;string&quot;,
-    &quot;其他customer字段&quot;
-  }
+
+    &quot;customerIdentities&quot;: [
+        {
+            &quot;identityType&quot;: &quot;wechat&quot;,
+            &quot;identityValue&quot;: &quot;o123456...&quot;,
+            &quot;identityName&quot;: &quot;微信昵称&quot;
+        },
+        {
+            &quot;identityType&quot;: &quot;your-system-account&quot;,
+            &quot;identityValue&quot;: &quot;user123&quot;,
+            &quot;identityName&quot;: &quot;您系统里的用户名&quot;
+        }
+    ]
 }
+
 </code></pre>
 
 <p><strong>参数说明</strong></p>
@@ -200,44 +212,369 @@ POST数据示例:
 <li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
 <li>customerIdentities字段可以填写多个客户的身份，当身份是微信的openid时，identityType填写为”wechat”；当身份为微信的unionid时，identityType填为”wechat-unionid”。identityValue则对应的填写为客户的openid或unionid。</li>
 </ul>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 7,
+  &quot;displayName&quot;: &quot;小D&quot;,
+  &quot;name&quot;: &quot;小D&quot;,
+  &quot;img&quot;: null,
+  &quot;gender&quot;: 1,
+  &quot;mobile&quot;: &quot;18612341234&quot;,
+  &quot;mobileVerified&quot;: true,
+  &quot;email&quot;: null,
+  &quot;emailVerified&quot;: false,
+  &quot;birthday&quot;: null,
+  &quot;wechat&quot;: null,
+  &quot;nickName&quot;: null,
+  &quot;country&quot;: null,
+  &quot;province&quot;: null,
+  &quot;city&quot;: null,
+  &quot;county&quot;: null,
+  &quot;homeAddress&quot;: null,
+  &quot;officeAddress&quot;: null,
+  &quot;qq&quot;: null,
+  &quot;weibo&quot;: null,
+  &quot;stage&quot;: null,
+  &quot;dateJoin&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;source&quot;: null,
+  &quot;contentName&quot;: null,
+  &quot;company&quot;: null,
+  &quot;title&quot;: null,
+  &quot;industry&quot;: null,
+  &quot;employeeNumber&quot;: null,
+  &quot;annualRevenue&quot;: null,
+  &quot;website&quot;: null,
+  &quot;telephone&quot;: null,
+  &quot;ownerId&quot;: null,
+  &quot;ownerName&quot;: null,
+  &quot;isEmployee&quot;: false,
+  &quot;campaignId&quot;: null,
+  &quot;campaignName&quot;: null,
+  &quot;lastUpdated&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;remark&quot;: null,
+  &quot;isMember&quot;: false,
+  &quot;dateCreated&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;attr&quot;: {
+    &quot;attr1&quot;: null
+  }
+}
+
+
+</code></pre>
+
 <p><strong>注意事项</strong>: 使用微信openid或unionid作为客户身份之前，请将微信公众号绑定到DM Hub系统，并将微信粉丝导入到DM Hub系统。</p>
 <hr />
-<h2 id="api">查询客户的API</h2>
+<h2 id="api">普通创建客户API</h2>
 <p><strong>调用请求</strong></p>
-<pre><code>HTTP请求方式: GET
+<pre><code>HTTP请求方式: POST
 https://api.convertlab.com/v1/customers?access_token={access_token}
+POST数据示例:
+{
+    &quot;name&quot;: &quot;小D&quot;,
+    &quot;mobile&quot;: &quot;18612341234&quot;,
+    &quot;mobileVerified&quot;: true,
+    &quot;gender&quot;: 1
+}
+</code></pre>
+
+<hr />
+<p><strong>参数说明</strong></p>
+<ul>
+<li>{access_token} 的值为调用API的令牌，请参见 获取access_token</li>
+</ul>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 7,
+  &quot;displayName&quot;: &quot;小D&quot;,
+  &quot;name&quot;: &quot;小D&quot;,
+  &quot;img&quot;: null,
+  &quot;gender&quot;: 1,
+  &quot;mobile&quot;: &quot;18612341234&quot;,
+  &quot;mobileVerified&quot;: true,
+  &quot;email&quot;: null,
+  &quot;emailVerified&quot;: false,
+  &quot;birthday&quot;: null,
+  &quot;wechat&quot;: null,
+  &quot;nickName&quot;: null,
+  &quot;country&quot;: null,
+  &quot;province&quot;: null,
+  &quot;city&quot;: null,
+  &quot;county&quot;: null,
+  &quot;homeAddress&quot;: null,
+  &quot;officeAddress&quot;: null,
+  &quot;qq&quot;: null,
+  &quot;weibo&quot;: null,
+  &quot;stage&quot;: null,
+  &quot;dateJoin&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;source&quot;: null,
+  &quot;contentName&quot;: null,
+  &quot;company&quot;: null,
+  &quot;title&quot;: null,
+  &quot;industry&quot;: null,
+  &quot;employeeNumber&quot;: null,
+  &quot;annualRevenue&quot;: null,
+  &quot;website&quot;: null,
+  &quot;telephone&quot;: null,
+  &quot;ownerId&quot;: null,
+  &quot;ownerName&quot;: null,
+  &quot;isEmployee&quot;: false,
+  &quot;campaignId&quot;: null,
+  &quot;campaignName&quot;: null,
+  &quot;lastUpdated&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;remark&quot;: null,
+  &quot;isMember&quot;: false,
+  &quot;dateCreated&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;attr&quot;: {
+    &quot;attr1&quot;: null
+  }
+}
+</code></pre>
+
+<h2 id="api_1">更新客户的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: PUT
+https://api.convertlab.com/v1/customers/&lt;id&gt;?access_token={access_token}
+PUT数据示例：
+{
+    &quot;name&quot;: &quot;小D&quot;,
+    &quot;mobile&quot;: &quot;18612341234&quot;,
+    &quot;mobileVerified&quot;: true,
+    &quot;gender&quot;: 1
+}
+
 </code></pre>
 
 <p><strong>参数说明</strong></p>
+<hr />
 <ul>
-<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
-<li>除了access_token参数外，该API还支持以下参数来缩小查询结果集:<ul>
-<li>stage 用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</li>
-<li>source 用客户的来源查询</li>
-<li>mobile 用客户的手机号查询</li>
-<li>gender 用客户的性别查询, 1代表男性，2代表女性，0代表未知</li>
-<li>idList 支持以逗号分开的客户id列表，如idList=1,2,3,4</li>
-<li>dateCreatedFrom 客户创建的起始时间，时间格式为2016-11-11T11:11:11</li>
-<li>dateCreatedTo 客户创建的结束时间</li>
-<li>lastUpdatedFrom 客户更新的其实时间(包含)</li>
-<li>lastUpdatedTo 客户更新的结束时间(包含)</li>
-<li>select 返回的字段，多个字段用逗号隔开</li>
+<li>{access_token} 访问该API的令牌，请参见 获取access_token</li>
+<li>id 要修改的客户id</li>
 </ul>
-</li>
-<li>除了以上查询参数外，该API还支持分页和排序参数<ul>
-<li>rows 每页的记录数</li>
-<li>page 第几页</li>
-<li>sidx 排序的字段</li>
-<li>sord 排序的方式, asc是升序，desc是降序</li>
-</ul>
-</li>
-</ul>
-<p><strong>示例</strong></p>
-<pre><code>GET https://api.convertlab.com/v1/customers?access_token={access_token}&amp;gender=1&amp;rows=10
+<p><strong>返回结果</strong></p>
+<pre><code>返回修改后的客户信息
 </code></pre>
 
+<h2 id="api_2">删除用户的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: DELETE
+https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
 <hr />
-<h2 id="api_1">获取单个客户的API</h2>
+<ul>
+<li>access_token 访问该API的令牌，请参见 获取access_token</li>
+<li>id 要修改的客户id</li>
+</ul>
+<p><strong>返回结果</strong></p>
+<pre><code>返回状态码为204
+</code></pre>
+
+<h2 id="api_3">查询客户的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={stage}&amp;source={source}&amp;mobile={mobile}&amp;gender={gender}&amp;idList={idList}&amp;dateCreatedFrom={dateCreatedFrom}&amp;dateCreatedTo&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;select={select}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">access_token</td>
+<td align="left">是</td>
+<td align="left">访问API的令牌</td>
+</tr>
+<tr>
+<td align="left">stage</td>
+<td align="left">否</td>
+<td align="left">用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</td>
+</tr>
+<tr>
+<td align="left">source</td>
+<td align="left">否</td>
+<td align="left">用客户的初始来源查询</td>
+</tr>
+<tr>
+<td align="left">mobile</td>
+<td align="left">否</td>
+<td align="left">用客户的手机查询</td>
+</tr>
+<tr>
+<td align="left">gender</td>
+<td align="left">否</td>
+<td align="left">用客户的性别查询, 1代表男性，2代表女性，0代表未知</td>
+</tr>
+<tr>
+<td align="left">idList</td>
+<td align="left">否</td>
+<td align="left">支持以逗号分开的客户id列表，如idList=1,2,3,4</td>
+</tr>
+<tr>
+<td align="left">dateCreatedFrom</td>
+<td align="left">否</td>
+<td align="left">客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
+</tr>
+<tr>
+<td align="left">dateCreatedTo</td>
+<td align="left">否</td>
+<td align="left">客户创建的结束时间</td>
+</tr>
+<tr>
+<td align="left">lastUpdatedFrom</td>
+<td align="left">否</td>
+<td align="left">客户更新的其实时间(包含)</td>
+</tr>
+<tr>
+<td align="left">lastUpdateTo</td>
+<td align="left">否</td>
+<td align="left">客户更新的结束时间</td>
+</tr>
+<tr>
+<td align="left">select</td>
+<td align="left">否</td>
+<td align="left">返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段</td>
+</tr>
+<tr>
+<td align="left">rows</td>
+<td align="left">否</td>
+<td align="left">每页的记录数，默认每页返回20行</td>
+</tr>
+<tr>
+<td align="left">page</td>
+<td align="left">否</td>
+<td align="left">返回第几页，默认返回第1页</td>
+</tr>
+<tr>
+<td align="left">sidx</td>
+<td align="left">否</td>
+<td align="left">按什么字段排序，默认按id排序</td>
+</tr>
+<tr>
+<td align="left">sord</td>
+<td align="left">否</td>
+<td align="left">asc表示升序，desc表示降序。默认按升序排序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<hr />
+<ul>
+<li>返回的所有客户数据保存在名叫rows的array字段中</li>
+</ul>
+<pre><code>{
+  &quot;rows&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;displayName&quot;: &quot;大D&quot;,
+      &quot;name&quot;: &quot;大D&quot;,
+      &quot;img&quot;: null,
+      &quot;gender&quot;: 1,
+      &quot;mobile&quot;: &quot;18612341234&quot;,
+      &quot;mobileVerified&quot;: true,
+      &quot;email&quot;: null
+      // 客户的其他字段
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;displayName&quot;: &quot;小D&quot;,
+      &quot;name&quot;: &quot;小D&quot;,
+      &quot;img&quot;: null,
+      &quot;gender&quot;: 1,
+      &quot;mobile&quot;: &quot;18612341235&quot;,
+      &quot;mobileVerified&quot;: true,
+      &quot;email&quot;: null
+      // 客户的其他字段
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="api_4">获取客户数量的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={stage}&amp;source={source}&amp;mobile={mobile}&amp;gender={gender}&amp;idList={idList}&amp;dateCreatedFrom={dateCreatedFrom}&amp;dateCreatedTo&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">access_token</td>
+<td align="left">是</td>
+<td align="left">访问API的令牌</td>
+</tr>
+<tr>
+<td align="left">stage</td>
+<td align="left">否</td>
+<td align="left">用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</td>
+</tr>
+<tr>
+<td align="left">source</td>
+<td align="left">否</td>
+<td align="left">用客户的初始来源查询</td>
+</tr>
+<tr>
+<td align="left">mobile</td>
+<td align="left">否</td>
+<td align="left">用客户的手机查询</td>
+</tr>
+<tr>
+<td align="left">gender</td>
+<td align="left">否</td>
+<td align="left">用客户的性别查询, 1代表男性，2代表女性，0代表未知</td>
+</tr>
+<tr>
+<td align="left">idList</td>
+<td align="left">否</td>
+<td align="left">支持以逗号分开的客户id列表，如idList=1,2,3,4</td>
+</tr>
+<tr>
+<td align="left">dateCreatedFrom</td>
+<td align="left">否</td>
+<td align="left">客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
+</tr>
+<tr>
+<td align="left">dateCreatedTo</td>
+<td align="left">否</td>
+<td align="left">客户创建的结束时间</td>
+</tr>
+<tr>
+<td align="left">lastUpdatedFrom</td>
+<td align="left">否</td>
+<td align="left">客户更新的其实时间(包含)</td>
+</tr>
+<tr>
+<td align="left">lastUpdateTo</td>
+<td align="left">否</td>
+<td align="left">客户更新的结束时间</td>
+</tr>
+<tr>
+<td align="left">select</td>
+<td align="left">否</td>
+<td align="left">返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>返回满足条件的客户的数量
+</code></pre>
+
+<h2 id="api_5">获取单个客户的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
 https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
@@ -249,158 +586,203 @@ https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 <li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
 </ul>
 <hr />
-<p><strong>客户的字段信息</strong></p>
-<p>这里仅列出了部分客户字段，更多字段请查看API的返回值。</p>
-<table>
-<thead>
-<tr>
-<th align="left">参数名</th>
-<th align="left">数据类型</th>
-<th align="left">是否必须</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">id</td>
-<td align="left">number</td>
-<td align="left">否</td>
-<td align="left">客户id</td>
-</tr>
-<tr>
-<td align="left">name</td>
-<td align="left">string</td>
-<td align="left">是</td>
-<td align="left">客户名字, 也可以用客户昵称代替</td>
-</tr>
-<tr>
-<td align="left">nickName</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户昵称</td>
-</tr>
-<tr>
-<td align="left">birthday</td>
-<td align="left">date string</td>
-<td align="left">否</td>
-<td align="left">客户生日，示例值 "2016-04-01"</td>
-</tr>
-<tr>
-<td align="left">campaignId</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">营销活动的id</td>
-</tr>
-<tr>
-<td align="left">campaignName</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">营销活动的名字</td>
-</tr>
-<tr>
-<td align="left">city</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户所在城市</td>
-</tr>
-<tr>
-<td align="left">company</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户所在公司</td>
-</tr>
-<tr>
-<td align="left">country</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户所在国家</td>
-</tr>
-<tr>
-<td align="left">email</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户邮箱</td>
-</tr>
-<tr>
-<td align="left">emailVerified</td>
-<td align="left">bool</td>
-<td align="left">否</td>
-<td align="left">true代表客户邮箱已经被验证, false反之</td>
-</tr>
-<tr>
-<td align="left">externalId</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">用于区分不同渠道, 但是 id 相同的客户。命名规则为渠道类型 + '-' + 收据 id,比如 "wechat-0212893827"</td>
-</tr>
-<tr>
-<td align="left">gender</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户性别</td>
-</tr>
-<tr>
-<td align="left">homeAddress</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户住址</td>
-</tr>
-<tr>
-<td align="left">industry</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户所在行业</td>
-</tr>
-<tr>
-<td align="left">mobile</td>
-<td align="left">string</td>
-<td align="left">是</td>
-<td align="left">客户手机号码</td>
-</tr>
-<tr>
-<td align="left">mobileVerified</td>
-<td align="left">bool</td>
-<td align="left">否</td>
-<td align="left">true代表客户手机号已经被验证, false反之</td>
-</tr>
-<tr>
-<td align="left">postcode</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户邮编</td>
-</tr>
-<tr>
-<td align="left">province</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户所在省份</td>
-</tr>
-<tr>
-<td align="left">remark</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">备注</td>
-</tr>
-<tr>
-<td align="left">source</td>
-<td align="left">string</td>
-<td align="left">是</td>
-<td align="left">客户来源, 比如 "线下 - Beacon", "WeChat"</td>
-</tr>
-<tr>
-<td align="left">street</td>
-<td align="left">string</td>
-<td align="left">否</td>
-<td align="left">客户所在街道</td>
-</tr>
-<tr>
-<td align="left">lastUpdated</td>
-<td align="left">datetime string</td>
-<td align="left">否</td>
-<td align="left">最后更新时间</td>
-</tr>
-</tbody>
-</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 7,
+  &quot;displayName&quot;: &quot;小D&quot;,
+  &quot;name&quot;: &quot;小D&quot;,
+  &quot;img&quot;: null,
+  &quot;gender&quot;: 1,
+  &quot;mobile&quot;: &quot;18612341234&quot;,
+  &quot;mobileVerified&quot;: true,
+  &quot;email&quot;: null,
+  &quot;emailVerified&quot;: false,
+  &quot;birthday&quot;: null,
+  &quot;wechat&quot;: null,
+  &quot;nickName&quot;: null,
+  &quot;country&quot;: null,
+  &quot;province&quot;: null,
+  &quot;city&quot;: null,
+  &quot;county&quot;: null,
+  &quot;homeAddress&quot;: null,
+  &quot;officeAddress&quot;: null,
+  &quot;qq&quot;: null,
+  &quot;weibo&quot;: null,
+  &quot;stage&quot;: null,
+  &quot;dateJoin&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;source&quot;: null,
+  &quot;contentName&quot;: null,
+  &quot;company&quot;: null,
+  &quot;title&quot;: null,
+  &quot;industry&quot;: null,
+  &quot;employeeNumber&quot;: null,
+  &quot;annualRevenue&quot;: null,
+  &quot;website&quot;: null,
+  &quot;telephone&quot;: null,
+  &quot;ownerId&quot;: null,
+  &quot;ownerName&quot;: null,
+  &quot;isEmployee&quot;: false,
+  &quot;campaignId&quot;: null,
+  &quot;campaignName&quot;: null,
+  &quot;lastUpdated&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;remark&quot;: null,
+  &quot;isMember&quot;: false,
+  &quot;dateCreated&quot;: &quot;2017-06-06T03:18:23Z&quot;,
+  &quot;attr&quot;: {
+    &quot;attr1&quot;: null
+  }
+}
+</code></pre>
+
+<!--
+##添加客户身份的API
+**调用请求**
+
+wzxhzdk:14
+
+**参数说明**
+- - -
+|参数|是否必填|说明|
+|:---|:---|:---|
+|access_token|是|访问API的令牌|
+|customerId|是|需要添加身份的客户id|
+|identityType|是|要添加的客户身份类型，详见 客户身份模型,最长32位字符|
+|identityValu|是|要添加的客户身份值，最长128位字符|
+|identityName|否|客户身份对应的昵称，最长256位字符|
+
+**返回结果**
+
+wzxhzdk:15
+
+
+
+##查询客户身份的API
+
+**调用请求**
+
+wzxhzdk:16
+
+
+
+**参数说明**
+- - -
+|参数|是否必填|说明|
+|:---|:---|:---|
+|access_token|是|访问API的令牌|
+|customerIds|否  |要查询客户身份的客户id列表，多个客户id用逗号隔开，如 “123，124”|
+|identityType|否 |要查询客户id的身份类型，与identityValue同时使用|
+|identityValue|否    |要查询客户id的身份值，与identityType同时使用|
+
+**返回结果**
+
+wzxhzdk:17
+
+-->
+
+<h2 id="_1">获取客户信息的元数据</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+https://api.convertlab.com/v1/meta/customer?access_token={access_token}
+</code></pre>
+
+<p><strong>示例：</strong></p>
+<pre><code>{
+  &quot;events&quot;: {
+    &quot;change_owner&quot;: {
+      &quot;attr1&quot;: &quot;oldOwner&quot;,
+      &quot;attr2&quot;: &quot;newOwner&quot;,
+      &quot;label&quot;: &quot;客户负责人发生变化&quot;,
+      &quot;name&quot;: &quot;change_owner&quot;,
+      &quot;title&quot;: &quot;负责人从 {attr1} 变为 {attr2}&quot;
+    },
+    &quot;click_link_in_app&quot;: {
+      &quot;forContact&quot;: true,
+      &quot;isDropdown&quot;: true,
+      &quot;label&quot;: &quot;触发外部应用埋点事件&quot;,
+      &quot;name&quot;: &quot;click_link_in_app&quot;,
+      &quot;score&quot;: 0,
+      &quot;stage&quot;: &quot;Subscriber&quot;,
+      &quot;target&quot;: &quot;Link&quot;,
+      &quot;title&quot;: &quot;触发外部应用&lt;a target='_blank' href='/application/H5Monitor/analysis.html?uuid={pageId}'&gt;{contentName}&lt;/a&gt;中的埋点{targetName}&quot;
+    },
+    &quot;click_link_in_email&quot;: {
+      &quot;forContact&quot;: true,
+      &quot;isDropdown&quot;: true,
+      &quot;label&quot;: &quot;点击邮件内链接&quot;,
+      &quot;name&quot;: &quot;click_link_in_email&quot;,
+      &quot;score&quot;: 10,
+      &quot;stage&quot;: &quot;Engaged&quot;,
+      &quot;target&quot;: &quot;Link&quot;,
+      &quot;title&quot;: &quot;点击邮件&lt;a target='_blank' href='/application/email/edit.html?id={pageId}'&gt;{contentName}&lt;/a&gt;内链接{targetName}&quot;
+    },
+    &quot;click_link_in_page&quot;: {
+      &quot;forContact&quot;: true,
+      &quot;isDropdown&quot;: true,
+      &quot;label&quot;: &quot;点击页面中链接&quot;,
+      &quot;name&quot;: &quot;click_link_in_page&quot;,
+      &quot;score&quot;: 2,
+      &quot;stage&quot;: &quot;Subscriber&quot;,
+      &quot;target&quot;: &quot;Link&quot;,
+      &quot;title&quot;: &quot;点击微页面&lt;a target='_blank' href='/application/page/pages.html?uuid={pageId}'&gt;{contentName}&lt;/a&gt;中的链接{targetName}&quot;
+    }
+    其他客户事件详解...
+  },
+  &quot;props&quot;: [
+    {
+      &quot;cantGroup&quot;: true,
+      &quot;dimension&quot;: true,
+      &quot;innerType&quot;: &quot;Integer&quot;,
+      &quot;label&quot;: &quot;客户Id&quot;,
+      &quot;name&quot;: &quot;id&quot;,
+      &quot;order&quot;: 56,
+      &quot;regular&quot;: false,
+      &quot;type&quot;: &quot;Number&quot;
+    },
+    {
+      &quot;editable&quot;: true,
+      &quot;inDetailView&quot;: true,
+      &quot;inForm&quot;: true,
+      &quot;inListOption&quot;: true,
+      &quot;innerType&quot;: &quot;String&quot;,
+      &quot;label&quot;: &quot;姓名&quot;,
+      &quot;name&quot;: &quot;name&quot;,
+      &quot;order&quot;: 17,
+      &quot;regular&quot;: true,
+      &quot;required&quot;: true,
+      &quot;tracking&quot;: false,
+      &quot;type&quot;: &quot;Text&quot;
+    },
+    {
+      &quot;cantGroup&quot;: true,
+      &quot;editable&quot;: true,
+      &quot;inDetailView&quot;: true,
+      &quot;inForm&quot;: true,
+      &quot;inListOption&quot;: true,
+      &quot;innerType&quot;: &quot;String&quot;,
+      &quot;label&quot;: &quot;微信昵称&quot;,
+      &quot;name&quot;: &quot;nickName&quot;,
+      &quot;order&quot;: 24,
+      &quot;regular&quot;: true,
+      &quot;type&quot;: &quot;Text&quot;
+    },
+    {
+      &quot;dimension&quot;: true,
+      &quot;editable&quot;: true,
+      &quot;inDetailView&quot;: true,
+      &quot;inForm&quot;: true,
+      &quot;inListOption&quot;: true,
+      &quot;innerType&quot;: &quot;Byte&quot;,
+      &quot;isDropdown&quot;: true,
+      &quot;label&quot;: &quot;性别&quot;,
+      &quot;name&quot;: &quot;gender&quot;,
+      &quot;order&quot;: 19,
+      &quot;regular&quot;: true,
+      &quot;type&quot;: &quot;Gender&quot;
+    }
+    其他客户字段详解...
+  ]
+}
+</code></pre>
             <div class="ds-thread" data-thread-key="客户信息" data-title="客户信息" data-url=""></div>
         </div>
         

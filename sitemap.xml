@@ -28,6 +28,12 @@
     </url>
         
     <url>
+     <loc>http://api-docs.convertlab.com//api/customeridentities/</loc>
+     <lastmod>2017-06-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://api-docs.convertlab.com//api/tag/</loc>
      <lastmod>2017-06-30</lastmod>
      <changefreq>daily</changefreq>

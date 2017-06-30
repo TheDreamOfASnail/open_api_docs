@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/customeridentities/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>客户身份 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../track/">网页埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>客户身份</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../..">创建集成应用</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../accesstoken/">获取身份权限</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customer/">客户信息</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customerevent/">客户事件</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">客户身份</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#api">添加客户身份的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_1">查询客户身份的API</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../tag/">客户标签</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../deal/">客户订单</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>客户身份</h1>
+
+<h2 id="api">添加客户身份的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/customeridentities?access_token={access_token}
+
+POST请求示例：
+
+{
+  &quot;customerId&quot;: 123456,
+  &quot;identityType&quot;: &quot;myshop-account&quot;,
+  &quot;identityValue&quot;: &quot;user12345&quot;,
+  &quot;identityName&quot;: &quot;小羊苏西&quot;
+}
+
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">access_token</td>
+<td align="left">是</td>
+<td align="left">访问API的令牌</td>
+</tr>
+<tr>
+<td align="left">customerId</td>
+<td align="left">是</td>
+<td align="left">需要添加身份的客户id</td>
+</tr>
+<tr>
+<td align="left">identityType</td>
+<td align="left">是</td>
+<td align="left">要添加的客户身份类型，详见 客户身份模型,最长32位字符</td>
+</tr>
+<tr>
+<td align="left">identityValu</td>
+<td align="left">是</td>
+<td align="left">要添加的客户身份值，最长128位字符</td>
+</tr>
+<tr>
+<td align="left">identityName</td>
+<td align="left">否</td>
+<td align="left">客户身份对应的昵称，最长256位字符</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;customerId&quot;: 123456,
+  &quot;identityType&quot;: &quot;myshop-account&quot;,
+  &quot;identityValue&quot;: &quot;user12345&quot;,
+  &quot;identityName&quot;: &quot;小羊苏西&quot;
+}
+
+</code></pre>
+
+<h2 id="api_1">查询客户身份的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp;customerIds={customerIds}&amp;identityType={identityType}&amp;identityValue={identityValue}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">access_token</td>
+<td align="left">是</td>
+<td align="left">访问API的令牌</td>
+</tr>
+<tr>
+<td align="left">customerIds</td>
+<td align="left">否</td>
+<td align="left">要查询客户身份的客户id列表，多个客户id用逗号隔开，如 “123，124”</td>
+</tr>
+<tr>
+<td align="left">identityType</td>
+<td align="left">否</td>
+<td align="left">要查询客户id的身份类型，与identityValue同时使用</td>
+</tr>
+<tr>
+<td align="left">identityValue</td>
+<td align="left">否</td>
+<td align="left">要查询客户id的身份值，与identityType同时使用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>[
+  {
+    &quot;customerId&quot;: 123456,
+    &quot;identityType&quot;: &quot;myshop-account&quot;,
+    &quot;identityValue&quot;: &quot;user12345&quot;,
+    &quot;identityName&quot;: &quot;小羊苏西&quot;
+  },
+  {
+    &quot;customerId&quot;: 123456,
+    &quot;identityType&quot;: &quot;wechat&quot;,
+    &quot;identityValue&quot;: &quot;openid12345&quot;,
+    &quot;identityName&quot;: &quot;小羊苏西&quot;
+  }
+]
+</code></pre>
+
+<p><strong>返回参数说明</strong></p>
+<hr />
+<ul>
+<li>identityTyp 客户身份类型</li>
+<li>identityValue 客户的在你系统中的id</li>
+<li>customerId 客户的id</li>
+<li>identityName 客户身份名称</li>
+</ul>
+<!--
+##查询客户身份的API
+
+**调用请求**
+
+wzxhzdk:4
+
+
+**参数说明**
+- - -
+- {access_token}用从“获取身份权限”节拿到的access_token替换
+- 除了access_token参数外，该API还支持以下参数来缩小查询结果集
+- customerId 用客户的ID查询
+- identityType 用客户的身份类型查询
+- identityValue 用客户的在你系统中的id查询
+- customerIds 用多个客户的ID查询(注:如果customerId和customerIds同时使用,优先使用customerIds)
+
+**返回参数**
+
+
+wzxhzdk:5
+
+**返回参数说明**
+- - -
+- identityTyp 客户身份类型
+- identityValue 客户的在你系统中的id
+- customerId 客户的id
+- identityName 客户身份名称
+-->
+            <div class="ds-thread" data-thread-key="客户身份" data-title="客户身份" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>

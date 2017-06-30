@@ -111,13 +111,35 @@
                 
                   <ul class="nav">
                   
-                    <li class="active "><a href="#api">获取客户事件的API</a></li>
+                    <li class="active "><a href="#api">创建客户事件的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_1">获取单个事件的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_2">查询事件的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_3">获取客户事件的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_4">删除单个客户事件的API</a></li>
                     
                   
                     <li class=""><a href="#_1">获取事件的元数据</a></li>
                     
                   
+                    <li class=""><a href="#api_5">修改单个客户事件的API</a></li>
+                    
+                  
                   </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customeridentities/">客户身份</a>
                 
               </li>
 
@@ -152,33 +174,279 @@
 
 <h1>客户事件</h1>
 
-<h2 id="api">获取客户事件的API</h2>
+<h2 id="api">创建客户事件的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/customerevents?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;customerId&quot;: &quot;123456&quot;,
+  &quot;event&quot;: &quot;c_apply_card&quot;,
+  &quot;targetId&quot;: &quot;golden_card&quot;,
+  &quot;targetName&quot;: &quot;金卡&quot;,
+  &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+  &quot;source&quot;: &quot;人民广场&quot;,
+  &quot;touter&quot;: &quot;t00001&quot;
+}
+
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<ul>
+<li>{access_token}为访问接口的令牌</li>
+<li>请求体内字段的意义请参见客户事件模型部分</li>
+</ul>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 1,
+  &quot;customerId&quot;: 123456,
+  &quot;event&quot;: &quot;c_apply_card&quot;,
+  &quot;targetId&quot;: &quot;golden_card&quot;,
+  &quot;targetName&quot;: &quot;金卡&quot;,
+  &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+  &quot;source&quot;: &quot;人民广场&quot;,
+  &quot;score&quot;: 0,
+  &quot;tag&quot;: null,
+  &quot;campaign&quot;: null,
+  &quot;campaignName&quot;: null,
+  &quot;contentName&quot;: null,
+  &quot;externalId&quot;: null,
+  &quot;lastUpdated&quot;: &quot;2017-06-07T05:38:52Z&quot;,
+  &quot;touter&quot;: &quot;t00001&quot;
+}
+</code></pre>
+
+<h2 id="api_1">获取单个事件的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
+<li>id 客户事件id</li>
+</ul>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 1,
+  &quot;customerId&quot;: 123456,
+  &quot;event&quot;: &quot;c_apply_card&quot;,
+  &quot;targetId&quot;: &quot;golden_card&quot;,
+  &quot;targetName&quot;: &quot;金卡&quot;,
+  &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+  &quot;source&quot;: &quot;人民广场&quot;,
+  &quot;score&quot;: 0,
+  &quot;tag&quot;: null,
+  &quot;campaign&quot;: null,
+  &quot;campaignName&quot;: null,
+  &quot;contentName&quot;: null,
+  &quot;externalId&quot;: null,
+  &quot;lastUpdated&quot;: &quot;2017-06-07T05:38:52Z&quot;,
+  &quot;touter&quot;: &quot;t00001&quot;
+}
+</code></pre>
+
+<h2 id="api_2">查询事件的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+https://api.convertlab.com/v1/customerevents?access_toke={access_token}&amp;customerId={customerId}&amp;events={events}&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;max={max}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">access_token</td>
+<td align="left">是</td>
+<td align="left">访问API的令牌</td>
+</tr>
+<tr>
+<td align="left">customerId</td>
+<td align="left">否</td>
+<td align="left">查询指定客户的事件列表</td>
+</tr>
+<tr>
+<td align="left">events</td>
+<td align="left">否</td>
+<td align="left">查询指定的事件类型。多个事件类型可用逗号分开</td>
+</tr>
+<tr>
+<td align="left">lastUpdatedFrom</td>
+<td align="left">否</td>
+<td align="left">事件更新的起始时间。时间格式为 “2017-06-07T12:13:14Z”, 为UTC时间</td>
+</tr>
+<tr>
+<td align="left">lastUpdatedTo</td>
+<td align="left">否</td>
+<td align="left">事件更新的结束时间。时间格式同上</td>
+</tr>
+<tr>
+<td align="left">max</td>
+<td align="left">否</td>
+<td align="left">最多返回多少条数据，默认为20，最大可到1000</td>
+</tr>
+<tr>
+<td align="left">rows</td>
+<td align="left">否</td>
+<td align="left">每页的记录数</td>
+</tr>
+<tr>
+<td align="left">page</td>
+<td align="left">否</td>
+<td align="left">起始页数，以1开始</td>
+</tr>
+<tr>
+<td align="left">sidx</td>
+<td align="left">否</td>
+<td align="left">排序的字段，比如如果按lastUpdated排序，sidx=lastUpdated</td>
+</tr>
+<tr>
+<td align="left">sord</td>
+<td align="left">否</td>
+<td align="left">asc表示升序，desc表示降序，默认为升序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>[
+  {
+    &quot;id&quot;: 1,
+    &quot;customerId&quot;: 123456,
+    &quot;event&quot;: &quot;c_apply_card&quot;,
+    &quot;targetId&quot;: &quot;golden_card&quot;,
+    &quot;targetName&quot;: &quot;金卡&quot;,
+    &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+    &quot;source&quot;: &quot;人民广场&quot;,
+    &quot;score&quot;: 0,
+    &quot;tag&quot;: null,
+    &quot;campaign&quot;: null,
+    &quot;campaignName&quot;: null,
+    &quot;contentName&quot;: null,
+    &quot;externalId&quot;: null,
+    &quot;lastUpdated&quot;: &quot;2017-06-07T06:43:29Z&quot;,
+    &quot;touter&quot;: &quot;t00003&quot;
+  }
+]
+</code></pre>
+
+<h2 id="api_3">获取客户事件的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
 https://api.convertlab.com/v1/customerevents?access_token={access_token}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
+<hr />
 <ul>
 <li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
-<li>除了access_token参数外，该API还支持以下参数来缩小查询结果集:<ul>
+<li>除了access_token参数外，该API还支持以下参数来缩小查询结果集:</li>
 <li>customerId 查询某个客户的行为事件</li>
 <li>events 以逗号隔开的事件列表</li>
 <li>lastUpdatedFrom 事件更新的起始时间(包含)</li>
 <li>lastUpdatedTo 事件更新的结束时间(包含)</li>
 <li>max 查询事件的数量，默认为20 （目前最多可以得到1000个事件，后期版本会允许获取更多事件</li>
 </ul>
-</li>
-<li>除了以上查询参数外，该API还支持分页和排序参数<ul>
+<hr />
+<ul>
+<li>除了以上查询参数外，该API还支持分页和排序参数</li>
 <li>rows 每页的记录数</li>
 <li>page 第几页</li>
 <li>sidx 排序的字段, 比如sidx=lastUpdated是按照lastUpdated字段排序</li>
 <li>sord 排序的方式, asc是升序，desc是降序</li>
 </ul>
-</li>
-</ul>
+<p><strong>返回参数</strong></p>
+<pre><code>[
+  {
+    &quot;attr1&quot;: null,
+    &quot;attr2&quot;: null,
+    &quot;attr3&quot;: null,
+    &quot;attr4&quot;: null,
+    &quot;attr5&quot;: null,
+    &quot;batchId&quot;: null,
+    &quot;campaign&quot;: null,
+    &quot;campaignName&quot;: null,
+    &quot;channelAccount&quot;: null,
+    &quot;channelType&quot;: null,
+    &quot;contentName&quot;: null,
+    &quot;customerId&quot;: 0,
+    &quot;date&quot;: &quot;2019-04-19T12:59:02Z&quot;,
+    &quot;device&quot;: null,
+    &quot;employee&quot;: null,
+    &quot;event&quot;: &quot;default&quot;,
+    &quot;eventGroup&quot;: null,
+    &quot;externalId&quot;: null,
+    &quot;fromCollector&quot;: false,
+    &quot;id&quot;: 3900009,
+    &quot;inbound&quot;: true,
+    &quot;internalContentId&quot;: null,
+    &quot;lastForwarder&quot;: null,
+    &quot;lastUpdated&quot;: &quot;2019-04-19T12:59:02Z&quot;,
+    &quot;location&quot;: null,
+    &quot;pageId&quot;: null,
+    &quot;refScore&quot;: 0,
+    &quot;referrer&quot;: null,
+    &quot;referrerName&quot;: null,
+    &quot;score&quot;: 0,
+    &quot;source&quot;: null,
+    &quot;summary&quot;: null,
+    &quot;tag&quot;: null,
+    &quot;targetId&quot;: &quot;&quot;,
+    &quot;targetName&quot;: null
+  },
+  {
+    &quot;attr1&quot;: null,
+    &quot;attr2&quot;: null,
+    &quot;attr3&quot;: null,
+    &quot;attr4&quot;: null,
+    &quot;attr5&quot;: null,
+    &quot;batchId&quot;: null,
+    &quot;campaign&quot;: null,
+    &quot;campaignName&quot;: null,
+    &quot;channelAccount&quot;: null,
+    &quot;channelType&quot;: null,
+    &quot;contentName&quot;: null,
+    &quot;customerId&quot;: 0,
+    &quot;date&quot;: &quot;2019-04-19T12:59:47Z&quot;,
+    &quot;device&quot;: null,
+    &quot;employee&quot;: null,
+    &quot;event&quot;: &quot;default&quot;,
+    &quot;eventGroup&quot;: null,
+    &quot;externalId&quot;: null,
+    &quot;fromCollector&quot;: false,
+    &quot;id&quot;: 3000010,
+    &quot;inbound&quot;: true,
+    &quot;internalContentId&quot;: null,
+    &quot;lastForwarder&quot;: null,
+    &quot;lastUpdated&quot;: &quot;2019-04-19T12:59:47Z&quot;,
+    &quot;location&quot;: null,
+    &quot;pageId&quot;: null,
+    &quot;refScore&quot;: 0,
+    &quot;referrer&quot;: null,
+    &quot;referrerName&quot;: null,
+    &quot;score&quot;: 0,
+    &quot;source&quot;: null,
+    &quot;summary&quot;: null,
+    &quot;tag&quot;: null,
+    &quot;targetId&quot;: &quot;&quot;,
+    &quot;targetName&quot;: null
+  }
+    //其他客户事件.....
+]
+</code></pre>
+
 <p><strong>客户事件的字段信息</strong></p>
-<p>这里仅列出了部分的客户事件字段，更多字段请查看API的返回值。</p>
+<hr />
 <table>
 <thead>
 <tr>
@@ -265,76 +533,104 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}
 </tr>
 </tbody>
 </table>
-<p>客户事件的各个字段的具体意义，在客户事件的元数据中有描述。关于元数据，请查看后面章节。</p>
+<h2 id="api_4">删除单个客户事件的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: DELETE
+https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
 <hr />
+<ul>
+<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
+<li>{id}用从“查询客户的API”节拿到的客户id替换</li>
+</ul>
 <h2 id="_1">获取事件的元数据</h2>
-<p><strong>获得事件元数据的API调用请求</strong></p>
+<p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
 https://api.convertlab.com/v1/meta/event?access_token={access_token}
 </code></pre>
 
 <p><strong>示例</strong></p>
-<p>下面以访问微页面事件为例，解释元数据的阅读方法。</p>
-<p>以下是访问页面事件的元数据：</p>
-<pre><code>{
-  &quot;forContact&quot;: true,
-  &quot;isDropdown&quot;: true,
-  &quot;label&quot;: &quot;访问页面&quot;,
-  &quot;name&quot;: &quot;open_page&quot;,
-  &quot;score&quot;: 3,
-  &quot;stage&quot;: &quot;Subscriber&quot;,
-  &quot;target&quot;: &quot;Page&quot;,
-  &quot;title&quot;: &quot;访问页面 &lt;a target='_blank' href='/application/page/pages.html?uuid={targetId}'&gt;{targetName}&lt;/a&gt;&quot; 
-}
+<pre><code>forContact: true,
+isDropdown: true,
+label: 访问页面,
+name: open_page,
+score: 3,
+stage: Subscriber,
+target: Page,
+title:访问页面 &lt;a target='_blank' href='/application/page/pages.html?uuid={targetId}'&gt;;{targetName}&lt;/a&gt; 
 </code></pre>
 
-<p>对应的客户事件为：</p>
-<pre><code>{
-  &quot;attr1&quot;: null,
-  &quot;attr2&quot;: null,
-  &quot;attr3&quot;: null,
-  &quot;attr4&quot;: null,
-  &quot;attr5&quot;: null,
-  &quot;batchId&quot;: null,
-  &quot;campaign&quot;: null,
-  &quot;campaignName&quot;: null,
-  &quot;channelAccunt&quot;: null,
-  &quot;channelType&quot;: &quot;wechat&quot;,
-  &quot;contentName&quot;: null,
-  &quot;customerId&quot;: 2951,
-  &quot;date&quot;: &quot;2016-11-21T05:55:57Z&quot;,
-  &quot;device&quot;: null,
-  &quot;employee&quot;: null,
-  &quot;event&quot;: &quot;open_page&quot;,
-  &quot;externalId&quot;: null,
-  &quot;fromCollector&quot;: true,
-  &quot;id&quot;: 1737702,
-  &quot;inboud&quot;: true,
-  &quot;internalContentId&quot;: null,
-  &quot;lastForwarder&quot;: null,
-  &quot;lastUpdated&quot;: &quot;2016-11-21T05:55:58Z&quot;,
-  &quot;location&quot;: null,
-  &quot;pageId&quot;: &quot;c452179b742b44f08c15a299b9988893&quot;,
-  &quot;refScore&quot;: 2,
-  &quot;referrer&quot;: null,
-  &quot;referrerName&quot;: null,
-  &quot;score&quot;: 3,
-  &quot;source&quot;: null,
-  &quot;summary&quot;: null,
-  &quot;tag&quot;: &quot;鸡汤，技术&quot;,
-  &quot;targetId&quot;: &quot;c452179b742b44f08c15a299b9988893&quot;,
-  &quot;targetName&quot;: &quot;11/18活动内容&quot;
-}
+<p><strong>对应的客户事件为</strong></p>
+<hr />
+<pre><code>attr1: null,
+attr2: null,
+attr3: null,
+attr4: null,
+attr5: null,
+batchId: null,
+campaign: null,
+campaignName: null,
+channelAccunt: null,
+channelType: wechat,
+contentName: null,
+customerId: 2951,
+date: 2016-11-21T05:55:57Z,
+device: null,
+employee: null,
+event: open_page,
+externalId: null,
+fromCollector: true,
+id: 1737702,
+inboud: true,
+internalContentId: null,
+lastForwarder: null,
+lastUpdated: 2016-11-21T05:55:58Z,
+location: null,
+pageId: c452179b742b44f08c15a299b9988893,
+refScore: 2,
+referrer: null,
+referrerName: null,
+score: 3,
+source: null,
+summary: null,
+tag: 鸡汤，技术,
+targetId: c452179b742b44f08c15a299b9988893,
+targetName: 11/18活动内容
 </code></pre>
 
-<p>根据元数据和客户事件渲染的时间轴部分如下图所示：
-<img src="../../resources/customerevent.png" width="400"/></p>
+<p><strong>根据元数据和客户事件渲染的时间轴部分如下图所示：</strong></p>
+<p><img src="../../resources/customerevent.png" width="400"/></p>
+<hr />
 <ul>
 <li>时间轴的时间对应客户事件的date字段</li>
 <li>时间轴的“访问页面11/18活动内容”是将客户事件中targetId和targetName替换到客户元数据中title中占位符的结果</li>
 <li>时间轴的+3对应客户事件的score字段</li>
 <li>标签对应客户事件的tag字段</li>
 <li>来源内容对应于访问页面事件来说就是客户事件的targetName</li>
+</ul>
+<h2 id="api_5">修改单个客户事件的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: PUT
+https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
+
+PUT数据示例:
+
+{
+  &quot;customerId&quot;: id,
+  &quot;date&quot;: &quot;2016-02-10T00:00Z&quot;,
+  &quot;event&quot;: &quot;submit_form&quot;,
+  &quot;targetId&quot;: &quot;XXXX&quot;,
+  &quot;targetName&quot;: &quot;NXVBA_123&quot;
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<ul>
+<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
+<li>{id}用从“查询客户的API”节拿到的客户id替换</li>
 </ul>
             <div class="ds-thread" data-thread-key="客户事件" data-title="客户事件" data-url=""></div>
         </div>
