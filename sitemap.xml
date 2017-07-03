@@ -45,6 +45,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://api-docs.convertlab.com//api/mergeCustomerByIdentities/</loc>
+     <lastmod>2017-07-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

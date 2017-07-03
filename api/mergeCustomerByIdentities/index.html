@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="canonical" href="http://api-docs.convertlab.com/api/tag/"> 
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/mergeCustomerByIdentities/"> 
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>客户标签 - Convertlab 文档中心</title>
+    <title>客户合并 - Convertlab 文档中心</title>
     <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -68,7 +68,7 @@
        <!--   <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
     <li><a href="">文档</a></li>
-    <li>客户标签</li>
+    <li>客户合并</li>
   </ol>
 
   
@@ -120,18 +120,8 @@
 
           
 
-              <li class="active">
-                <a class="itm-l1" href="./">客户标签</a>
-                
-                  <ul class="nav">
-                  
-                    <li class="active "><a href="#_1">标签分组的创建</a></li>
-                    
-                  
-                    <li class=""><a href="#_2">向客户添加标签</a></li>
-                    
-                  
-                  </ul>
+              <li class="">
+                <a class="itm-l1" href="../tag/">客户标签</a>
                 
               </li>
 
@@ -144,8 +134,18 @@
 
           
 
-              <li class="">
-                <a class="itm-l1" href="../mergeCustomerByIdentities/">客户合并</a>
+              <li class="active">
+                <a class="itm-l1" href="./">客户合并</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#api">根据客户身份合并客户的API</a></li>
+                    
+                  
+                    <li class=""><a href="#idapi">根据客户id合并客户的API</a></li>
+                    
+                  
+                  </ul>
                 
               </li>
 
@@ -164,53 +164,101 @@
         <div class="col-md-9 content-body" role="main">
              
 
-<h1>客户标签</h1>
+<h1>客户合并</h1>
 
-<p><strong>标签(tag)数据结构</strong></p>
-<pre><code>{
-  &quot;name&quot;: &quot;标签名称&quot;,
-  &quot;dimension&quot;: &quot;标签分组主键&quot;
-}
-</code></pre>
-
-<p><strong>标签分组(tagdimension)数据结构</strong></p>
-<pre><code>{
-  &quot;dimensionKey&quot;: &quot;分组主键&quot;,
-  &quot;name&quot;: &quot;分组名字&quot;,
-  &quot;parentKey&quot;: &quot;上级分组（可省略）&quot;
-}
-</code></pre>
-
-<h2 id="_1">标签分组的创建</h2>
+<h2 id="api">根据客户身份合并客户的API</h2>
 <p><strong>调用请求</strong></p>
-<pre><code>POST /v1/tagdimensions
-</code></pre>
-
-<p><strong>Payload</strong></p>
-<pre><code>{
-  &quot;dimensionKey&quot;: &quot;students&quot;,
-  &quot;name&quot;: &quot;学生&quot;
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/customerService/mergeCustomerByIdentities?access_token={access_token}
+POST数据示例:
+{
+  &quot;from&quot;: {
+    &quot;identityType&quot;: &quot;{identityType}&quot;,
+    &quot;identityValue&quot;: &quot;{identityValue}&quot;
+  },
+  &quot;to&quot;: {
+    &quot;identityType&quot;: &quot;{identityType}&quot;,
+    &quot;identityValue&quot;: &quot;{identityValue}&quot;
+  }
+}
+请求消息体示例:
+{
+  &quot;from&quot;: {
+    &quot;identityType&quot;: &quot;wechat&quot;,
+    &quot;identityValue&quot;: &quot;aaaa&quot;
+  },
+  &quot;to&quot;: {
+    &quot;identityType&quot;: &quot;wechat-openid&quot;,
+    &quot;identityValue&quot;: &quot;oVLMTt0zw5JEZc6PE0tIsA5Kz7f0&quot;
+  }
 }
 </code></pre>
 
+<p><strong>参数说明</strong></p>
 <hr />
-<h2 id="_2">向客户添加标签</h2>
-<p><strong>调用请求</strong></p>
-<pre><code>POST  /v1/tagservice/addCustomerTag
-</code></pre>
-
-<p><strong>Payload</strong></p>
+<ul>
+<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
+</ul>
+<p><strong>返回参数</strong></p>
 <pre><code>{
-  &quot;customerId&quot;: 1234,
-  &quot;tags&quot;: [
-    {
-       &quot;name&quot;: &quot;小学生&quot;,
-       &quot;dimension&quot;: &quot;students&quot;
-    }
-  ]
+  &quot;data&quot;: {
+    &quot;customerId&quot;: &quot;{合并后的客户id}&quot;
+  }
 }
 </code></pre>
-            <div class="ds-thread" data-thread-key="客户标签" data-title="客户标签" data-url=""></div>
+
+<p><strong>返回错误结构</strong></p>
+<pre><code>{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;c50001&quot;,
+    &quot;message&quot;: &quot;'from' or 'to' identity do not exist&quot;
+  }
+}
+</code></pre>
+
+<p><strong>错误码说明</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">错误码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">c50001</td>
+<td align="left">请求格式不正确</td>
+</tr>
+<tr>
+<td align="left">c50002</td>
+<td align="left">被合并的客户不存在</td>
+</tr>
+<tr>
+<td align="left">c50002</td>
+<td align="left">未知请求错误</td>
+</tr>
+<tr>
+<td align="left">s00001</td>
+<td align="left">系统内部错误</td>
+</tr>
+</tbody>
+</table>
+<h2 id="idapi">根据客户id合并客户的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/customerService/mergeCustomerById?access_token={access_token}&amp;fromId={fromId}&amp;toId={toId}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<hr />
+<ul>
+<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
+<li>{fromId}合并的来源客户ID</li>
+<li>{toId}合并的目标客户ID</li>
+</ul>
+<p>返回值与通过客户身份合并客户是一样的</p>
+            <div class="ds-thread" data-thread-key="客户合并" data-title="客户合并" data-url=""></div>
         </div>
         
     </div>
