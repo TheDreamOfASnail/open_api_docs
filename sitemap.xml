@@ -5,49 +5,49 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/accesstoken/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customer/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customerevent/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customeridentities/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/tag/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/deal/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/mergeCustomerByIdentities/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -57,19 +57,19 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//track/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/customerevent/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/sourcetracking/</loc>
-     <lastmod>2017-07-03</lastmod>
+     <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
