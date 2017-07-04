@@ -46,12 +46,6 @@
     </url>
         
     <url>
-     <loc>http://api-docs.convertlab.com//api/deal/</loc>
-     <lastmod>2017-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>http://api-docs.convertlab.com//api/list/</loc>
      <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
