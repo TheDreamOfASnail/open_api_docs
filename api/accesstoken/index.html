@@ -107,13 +107,6 @@
           
 
               <li class="">
-                <a class="itm-l1" href="../activities/">活动</a>
-                
-              </li>
-
-          
-
-              <li class="">
                 <a class="itm-l1" href="../customer/">客户信息</a>
                 
               </li>
@@ -128,21 +121,7 @@
           
 
               <li class="">
-                <a class="itm-l1" href="../customeridentities/">客户身份</a>
-                
-              </li>
-
-          
-
-              <li class="">
                 <a class="itm-l1" href="../tag/">客户标签</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../deal/">客户订单</a>
                 
               </li>
 
@@ -156,14 +135,7 @@
           
 
               <li class="">
-                <a class="itm-l1" href="../mergeCustomerByIdentities/">客户合并</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../users/">账户管理</a>
+                <a class="itm-l1" href="../deal/">客户交易</a>
                 
               </li>
 
@@ -192,10 +164,33 @@ https://api.convertlab.com/security/accesstoken?grant_type=client_credentials&am
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<ul>
-<li>{appid}用集成应用保存的appid替换</li>
-<li>{secret}用集成应用保存的secret替换</li>
-</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">grant_type</td>
+<td align="left">是</td>
+<td align="left">必须是client_credential</td>
+</tr>
+<tr>
+<td align="left">appid</td>
+<td align="left">是</td>
+<td align="left">在上一步中创建的应用的appid</td>
+</tr>
+<tr>
+<td align="left">secret</td>
+<td align="left">是</td>
+<td align="left">在上一步中创建的应用的secret</td>
+</tr>
+</tbody>
+</table>
 <p><strong>返回说明</strong></p>
 <pre><code>  &quot;error_code&quot;: 0,
   &quot;access_token&quot;: &quot;47c010ea********d30db952ac&quot;,
@@ -203,6 +198,30 @@ https://api.convertlab.com/security/accesstoken?grant_type=client_credentials&am
 }
 </code></pre>
 
+<p><strong>返回字段说明</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">access_token</td>
+<td align="left">获取到的API调用凭证</td>
+</tr>
+<tr>
+<td align="left">expires_in</td>
+<td align="left">凭证有效时间，单位：秒</td>
+</tr>
+<tr>
+<td align="left">error_code</td>
+<td align="left">错误码，0表示返回正常</td>
+</tr>
+</tbody>
+</table>
 <p><strong>注意</strong>: 记住access_token留备后用。</p>
             <div class="ds-thread" data-thread-key="获取身份权限" data-title="获取身份权限" data-url=""></div>
         </div>

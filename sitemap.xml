@@ -5,67 +5,43 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/accesstoken/</loc>
-     <lastmod>2017-07-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://api-docs.convertlab.com//api/activities/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customer/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customerevent/</loc>
-     <lastmod>2017-07-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://api-docs.convertlab.com//api/customeridentities/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/tag/</loc>
-     <lastmod>2017-07-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://api-docs.convertlab.com//api/deal/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/list/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://api-docs.convertlab.com//api/mergeCustomerByIdentities/</loc>
-     <lastmod>2017-07-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://api-docs.convertlab.com//api/users/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <loc>http://api-docs.convertlab.com//api/deal/</loc>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,19 +51,19 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//track/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/customerevent/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/sourcetracking/</loc>
-     <lastmod>2017-07-05</lastmod>
+     <lastmod>2017-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
