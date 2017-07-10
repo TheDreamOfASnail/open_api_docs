@@ -8,7 +8,7 @@
         {
             "location": "/api/accesstoken/",
             "text": "\u83b7\u53d6access_token\n\n\n\u901a\u8fc7appid\u548cappsecret\u83b7\u53d6access token, \u5e76\u7528\u4e8e\u5176\u5b83\u529f\u80fd\u6027API\u7684\u8bf7\u6c42\u3002\n\n\n\u8c03\u7528\u8bf7\u6c42\n\n\nHTTP\u8bf7\u6c42\u65b9\u5f0f: GET\nhttps://api.convertlab.com/security/accesstoken?grant_type=client_credentials&appid={appid}&secret={secret}\n\n\n\n\n\u53c2\u6570\u8bf4\u660e\n\n\n\n\n\n\n\n\n\n\n\u53c2\u6570\n\n\n\u662f\u5426\u5fc5\u586b\n\n\n\u8bf4\u660e\n\n\n\n\n\n\n\n\n\n\ngrant_type\n\n\n\u662f\n\n\n\u5fc5\u987b\u662fclient_credential\n\n\n\n\n\n\nappid\n\n\n\u662f\n\n\n\u5728\u4e0a\u4e00\u6b65\u4e2d\u521b\u5efa\u7684\u5e94\u7528\u7684appid\n\n\n\n\n\n\nsecret\n\n\n\u662f\n\n\n\u5728\u4e0a\u4e00\u6b65\u4e2d\u521b\u5efa\u7684\u5e94\u7528\u7684secret\n\n\n\n\n\n\n\n\n\u8fd4\u56de\u8bf4\u660e\n\n\n  \"error_code\": 0,\n  \"access_token\": \"47c010ea********d30db952ac\",\n  \"expires_in\": 7200\n}\n\n\n\n\n\u8fd4\u56de\u5b57\u6bb5\u8bf4\u660e\n\n\n\n\n\n\n\n\n\n\n\u5b57\u6bb5\n\n\n\u8bf4\u660e\n\n\n\n\n\n\n\n\n\n\naccess_token\n\n\n\u83b7\u53d6\u5230\u7684API\u8c03\u7528\u51ed\u8bc1\n\n\n\n\n\n\nexpires_in\n\n\n\u51ed\u8bc1\u6709\u6548\u65f6\u95f4\uff0c\u5355\u4f4d\uff1a\u79d2\n\n\n\n\n\n\nerror_code\n\n\n\u9519\u8bef\u7801\uff0c0\u8868\u793a\u8fd4\u56de\u6b63\u5e38\n\n\n\n\n\n\n\n\n\u6ce8\u610f\n: \u8bb0\u4f4faccess_token\u7559\u5907\u540e\u7528\u3002",
-            "title": "\u83b7\u53d6\u8eab\u4efd\u6743\u9650"
+            "title": "\u83b7\u53d6access_token"
         },
         {
             "location": "/api/accesstoken/#access_token",
