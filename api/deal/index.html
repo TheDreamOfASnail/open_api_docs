@@ -134,8 +134,9 @@
                   
                     <li class="active "><a href="#_1">客户交易模型</a></li>
                     
-                  
-                    <li class=""><a href="#_2">订单物品模型</a></li>
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_2">订单物品模型</a></li>
+                      </ul>
                     
                   
                     <li class=""><a href="#api">创建业务订单的API</a></li>
@@ -228,7 +229,7 @@
 <td align="left">订单折扣</td>
 </tr>
 <tr>
-<td align="left">couponCode</td>
+<td align="left">counponCode</td>
 <td align="left">优惠券</td>
 <td align="left">String</td>
 <td align="left">优惠券码</td>
@@ -325,7 +326,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_2">订单物品模型</h2>
+<h4 id="_2">订单物品模型</h4>
 <table>
 <thead>
 <tr>
@@ -454,7 +455,7 @@ POST请求示例：
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
+<td align="left">id</td>
 <td align="left">是</td>
 <td align="left">客户交易ID</td>
 </tr>
@@ -484,7 +485,7 @@ POST请求示例：
 <td align="left">优惠金额</td>
 </tr>
 <tr>
-<td align="left">couponCode</td>
+<td align="left">counponCode</td>
 <td align="left">否</td>
 <td align="left">优惠券</td>
 </tr>
@@ -665,6 +666,11 @@ https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
 <td align="left">access_token</td>
 <td align="left">是</td>
 <td align="left">请求凭证</td>
+</tr>
+<tr>
+<td align="left">id</td>
+<td align="left">是</td>
+<td align="left">客户交易ID</td>
 </tr>
 </tbody>
 </table>
