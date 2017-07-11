@@ -110,10 +110,15 @@
                     <li class=""><a href="#_2">客户身份模型</a></li>
                     
                   
-                    <li class=""><a href="#api">带身份创建客户的API</a></li>
+                    <li class=""><a href="#_3">创建用户</a></li>
                     
-                  
-                    <li class=""><a href="#api_1">普通创建客户API</a></li>
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#api">带身份创建客户的API</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#api_1">普通创建客户API</a></li>
+                      </ul>
                     
                   
                     <li class=""><a href="#api_2">更新客户的API</a></li>
@@ -497,7 +502,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="api">带身份创建客户的API</h2>
+<h2 id="_3">创建用户</h2>
+<h4 id="api">带身份创建客户的API</h4>
 <p>带身份的客户创建，顾名思义是创建客户的时候提供一个或多个客户身份。如果提供的身份已绑定到DM Hub中的现有客户，那么该API便不会创建新的客户，而是更新既有客户，同时将其他身份绑定到该客户上；如果客户信息内提供了手机和邮件地址信息，并且能通过该手机号或邮件地址在DM Hub查到客户，那么该API也不会创建新客户，而是更新找到的客户，并把身份绑定到该客户身上。如果以上两种情况都没找到客户，那么该API会创建一个新客户，并将所有客户身份信息绑定到该客户上。</p>
 <p>需要注意的是，调用该接口更新现有客户的时候，无法将客户的字段清空。如果确实想清空客户的某些字段，请调用 更新客户API</p>
 <p><strong>调用请求</strong></p>
@@ -587,7 +593,7 @@ POST数据示例:
 
 <p><strong>注意事项</strong>: 使用微信openid或unionid作为客户身份之前，请将微信公众号绑定到DM Hub系统，并将微信粉丝导入到DM Hub系统。</p>
 <hr />
-<h2 id="api_1">普通创建客户API</h2>
+<h4 id="api_1">普通创建客户API</h4>
 <p>普通创建客户API会根据请求体中的手机号码和邮件地址去查找现有客户，如果能查找到客户，就会更新现有客户，否则则创建一下新客户。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: POST
@@ -819,7 +825,7 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={s
 <td align="left">客户更新的起始时间(包含)</td>
 </tr>
 <tr>
-<td align="left">lastUpdateTo</td>
+<td align="left">lastUpdatedTo</td>
 <td align="left">否</td>
 <td align="left">客户更新的结束时间</td>
 </tr>
