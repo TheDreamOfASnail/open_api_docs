@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="canonical" href="http://api-docs.convertlab.com/track/"> 
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <title>设置埋点 - Convertlab 文档中心</title>
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/highlight.css">
-    <link href="../test/css/print.css" rel="stylesheet">
+    <link rel="canonical" href="http://api-docs.convertlab.com/track/jscollection/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>通过JS SDK进行事件采集 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
 
     
 </head>
@@ -44,7 +44,7 @@
                 
                   <li class="pull-left">
                     
-                    <a href="..">OpenAPI V1</a>
+                    <a href="../..">OpenAPI V1</a>
                     
                   </li>
                 
@@ -68,7 +68,7 @@
        <!--   <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
     <li><a href="">文档</a></li>
-    <li>设置埋点</li>
+    <li>通过JS SDK进行事件采集</li>
   </ol>
 
   
@@ -91,9 +91,26 @@
           
 
               <li class="active">
-                <a class="itm-l1" href="./">设置埋点</a>
+                <a class="itm-l1" href="./">通过JS SDK进行事件采集</a>
                 
                   <ul class="nav">
+                  
+                    <li class="active "><a href="#_1">设置埋点</a></li>
+                    
+                  
+                    <li class=""><a href="#_2">客户自定义事件</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_3">通过标签添提交自定义事件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#meta">通过meta标签提交阅读标签</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#_4">来源跟踪</a></li>
+                    
                   
                   </ul>
                 
@@ -102,14 +119,14 @@
           
 
               <li class="">
-                <a class="itm-l1" href="customerevent/">客户自定义事件</a>
+                <a class="itm-l1" href="../ioscollection/">通过IOS SDK进行事件采集</a>
                 
               </li>
 
           
 
               <li class="">
-                <a class="itm-l1" href="sourcetracking/">来源跟踪</a>
+                <a class="itm-l1" href="../androidcollection/">通过ANDROID SDK进行事件采集</a>
                 
               </li>
 
@@ -123,12 +140,13 @@
         <div class="col-md-9 content-body" role="main">
              
 
-<h1>设置埋点</h1>
+<h1>通过JS SDK进行事件采集</h1>
 
+<h2 id="_1">设置埋点</h2>
 <p>登录DM Hub系统，点击菜单<strong>内容&gt;公司网站&gt;集成公司网站</strong>：
-<img src="../resources/track1.png" width="400"/></p>
+<img src="/resources/track1.png" width="600"/></p>
 <p>按照页面的描述文字，将页面内的javascript代码放在官网主页的</html>之前。 如：
-<img src="../resources/track2.png" width="400"/></p>
+<img src="/resources/track2.png" width="600"/></p>
 <p><strong>说明</strong></p>
 <ol>
 <li>
@@ -184,7 +202,34 @@ function track(event, targetName, targetId, properties, callback)</p>
 <p><strong>例子</strong>：this.track(‘c_1481629160265’, ‘收藏商品’, ‘p001’)</p>
 </li>
 </ol>
-            <div class="ds-thread" data-thread-key="设置埋点" data-title="设置埋点" data-url=""></div>
+<h2 id="_2">客户自定义事件</h2>
+<p>登录DM Hub系统，点击菜单中的<strong>客户&gt;客户设置&gt;客户关键事件</strong>中的<strong>新建客户事件</strong>。
+<img src="../../resources/newcustomerevent1.png" width="600"/></p>
+<p>点击<strong>确定</strong>，在事件列表中点击新建事件中的i图标，获取自定义事件ID：
+<img src="../../resources/newcustomerevent2.png" width="600"/>
+<img src="../../resources/newcustomerevent3.png" width="600"/></p>
+<h3 id="_3">通过标签添提交自定义事件</h3>
+<p>track()函数的参数event, targetName, targetId可以使用标签的形式向服务器提交。在按钮或链接上，分别添加如下属性：
+- data-cl-event: 相当于track的event参数
+- data-cl-name: 相当于track的targetName参数
+- data-cl-id:  相当于track的targetId参数</p>
+<pre><code>&lt;button data-cl-event=‘c_1483532925683’ data-cl-name=’收藏商品’ data-cl-id=’p001’&gt;收藏&lt;/button&gt;
+</code></pre>
+
+<hr />
+<h3 id="meta">通过meta标签提交阅读标签</h3>
+<p>除了在页面参数中指定内容标签外，还可以通过meta标签，给阅读过该页面的用户打上阅读标签，方法如下：</p>
+<pre><code>&lt;meta name=”cl_content_tag” content=”咖啡,提神”&gt;
+</code></pre>
+
+<h2 id="_4">来源跟踪</h2>
+<ol>
+<li>进入<strong>客户&gt;来源管理</strong>，创建需要的来源</li>
+<li>进入<strong>内容&gt;公司网站&gt;网页可追踪URL</strong>，创建可追踪URL，并选择需要的来源。</li>
+<li>将可追踪URL传播出去，比如通过百度广告，邮件，微信等。</li>
+<li>进入<strong>内容&gt;公司网站&gt;网站页面</strong>，可以看到网页的来源访问分析。</li>
+</ol>
+            <div class="ds-thread" data-thread-key="通过JS SDK进行事件采集" data-title="通过JS SDK进行事件采集" data-url=""></div>
         </div>
         
     </div>

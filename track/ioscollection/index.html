@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/track/ioscollection/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>通过IOS SDK进行事件采集 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../jscollection/">网页埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>通过IOS SDK进行事件采集</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../jscollection/">通过JS SDK进行事件采集</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">通过IOS SDK进行事件采集</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#_1">使用说明</a></li>
+                    
+                  
+                    <li class=""><a href="#_2">开发准备</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_3">创建应用</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_4">进入应用设置页面</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_5">新建应用</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_6">更新权限设置</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_7">环境搭建</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#sdk">导入 SDK</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#sdk_1">添加 SDK 文件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_8">添加系统库支持</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_9">检查静态库文件路径</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_10">引入头文件</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#sdk_2">配置 SDK 相关参数</a></li>
+                    
+                  
+                    <li class=""><a href="#_11">创建初始客户和客户身份</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#idfa-appdelegatem">如果需要上传 IDFA 作为客户身份，请在 AppDelegate.m 文件中参照下面的代码进行上传：</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#appdelegatem-jpush">如果您采用了极光推送，请在 AppDelegate.m 文件中参照下面的代码创建带有 JPush 身份的客户：</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#appdelegatem-getui">如果您采用了个推推送，请在 AppDelegate.m 文件中参照下面的代码创建带有 GeTui 身份的客户：</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#_12">跟踪客户事件</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_13">跟踪预置客户事件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_19">跟踪自定义客户事件</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#_20">技术支持</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../androidcollection/">通过ANDROID SDK进行事件采集</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>通过IOS SDK进行事件采集</h1>
+
+<h2 id="_1">使用说明</h2>
+<ul>
+<li>本文是 DMHub iOS SDK 标准的开发指南文档，用以指导 SDK 的集成和使用，默认读者已经具备一定的 iOS 开发能力</li>
+<li>本篇指南匹配的 DMHub iOS SDK 版本为： v0.1.0</li>
+<li>DMHub iOS SDK 0.1.0 要求 iOS &gt;= 6.0</li>
+</ul>
+<h2 id="_2">开发准备</h2>
+<h4 id="_3">创建应用</h4>
+<p>集成 DMHub SDK 之前，您首先需要到 DM Hub 平台创建应用</p>
+<h4 id="_4">进入应用设置页面</h4>
+<p>点击 DM Hub 平台首页右上角的齿轮图标，选择 <strong>开放与集成</strong> 选项，进入应用设置页面</p>
+<p><img src="/resources/ios.png" width="600"/></p>
+<h4 id="_5">新建应用</h4>
+<p>在应用设置页面点击右上角的 + <strong>新建</strong> 按钮，在弹出的创建应用弹出框中填写应用名称和描述后保存</p>
+<p><img src="/resources/ios1.png" width="600"/></p>
+<h4 id="_6">更新权限设置</h4>
+<p>创建应用成功之后，即可获得集成 SDK 所需的 appid 和 secret 信息。根据开发需求进行权限设置后，点击右下角的 更新 按钮（注：即使没有更改权限设置，也要进行更新），完成应用创建</p>
+<p><img src="/resources/ios2.png" width="600"/></p>
+<h4 id="_7">环境搭建</h4>
+<p><strong>集成</strong> 极光推送 <strong>或</strong> 个推推送</p>
+<h2 id="sdk">导入 SDK</h2>
+<h4 id="sdk_1">添加 SDK 文件</h4>
+<p>在 Xcode 中选择 File ---&gt; Add Files to “YOUR_PROJECT_NAME”... ，将 libs 目录下的 DMHubSDK.h 头文件和 dmhubsdk-ios-x.x.x.a 静态库文件添加到工程目录中。</p>
+<h4 id="_8">添加系统库支持</h4>
+<p><strong>在 TARGETS ---&gt; General ---&gt; Linked Frameworks and Libraries 下，添加以下系统库支持：</strong></p>
+<ul>
+<li>UIKit.framework</li>
+<li>Foundation.framework</li>
+<li>SystemConfiguration.framework</li>
+<li>libsqlite3.tbd</li>
+<li>AdSupport.framework （如果不使用 IDFA，则不需要添加该系统库）</li>
+</ul>
+<h4 id="_9">检查静态库文件路径</h4>
+<p>检查 TARGETS ---&gt; Build Settings ---&gt; Search Paths 下的 Library Search Paths 。一般情况下，添加 dmhubsdk-ios-x.x.x.a 静态库文件时，Xcode 会自动在 Library Search Paths 中添加 $(PROJECT_DIR)/{静态库文件所在相对目录} ，如果没有，请手动添加。</p>
+<h4 id="_10">引入头文件</h4>
+<p>在需要使用 DMHubSDK 功能的文件中引入头文件：
+ #import "DMHubSDK.h"</p>
+<h2 id="sdk_2">配置 SDK 相关参数</h2>
+<p><strong>右键单击 Info.plist 文件，Open As ---&gt; Source Code ，配置 SDK 所需参数：</strong></p>
+<pre><code>&lt;key&gt;DMHubSDKAppId&lt;/key&gt;
+&lt;string&gt;在 DM Hub 平台获得的 appid&lt;/string&gt;
+
+&lt;key&gt;DMHubSDKSecret&lt;/key&gt;
+&lt;string&gt;在 DM Hub 平台获得的 secret&lt;/string&gt;
+
+&lt;!--
+    - 您所采用的推送平台，支持极光和个推。
+    - 如果您采用极光推送，请填写 'jpush'(默认，可以不配置)；
+    - 如果您采用个推推送，请填写 'getui'；
+    - 如果您同时采用极光推送和个推推送，请填写 'jpush&amp;amp;getui'。
+--&gt;
+&lt;key&gt;DMHubPushChannel&lt;/key&gt;
+&lt;string&gt;采用的推送平台&lt;/string&gt;
+</code></pre>
+
+<p><strong>如果您是在测试账号下创建的应用，则需要设置支持 Http 传输，并配置 DMHubServer 参数：</strong></p>
+<pre><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+
+&lt;key&gt;DMHubServer&lt;/key&gt;
+&lt;string&gt;http://api.convertwork.cn&lt;/string&gt;
+
+</code></pre>
+
+<h2 id="_11">创建初始客户和客户身份</h2>
+<p>在 App 首次接收到推送平台分配的 设备 ID 时，以 设备 ID 作为客户身份创建初始客户。</p>
+<h4 id="idfa-appdelegatem">如果需要上传 IDFA 作为客户身份，请在 AppDelegate.m 文件中参照下面的代码进行上传：</h4>
+<pre><code>// 使用 DMHubSDK 需要引入的头文件
+#import &quot;DMHubSDK.h&quot;
+// 获取 IDFA 需要引入的头文件
+#import &lt;AdSupport/AdSupport.h&gt;
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    [[DMHubSDK sharedInstance] addCustomerIdfa:idfa];
+}
+
+@end
+</code></pre>
+
+<h4 id="appdelegatem-jpush">如果您采用了极光推送，请在 AppDelegate.m 文件中参照下面的代码创建带有 JPush 身份的客户：</h4>
+<pre><code>// 使用 DMHubSDK 需要引入的头文件
+#import &quot;DMHubSDK.h&quot;
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+        if (registrationID &amp;&amp; &lt;App 首次接收到 registrationID&gt;) {
+            [[DMHubSDK sharedInstance] createJPushIdCustomerWithName:name
+                                                        dmHubAppName:dmHubAppName
+                                                         jPushAppKey:jPushAppKey 
+                                                             jPushId:registrationID 
+                                                              source:source];
+        }
+    }];
+}
+
+@end
+</code></pre>
+
+<h4 id="appdelegatem-getui">如果您采用了个推推送，请在 AppDelegate.m 文件中参照下面的代码创建带有 GeTui 身份的客户：</h4>
+<pre><code>// 使用 DMHubSDK 需要引入的头文件
+#import &quot;DMHubSDK.h&quot;
+
+@interface AppDelegate () &lt;GeTuiSdkDelegate&gt;
+
+@end
+
+@implementation AppDelegate
+
+- (void)GeTuiSdkDidRegisterClient:(NSString *)clientId {
+    if (clientId &amp;&amp; &lt;App 首次接收到 clientId&gt;) {
+        [[DMHubSDK sharedInstance] createGeTuiIdCustomerWithName:name 
+                                                    dmHubAppName:dmHubAppName 
+                                                     geTuiAppKey:geTuiAppKey 
+                                                         geTuiId:clientId 
+                                                          source:source];
+    }
+}
+
+@end
+</code></pre>
+
+<h2 id="_12">跟踪客户事件</h2>
+<p>跟踪客户事件是 DMHubSDK 最核心的功能。开发人员可以根据实际需求，通过调用 SDK 提供的方法，对客户事件进行跟踪，将客户在手机原生应用中产生的有价值行为，记录到 DM Hub 平台的客户时间轴上。
+DM Hub 平台则会以跟踪到的客户事件为数据基础，对海量客户进行智能筛选和高效互动，从而实现精准营销。</p>
+<h3 id="_13">跟踪预置客户事件</h3>
+<p>为了开发人员能够更方便的调用，DM Hub 平台预置了几种常见的客户事件。</p>
+<h4 id="_14">跟踪打开应用事件</h4>
+<pre><code>/**
+ @param appName    应用名称，会在客户时间轴上显示。如果传入 nil 或者空字符串，则会从 Info.plist 文件中获取，并添加 &quot; (iOS)&quot; 后缀，例如：&quot;AppName (iOS)&quot;。
+ @param targetId   消息推送服务开放平台分配的 AppKey，如果既采用了极光推送又采用了个推推送，请使用 jPush AppKey。
+ @param properties 事件的自定义属性。
+ */
+[[DMHubSDK sharedInstance] trackOpenAppEventWithAppName:appName 
+                                               targetId:targetId 
+                                             properties:properties];
+</code></pre>
+
+<h4 id="_15">跟踪退出应用事件</h4>
+<pre><code>/**
+ @param appName    应用名称，会在客户时间轴上显示。如果传入 nil 或者空字符串，则会从 Info.plist 文件中获取，并添加 &quot; (iOS)&quot; 后缀，例如：&quot;AppName (iOS)&quot;。
+ @param targetId   消息推送服务开放平台分配的 AppKey，如果既采用了极光推送又采用了个推推送，请使用 jPush AppKey。
+ @param properties 事件的自定义属性。
+ */
+[[DMHubSDK sharedInstance] trackExitAppEventWithAppName:appName 
+                                               targetId:targetId 
+                                             properties:properties];
+</code></pre>
+
+<h4 id="_16">跟踪进入页面事件</h4>
+<pre><code>/**
+ @param viewName   页面的名称，可以使用类名或自定义名称，会在客户时间轴上显示。
+ @param viewId     页面的 id，可以使用 HashCode。
+ @param properties 事件的自定义属性。
+ 注：页面可以是 UIViewController、UIView...
+ */
+[[DMHubSDK sharedInstance] trackOpenViewEventWithViewName:viewName 
+                                                   viewId:viewId 
+                                               properties:properties];
+
+</code></pre>
+
+<h4 id="_17">跟踪离开页面事件</h4>
+<pre><code>/**
+ @param viewName   页面的名称，可以使用类名或自定义名称，会在客户时间轴上显示。
+ @param viewId     页面的 id，可以使用 HashCode。
+ @param properties 事件的自定义属性。
+ 注：页面可以是 UIViewController、UIView...
+ */
+[[DMHubSDK sharedInstance] trackExitViewEventWithViewName:viewName 
+                                                   viewId:viewId 
+                                               properties:properties];
+</code></pre>
+
+<h4 id="_18">跟踪点击通知事件</h4>
+<pre><code>/**
+ @param notiTitle  通知标题，会在客户时间轴上显示。
+ @param notiId     通知 id。
+ @param properties 事件的自定义属性。
+ */
+[[DMHubSDK sharedInstance] trackClickNotiEventWithNotiTitle:notiTitle 
+                                                     notiId:notiId 
+                                                 properties:properties];
+</code></pre>
+
+<h3 id="_19">跟踪自定义客户事件</h3>
+<p>通过自定义客户事件，可以更灵活的对客户产生的事件进行跟踪。
+在 DM Hub 平台新建自定义事件后，可以通过下面的方法对自定义事件进行跟踪：</p>
+<pre><code>/**
+ @param eventId    与 DM Hub 中定义的事件对应的事件 Id。
+ @param targetName 对于自定义事件，客户时间轴上只会显示 targetName，相当于事件标题。
+ @param targetId   客户产生该事件对应的目标(如按钮)的 Id。
+ @param properties 事件的自定义属性。
+ */
+[[DMHubSDK sharedInstance] trackEventWithEventId:eventId 
+                                      targetName:targetName 
+                                        targetId:targetId 
+                                      properties:properties];
+</code></pre>
+
+<h2 id="_20">技术支持</h2>
+<ul>
+<li>在线客服：在 DM Hub 平台右下角进行客服咨询</li>
+<li>电子邮件：support@convertlab.com</li>
+</ul>
+            <div class="ds-thread" data-thread-key="通过IOS SDK进行事件采集" data-title="通过IOS SDK进行事件采集" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>

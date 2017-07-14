@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/track/androidcollection/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>通过ANDROID SDK进行事件采集 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../jscollection/">网页埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>通过ANDROID SDK进行事件采集</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../jscollection/">通过JS SDK进行事件采集</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../ioscollection/">通过IOS SDK进行事件采集</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">通过ANDROID SDK进行事件采集</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#_1">使用说明</a></li>
+                    
+                  
+                    <li class=""><a href="#_2">开发准备</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_3">创建应用</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_7">环境搭建</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#sdk">导入 SDK</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#aar">复制 AAR 包</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#gradle">修改 GRADLE 配置</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#androidmanifestxml">配置 ANDROIDMANIFEST.XML</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#_9">初始化</a></li>
+                    
+                  
+                    <li class=""><a href="#_10">创建初始客户和客户身份</a></li>
+                    
+                  
+                    <li class=""><a href="#_11">跟踪客户事件</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_12">跟踪预置客户事件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_13">跟踪自定义客户事件</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#_14">技术支持</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>通过ANDROID SDK进行事件采集</h1>
+
+<h2 id="_1">使用说明</h2>
+<ul>
+<li>本文是 DMHub Android SDK 标准的开发指南文档，用以指导 SDK 的集成和使用，默认读者已经具备一定的 Android 开发能力。</li>
+<li>本篇指南匹配的 DMHub Android SDK 版本为： v0.2.0 。</li>
+<li>DMHub Android SDK 0.2.0 要求 Java &gt;= 1.7 &amp; Android API &gt;= 9 </li>
+</ul>
+<h2 id="_2">开发准备</h2>
+<h3 id="_3">创建应用</h3>
+<p>集成 DMHub SDK 之前，您首先需要到 DM Hub 平台创建应用。</p>
+<h4 id="_4">进入应用设置页面</h4>
+<p>点击 DM Hub 平台首页右上角的齿轮图标，选择 开放与集成 选项，进入应用设置页面</p>
+<p><img src="/resources/android.png" width="600"/></p>
+<h4 id="_5">新建应用</h4>
+<p>在应用设置页面点击右上角的 + 新建 按钮，在弹出的创建应用弹出框中填写应用名称和描述后保存</p>
+<p><img src="/resources/android1.png" width="600"/></p>
+<h4 id="_6">更新权限设置</h4>
+<p>创建应用成功之后，即可获得集成 SDK 所需的 appid 和 secret 信息。根据开发需求进行权限设置后，点击右下角的 更新 按钮（注：即使没有更改权限设置，也要进行更新），完成应用创建</p>
+<p><img src="/resources/android2.png" width="600"/></p>
+<h3 id="_7">环境搭建</h3>
+<ul>
+<li>集成 OkHttp3 或 Retrofit2 。</li>
+<li>集成 极光推送 或 个推推送</li>
+</ul>
+<h2 id="sdk">导入 SDK</h2>
+<h3 id="aar">复制 AAR 包</h3>
+<p>复制 libs 目录下的 dmhubsdk-android-x.x.x.aar 文件到工程主 module 的 libs 目录下。</p>
+<h3 id="gradle">修改 GRADLE 配置</h3>
+<p>打开工程主 module 的 build.gradle 配置文件，添加配置：</p>
+<pre><code>android {
+    ......
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    ......
+    compile(name: 'dmhubsdk-android-0.2.0', ext: 'aar')
+    // 集成 OkHttp3 或 Retrofit2，具体版本请根据开发需求选择
+    compile 'com.squareup.okhttp3:okhttp:3.x.x'
+    compile 'com.squareup.retrofit2:retrofit:2.x.x'
+    ......
+}
+</code></pre>
+
+<h3 id="androidmanifestxml">配置 ANDROIDMANIFEST.XML</h3>
+<p>在 AndroidManifest.xml 中的 <application></application> 标签内配置 SDK 所需组件和参数：</p>
+<pre><code>&lt;receiver android:name=&quot;com.convertlab.dmhubsdk.NetReceiver&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.net.conn.CONNECTIVITY_CHANGE&quot; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+
+&lt;meta-data
+    android:name=&quot;DMHubSDKAppId&quot;
+    android:value=&quot;在 DM Hub 平台获得的 appid&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;DMHubSDKSecret&quot;
+    android:value=&quot;在 DM Hub 平台获得的 secret&quot; /&gt;
+&lt;!--
+    您所采用的推送平台，支持极光和个推。
+    如果您采用极光推送，请填写 'jpush'(默认，可以不配置)；
+    如果您采用个推推送，请填写 'getui'；
+    如果您同时采用极光推送和个推推送，请填写 'jpush&amp;amp;getui'。
+--&gt;
+&lt;meta-data
+    android:name=&quot;DMHubPushChannel&quot;
+    android:value=&quot;采用的推送平台&quot; /&gt;
+</code></pre>
+
+<h4 id="_8">如果您是在测试账号下创建的应用，则需要添加配置：</h4>
+<pre><code>&lt;meta-data
+    android:name=&quot;DMHubServer&quot;
+    android:value=&quot;http://api.convertwork.cn&quot; /&gt;
+
+</code></pre>
+
+<h2 id="_9">初始化</h2>
+<p>在自定义的 Application 中的 onCreate 方法中调用初始化方法：</p>
+<pre><code>public class DMHubApp extends Application{
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        // 初始化 DMHubSDK
+        DMHubSDK.sharedInstance().init(this);
+    }
+}
+</code></pre>
+
+<p><strong>注</strong>：在整个应用程序全局，只需要进行一次初始化</p>
+<h2 id="_10">创建初始客户和客户身份</h2>
+<p>在 App 首次接收到推送平台分配的 设备 ID 时，以 设备 ID 作为客户身份创建未知客户和客户身份。</p>
+<hr />
+<ul>
+<li>如果您采用了极光推送，请参照下面的代码创建未知客户和客户 JPush 身份：</li>
+</ul>
+<pre><code>public class YourJPushReceiver extends BroadcastReceiver {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
+            // 接收到 JPush Registration Id
+            String jPushId = intent.getExtras().getString(JPushInterface.EXTRA_REGISTRATION_ID);
+            // 创建未知客户和客户 JPush 身份
+            if (jPushId != null &amp;&amp; &lt;App 首次接收到 JPushId&gt;) {
+                /**
+                 * 创建未知客户和客户 JPush 身份
+                 *
+                 * @param unknownName  创建未知客户时指定的初始用户名，默认为 'unknown'
+                 * @param dmHubAppName 在 DM Hub 创建应用时设置的应用名称
+                 * @param jPushAppKey  JPush 的 AppKey
+                 * @param jPushId      JPush SDK 向 JPush Server 注册所得到的注册 ID
+                 * @param source       显示在 DM Hub 客户时间轴上的客户来源，建议使用 App 名称
+                 */
+                DMHubSDK.sharedInstance().createUnknownCustomerWithJPushIdentity(unknownName, dmHubAppName, jPushAppKey, jPushId, source);
+                // 或者
+                DMHubSDK.sharedInstance().createUnknownCustomerWithJPushIdentity(dmHubAppName, jPushAppKey, jPushId, source);
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<ul>
+<li>如果您采用了个推推送，请参照下面的代码创建未知客户和客户 GeTui 身份：</li>
+</ul>
+<pre><code>public class YourGeTuiIntentService extends GTIntentService {
+
+    @Override
+    public void onReceiveClientId(Context context, String clientid) {
+        // 接收到 GeTui clientid，创建未知客户和客户 GeTui 身份
+        if (clientid != null &amp;&amp; &lt;App 首次接收到 clientid&gt;) {
+            /**
+             * 创建未知客户和客户 GeTui 身份
+             *
+             * @param unknownName  创建未知客户时指定的初始用户名，默认为 'unknown'
+             * @param dmHubAppName 在 DM Hub 创建应用时设置的应用名称
+             * @param geTuiAppKey  GeTui 的 AppKey
+             * @param geTuiId      GeTui SDK 向 GeTui Server 注册所得到的 clientId
+             * @param source       显示在 DM Hub 客户时间轴上的客户来源，建议使用 App 名称
+             */
+            DMHubSDK.sharedInstance().createUnknownCustomerWithGeTuiIdentity(unknownName, dmHubAppName, geTuiAppKey, geTuiId, source);
+            // 或者
+            DMHubSDK.sharedInstance().createUnknownCustomerWithGeTuiIdentity(dmHubAppName, geTuiAppKey, geTuiId, source);
+        }
+    }
+}
+</code></pre>
+
+<h2 id="_11">跟踪客户事件</h2>
+<p>跟踪客户事件是 DMHubSDK 最核心的功能。开发人员可以根据实际需求，通过调用 SDK 提供的方法，对客户事件进行跟踪，将客户在手机原生应用中产生的有价值行为，记录到 DM Hub 平台的客户时间轴上。
+而 DM Hub 平台则会以跟踪到的客户事件为数据基础，对海量客户进行智能筛选和高效互动，从而实现精准营销。</p>
+<h3 id="_12">跟踪预置客户事件</h3>
+<p>为了开发人员能够更方便的调用，DM Hub 平台预置了几种常见的客户事件。</p>
+<hr />
+<ul>
+<li>跟踪客户打开应用事件</li>
+</ul>
+<pre><code>/**
+ * @param appName    应用名称，会在客户时间轴上显示
+ * @param targetId   消息推送服务开放平台分配的 AppKey，如果既采用了极光推送又采用了个推推送，请使用 jPush AppKey
+ * @param appVersion 应用版本号
+ * @param properties 事件的自定义属性
+ */
+DMHubSDK.sharedInstance().openApp(appName, targetId, appVersion, properties);
+// 或者
+DMHubSDK.sharedInstance().openApp(appName, targetId);
+</code></pre>
+
+<ul>
+<li>跟踪客户退出应用事件</li>
+</ul>
+<pre><code>/**
+ * @param appName    应用名称，会在客户时间轴上显示
+ * @param targetId   消息推送服务开放平台分配的 AppKey，如果既采用了极光推送又采用了个推推送，请使用 jPush AppKey
+ * @param appVersion 应用版本号
+ * @param properties 事件的自定义属性
+ */
+DMHubSDK.sharedInstance().exitApp(appName, targetId, appVersion, properties);
+// 或者
+DMHubSDK.sharedInstance().exitApp(appName, targetId);
+</code></pre>
+
+<ul>
+<li>跟踪客户进入页面事件</li>
+</ul>
+<pre><code>/**
+ * @param viewName   页面的名称，可以使用类名或自定义名称，会在客户时间轴上显示
+ * @param viewId     页面的 id，可以使用 HashCode
+ * @param appName    应用名称
+ * @param appVersion 应用版本号
+ * @param properties 事件的自定义属性
+ * 注：页面可以是 Activity、Fragment...
+ */
+DMHubSDK.sharedInstance().openView(viewName, viewId, appName, appVersion, properties);
+// 或者
+DMHubSDK.sharedInstance().openView(viewName, viewId);
+
+</code></pre>
+
+<ul>
+<li>跟踪客户离开页面事件</li>
+</ul>
+<pre><code>/**
+ * @param viewName   页面的名称，可以使用类名或自定义名称，会在客户时间轴上显示
+ * @param viewId     页面的 id，可以使用 HashCode
+ * @param appName    应用名称
+ * @param appVersion 应用版本号
+ * @param properties 事件的自定义属性
+ * 注：页面可以是 Activity、Fragment...
+ */
+DMHubSDK.sharedInstance().exitView(viewName, viewId, appName, appVersion, properties);
+// 或者
+DMHubSDK.sharedInstance().exitView(viewName, viewId);
+</code></pre>
+
+<ul>
+<li>跟踪客户点击通知事件</li>
+</ul>
+<pre><code>/**
+ * @param notiTitle  通知标题，会在客户时间轴上显示
+ * @param notiId     通知 id
+ * @param appName    应用名称
+ * @param appVersion 应用版本号
+ * @param properties 事件的自定义属性
+ */
+DMHubSDK.sharedInstance().clickNotification(notiTitle, notiId, appName, appVersion, properties);
+// 或者
+DMHubSDK.sharedInstance().clickNotification(notiTitle, notiId);
+</code></pre>
+
+<h3 id="_13">跟踪自定义客户事件</h3>
+<p>通过自定义客户事件，可以更灵活的对客户产生的事件进行跟踪。
+在 DM Hub 平台新建自定义事件后，可以通过下面的方法对自定义事件进行跟踪：</p>
+<pre><code>/**
+ * @param eventId    与 DM Hub 中自定义的事件对应的事件 ID
+ * @param targetName 对于自定义事件，客户时间轴上只会显示 targetName，相当于事件标题
+ * @param targetId   客户产生该事件对应的目标(如按钮)的 Id
+ * @param appName    应用名称
+ * @param appVersion 应用版本号
+ * @param properties 事件的自定义属性
+ * 注：事件产生的时间信息 SDK 已进行处理，不需要在通过 properties 参数传递
+ */
+DMHubSDK.sharedInstance().track(eventId, targetName, targetId, appName, appVersion, properties);
+// 或者
+DMHubSDK.sharedInstance().track(eventId, targetName, targetId, properties);
+</code></pre>
+
+<h2 id="_14">技术支持</h2>
+<ul>
+<li>在线客服：在 DM Hub 平台右下角进行客服咨询</li>
+<li>电子邮件：support@convertlab.com</li>
+</ul>
+            <div class="ds-thread" data-thread-key="通过ANDROID SDK进行事件采集" data-title="通过ANDROID SDK进行事件采集" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
