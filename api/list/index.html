@@ -573,7 +573,7 @@ POST请求示例：
 <h2 id="api_6">查看群组成员详情的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式：GET
-https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}
+https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}&amp;page={page}&amp;rows={rows}&amp;sidx={sidx}&amp;sord={sord}
 
 </code></pre>
 
@@ -602,6 +602,26 @@ https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId
 <td align="left">customerId</td>
 <td align="left">否</td>
 <td align="left">要查询群组成员详情的客户id</td>
+</tr>
+<tr>
+<td align="left">page</td>
+<td align="left">否</td>
+<td align="left">起始页，从1开始</td>
+</tr>
+<tr>
+<td align="left">rows</td>
+<td align="left">否</td>
+<td align="left">每页的记录数</td>
+</tr>
+<tr>
+<td align="left">sidx</td>
+<td align="left">否</td>
+<td align="left">排序的字段，默认按id排序</td>
+</tr>
+<tr>
+<td align="left">sord</td>
+<td align="left">否</td>
+<td align="left">asc表示升序，desc表示降序，默认为升序</td>
 </tr>
 </tbody>
 </table>

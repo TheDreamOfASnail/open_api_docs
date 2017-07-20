@@ -766,7 +766,7 @@ https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 <h2 id="api_5">查询客户的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
-https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={stage}&amp;source={source}&amp;mobile={mobile}&amp;gender={gender}&amp;idList={idList}&amp;dateCreatedFrom={dateCreatedFrom}&amp;dateCreatedTo&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;select={select}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={stage}&amp;source={source}&amp;mobile={mobile}&amp;email={email}&amp;gender={gender}&amp;idList={idList}&amp;dateCreatedFrom={dateCreatedFrom}&amp;dateCreatedTo&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;select={select}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
@@ -798,6 +798,11 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={s
 <td align="left">mobile</td>
 <td align="left">否</td>
 <td align="left">用客户的手机查询</td>
+</tr>
+<tr>
+<td align="left">email</td>
+<td align="left">否</td>
+<td align="left">用客户的邮箱查询</td>
 </tr>
 <tr>
 <td align="left">gender</td>
