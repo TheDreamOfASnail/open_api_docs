@@ -13,7 +13,8 @@ https://api.convertlab.com/security/accesstoken?grant_type=client_credentials&ap
 - {secret}用集成应用保存的secret替换
 
 **返回说明**
-```{
+```
+{
   "error_code": 0,
   "access_token": "47c010ea********d30db952ac",
   "expires_in": 7200
