@@ -167,100 +167,99 @@
 
 <h2 id="_1">客户事件模型</h2>
 <p>在DM Hub中，客户的行为都是以客户事件（CustomerEvent）的形式记录的。客户事件会记录客户发生相关行为的所有信息，例如具体行为，行为发生时间，行为涉及的内容，等。DM Hub会根据客户的事件记录进行相关的客户行为分析，漏斗分析，触发自动流程等。通常来讲，客户事件是不可更改不可删除的，因为一般的，客户行为一旦发生便不可逆转。更改客户事件可能会造成DM Hub一些行为的不准确。</p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">属性意义</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">id</td>
-<td align="left">客户事件ID</td>
-<td align="left">Long</td>
-<td align="left">只读字段</td>
+<td>id</td>
+<td>客户事件ID</td>
+<td>Long</td>
+<td>只读字段</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">客户id</td>
-<td align="left">Long</td>
-<td align="left">发生行为的客户。</td>
+<td>customerId</td>
+<td>客户id</td>
+<td>Long</td>
+<td>发生行为的客户。</td>
 </tr>
 <tr>
-<td align="left">event</td>
-<td align="left">事件类型</td>
-<td align="left">String</td>
-<td align="left">事件类型，最长32个英文字符。</td>
+<td>event</td>
+<td>事件类型</td>
+<td>String</td>
+<td>事件类型，最长32个英文字符。</td>
 </tr>
 <tr>
-<td align="left">targetId</td>
-<td align="left">行为所关联的目标id</td>
-<td align="left">String</td>
-<td align="left">比如如果事件为关注公众号，targetId为公众号在DM Hub系统中的id。最长255个字符。</td>
+<td>targetId</td>
+<td>行为所关联的目标id</td>
+<td>String</td>
+<td>比如如果事件为关注公众号，targetId为公众号在DM Hub系统中的id。最长255个字符。</td>
 </tr>
 <tr>
-<td align="left">targetName</td>
-<td align="left">行为所关联的目标名称</td>
-<td align="left">String</td>
-<td align="left">比如如果事件为关注公众号，targetName为公众号的名字。最长255个字符。</td>
+<td>targetName</td>
+<td>行为所关联的目标名称</td>
+<td>String</td>
+<td>比如如果事件为关注公众号，targetName为公众号的名字。最长255个字符。</td>
 </tr>
 <tr>
-<td align="left">date</td>
-<td align="left">行为所发生的时间</td>
-<td align="left">String</td>
-<td align="left">格式为:“2017-06-07T12:20:20Z”</td>
+<td>date</td>
+<td>行为所发生的时间</td>
+<td>String</td>
+<td>格式为:“2017-06-07T12:20:20Z”</td>
 </tr>
 <tr>
-<td align="left">source</td>
-<td align="left">来源</td>
-<td align="left">String</td>
-<td align="left">预先设定的来源，比如订单是从淘宝来的，则来源可以设置为淘宝。</td>
+<td>source</td>
+<td>来源</td>
+<td>String</td>
+<td>预先设定的来源，比如订单是从淘宝来的，则来源可以设置为淘宝。</td>
 </tr>
 <tr>
-<td align="left">score</td>
-<td align="left">客户活跃度</td>
-<td align="left">Integer</td>
-<td align="left">发送该事件会给客户增加多少活跃度。</td>
+<td>score</td>
+<td>客户活跃度</td>
+<td>Integer</td>
+<td>发送该事件会给客户增加多少活跃度。</td>
 </tr>
 <tr>
-<td align="left">tag</td>
-<td align="left">事件发生后为客户添加的内容标签</td>
-<td align="left">String</td>
-<td align="left">多个标签可以用逗号隔开。最长255个字符。</td>
+<td>tag</td>
+<td>事件发生后为客户添加的内容标签</td>
+<td>String</td>
+<td>多个标签可以用逗号隔开。最长255个字符。</td>
 </tr>
 <tr>
-<td align="left">campaign</td>
-<td align="left">营销活动code</td>
-<td align="left">String</td>
-<td align="left">DM Hub创建的营销活动代码</td>
+<td>campaign</td>
+<td>营销活动code</td>
+<td>String</td>
+<td>DM Hub创建的营销活动代码</td>
 </tr>
 <tr>
-<td align="left">campaignName</td>
-<td align="left">营销活动名称</td>
-<td align="left">String</td>
-<td align="left">DM Hub创建的营销活动的名称</td>
+<td>campaignName</td>
+<td>营销活动名称</td>
+<td>String</td>
+<td>DM Hub创建的营销活动的名称</td>
 </tr>
 <tr>
-<td align="left">lastUpdated</td>
-<td align="left">事件记录进入在DM Hub系统的时间</td>
-<td align="left">String</td>
-<td align="left">只读字段</td>
+<td>lastUpdated</td>
+<td>事件记录进入在DM Hub系统的时间</td>
+<td>String</td>
+<td>只读字段</td>
 </tr>
 </tbody>
 </table>
-<p>系统已经内置了以下事件，可以通过访问DM Hub的<strong>设置 &gt; 客户事件</strong> 页面查看
-<img src="/resources/customerevent1.png" width="600"/></p>
+<p>系统已经内置了以下事件，可以通过访问DM Hub的 <strong>设置 &gt; 客户事件</strong> 页面查看</p>
+<p><img src="../../resources/customerevent1.png" width="600"/></p>
 <p>该页面列出了所有内置事件的类型id，推进阶段和默认的活跃度评分。</p>
 <p>除了系统内置事件，您还可以添加自定义事件。要添加自定义事件，请在客户设置页面点击 新建自定义事件 按钮：</p>
-<p><img src="/resources/customerevent2.png" width="600"/></p>
+<p><img src="../../resources/customerevent2.png" width="600"/></p>
 <p>在自定义事件创建对话框中，您可以设置事件的类型id，默认活跃度分数，和事件推进阶段。为了避免将来与内置事件类型发生冲突，自定义事件类型都强制以c_开头，比如上图中的事件类型id为c_apply_card。</p>
 <p>对于自定义事件类型，除了系统内置的属性 (见 客户事件模型) 外，还能添加最多5个自定义属性。要添加自定义属性，请在自定义事件对话框内点击 添加自定义属性 按钮。</p>
 <p>还是以申请信用卡事件c_apply_card为例，我们可以增加一个属性touter来记录地推人员的id。</p>
-<p><img src="/resources/customerevent3.png" width="600"/></p>
+<p><img src="../../resources/customerevent3.png" width="600"/></p>
 <h2 id="api">创建客户事件的API</h2>
 <p>我们以上面定义的自定义事件c_apply_card为例介绍客户事件的创建。</p>
 <p><strong>调用请求</strong></p>
@@ -277,15 +276,11 @@ POST请求示例：
   &quot;source&quot;: &quot;人民广场&quot;,
   &quot;touter&quot;: &quot;t00001&quot;
 }
-
 </code></pre>
 
-<p><strong>参数说明</strong></p>
-<hr />
-<ul>
-<li>{access_token}为访问接口的令牌</li>
-<li>请求体内字段的意义请参见客户事件模型部分</li>
-</ul>
+<p><strong>参数说明</strong>
+- {access_token}为访问接口的令牌
+- 请求体内字段的意义请参见客户事件模型部分</p>
 <p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 1,
@@ -312,11 +307,9 @@ POST请求示例：
 https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
 </code></pre>
 
-<p><strong>参数说明</strong></p>
-<ul>
-<li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
-<li>id 客户事件id</li>
-</ul>
+<p><strong>参数说明</strong>
+- {access_token}用从“获取身份权限”节拿到的access_token替换
+- id 客户事件id</p>
 <p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 1,
@@ -344,65 +337,64 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;cus
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left"></th>
+<th>参数</th>
+<th>是否必填</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">否</td>
-<td align="left">查询指定客户的事件列表</td>
+<td>customerId</td>
+<td>否</td>
+<td>查询指定客户的事件列表</td>
 </tr>
 <tr>
-<td align="left">event</td>
-<td align="left">否</td>
-<td align="left">查询指定的事件类型。多个事件类型可用逗号分开</td>
+<td>event</td>
+<td>否</td>
+<td>查询指定的事件类型。多个事件类型可用逗号分开</td>
 </tr>
 <tr>
-<td align="left">lastUpdatedFrom</td>
-<td align="left">否</td>
-<td align="left">事件更新的起始时间。时间格式为 “2017-06-07T12:13:14Z”, 为UTC时间</td>
+<td>lastUpdatedFrom</td>
+<td>否</td>
+<td>事件更新的起始时间。时间格式为 “2017-06-07T12:13:14Z”, 为UTC时间</td>
 </tr>
 <tr>
-<td align="left">lastUpdatedTo</td>
-<td align="left">否</td>
-<td align="left">事件更新的结束时间。时间格式同上</td>
+<td>lastUpdatedTo</td>
+<td>否</td>
+<td>事件更新的结束时间。时间格式同上</td>
 </tr>
 <tr>
-<td align="left">max</td>
-<td align="left">否</td>
-<td align="left">最多返回多少条数据，默认为20，最大可到1000</td>
+<td>max</td>
+<td>否</td>
+<td>最多返回多少条数据，默认为20，最大可到1000</td>
 </tr>
 <tr>
-<td align="left">rows</td>
-<td align="left">否</td>
-<td align="left">每页的记录数</td>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
 </tr>
 <tr>
-<td align="left">page</td>
-<td align="left">否</td>
-<td align="left">起始页数，以1开始</td>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
 </tr>
 <tr>
-<td align="left">sidx</td>
-<td align="left">否</td>
-<td align="left">排序的字段，比如如果按lastUpdated排序，sidx=lastUpdated</td>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，比如如果按lastUpdated排序，sidx=lastUpdated</td>
 </tr>
 <tr>
-<td align="left">sord</td>
-<td align="left">否</td>
-<td align="left">asc表示升序，desc表示降序，默认为升序</td>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
 </tr>
 </tbody>
 </table>
@@ -427,113 +419,6 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;cus
   }
 ]
 </code></pre>
-
-<!--
-##获取客户事件的API
-
-**调用请求**
-
-wzxhzdk:6
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- 除了access_token参数外，该API还支持以下参数来缩小查询结果集:
-- customerId 查询某个客户的行为事件
-- events 以逗号隔开的事件列表
-- lastUpdatedFrom 事件更新的起始时间(包含)
-- lastUpdatedTo 事件更新的结束时间(包含)
-- max 查询事件的数量，默认为20 （目前最多可以得到1000个事件，后期版本会允许获取更多事件
-
-- - -
-- 除了以上查询参数外，该API还支持分页和排序参数
-- rows 每页的记录数
-- page 第几页
-- sidx 排序的字段, 比如sidx=lastUpdated是按照lastUpdated字段排序
-- sord 排序的方式, asc是升序，desc是降序
-
-**返回参数**
-
-wzxhzdk:7
-
-
-**客户事件的字段信息**
-- - -
-|参数名|数据类型|说明|
-|:---|:---|:---|
-|id|number|事件id|
-|customerId|number|客户的DM Hub id|
-|event|string|事件类型|
-|eventGroup|string|事件所属分组|
-|targetId|string|由event类型决定, 具体请查看event元数据|
-|targetName|string|由event类型决定, 具体请查看event元数据|
-|date|datetime string|事件发生时间，格式为"2016-04-01T13:39:32Z"|
-|location|string|事件发生的地点|
-|channelType|string|事件发生的触点类型|
-|channelAccount|string|事件发生的触点id|
-|lastUpdated|datetime string|最后更新时间|
-|source|bool|来源|
-|score|int|增加或减少的评分|
-|tag|string|标签|
-|pageId|string|微页面的id|
-
-
-##删除单个客户事件的API
-
-**调用请求**
-
-wzxhzdk:8
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- {id}用从“查询客户的API”节拿到的客户id替换
-
-
-##获取事件的元数据
-
-**调用请求**
-
-wzxhzdk:9
-
-
-**示例**
-
-wzxhzdk:10
-
-
-**对应的客户事件为**
-- - -
-
-wzxhzdk:11
-
-
-**根据元数据和客户事件渲染的时间轴部分如下图所示：**
-
-<img src="../../resources/customerevent.png" width="400"/>
-
-- - -
-- 时间轴的时间对应客户事件的date字段
-- 时间轴的“访问页面11/18活动内容”是将客户事件中targetId和targetName替换到客户元数据中title中占位符的结果
-- 时间轴的+3对应客户事件的score字段
-- 标签对应客户事件的tag字段
-- 来源内容对应于访问页面事件来说就是客户事件的targetName
-
-
-##修改单个客户事件的API
-
-**调用请求**
-
-wzxhzdk:12
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- {id}用从“查询客户的API”节拿到的客户id替换
-
--->
             <div class="ds-thread" data-thread-key="客户事件" data-title="客户事件" data-url=""></div>
         </div>
         

@@ -146,13 +146,10 @@
                     <li class=""><a href="#api_5">将多个客户加入某群组的API</a></li>
                     
                   
-                    <li class=""><a href="#api_6">查看群组成员详情的API</a></li>
+                    <li class=""><a href="#api_6">根据条件获取群组成员的客户详情的API</a></li>
                     
                   
-                    <li class=""><a href="#api_7">根据条件获取群组成员的客户详情的API</a></li>
-                    
-                  
-                    <li class=""><a href="#api_8">根据条件获取群组成员的数量的API</a></li>
+                    <li class=""><a href="#api_7">根据条件获取群组成员的数量的API</a></li>
                     
                   
                   </ul>
@@ -186,78 +183,76 @@
 <h2 id="_1">群组模型</h2>
 <p>您可以将客户按不同的条件分成不同的群组，并对不同群组的客户采用不同的策略进行培育。这种分组除了可以DM Hub系统中进行，您也可以通过开发API来完成。DM Hub的群组API允许操作静态群组，向群组中添加成员，查询成员列表等。</p>
 <p><strong>群组模型</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">属性意义</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">id</td>
-<td align="left">群组id</td>
-<td align="left">Long</td>
-<td align="left">只读字段</td>
+<td>id</td>
+<td>群组id</td>
+<td>Long</td>
+<td>只读字段</td>
 </tr>
 <tr>
-<td align="left">name</td>
-<td align="left">群组名</td>
-<td align="left">String</td>
-<td align="left">最长运行255个字符</td>
+<td>name</td>
+<td>群组名</td>
+<td>String</td>
+<td>最长运行255个字符</td>
 </tr>
 <tr>
-<td align="left">dateCreated</td>
-<td align="left">群组创建时间</td>
-<td align="left">String</td>
-<td align="left">格式为: “2017-06-07T12:20:20Z” 为UTC时间</td>
+<td>dateCreated</td>
+<td>群组创建时间</td>
+<td>String</td>
+<td>格式为: “2017-06-07T12:20:20Z” 为UTC时间</td>
 </tr>
 <tr>
-<td align="left">lastUpdated</td>
-<td align="left">群组修改时间</td>
-<td align="left">String</td>
-<td align="left">格式同dateCreated</td>
+<td>lastUpdated</td>
+<td>群组修改时间</td>
+<td>String</td>
+<td>格式同dateCreated</td>
 </tr>
 </tbody>
 </table>
 <p><strong>群组成员模型</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">属性意义</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">id</td>
-<td align="left">客户在群组中的成员id</td>
-<td align="left">Long</td>
-<td align="left">只读字段</td>
+<td>id</td>
+<td>客户在群组中的成员id</td>
+<td>Long</td>
+<td>只读字段</td>
 </tr>
 <tr>
-<td align="left">listId</td>
-<td align="left">群组id</td>
-<td align="left">Long</td>
-<td align="left"></td>
+<td>listId</td>
+<td>群组id</td>
+<td>Long</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">客户id</td>
-<td align="left">Long</td>
-<td align="left"></td>
+<td>customerId</td>
+<td>客户id</td>
+<td>Long</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">dateCreated</td>
-<td align="left">加入群组时间</td>
-<td align="left">String</td>
-<td align="left">格式为: “2017-06-07T12:20:20Z” 为UTC时间</td>
+<td>dateCreated</td>
+<td>加入群组时间</td>
+<td>String</td>
+<td>格式为: “2017-06-07T12:20:20Z” 为UTC时间</td>
 </tr>
 </tbody>
 </table>
@@ -273,25 +268,24 @@ POST请求示例：
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">name</td>
-<td align="left">是</td>
-<td align="left">群组名称</td>
+<td>name</td>
+<td>是</td>
+<td>群组名称</td>
 </tr>
 </tbody>
 </table>
@@ -311,29 +305,28 @@ https://api.convertlab.com/v1/lists/{id}?access_token={access_token}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">id</td>
-<td align="left">是</td>
-<td align="left">群组id</td>
+<td>id</td>
+<td>是</td>
+<td>群组id</td>
 </tr>
 </tbody>
 </table>
-<p><strong>注：</strong>删除群组并不会删除客户</p>
+<p><strong>注：</strong> 删除群组并不会删除客户</p>
 <h2 id="api_2">查询群组列表的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>http请求方式GET
@@ -341,40 +334,39 @@ https://api.convertlab.com/v1/lists?access_token={access_token}&amp;rows={rows}&
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">rows</td>
-<td align="left">否</td>
-<td align="left">每页的记录数</td>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
 </tr>
 <tr>
-<td align="left">page</td>
-<td align="left">否</td>
-<td align="left">起始页数，以1开始</td>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
 </tr>
 <tr>
-<td align="left">sidx</td>
-<td align="left">否</td>
-<td align="left">排序的字段，默认按id排序</td>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
 </tr>
 <tr>
-<td align="left">sord</td>
-<td align="left">否</td>
-<td align="left">asc表示升序，desc表示降序，默认为升序</td>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
 </tr>
 </tbody>
 </table>
@@ -395,7 +387,6 @@ https://api.convertlab.com/v1/lists?access_token={access_token}&amp;rows={rows}&
 </code></pre>
 
 <p><strong>返回结果说明</strong></p>
-<hr />
 <ul>
 <li>page 结果为第几页</li>
 <li>records 返回的记录条数</li>
@@ -417,35 +408,34 @@ POST请求示例：
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">data</td>
-<td align="left">是</td>
-<td align="left">具体数据都存放在该字段内</td>
+<td>data</td>
+<td>是</td>
+<td>具体数据都存放在该字段内</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">是</td>
-<td align="left">要加入群组的客户id</td>
+<td>customerId</td>
+<td>是</td>
+<td>要加入群组的客户id</td>
 </tr>
 <tr>
-<td align="left">listId</td>
-<td align="left">是</td>
-<td align="left">要加入的群组id</td>
+<td>listId</td>
+<td>是</td>
+<td>要加入的群组id</td>
 </tr>
 </tbody>
 </table>
@@ -462,7 +452,6 @@ POST请求示例：
 </code></pre>
 
 <p><strong>返回结果说明</strong></p>
-<hr />
 <ul>
 <li>id为客户在群组中的id</li>
 <li>dateCreated 为客户加入群组中的时间</li>
@@ -474,25 +463,24 @@ https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">id</td>
-<td align="left">是</td>
-<td align="left">要删除客户在群组中的id</td>
+<td>id</td>
+<td>是</td>
+<td>要删除客户在群组中的id</td>
 </tr>
 </tbody>
 </table>
@@ -517,35 +505,34 @@ POST请求示例：
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">items</td>
-<td align="left">是</td>
-<td align="left">存放具体数据数组</td>
+<td>items</td>
+<td>是</td>
+<td>存放具体数据数组</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">是</td>
-<td align="left">要加入群组的客户id</td>
+<td>customerId</td>
+<td>是</td>
+<td>要加入群组的客户id</td>
 </tr>
 <tr>
-<td align="left">listId</td>
-<td align="left">是</td>
-<td align="left">要加入的群组id</td>
+<td>listId</td>
+<td>是</td>
+<td>要加入的群组id</td>
 </tr>
 </tbody>
 </table>
@@ -568,140 +555,104 @@ POST请求示例：
       }
     ]
   }
+  ```
+
+## 查看群组成员详情的API
+**调用请求**
 </code></pre>
 
-<h2 id="api_6">查看群组成员详情的API</h2>
-<p><strong>调用请求</strong></p>
-<pre><code>HTTP请求方式：GET
-https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}&amp;page={page}&amp;rows={rows}&amp;sidx={sidx}&amp;sord={sord}
+<p>HTTP请求方式：GET
+https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}&amp;page={page}&amp;rows={rows}&amp;sidx={sidx}&amp;sord={sord}</p>
+<pre><code>
+**参数说明**
 
+|参数|    是否必填|   说明|
+| ------------ | ------- |-------------- |
+|access_token|  是   |访问API的令牌|
+|listId|    否|  要查询群组成员详情的群组id|
+|customerId|    否|  要查询群组成员详情的客户id|
+|page|  否|  起始页，从1开始|
+|rows|  否|  每页的记录数|
+|sidx|  否|  排序的字段，默认按id排序|
+|sord|  否|  asc表示升序，desc表示降序，默认为升序|
+
+**返回结果**
 </code></pre>
 
-<p><strong>参数说明</strong></p>
-<hr />
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
-</tr>
-<tr>
-<td align="left">listId</td>
-<td align="left">否</td>
-<td align="left">要查询群组成员详情的群组id</td>
-</tr>
-<tr>
-<td align="left">customerId</td>
-<td align="left">否</td>
-<td align="left">要查询群组成员详情的客户id</td>
-</tr>
-<tr>
-<td align="left">page</td>
-<td align="left">否</td>
-<td align="left">起始页，从1开始</td>
-</tr>
-<tr>
-<td align="left">rows</td>
-<td align="left">否</td>
-<td align="left">每页的记录数</td>
-</tr>
-<tr>
-<td align="left">sidx</td>
-<td align="left">否</td>
-<td align="left">排序的字段，默认按id排序</td>
-</tr>
-<tr>
-<td align="left">sord</td>
-<td align="left">否</td>
-<td align="left">asc表示升序，desc表示降序，默认为升序</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回结果</strong></p>
-<pre><code>{
-    &quot;items&quot;: [
+<p>{
+    "items": [
       {
-        &quot;id&quot;: 1,
-        &quot;customerId&quot;: 92,
-        &quot;dateCreated&quot;: &quot;2017-01-24T07:32:33Z&quot;,
-        &quot;lastUpdated&quot;: &quot;2017-01-24T07:32:34Z&quot;,
-        &quot;listId&quot;: 1
+        "id": 1,
+        "customerId": 92,
+        "dateCreated": "2017-01-24T07:32:33Z",
+        "lastUpdated": "2017-01-24T07:32:34Z",
+        "listId": 1
       },
       {
-        &quot;id&quot;: 2,
-        &quot;customerId&quot;: 91,
-        &quot;dateCreated&quot;: &quot;2017-01-24T07:33:34Z&quot;,
-        &quot;lastUpdated&quot;: &quot;2017-01-24T07:33:34Z&quot;,
-        &quot;listId&quot;: 1
+        "id": 2,
+        "customerId": 91,
+        "dateCreated": "2017-01-24T07:33:34Z",
+        "lastUpdated": "2017-01-24T07:33:34Z",
+        "listId": 1
       }
     ]
   }
-</code></pre>
-
-<h2 id="api_7">根据条件获取群组成员的客户详情的API</h2>
+  ```</p>
+<h2 id="api_6">根据条件获取群组成员的客户详情的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式：GET
 https://api.convertlab.com/v1/listservice/members?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">listId</td>
-<td align="left">是</td>
-<td align="left">要查询的群组</td>
+<td>listId</td>
+<td>是</td>
+<td>要查询的群组</td>
 </tr>
 <tr>
-<td align="left">joinListDateSince</td>
-<td align="left">否</td>
-<td align="left">加入群组的最早时间</td>
+<td>joinListDateSince</td>
+<td>否</td>
+<td>加入群组的最早时间</td>
 </tr>
 <tr>
-<td align="left">joinListDateTo</td>
-<td align="left">否</td>
-<td align="left">加入群组的最晚时间</td>
+<td>joinListDateTo</td>
+<td>否</td>
+<td>加入群组的最晚时间</td>
 </tr>
 <tr>
-<td align="left">rows</td>
-<td align="left">否</td>
-<td align="left">每页的记录数</td>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
 </tr>
 <tr>
-<td align="left">page</td>
-<td align="left">否</td>
-<td align="left">起始页数，以1开始</td>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
 </tr>
 <tr>
-<td align="left">sidx</td>
-<td align="left">否</td>
-<td align="left">排序的字段，默认按id排序</td>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
 </tr>
 <tr>
-<td align="left">sord</td>
-<td align="left">否</td>
-<td align="left">asc表示升序，desc表示降序，默认为升序</td>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
 </tr>
 </tbody>
 </table>
@@ -746,163 +697,44 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&am
 }
 </code></pre>
 
-<h2 id="api_8">根据条件获取群组成员的数量的API</h2>
+<h2 id="api_7">根据条件获取群组成员的数量的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方法：GET
 https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">listId</td>
-<td align="left">是</td>
-<td align="left">要查询的群组</td>
+<td>listId</td>
+<td>是</td>
+<td>要查询的群组</td>
 </tr>
 <tr>
-<td align="left">joinListDateSince</td>
-<td align="left">否</td>
-<td align="left">加入群组的最早时间</td>
+<td>joinListDateSince</td>
+<td>否</td>
+<td>加入群组的最早时间</td>
 </tr>
 <tr>
-<td align="left">joinListDateTo</td>
-<td align="left">否</td>
-<td align="left">加入群组的最晚时间</td>
+<td>joinListDateTo</td>
+<td>否</td>
+<td>加入群组的最晚时间</td>
 </tr>
 </tbody>
 </table>
-<!--
-##获取所有群组的API
-
-**调用请求**
-
-
-wzxhzdk:15
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- 除了access_token参数外，该API还支持以下参数来缩小查询结果集:
-    - customerId 查询指定客户的订单
-    - rows 每页的记录数
-    - page 第几页
-    - sidx 排序的字段
-    - sord 排序的方式, asc是升序，desc是降序
-
-**群组模型**
-- - -
-|参数名|数据类型|说明|
-|:---|:---|:---|
-|autoUpdate|number|是否自动更新|
-|dateCreated|datetime string|创建日期|
-|filters|string|过滤器|
-|logicalOperator|string|'和'或'或者'|
-|subFilters|string|筛选条件|
-|conditions|string|条件|
-|category|string|类别|
-|group|string|所属组|
-|operator|string|操作人员|
-|pageId|number|页面ID|
-|parameter|string|参数|
-|value|string|值|
-|id|string|群组id|
-|isStatic|string|是否静止|
-|isSystem|string|是否系统化|
-|lastUpdated|datetime string|群组最后一次更新时间|
-|name|string|群组名|
-|sortBy|string|排序|
-|status|string|群组状态|
-
-
-##获取单个客户群组的API
-
-**调用请求**
-
-wzxhzdk:16
-
-
-**参数说明**
-- - -
-- {id}是要获取客户群组的id
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-
-**群组模型**
-- - -
-|参数名|数据类型|说明|
-|:---|:---|:---|
-|autoUpdate|number|是否自动更新|
-|dateCreated|datetime string|创建日期|
-|filters|string|过滤器|
-|logicalOperator|string|'和'或'或者'|
-|subFilters|string|筛选条件|
-|conditions|string|条件|
-|category|string|类别|
-|group|string|所属组|
-|operator|string|操作人员|
-|pageId|number|页面ID|
-|parameter|string|参数|
-|value|string|值|
-|id|string|群组id|
-|isStatic|string|是否静止|
-|isSystem|string|是否系统化|
-|lastUpdated|datetime string|群组最后一次更新时间|
-|name|string|群组名|
-|sortBy|string|排序|
-|status|string|群组状态|
-
-
-##更新单个客户群组的API
-
-**调用请求**
-
-wzxhzdk:17
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- {id}是要更新订单的客户id
-
-
-##获取单个群组内客户的API
-
-**调用请求**
-
-
-wzxhzdk:18
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- listId 要获取客户的群组ID
-- select 返回的字段，多个字段用逗号隔开
-    - 除了以上查询参数外，该API还支持分页和排序参数
-    - rows 每页的记录数
-    - page 第几页
-    - sidx 排序的字段
-    - sord 排序的方式, asc是升序，desc是降序
-
-**示例**
-
-wzxhzdk:19
-
--->
             <div class="ds-thread" data-thread-key="客户群组" data-title="客户群组" data-url=""></div>
         </div>
         

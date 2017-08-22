@@ -192,254 +192,254 @@
 <h1>客户信息</h1>
 
 <h2 id="_1">客户模型</h2>
-<p><img src="/resources/customer.png" width="600"/></p>
+<p><img src="../../resources/customer.png" width="600"/></p>
 <p>DM Hub为客户内置一些比较通用的客户属性，这些属性的名称和类型如下表所示：</p>
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">界面显示名称</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>属性</th>
+<th>界面显示名称</th>
+<th>类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">id</td>
-<td align="left">客户ID</td>
-<td align="left">Long</td>
-<td align="left">只读字段</td>
+<td>id</td>
+<td>客户ID</td>
+<td>Long</td>
+<td>只读字段</td>
 </tr>
 <tr>
-<td align="left">displayName</td>
-<td align="left">显示名</td>
-<td align="left">String</td>
-<td align="left">只读字段。如果name不为空，等于name的值，否则等于nickName的值</td>
+<td>displayName</td>
+<td>显示名</td>
+<td>String</td>
+<td>只读字段。如果name不为空，等于name的值，否则等于nickName的值</td>
 </tr>
 <tr>
-<td align="left">name</td>
-<td align="left">姓名</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>name</td>
+<td>姓名</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">img</td>
-<td align="left">用户头像</td>
-<td align="left">String</td>
-<td align="left">头像地址URL</td>
+<td>img</td>
+<td>用户头像</td>
+<td>String</td>
+<td>头像地址URL</td>
 </tr>
 <tr>
-<td align="left">gender</td>
-<td align="left">性别</td>
-<td align="left">Integer</td>
-<td align="left">0和空代表未知，1代表男，2代表女</td>
+<td>gender</td>
+<td>性别</td>
+<td>Integer</td>
+<td>0和空代表未知，1代表男，2代表女</td>
 </tr>
 <tr>
-<td align="left">mobile</td>
-<td align="left">手机号码</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>mobile</td>
+<td>手机号码</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">mobileVerified</td>
-<td align="left">手机号码是否验证</td>
-<td align="left">Boolean</td>
-<td align="left">值为true或false</td>
+<td>mobileVerified</td>
+<td>手机号码是否验证</td>
+<td>Boolean</td>
+<td>值为true或false</td>
 </tr>
 <tr>
-<td align="left">email</td>
-<td align="left">邮箱</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>email</td>
+<td>邮箱</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">emailVerified</td>
-<td align="left">邮箱是否验证</td>
-<td align="left">Boolean</td>
-<td align="left">值为true或false</td>
+<td>emailVerified</td>
+<td>邮箱是否验证</td>
+<td>Boolean</td>
+<td>值为true或false</td>
 </tr>
 <tr>
-<td align="left">birthday</td>
-<td align="left">生日</td>
-<td align="left">String</td>
-<td align="left">格式为:</td>
+<td>birthday</td>
+<td>生日</td>
+<td>String</td>
+<td>格式为:</td>
 </tr>
 <tr>
-<td align="left">wechat</td>
-<td align="left">微信号</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>wechat</td>
+<td>微信号</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">nickName</td>
-<td align="left">微信昵称</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>nickName</td>
+<td>微信昵称</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">country</td>
-<td align="left">国家</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>country</td>
+<td>国家</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">province</td>
-<td align="left">省份</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>province</td>
+<td>省份</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">city</td>
-<td align="left">城市</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>city</td>
+<td>城市</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">county</td>
-<td align="left">区/县</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>county</td>
+<td>区/县</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">homeAddress</td>
-<td align="left">家庭地址</td>
-<td align="left">String</td>
-<td align="left">最长512个字符</td>
+<td>homeAddress</td>
+<td>家庭地址</td>
+<td>String</td>
+<td>最长512个字符</td>
 </tr>
 <tr>
-<td align="left">officeAddress</td>
-<td align="left">公司地址</td>
-<td align="left">String</td>
-<td align="left">最长512个字符</td>
+<td>officeAddress</td>
+<td>公司地址</td>
+<td>String</td>
+<td>最长512个字符</td>
 </tr>
 <tr>
-<td align="left">qq</td>
-<td align="left">QQ</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>qq</td>
+<td>QQ</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">weibo</td>
-<td align="left">微博</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>weibo</td>
+<td>微博</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">stage</td>
-<td align="left">当前阶段</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>stage</td>
+<td>当前阶段</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">dateJoin</td>
-<td align="left">创建时间</td>
-<td align="left">String</td>
-<td align="left">格式为:“2017-06-01T12:12:12Z” 为UTC时间 对于微信粉丝，这个字段记录其关注微信的时间。</td>
+<td>dateJoin</td>
+<td>创建时间</td>
+<td>String</td>
+<td>格式为:“2017-06-01T12:12:12Z” 为UTC时间 对于微信粉丝，这个字段记录其关注微信的时间。</td>
 </tr>
 <tr>
-<td align="left">source</td>
-<td align="left">初始来源</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>source</td>
+<td>初始来源</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">contentName</td>
-<td align="left">初始来源内容</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>contentName</td>
+<td>初始来源内容</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">company</td>
-<td align="left">公司</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>company</td>
+<td>公司</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">title</td>
-<td align="left">职位</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>title</td>
+<td>职位</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">industry</td>
-<td align="left">公司行业</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>industry</td>
+<td>公司行业</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">employeeNumber</td>
-<td align="left">公司员工数</td>
-<td align="left">Integer</td>
-<td align="left"></td>
+<td>employeeNumber</td>
+<td>公司员工数</td>
+<td>Integer</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">annualRevenue</td>
-<td align="left">公司年收入</td>
-<td align="left">BigDecimal</td>
-<td align="left"></td>
+<td>annualRevenue</td>
+<td>公司年收入</td>
+<td>BigDecimal</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">website</td>
-<td align="left">公司网站</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>website</td>
+<td>公司网站</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">telephone</td>
-<td align="left">座机</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>telephone</td>
+<td>座机</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">isEmployee</td>
-<td align="left">是否本公司员工</td>
-<td align="left">Boolean</td>
-<td align="left"></td>
+<td>isEmployee</td>
+<td>是否本公司员工</td>
+<td>Boolean</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">campaignId</td>
-<td align="left">营销活动ID</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>campaignId</td>
+<td>营销活动ID</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">campaignName</td>
-<td align="left">营销活动</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>campaignName</td>
+<td>营销活动</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">lastUpdated</td>
-<td align="left">最后更新时间</td>
-<td align="left">String</td>
-<td align="left">只读字段，格式为:“2017-06-01T12:12:12Z”为UTC时间</td>
+<td>lastUpdated</td>
+<td>最后更新时间</td>
+<td>String</td>
+<td>只读字段，格式为:“2017-06-01T12:12:12Z”为UTC时间</td>
 </tr>
 <tr>
-<td align="left">remark</td>
-<td align="left">备注</td>
-<td align="left">String</td>
-<td align="left"></td>
+<td>remark</td>
+<td>备注</td>
+<td>String</td>
+<td></td>
 </tr>
 <tr>
-<td align="left">dateCreated</td>
-<td align="left">系统创建时间</td>
-<td align="left">String</td>
-<td align="left">只读字段，格式为:“2017-06-01T12:12:12Z”为UTC时间</td>
+<td>dateCreated</td>
+<td>系统创建时间</td>
+<td>String</td>
+<td>只读字段，格式为:“2017-06-01T12:12:12Z”为UTC时间</td>
 </tr>
 <tr>
-<td align="left">attr</td>
-<td align="left">自定义字段</td>
-<td align="left">Object</td>
-<td align="left">自定义字段数据存放在该对象上</td>
+<td>attr</td>
+<td>自定义字段</td>
+<td>Object</td>
+<td>自定义字段数据存放在该对象上</td>
 </tr>
 </tbody>
 </table>
 <p>除了系统内置的客户属性外，您还可以增加自定义属性。请登录DM Hub，并打开 设置 &gt; 客户属性 设置页面:</p>
-<p><img src="/resources/customer1.png" width="600"/></p>
+<p><img src="../../resources/customer1.png" width="600"/></p>
 <p>进入客户属性页面后，点击右上角的 新建用户属性 按钮，新建客户属性：</p>
-<p><img src="/resources/customer2.png" width="600"/></p>
-<p>新建的用户属性会在客户属性列表页显示其技术名，如attr1，attr2等：
-<img src="/resources/customer3.png" width="600"/></p>
+<p><img src="../../resources/customer2.png" width="600"/></p>
+<p>新建的用户属性会在客户属性列表页显示其技术名，如attr1，attr2等：</p>
+<p><img src="../../resources/customer3.png" width="600"/></p>
 <p>客户自定义属性会作为客户attr字段的属性，attr字段是一个对象类型。以下是含有自定义字段attr1的客户数据的JSON示例：</p>
 <pre><code>{
     &quot;name&quot;: &quot;西门吹雪&quot;,
@@ -452,58 +452,56 @@
 <h2 id="_2">客户身份模型</h2>
 <p>客户通常是跨触点的，即一个客户同时在多个触点上与您接触。比如一个客户既使用浏览器浏览您的官网，又关注了您的微信公众号，同时又在您的某网上商城购买了东西。通常情况下，客户在任一个触点，都拥有一个该触点所特有的身份信息，如网页里的cookie，微信的openid，网上商城的登录账号。在DM Hub系统中一个客户可以同时拥有多个身份。DM Hub可以通过身份信息将多个触点上的客户信息进行合并。</p>
 <p>客户身份有身份类型和身份值两个字段组成：</p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">字段</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>字段</th>
+<th>型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">type</td>
-<td align="left">字符串(String)</td>
-<td align="left">身份类型，如wechat表示微信openid，最长32位字符。对于自定义的身份类型，建议使用小写字母加中划线或下划线的方式</td>
+<td>type</td>
+<td>字符串(String)</td>
+<td>身份类型，如wechat表示微信openid，最长32位字符。对于自定义的身份类型，建议使用小写字母加中划线或下划线的方式</td>
 </tr>
 <tr>
-<td align="left">value</td>
-<td align="left">字符串(String)</td>
-<td align="left">身份值，与type对应的值，如果type为wechat，value就是对应的openid。最长128位字符</td>
+<td>value</td>
+<td>字符串(String)</td>
+<td>身份值，与type对应的值，如果type为wechat，value就是对应的openid。最长128位字符</td>
 </tr>
 </tbody>
 </table>
 <p>DM Hub内置了几个身份类型:</p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">内置身份类型</th>
-<th align="left">含义</th>
+<th>内置身份类型</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">wechat</td>
-<td align="left">微信的openid</td>
+<td>wechat</td>
+<td>微信的openid</td>
 </tr>
 <tr>
-<td align="left">wechat-unionid</td>
-<td align="left">微信的unionid</td>
+<td>wechat-unionid</td>
+<td>微信的unionid</td>
 </tr>
 <tr>
-<td align="left">email</td>
-<td align="left">邮箱</td>
+<td>email</td>
+<td>邮箱</td>
 </tr>
 <tr>
-<td align="left">mobile</td>
-<td align="left">手机号</td>
+<td>mobile</td>
+<td>手机号</td>
 </tr>
 </tbody>
 </table>
 <h2 id="_3">创建客户</h2>
-<h4 id="api">带身份创建客户的API</h4>
+<h3 id="api">带身份创建客户的API</h3>
 <p>带身份的客户创建，顾名思义是创建客户的时候提供一个或多个客户身份。如果提供的身份已绑定到DM Hub中的现有客户，那么该API便不会创建新的客户，而是更新既有客户，同时将其他身份绑定到该客户上；如果客户信息内提供了手机和邮件地址信息，并且能通过该手机号或邮件地址在DM Hub查到客户，那么该API也不会创建新客户，而是更新找到的客户，并把身份绑定到该客户身上。如果以上两种情况都没找到客户，那么该API会创建一个新客户，并将所有客户身份信息绑定到该客户上。</p>
 <p>需要注意的是，调用该接口更新现有客户的时候，无法将客户的字段清空。如果确实想清空客户的某些字段，请调用 更新客户API</p>
 <p><strong>调用请求</strong></p>
@@ -531,7 +529,6 @@ POST数据示例:
         }
     ]
 }
-
 </code></pre>
 
 <p><strong>参数说明</strong></p>
@@ -587,13 +584,10 @@ POST数据示例:
     &quot;attr1&quot;: null
   }
 }
-
-
 </code></pre>
 
-<p><strong>注意事项</strong>: 使用微信openid或unionid作为客户身份之前，请将微信公众号绑定到DM Hub系统，并将微信粉丝导入到DM Hub系统。</p>
-<hr />
-<h4 id="api_1">普通创建客户API</h4>
+<p><strong>注意事项:</strong> 使用微信openid或unionid作为客户身份之前，请将微信公众号绑定到DM Hub系统，并将微信粉丝导入到DM Hub系统。</p>
+<h3 id="api_1">普通创建客户API</h3>
 <p>普通创建客户API会根据请求体中的手机号码和邮件地址去查找现有客户，如果能查找到客户，就会更新现有客户，否则则创建一下新客户。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: POST
@@ -605,15 +599,12 @@ POST数据示例:
     &quot;mobileVerified&quot;: true,
     &quot;gender&quot;: 1
 }
-</code></pre>
+参数说明
 
-<hr />
-<p><strong>参数说明</strong></p>
-<ul>
-<li>{access_token} 的值为调用API的令牌，请参见 获取access_token</li>
-</ul>
-<p><strong>返回结果</strong></p>
-<pre><code>{
+{access_token} 的值为调用API的令牌，请参见 获取access_token
+返回结果
+
+{
   &quot;id&quot;: 7,
   &quot;displayName&quot;: &quot;小D&quot;,
   &quot;name&quot;: &quot;小D&quot;,
@@ -661,8 +652,7 @@ POST数据示例:
 </code></pre>
 
 <h2 id="api_2">更新客户的API</h2>
-<p>调用该API可以对DM Hub系统中的客户进行修改。
-需要注意的一点是，对于mobileVerified为true的手机号，在手机号码不变的情况下，无法将mobileVerified字段改为false。对于emailVerified为true的电子邮箱，在邮箱地址不变的情况下，无法将emailVerified字段改为false。</p>
+<p>调用该API可以对DM Hub系统中的客户进行修改。 需要注意的一点是，对于mobileVerified为true的手机号，在手机号码不变的情况下，无法将mobileVerified字段改为false。对于emailVerified为true的电子邮箱，在邮箱地址不变的情况下，无法将emailVerified字段改为false。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: PUT
 https://api.convertlab.com/v1/customers/&lt;id&gt;?access_token={access_token}
@@ -673,11 +663,9 @@ PUT数据示例：
     &quot;mobileVerified&quot;: true,
     &quot;gender&quot;: 1
 }
-
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <ul>
 <li>{access_token} 访问该API的令牌，请参见 获取access_token</li>
 <li>id 要修改的客户id</li>
@@ -694,7 +682,6 @@ https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <ul>
 <li>access_token 访问该API的令牌，请参见 获取access_token</li>
 <li>id 要修改的客户id</li>
@@ -714,7 +701,6 @@ https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 <li>{id}是要获取客户的id</li>
 <li>{access_token}用从“获取身份权限”节拿到的access_token替换</li>
 </ul>
-<hr />
 <p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 7,
@@ -773,99 +759,96 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={s
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">stage</td>
-<td align="left">否</td>
-<td align="left">用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</td>
+<td>stage</td>
+<td>否</td>
+<td>用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</td>
 </tr>
 <tr>
-<td align="left">source</td>
-<td align="left">否</td>
-<td align="left">用客户的初始来源查询</td>
+<td>source</td>
+<td>否</td>
+<td>用客户的初始来源查询</td>
 </tr>
 <tr>
-<td align="left">mobile</td>
-<td align="left">否</td>
-<td align="left">用客户的手机查询</td>
+<td>mobile</td>
+<td>否</td>
+<td>用客户的手机查询</td>
 </tr>
 <tr>
-<td align="left">email</td>
-<td align="left">否</td>
-<td align="left">用客户的邮箱查询</td>
+<td>email</td>
+<td>否</td>
+<td>用客户的邮箱查询</td>
 </tr>
 <tr>
-<td align="left">gender</td>
-<td align="left">否</td>
-<td align="left">用客户的性别查询, 1代表男性，2代表女性，0代表未知</td>
+<td>gender</td>
+<td>否</td>
+<td>用客户的性别查询, 1代表男性，2代表女性，0代表未知</td>
 </tr>
 <tr>
-<td align="left">idList</td>
-<td align="left">否</td>
-<td align="left">支持以逗号分开的客户id列表，如idList=1,2,3,4</td>
+<td>idList</td>
+<td>否</td>
+<td>支持以逗号分开的客户id列表，如idList=1,2,3,4</td>
 </tr>
 <tr>
-<td align="left">dateCreatedFrom</td>
-<td align="left">否</td>
-<td align="left">客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
+<td>dateCreatedFrom</td>
+<td>否</td>
+<td>客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
 </tr>
 <tr>
-<td align="left">dateCreatedTo</td>
-<td align="left">否</td>
-<td align="left">客户创建的结束时间</td>
+<td>dateCreatedTo</td>
+<td>否</td>
+<td>客户创建的结束时间</td>
 </tr>
 <tr>
-<td align="left">lastUpdatedFrom</td>
-<td align="left">否</td>
-<td align="left">客户更新的起始时间(包含)</td>
+<td>lastUpdatedFrom</td>
+<td>否</td>
+<td>客户更新的起始时间(包含)</td>
 </tr>
 <tr>
-<td align="left">lastUpdatedTo</td>
-<td align="left">否</td>
-<td align="left">客户更新的结束时间</td>
+<td>lastUpdatedTo</td>
+<td>否</td>
+<td>客户更新的结束时间</td>
 </tr>
 <tr>
-<td align="left">select</td>
-<td align="left">否</td>
-<td align="left">返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段</td>
+<td>select</td>
+<td>否</td>
+<td>返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段</td>
 </tr>
 <tr>
-<td align="left">rows</td>
-<td align="left">否</td>
-<td align="left">每页的记录数，默认每页返回20行</td>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数，默认每页返回20行</td>
 </tr>
 <tr>
-<td align="left">page</td>
-<td align="left">否</td>
-<td align="left">返回第几页，默认返回第1页</td>
+<td>page</td>
+<td>否</td>
+<td>返回第几页，默认返回第1页</td>
 </tr>
 <tr>
-<td align="left">sidx</td>
-<td align="left">否</td>
-<td align="left">按什么字段排序，默认按id排序</td>
+<td>sidx</td>
+<td>否</td>
+<td>按什么字段排序，默认按id排序</td>
 </tr>
 <tr>
-<td align="left">sord</td>
-<td align="left">否</td>
-<td align="left">asc表示升序，desc表示降序。默认按升序排序</td>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序。默认按升序排序</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回结果</strong></p>
-<hr />
-<ul>
-<li>返回的所有客户数据保存在名叫rows的array字段中</li>
-</ul>
+<p><strong>返回结果</strong>
+- 返回的所有客户数据保存在名叫rows的array字段中</p>
 <pre><code>{
   &quot;rows&quot;: [
     {
@@ -901,70 +884,69 @@ https://api.convertlab.com/v1/customers/count?access_token={access_token}&amp;st
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">stage</td>
-<td align="left">否</td>
-<td align="left">用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</td>
+<td>stage</td>
+<td>否</td>
+<td>用客户所处的阶段查询，如过查询的阶段为空，请使用stage=_empty</td>
 </tr>
 <tr>
-<td align="left">source</td>
-<td align="left">否</td>
-<td align="left">用客户的初始来源查询</td>
+<td>source</td>
+<td>否</td>
+<td>用客户的初始来源查询</td>
 </tr>
 <tr>
-<td align="left">mobile</td>
-<td align="left">否</td>
-<td align="left">用客户的手机查询</td>
+<td>mobile</td>
+<td>否</td>
+<td>用客户的手机查询</td>
 </tr>
 <tr>
-<td align="left">gender</td>
-<td align="left">否</td>
-<td align="left">用客户的性别查询, 1代表男性，2代表女性，0代表未知</td>
+<td>gender</td>
+<td>否</td>
+<td>用客户的性别查询, 1代表男性，2代表女性，0代表未知</td>
 </tr>
 <tr>
-<td align="left">idList</td>
-<td align="left">否</td>
-<td align="left">支持以逗号分开的客户id列表，如idList=1,2,3,4</td>
+<td>idList</td>
+<td>否</td>
+<td>支持以逗号分开的客户id列表，如idList=1,2,3,4</td>
 </tr>
 <tr>
-<td align="left">dateCreatedFrom</td>
-<td align="left">否</td>
-<td align="left">客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
+<td>dateCreatedFrom</td>
+<td>否</td>
+<td>客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
 </tr>
 <tr>
-<td align="left">dateCreatedTo</td>
-<td align="left">否</td>
-<td align="left">客户创建的结束时间</td>
+<td>dateCreatedTo</td>
+<td>否</td>
+<td>客户创建的结束时间</td>
 </tr>
 <tr>
-<td align="left">lastUpdatedFrom</td>
-<td align="left">否</td>
-<td align="left">客户更新的其实时间(包含)</td>
+<td>lastUpdatedFrom</td>
+<td>否</td>
+<td>客户更新的其实时间(包含)</td>
 </tr>
 <tr>
-<td align="left">lastUpdateTo</td>
-<td align="left">否</td>
-<td align="left">客户更新的结束时间</td>
+<td>lastUpdateTo</td>
+<td>否</td>
+<td>客户更新的结束时间</td>
 </tr>
 <tr>
-<td align="left">select</td>
-<td align="left">否</td>
-<td align="left">返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段</td>
+<td>select</td>
+<td>否</td>
+<td>返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段</td>
 </tr>
 </tbody>
 </table>
@@ -986,44 +968,42 @@ POST请求示例：
   &quot;identityValue&quot;: &quot;user12345&quot;,
   &quot;identityName&quot;: &quot;小羊苏西&quot;
 }
-
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">是</td>
-<td align="left">需要添加身份的客户id</td>
+<td>customerId</td>
+<td>是</td>
+<td>需要添加身份的客户id</td>
 </tr>
 <tr>
-<td align="left">identityType</td>
-<td align="left">是</td>
-<td align="left">要添加的客户身份类型，详见 客户身份模型,最长32位字符</td>
+<td>identityType</td>
+<td>是</td>
+<td>要添加的客户身份类型，详见 客户身份模型,最长32位字符</td>
 </tr>
 <tr>
-<td align="left">identityValue</td>
-<td align="left">是</td>
-<td align="left">要添加的客户身份值，最长128位字符</td>
+<td>identityValue</td>
+<td>是</td>
+<td>要添加的客户身份值，最长128位字符</td>
 </tr>
 <tr>
-<td align="left">identityName</td>
-<td align="left">否</td>
-<td align="left">客户身份对应的昵称，最长256位字符</td>
+<td>identityName</td>
+<td>否</td>
+<td>客户身份对应的昵称，最长256位字符</td>
 </tr>
 </tbody>
 </table>
@@ -1034,7 +1014,6 @@ POST请求示例：
   &quot;identityValue&quot;: &quot;user12345&quot;,
   &quot;identityName&quot;: &quot;小羊苏西&quot;
 }
-
 </code></pre>
 
 <h2 id="api_8">查询客户身份的API</h2>
@@ -1045,35 +1024,34 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">customerIds</td>
-<td align="left">否</td>
-<td align="left">要查询客户身份的客户id列表，多个客户id用逗号隔开，如 “123，124”</td>
+<td>customerIds</td>
+<td>否</td>
+<td>要查询客户身份的客户id列表，多个客户id用逗号隔开，如 “123，124”</td>
 </tr>
 <tr>
-<td align="left">identityType</td>
-<td align="left">否</td>
-<td align="left">要查询客户id的身份类型，与identityValue同时使用</td>
+<td>identityType</td>
+<td>否</td>
+<td>要查询客户id的身份类型，与identityValue同时使用</td>
 </tr>
 <tr>
-<td align="left">identityValue</td>
-<td align="left">否</td>
-<td align="left">要查询客户id的身份值，与identityType同时使用</td>
+<td>identityValue</td>
+<td>否</td>
+<td>要查询客户id的身份值，与identityType同时使用</td>
 </tr>
 </tbody>
 </table>
@@ -1095,73 +1073,12 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 </code></pre>
 
 <p><strong>返回参数说明</strong></p>
-<hr />
 <ul>
 <li>identityTyp 客户身份类型</li>
 <li>identityValue 客户的在你系统中的id</li>
 <li>customerId 客户的id</li>
-<li>identityName 客户身份名称</li>
+<li>identityName客户身份名称</li>
 </ul>
-<!--
-##添加客户身份的API
-**调用请求**
-
-wzxhzdk:19
-
-**参数说明**
-- - -
-|参数|是否必填|说明|
-|:---|:---|:---|
-|access_token|是|访问API的令牌|
-|customerId|是|需要添加身份的客户id|
-|identityType|是|要添加的客户身份类型，详见 客户身份模型,最长32位字符|
-|identityValu|是|要添加的客户身份值，最长128位字符|
-|identityName|否|客户身份对应的昵称，最长256位字符|
-
-**返回结果**
-
-wzxhzdk:20
-
-
-
-##查询客户身份的API
-
-**调用请求**
-
-wzxhzdk:21
-
-
-
-**参数说明**
-- - -
-|参数|是否必填|说明|
-|:---|:---|:---|
-|access_token|是|访问API的令牌|
-|customerIds|否  |要查询客户身份的客户id列表，多个客户id用逗号隔开，如 “123，124”|
-|identityType|否 |要查询客户id的身份类型，与identityValue同时使用|
-|identityValue|否    |要查询客户id的身份值，与identityType同时使用|
-
-**返回结果**
-
-wzxhzdk:22
-
--->
-
-<!--word文档中没有
-
-##获取客户信息的元数据
-
-**调用请求**
-
-
-wzxhzdk:23
-
-
-**示例：**
-
-wzxhzdk:24
-
--->
             <div class="ds-thread" data-thread-key="客户信息" data-title="客户信息" data-url=""></div>
         </div>
         

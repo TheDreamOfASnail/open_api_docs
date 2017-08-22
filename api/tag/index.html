@@ -189,54 +189,52 @@
 <h2 id="_1">客户标签模型</h2>
 <p>客户标签在模型上分为标签分组(dimension)和标签(tag)</p>
 <p>标签分组的模型：</p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">属性意义</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">dimensionKey</td>
-<td align="left">分组主键</td>
-<td align="left">String</td>
-<td align="left">最长255个字符</td>
+<td>dimensionKey</td>
+<td>分组主键</td>
+<td>String</td>
+<td>最长255个字符</td>
 </tr>
 <tr>
-<td align="left">name</td>
-<td align="left">分组的名字</td>
-<td align="left">String</td>
-<td align="left">最长255个字符</td>
+<td>name</td>
+<td>分组的名字</td>
+<td>String</td>
+<td>最长255个字符</td>
 </tr>
 </tbody>
 </table>
 <p>标签的模型：</p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">属性</th>
-<th align="left">属性意义</th>
-<th align="left">类型</th>
-<th align="left">说明</th>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">name</td>
-<td align="left">标签的名字</td>
-<td align="left">String</td>
-<td align="left">最长32个字符</td>
+<td>name</td>
+<td>标签的名字</td>
+<td>String</td>
+<td>最长32个字符</td>
 </tr>
 <tr>
-<td align="left">dimension</td>
-<td align="left">所属分组的主键</td>
-<td align="left">String</td>
-<td align="left">最长255个字符</td>
+<td>dimension</td>
+<td>所属分组的主键</td>
+<td>String</td>
+<td>最长255个字符</td>
 </tr>
 </tbody>
 </table>
@@ -269,29 +267,32 @@ https://api.convertlab.com/v1/tagdimensions?access_token={access_token}&amp;max=
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">max</td>
-<td align="left">否</td>
-<td align="left">返回的列表数量，默认为20</td>
+<td>max</td>
+<td>否</td>
+<td>返回的列表数量，默认为20</td>
+</tr>
+<tr>
+<td><strong>返回结果</strong></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回结果</strong></p>
 <pre><code>[
     {
       &quot;id&quot;: 1,
@@ -304,26 +305,25 @@ https://api.convertlab.com/v1/tagdimensions?access_token={access_token}&amp;max=
 </code></pre>
 
 <p><strong>DM Hub系统内置了三个标签分组</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">分组主键</th>
-<th align="left">分组名称</th>
+<th>分组主键</th>
+<th>分组名称</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">basic</td>
-<td align="left">基本属性</td>
+<td>basic</td>
+<td>基本属性</td>
 </tr>
 <tr>
-<td align="left">interests</td>
-<td align="left">兴趣偏好</td>
+<td>interests</td>
+<td>兴趣偏好</td>
 </tr>
 <tr>
-<td align="left">consumptive_habit</td>
-<td align="left">消费倾向</td>
+<td>consumptive_habit</td>
+<td>消费倾向</td>
 </tr>
 </tbody>
 </table>
@@ -339,11 +339,8 @@ POST请求示例：
 }
 </code></pre>
 
-<p><strong>参数说明</strong></p>
-<hr />
-<ul>
-<li>access_token 请求接口的令牌</li>
-</ul>
+<p><strong>参数说明</strong>
+- access_token 请求接口的令牌</p>
 <p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 3,
@@ -367,35 +364,34 @@ POST请求示例：
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">id</td>
-<td align="left">是</td>
-<td align="left">要更新的标签的id</td>
+<td>id</td>
+<td>是</td>
+<td>要更新的标签的id</td>
 </tr>
 <tr>
-<td align="left">name</td>
-<td align="left">否</td>
-<td align="left">将标签更新为新名字</td>
+<td>name</td>
+<td>否</td>
+<td>将标签更新为新名字</td>
 </tr>
 <tr>
-<td align="left">dimension</td>
-<td align="left">否</td>
-<td align="left">将标签加入新的标签组</td>
+<td>dimension</td>
+<td>否</td>
+<td>将标签加入新的标签组</td>
 </tr>
 </tbody>
 </table>
@@ -416,25 +412,24 @@ https://api.convertlab.com/v1/tags/{id}?access_token={access_token}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">id</td>
-<td align="left">是</td>
-<td align="left">要更新的标签的id</td>
+<td>id</td>
+<td>是</td>
+<td>要更新的标签的id</td>
 </tr>
 </tbody>
 </table>
@@ -445,40 +440,39 @@ https://api.convertlab.com/v1/tags?access_token={access_token}&amp;rows={rows}&a
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">rows</td>
-<td align="left">否</td>
-<td align="left">每页的记录数</td>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
 </tr>
 <tr>
-<td align="left">page</td>
-<td align="left">否</td>
-<td align="left">起始页数，以1开始</td>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
 </tr>
 <tr>
-<td align="left">sidx</td>
-<td align="left">否</td>
-<td align="left">排序的字段，默认按id排序</td>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
 </tr>
 <tr>
-<td align="left">sord</td>
-<td align="left">否</td>
-<td align="left">asc表示升序，desc表示降序，默认为升序</td>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
 </tr>
 </tbody>
 </table>
@@ -499,14 +493,11 @@ https://api.convertlab.com/v1/tags?access_token={access_token}&amp;rows={rows}&a
 }
 </code></pre>
 
-<p><strong>返回结果说明</strong></p>
-<hr />
-<ul>
-<li>page 结果为第几页</li>
-<li>records 返回的记录条数</li>
-<li>total 系统拥有标签的总页数</li>
-<li>rows 返回的记录数组</li>
-</ul>
+<p><strong>返回结果说明</strong>
+- page 结果为第几页
+- records 返回的记录条数
+- total 系统拥有标签的总页数
+- rows 返回的记录数组</p>
 <h2 id="api_6">为客户添加标签的API</h2>
 <pre><code>http请求方式：POST
 https://api.convertlab.com/v1/tagservice/addCustomerTag?access_token={access_token}
@@ -521,34 +512,32 @@ POST请求示例：
      }  
    ]
 }
-
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">是</td>
-<td align="left">要添加标签的客户id</td>
+<td>customerId</td>
+<td>是</td>
+<td>要添加标签的客户id</td>
 </tr>
 <tr>
-<td align="left">tags</td>
-<td align="left">是</td>
-<td align="left">要添加的标签的数组</td>
+<td>tags</td>
+<td>是</td>
+<td>要添加的标签的数组</td>
 </tr>
 </tbody>
 </table>
@@ -567,40 +556,38 @@ POST请求示例：
 {
   &quot;customerId&quot;: 12345,
   &quot;tags&quot;: [
-    { 
+    {
     &quot;name&quot;:&quot;土豪&quot;,
     &quot;dimension&quot;:&quot;精英&quot;
      }
   ]
 }
-
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">是</td>
-<td align="left">要删除标签的客户id</td>
+<td>customerId</td>
+<td>是</td>
+<td>要删除标签的客户id</td>
 </tr>
 <tr>
-<td align="left">tags</td>
-<td align="left">是</td>
-<td align="left">要删除的标签的数组</td>
+<td>tags</td>
+<td>是</td>
+<td>要删除的标签的数组</td>
 </tr>
 </tbody>
 </table>
@@ -614,29 +601,27 @@ POST请求示例：
 <h2 id="api_8">查询客户标签API</h2>
 <pre><code>http请求方式：GET
 https://api.convertlab.com/v1/tagservice/getCustomerTags?access_token={access_token}&amp;customerId={customerId}
-
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">customerId</td>
-<td align="left">是</td>
-<td align="left">要查询标签的客户的id列表，多个客户id用逗号隔开</td>
+<td>customerId</td>
+<td>是</td>
+<td>要查询标签的客户的id列表，多个客户id用逗号隔开</td>
 </tr>
 </tbody>
 </table>
@@ -652,169 +637,39 @@ https://api.convertlab.com/v1/tags/{fromId}/mergeto/{toid}?access_token={access_
 </code></pre>
 
 <p><strong>参数说明</strong></p>
-<hr />
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">是否必填</th>
-<th align="left">说明</th>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">access_token</td>
-<td align="left">是</td>
-<td align="left">访问API的令牌</td>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
 </tr>
 <tr>
-<td align="left">fromId</td>
-<td align="left">是</td>
-<td align="left">要合并的源标签id。打上该标签的客户都会打上目标标签，同时该标签要给删除</td>
+<td>fromId</td>
+<td>是</td>
+<td>要合并的源标签id。打上该标签的客户都会打上目标标签，同时该标签要给删除</td>
 </tr>
 <tr>
-<td align="left">toId</td>
-<td align="left">是</td>
-<td align="left">要合并标签的目标标签</td>
+<td>toId</td>
+<td>是</td>
+<td>要合并标签的目标标签</td>
+</tr>
+<tr>
+<td><strong>返回结果</strong></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回结果</strong></p>
 <pre><code>{&quot;success&quot;: true}
 </code></pre>
-
-<!--word中无
-##获取一个标签维度的API
-
-**调用请求**
-
-
-wzxhzdk:19
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- {id}要获取的标签维度id
-
-**返回结果**
-
-wzxhzdk:20
-
-
-##获取所有标签的API
-
-**调用请求**
-
-
-wzxhzdk:21
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-
-**返回说明**
-
-wzxhzdk:22
-
-
-##删除标签维度的API
-
-**调用请求**
-
-
-wzxhzdk:23
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- {id}要删除的标签维度id
-
-
-##修改一个标签维度的API
-
-**调用请求**
-
-wzxhzdk:24
-
-**参数说明**
-
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-- {id}要修改的标签维度id
-
-
-##获取所有标签的API
-
-**调用请求**
-
-wzxhzdk:25
-
-
-**参数说明**
-- - -
-- {access_token}用从“获取身份权限”节拿到的access_token替换
-
-**返回说明**
-
-wzxhzdk:26
-
-
-##(原有页面,是否需要保留)向客户添加标签
-
-**调用请求**
-
-wzxhzdk:27
-
-**Payload**
-
-wzxhzdk:28
-
-
-##(原有页面,是否需要保留)标签分组的创建
-
-**调用请求**
-
-wzxhzdk:29
-
-**Payload**
-
-wzxhzdk:30
-
--->
-
-<!--
-**标签(tag)数据结构**
-
-wzxhzdk:31
-
-**标签分组(tagdimension)数据结构**
-
-wzxhzdk:32
-
-
-## 标签分组的创建
-**调用请求**
-
-wzxhzdk:33
-
-**Payload**
-
-wzxhzdk:34
-
-- - -
-
-## 向客户添加标签
-**调用请求**
-
-wzxhzdk:35
-
-**Payload**
-
-wzxhzdk:36
-
--->
             <div class="ds-thread" data-thread-key="客户标签" data-title="客户标签" data-url=""></div>
         </div>
         
