@@ -9,7 +9,7 @@ theme_dir: themes/mkdocs
 
 copyright: Copyright &copy; 2017, Convertlab
 
-extra_css: 
+extra_css:
   - test/css/print.css
 #   - test/css/reset.css
 #   - test/css/screen.css
@@ -21,14 +21,18 @@ extra_javascript:
 pages:
 - OpenAPI V1:
   - '创建集成应用': 'index.md'
-  - '获取身份权限': 'api/accesstoken.md'
+  - '获取ACCESS_TOKEN': 'api/accesstoken.md'
   - '客户信息': 'api/customer.md'
   - '客户事件': 'api/customerevent.md'
   - '客户标签': 'api/tag.md'
-  - '客户订单': 'api/deal.md'
+  - '客户群组': 'api/list.md'
+  - '客户交易': 'api/deal.md'
 - '网页埋点':
-  - '设置埋点': 'track/index.md'
-  - '客户自定义事件': 'track/customerevent.md'
-  - '来源跟踪': 'track/sourcetracking.md'
+#  - '设置埋点': 'track/index.md'
+#  - '客户自定义事件': 'track/customerevent.md'
+#  - '来源跟踪': 'track/sourcetracking.md'
+  - '通过JS SDK进行事件采集': 'track/jscollection.md'
+  - '通过IOS SDK进行事件采集': 'track/ioscollection.md'
+  - '通过ANDROID SDK进行事件采集': 'track/androidcollection.md'
 # - 'TRY IT':
 #   - 'TRY IT': 'test/index.md'
