@@ -180,10 +180,6 @@ From表单示例与js方法示例:
 
 
       <script>
-
-
-
-
    	  function f1(){
 	      $.ajaxSettings.async = false; //设置getJson同步
 	      $.getJSON("http://host.convertwork.cn/formdata/get/bcd110f972d44083b2cdc569d6058af5",
