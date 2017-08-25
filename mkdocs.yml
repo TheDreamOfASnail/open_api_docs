@@ -31,8 +31,8 @@ pages:
 #  - '设置埋点': 'track/index.md'
 #  - '客户自定义事件': 'track/customerevent.md'
 #  - '来源跟踪': 'track/sourcetracking.md'
-  - '通过JS SDK进行事件采集': 'track/jscollection.md'
-  - '通过IOS SDK进行事件采集': 'track/ioscollection.md'
-  - '通过ANDROID SDK进行事件采集': 'track/androidcollection.md'
+  - '通过PC端的JS SDK进行数据采集': 'track/jscollection.md'
+  - '通过IOS SDK进行数据采集': 'track/ioscollection.md'
+  - '通过ANDROID SDK进行数据采集': 'track/androidcollection.md'
 # - 'TRY IT':
 #   - 'TRY IT': 'test/index.md'
