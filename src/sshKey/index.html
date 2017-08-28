@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>生成SSH keys - Convertlab 工作文档</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="#">Convertlab 工作文档</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">ConvertLab 工作文档</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="./">OpenApi 发布</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../csv/">有赞csv上传</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+
+                    <!-- <a href="/test/">TRY IT</a>-->
+
+                  </li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>生成SSH keys</li>
+  </ol>
+
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">生成SSH keys</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#1-ssh-keys">1. 检查SSH keys是否存在</a></li>
+                    
+                  
+                    <li class=""><a href="#2-ssh-keys">2. 生成SSH keys</a></li>
+                    
+                  
+                    <li class=""><a href="#3-githubssh-keys">3. 在github中设置SSH keys</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../mkdocs/">Mkdocs工具</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>生成SSH keys</h1>
+
+<h3 id="1-ssh-keys">1. 检查SSH keys是否存在</h3>
+<pre><code>$ ls -al ~/.ssh
+</code></pre>
+
+<h3 id="2-ssh-keys">2. 生成SSH keys</h3>
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C your_email@example.com
+</code></pre>
+
+<blockquote>
+<p>-t 的意思是选择key的type。分别有 RSA 和 DSA 两种。-b 指定秘钥长度。 -C 注释内容，一般为邮件地址。  </p>
+</blockquote>
+<p>现在私钥被放在了<code>~/.ssh/id_rsa</code>，而公钥被放在了 <code>~/.ssh/id_rsa.pub</code> 这个文件里。使用命令行或者进入文件使用编辑器打开并复制key，将key输入github里。查看key命令如下</p>
+<pre><code>$ cat id_rsa.pub
+</code></pre>
+
+<h3 id="3-githubssh-keys">3. 在github中设置SSH keys</h3>
+<ol>
+<li>
+<p>第一步：选择setting<br />
+<img src="../images/ssh1.png" width="300"/>  </p>
+</li>
+<li>
+<p>第二步：选择ssh and GPG keys<br />
+<img src="../images/ssh2.png" width="300"/></p>
+</li>
+<li>
+<p>第三步：点击右上角的new SSH key按钮<br />
+<img src="../images/ssh3.png" width="600"/></p>
+</li>
+<li>
+<p>第四步：输入title，输入key值，点击<code>Add SSH key</code><br />
+<img src="../images/ssh4.png" width="600"/></p>
+</li>
+</ol>
+            <div class="ds-thread" data-thread-key="生成SSH keys" data-title="生成SSH keys" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>

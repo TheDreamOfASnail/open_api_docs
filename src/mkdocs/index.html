@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Mkdocs工具 - Convertlab 工作文档</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="#">Convertlab 工作文档</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">ConvertLab 工作文档</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../sshKey/">OpenApi 发布</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../csv/">有赞csv上传</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+
+                    <!-- <a href="/test/">TRY IT</a>-->
+
+                  </li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>Mkdocs工具</li>
+  </ol>
+
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../sshKey/">生成SSH keys</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">Mkdocs工具</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#mkdocs">安装mkdocs</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#clone-open_api_docs">clone open_api_docs项目</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#mkdocs_1">mkdocs 命令</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#site">建立site文件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#convertlab">发布到ConvertLab文档中心</a></li>
+                      </ul>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>Mkdocs工具</h1>
+
+<h2 id="mkdocs">安装mkdocs</h2>
+<p>需要先安装Python和pip，再安装mkdocs，参考(http://www.mkdocs.org/)</p>
+<h3 id="clone-open_api_docs">clone open_api_docs项目</h3>
+<p>一定要使用SSH的链接clone ( 先在github中设置好sshKey的值 )</p>
+<pre><code>$ git clone git@github.com:xsio/open_api_docs.git
+</code></pre>
+
+<h3 id="mkdocs_1">mkdocs 命令</h3>
+<p>本地测试</p>
+<pre><code>$ mkdocs serve
+</code></pre>
+
+<h3 id="site">建立site文件</h3>
+<p>本地测试</p>
+<pre><code>$ mkdocs build
+</code></pre>
+
+<h3 id="convertlab">发布到<a href="http://api-docs.convertlab.com/">ConvertLab文档中心</a></h3>
+<p>本地测试</p>
+<pre><code>$ mkdocs gh-deploy
+</code></pre>
+
+<p><strong>注意：</strong><code>mkdocs gh-deploy</code>只push了<code>gh-pages</code>分支，<code>master</code>分支需要另外push</p>
+            <div class="ds-thread" data-thread-key="Mkdocs工具" data-title="Mkdocs工具" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
