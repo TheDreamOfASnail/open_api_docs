@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/list/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>客户群组 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../track/jscollection/">网页埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>客户群组</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../..">创建集成应用</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../accesstoken/">获取ACCESS_TOKEN</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customer/">客户信息</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customerevent/">客户事件</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../tag/">客户标签</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">客户群组</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#_1">群组模型</a></li>
+                    
+                  
+                    <li class=""><a href="#api">创建群组API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_1">删除群组的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_2">查询群组列表的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_3">将一个客户加入某个群组API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_4">将一个客户从某个群组中删除的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_5">将多个客户加入某群组的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_6">根据条件获取群组成员的客户详情的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_7">根据条件获取群组成员的数量的API</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../deal/">客户交易</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>客户群组</h1>
+
+<h2 id="_1">群组模型</h2>
+<p>您可以将客户按不同的条件分成不同的群组，并对不同群组的客户采用不同的策略进行培育。这种分组除了可以DM Hub系统中进行，您也可以通过开发API来完成。DM Hub的群组API允许操作静态群组，向群组中添加成员，查询成员列表等。</p>
+<p><strong>群组模型</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>群组id</td>
+<td>Long</td>
+<td>只读字段</td>
+</tr>
+<tr>
+<td>name</td>
+<td>群组名</td>
+<td>String</td>
+<td>最长运行255个字符</td>
+</tr>
+<tr>
+<td>dateCreated</td>
+<td>群组创建时间</td>
+<td>String</td>
+<td>格式为: “2017-06-07T12:20:20Z” 为UTC时间</td>
+</tr>
+<tr>
+<td>lastUpdated</td>
+<td>群组修改时间</td>
+<td>String</td>
+<td>格式同dateCreated</td>
+</tr>
+</tbody>
+</table>
+<p><strong>群组成员模型</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>客户在群组中的成员id</td>
+<td>Long</td>
+<td>只读字段</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>群组id</td>
+<td>Long</td>
+<td></td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>客户id</td>
+<td>Long</td>
+<td></td>
+</tr>
+<tr>
+<td>dateCreated</td>
+<td>加入群组时间</td>
+<td>String</td>
+<td>格式为: “2017-06-07T12:20:20Z” 为UTC时间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">创建群组API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：POST
+https://api.convertlab.com/v1/lists?access_token={access_token}
+
+POST请求示例：
+{
+    &quot;name&quot;: &quot;金卡会员&quot;
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>name</td>
+<td>是</td>
+<td>群组名称</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;金卡会员&quot;,
+  &quot;dateCreated&quot;: &quot;2017-05-23T02:42:14Z&quot;,
+  &quot;lastUpdated&quot;: &quot;2017-06-08T06:04:25Z&quot;
+}
+</code></pre>
+
+<h2 id="api_1">删除群组的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：DELETE
+https://api.convertlab.com/v1/lists/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>群组id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注：</strong> 删除群组并不会删除客户</p>
+<h2 id="api_2">查询群组列表的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式GET
+https://api.convertlab.com/v1/lists?access_token={access_token}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
+</tr>
+<tr>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
+</tr>
+<tr>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
+</tr>
+<tr>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;page&quot;: 1,
+  &quot;records&quot;: 1,
+  &quot;rows&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;test2&quot;,
+      &quot;dateCreated&quot;: &quot;2017-05-23T02:42:14Z&quot;,
+      &quot;lastUpdated&quot;: &quot;2017-06-08T06:04:25Z&quot;
+    }
+  ],
+  &quot;total&quot;: 1
+}
+</code></pre>
+
+<p><strong>返回结果说明</strong></p>
+<ul>
+<li>page 结果为第几页</li>
+<li>records 返回的记录条数</li>
+<li>total 系统拥有标签的总页数</li>
+<li>rows 返回的记录数组</li>
+</ul>
+<h2 id="api_3">将一个客户加入某个群组API</h2>
+<p><strong>请求调用</strong></p>
+<pre><code>http请求方式：POST
+https://api.convertlab.com/v1/listMembers?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;data&quot;: {
+    &quot;customerId&quot;: 4,
+    &quot;listId&quot;: 1
+  }
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>data</td>
+<td>是</td>
+<td>具体数据都存放在该字段内</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>是</td>
+<td>要加入群组的客户id</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>是</td>
+<td>要加入的群组id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;data&quot;: {
+    &quot;id&quot;: 36345,
+    &quot;customerId&quot;: 5,
+    &quot;dateCreated&quot;: &quot;2017-06-08T07:12:56Z&quot;,
+    &quot;lastUpdated&quot;: &quot;2017-06-08T07:12:56Z&quot;,
+    &quot;listId&quot;: 1
+  }
+}
+</code></pre>
+
+<p><strong>返回结果说明</strong></p>
+<ul>
+<li>id为客户在群组中的id</li>
+<li>dateCreated 为客户加入群组中的时间</li>
+</ul>
+<h2 id="api_4">将一个客户从某个群组中删除的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：DELETE
+https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>要删除客户在群组中的id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api_5">将多个客户加入某群组的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式：POST
+https://api.convertlab.com/v1/listMembersBatch?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;items&quot;: [
+    {
+      &quot;customerId&quot;: 91,
+      &quot;listId&quot;: 1
+    },
+    {
+      &quot;customerId&quot;: 92,
+      &quot;listId&quot;: 1
+    }
+  ]
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>items</td>
+<td>是</td>
+<td>存放具体数据数组</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>是</td>
+<td>要加入群组的客户id</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>是</td>
+<td>要加入的群组id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+    &quot;items&quot;: [
+      {
+        &quot;id&quot;: 1,
+        &quot;customerId&quot;: 92,
+        &quot;dateCreated&quot;: &quot;2017-01-24T07:32:33Z&quot;,
+        &quot;lastUpdated&quot;: &quot;2017-01-24T07:32:34Z&quot;,
+        &quot;listId&quot;: 1
+      },
+      {
+        &quot;id&quot;: 2,
+        &quot;customerId&quot;: 91,
+        &quot;dateCreated&quot;: &quot;2017-01-24T07:33:34Z&quot;,
+        &quot;lastUpdated&quot;: &quot;2017-01-24T07:33:34Z&quot;,
+        &quot;listId&quot;: 1
+      }
+    ]
+  }
+  ```
+
+## 查看群组成员详情的API
+**调用请求**
+</code></pre>
+
+<p>HTTP请求方式：GET
+https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}&amp;page={page}&amp;rows={rows}&amp;sidx={sidx}&amp;sord={sord}</p>
+<pre><code>
+**参数说明**
+
+|参数|    是否必填|   说明|
+| ------------ | ------- |-------------- |
+|access_token|  是   |访问API的令牌|
+|listId|    否|  要查询群组成员详情的群组id|
+|customerId|    否|  要查询群组成员详情的客户id|
+|page|  否|  起始页，从1开始|
+|rows|  否|  每页的记录数|
+|sidx|  否|  排序的字段，默认按id排序|
+|sord|  否|  asc表示升序，desc表示降序，默认为升序|
+
+**返回结果**
+</code></pre>
+
+<p>{
+    "items": [
+      {
+        "id": 1,
+        "customerId": 92,
+        "dateCreated": "2017-01-24T07:32:33Z",
+        "lastUpdated": "2017-01-24T07:32:34Z",
+        "listId": 1
+      },
+      {
+        "id": 2,
+        "customerId": 91,
+        "dateCreated": "2017-01-24T07:33:34Z",
+        "lastUpdated": "2017-01-24T07:33:34Z",
+        "listId": 1
+      }
+    ]
+  }
+  ```</p>
+<h2 id="api_6">根据条件获取群组成员的客户详情的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式：GET
+https://api.convertlab.com/v1/listservice/members?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>是</td>
+<td>要查询的群组</td>
+</tr>
+<tr>
+<td>joinListDateSince</td>
+<td>否</td>
+<td>加入群组的最早时间</td>
+</tr>
+<tr>
+<td>joinListDateTo</td>
+<td>否</td>
+<td>加入群组的最晚时间</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
+</tr>
+<tr>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
+</tr>
+<tr>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
+</tr>
+<tr>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;rows&quot;: [
+    {
+      &quot;id&quot;: 5,
+      &quot;displayName&quot;: &quot;test6&quot;,
+      &quot;name&quot;: &quot;test6&quot;,
+      &quot;img&quot;: null,
+      &quot;gender&quot;: 0,
+      &quot;mobile&quot;: null,
+      &quot;mobileVerified&quot;: false,
+      &quot;email&quot;: null,
+      &quot;emailVerified&quot;: false,
+      &quot;birthday&quot;: null,
+      &quot;wechat&quot;: null,
+      &quot;nickName&quot;: null,
+      &quot;country&quot;: null,
+      &quot;province&quot;: null,
+      &quot;city&quot;: null
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;displayName&quot;: &quot;小D&quot;,
+      &quot;name&quot;: &quot;小D&quot;,
+      &quot;img&quot;: null,
+      &quot;gender&quot;: 1,
+      &quot;mobile&quot;: &quot;18612341234&quot;,
+      &quot;mobileVerified&quot;: true,
+      &quot;email&quot;: null,
+      &quot;emailVerified&quot;: false,
+      &quot;birthday&quot;: null,
+      &quot;wechat&quot;: null,
+      &quot;nickName&quot;: null,
+      &quot;country&quot;: null,
+      &quot;province&quot;: null,
+      &quot;city&quot;: null
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="api_7">根据条件获取群组成员的数量的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方法：GET
+https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>是</td>
+<td>要查询的群组</td>
+</tr>
+<tr>
+<td>joinListDateSince</td>
+<td>否</td>
+<td>加入群组的最早时间</td>
+</tr>
+<tr>
+<td>joinListDateTo</td>
+<td>否</td>
+<td>加入群组的最晚时间</td>
+</tr>
+</tbody>
+</table>
+            <div class="ds-thread" data-thread-key="客户群组" data-title="客户群组" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>

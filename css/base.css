@@ -30,7 +30,7 @@ body {
     height: 50px;
     line-height: 50px;
     width: 220px;
-    //background: url(../img/logo.png) left center no-repeat;
+    background: url(../img/logo.png) left center no-repeat;
     text-indent: -99999em;
 }
 
@@ -113,7 +113,7 @@ code {
     color: #c7254e;
     background-color: #f9f2f4;
     font-size: 75%;
-    //display: inline-block;
+    display: inline-block;
     max-width: 100%;
     overflow-x: auto;
 }
@@ -337,7 +337,7 @@ footer {
 .bs-sidebar .nav .nav {
     display: none;
     /* Hide by default, but at >768px, show it */
-
+    
     margin-bottom: 4px;
 }
 
@@ -367,7 +367,7 @@ footer {
         display: block;
     }
     /* Widen the fixed sidebar */
-
+    
     .bs-sidebar.affix,
     .bs-sidebar.affix-bottom {
         width: 213px;
@@ -375,7 +375,7 @@ footer {
     .bs-sidebar.affix {
         position: fixed;
         /* Undo the static from mobile first approach */
-
+        
         top: 10px;
     }
     .bs-sidebar.affix-bottom {
@@ -391,7 +391,7 @@ footer {
 
 @media (min-width: 1200px) {
     /* Widen the fixed sidebar again */
-
+    
     .bs-sidebar.affix-bottom,
     .bs-sidebar.affix {
         width: 263px;
