@@ -257,7 +257,7 @@ POST数据示例:
 **调用请求**
 ```
 HTTP请求方式: PUT
-https://api.convertlab.com/v1/customers/<id>?access_token={access_token}
+https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 PUT数据示例：
 {
     "name": "小D",
