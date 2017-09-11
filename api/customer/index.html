@@ -655,7 +655,7 @@ POST数据示例:
 <p>调用该API可以对DM Hub系统中的客户进行修改。 需要注意的一点是，对于mobileVerified为true的手机号，在手机号码不变的情况下，无法将mobileVerified字段改为false。对于emailVerified为true的电子邮箱，在邮箱地址不变的情况下，无法将emailVerified字段改为false。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: PUT
-https://api.convertlab.com/v1/customers/&lt;id&gt;?access_token={access_token}
+https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 PUT数据示例：
 {
     &quot;name&quot;: &quot;小D&quot;,
