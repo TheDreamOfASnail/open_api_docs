@@ -300,53 +300,6 @@
                 "responses": {},
                 "sortWeight": 2
             },
-            "put": {
-                "tags": [
-                    "客户事件"
-                ],
-                "summary": "更新客户事件",
-                "description": "更新客户事件",
-                "schemes": [
-                    "http"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "",
-                        "required": true,
-                        "type": "integer",
-                        "default": "",
-                        "format": "int64"
-                    },
-                    {
-                        "name": "access_token",
-                        "in": "query",
-                        "description": "",
-                        "required": true,
-                        "type": "string",
-                        "default": "",
-                        "format": ""
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/myjson"
-                        }
-                    }
-                ],
-                "responses": {},
-                "sortWeight": 3
-            },
             "delete": {
                 "tags": [
                     "客户事件"
