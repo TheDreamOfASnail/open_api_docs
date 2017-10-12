@@ -143,13 +143,16 @@
                     <li class=""><a href="#api_4">将一个客户从某个群组中删除的API</a></li>
                     
                   
-                    <li class=""><a href="#api_5">将多个客户加入某群组的API</a></li>
+                    <li class=""><a href="#api_5">将多个客户从某个群组中删除的API</a></li>
                     
                   
-                    <li class=""><a href="#api_6">根据条件获取群组成员的客户详情的API</a></li>
+                    <li class=""><a href="#api_6">将多个客户加入某群组的API</a></li>
                     
                   
-                    <li class=""><a href="#api_7">根据条件获取群组成员的数量的API</a></li>
+                    <li class=""><a href="#api_7">根据条件获取群组成员的客户详情的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_8">根据条件获取群组成员的数量的API</a></li>
                     
                   
                   </ul>
@@ -484,7 +487,40 @@ https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
 </tr>
 </tbody>
 </table>
-<h2 id="api_5">将多个客户加入某群组的API</h2>
+<h2 id="api_5">将多个客户从某个群组中删除的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：POST
+https://api.convertlab.com/v1/listservice/removeFromList?customerIds={customerIds}&amp;listId={listId}&amp;access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>customerIds</td>
+<td>是</td>
+<td>要删除的多个客户id，客户id之间用逗号隔开</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>是</td>
+<td>要把客户删除的群组id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api_6">将多个客户加入某群组的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式：POST
 https://api.convertlab.com/v1/listMembersBatch?access_token={access_token}
@@ -598,7 +634,7 @@ https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId
     ]
   }
   ```</p>
-<h2 id="api_6">根据条件获取群组成员的客户详情的API</h2>
+<h2 id="api_7">根据条件获取群组成员的客户详情的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式：GET
 https://api.convertlab.com/v1/listservice/members?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
@@ -697,7 +733,7 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&am
 }
 </code></pre>
 
-<h2 id="api_7">根据条件获取群组成员的数量的API</h2>
+<h2 id="api_8">根据条件获取群组成员的数量的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方法：GET
 https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}
