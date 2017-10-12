@@ -162,6 +162,21 @@ https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
 |access_token|	是|	访问API的令牌|
 |id|	是|	要删除客户在群组中的id|
 
+## 将多个客户从某个群组中删除的API
+**调用请求**
+```
+http请求方式：POST
+https://api.convertlab.com/v1/listservice/removeFromList?customerIds={customerIds}&listId={listId}&access_token={access_token}
+```
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+| ------------ | ------- |-------------- |
+|access_token|	是|	访问API的令牌|
+|customerIds  |是  |要删除的多个客户id，客户id之间用逗号隔开|
+|listId|	是|	要把客户删除的群组id|
+
 ## 将多个客户加入某群组的API
 **调用请求**
 ```
