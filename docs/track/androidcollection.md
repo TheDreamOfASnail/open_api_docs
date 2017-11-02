@@ -1,1 +1,1 @@
-##[Android SDK 开发指南](https://github.com/xsio/DMHubSDK/blob/master/dmhubsdk-android/GUIDE.md)
+请点击链接 [Android SDK 开发指南](https://github.com/xsio/DMHubSDK/blob/master/dmhubsdk-android/GUIDE.md)

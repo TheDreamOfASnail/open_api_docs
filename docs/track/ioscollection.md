@@ -1,1 +1,1 @@
-##[iOS SDK 开发指南](https://github.com/xsio/DMHubSDK/blob/master/dmhubsdk-ios/GUIDE.md)
+请点击链接 [iOS SDK 开发指南](https://github.com/xsio/DMHubSDK/blob/master/dmhubsdk-ios/GUIDE.md)
