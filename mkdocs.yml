@@ -34,5 +34,7 @@ pages:
   - '通过PC端的JS SDK进行数据采集': 'track/jscollection.md'
   - '通过IOS SDK进行数据采集': 'track/ioscollection.md'
   - '通过ANDROID SDK进行数据采集': 'track/androidcollection.md'
+- '会员(Beta)':
+  - 'Api接口': 'member/index.md'
 # - 'TRY IT':
 #   - 'TRY IT': 'test/index.md'
