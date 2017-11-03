@@ -5,43 +5,43 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/accesstoken/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customer/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customerevent/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/tag/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/list/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/deal/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,19 +51,29 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//track/jscollection/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/ioscollection/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/androidcollection/</loc>
-     <lastmod>2017-11-02</lastmod>
+     <lastmod>2017-11-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://api-docs.convertlab.com//number/</loc>
+     <lastmod>2017-11-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
