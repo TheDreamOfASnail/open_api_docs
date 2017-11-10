@@ -13,10 +13,12 @@
 |targetName|	行为所关联的目标名称	|String|	比如如果事件为关注公众号，targetName为公众号的名字。最长255个字符。|
 |date|	行为所发生的时间|	String|	格式为:“2017-06-07T12:20:20Z”|
 |source|	来源|	String|	预先设定的来源，比如订单是从淘宝来的，则来源可以设置为淘宝。|
+|contentName|	来源内容|	String|	来源内容|
 |score	|客户活跃度|	Integer|	发送该事件会给客户增加多少活跃度。|
 |tag|	事件发生后为客户添加的内容标签|	String|	多个标签可以用逗号隔开。最长255个字符。|
 |campaign|	营销活动code|	String|	DM Hub创建的营销活动代码|
 |campaignName|	营销活动名称|	String|	DM Hub创建的营销活动的名称|
+|summary|	摘要|	String|	1024个字节或汉字|
 |lastUpdated|	事件记录进入在DM Hub系统的时间|	String|	只读字段|
 
 系统已经内置了以下事件，可以通过访问DM Hub的 **设置 > 客户事件** 页面查看
