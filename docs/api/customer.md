@@ -458,7 +458,7 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}
 POST请求示例：
 
 {
-  "customerId": 123456,
+  "customerId": "123456",
   "identityType": "myshop-account",
   "identityValue": "user12345",
   "identityName": "小羊苏西"
@@ -478,7 +478,7 @@ POST请求示例：
 **返回结果**
 ```
 {
-  "customerId": 123456,
+  "customerId": "123456",
   "identityType": "myshop-account",
   "identityValue": "user12345",
   "identityName": "小羊苏西"
@@ -507,13 +507,13 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&cus
 ```
 [
   {
-    "customerId": 123456,
+    "customerId": "123456",
     "identityType": "myshop-account",
     "identityValue": "user12345",
     "identityName": "小羊苏西"
   },
   {
-    "customerId": 123456,
+    "customerId": "123456",
     "identityType": "wechat",
     "identityValue": "openid12345",
     "identityName": "小羊苏西"
