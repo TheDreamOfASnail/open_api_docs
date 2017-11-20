@@ -121,19 +121,25 @@
                     <li class=""><a href="#3">3. 查看一个会员</a></li>
                     
                   
-                    <li class=""><a href="#4">4. 修改会员</a></li>
+                    <li class=""><a href="#4">4. 修改一个会员</a></li>
                     
                   
-                    <li class=""><a href="#5">5. 绑定会员身份</a></li>
+                    <li class=""><a href="#5">5. 修改会员等级</a></li>
                     
                   
-                    <li class=""><a href="#6">6. 根据会员身份查找会员</a></li>
+                    <li class=""><a href="#6">6. 绑定会员身份</a></li>
                     
                   
-                    <li class=""><a href="#7">7. 根据会员身份列表查找会员</a></li>
+                    <li class=""><a href="#7">7. 根据会员身份查找会员</a></li>
                     
                   
-                    <li class=""><a href="#8">8. 修改会员等级</a></li>
+                    <li class=""><a href="#8">8. 根据会员身份列表查找会员</a></li>
+                    
+                  
+                    <li class=""><a href="#9">9. 修改会员手机号</a></li>
+                    
+                  
+                    <li class=""><a href="#10">10. 查看会员等级设置</a></li>
                     
                   
                   </ul>
@@ -502,7 +508,7 @@
 }
 </code></pre>
 
-<h2 id="4">4. 修改会员</h2>
+<h2 id="4">4. 修改一个会员</h2>
 <ul>
 <li>
 <p>HTTP请求方式: <code>PUT</code></p>
@@ -553,7 +559,46 @@
 }
 </code></pre>
 
-<h2 id="5">5. 绑定会员身份</h2>
+<h2 id="5">5. 修改会员等级</h2>
+<ul>
+<li>
+<p>HTTP请求方式: <code>PUT</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/membership/${membershipId}/level?access_token={access_token}</code></p>
+</li>
+<li>
+<p>Request Payload</p>
+</li>
+</ul>
+<pre><code class="json">
+    {
+        &quot;level&quot;: 8
+    }
+
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+<pre><code class="json">
+    {
+            &quot;dateCreated&quot;: &quot;2017-10-31T06:54:01Z&quot;,
+            &quot;id&quot;: 3,
+            &quot;lastUpdated&quot;: &quot;2017-10-31T06:54:01Z&quot;,
+            &quot;levelType&quot;: 0,
+            &quot;levelUpdateStatus&quot;: 1,
+            &quot;membershipId&quot;: 1,
+            &quot;newLevel&quot;: 8,
+            &quot;oldLevel&quot;: 0,
+            &quot;remark&quot;: null,
+            &quot;rule&quot;: null,
+            &quot;tenantId&quot;: 11
+    }
+
+</code></pre>
+
+<h2 id="6">6. 绑定会员身份</h2>
 <ul>
 <li>
 <p>HTTP请求方式: <code>POST</code></p>
@@ -586,7 +631,7 @@
 ]
 </code></pre>
 
-<h2 id="6">6. 根据会员身份查找会员</h2>
+<h2 id="7">7. 根据会员身份查找会员</h2>
 <ul>
 <li>
 <p>HTTP请求方式: <code>GET</code></p>
@@ -636,7 +681,7 @@
 }
 </code></pre>
 
-<h2 id="7">7. 根据会员身份列表查找会员</h2>
+<h2 id="8">8. 根据会员身份列表查找会员</h2>
 <ul>
 <li>
 <p>HTTP请求方式: <code>POST</code></p>
@@ -741,38 +786,157 @@
 }
 </code></pre>
 
-<h2 id="8">8. 修改会员等级</h2>
+<h2 id="9">9. 修改会员手机号</h2>
 <ul>
 <li>
 <p>HTTP请求方式: <code>PUT</code></p>
 </li>
 <li>
-<p><code>/loyalty/v1/membership/${membershipId}/level?access_token={access_token}</code></p>
+<p><code>/loyalty/v1/membershipService/${membershipId}/updateMobile?access_token={access_token}</code></p>
 </li>
 <li>
 <p>Request Payload</p>
 </li>
 </ul>
-<pre><code class="json">{
-    &quot;level&quot;: 8
-}
+<pre><code class="json">    {
+        &quot;oldMobile&quot;: &quot;123&quot;,
+        &quot;newMobile&quot;: &quot;456&quot;
+    }
 </code></pre>
 
 <ul>
 <li>Response</li>
 </ul>
+<pre><code class="json">    {
+        &quot;address&quot;: null,
+        &quot;balance&quot;: null,
+        &quot;birthday&quot;: &quot;1999-01-01&quot;,
+        &quot;c_111&quot;: null,
+        &quot;c_1111&quot;: null,
+        &quot;c_12&quot;: null,
+        &quot;c_123&quot;: null,
+        &quot;c_123123&quot;: null,
+        &quot;c_Member&quot;: null,
+        &quot;c_qqq&quot;: null,
+        &quot;c_qwa123&quot;: null,
+        &quot;c_qwqqw&quot;: null,
+        &quot;c_sd&quot;: null,
+        &quot;c_sdsf&quot;: null,
+        &quot;c_wewe&quot;: null,
+        &quot;c_wewe1&quot;: null,
+        &quot;c_驱蚊器&quot;: null,
+        &quot;createChannel&quot;: null,
+        &quot;createMethod&quot;: &quot;外部系统导入&quot;,
+        &quot;customerId&quot;: 20526992,
+        &quot;dateCreated&quot;: &quot;2017-11-13T08:43:05Z&quot;,
+        &quot;dateJoin&quot;: &quot;2017-11-13T08:43:05Z&quot;,
+        &quot;educationBackgro&quot;: null,
+        &quot;email&quot;: null,
+        &quot;familyName&quot;: null,
+        &quot;gender&quot;: 1,
+        &quot;givenName&quot;: null,
+        &quot;id&quot;: 85,
+        &quot;idCard&quot;: null,
+        &quot;img&quot;: null,
+        &quot;income&quot;: null,
+        &quot;industry&quot;: null,
+        &quot;lastUpdated&quot;: &quot;2017-11-13T08:46:24Z&quot;,
+        &quot;level&quot;: 0,
+        &quot;membershipCode&quot;: null,
+        &quot;mobile&quot;: &quot;456&quot;,
+        &quot;name&quot;: &quot;test&quot;,
+        &quot;point&quot;: 0,
+        &quot;referrer&quot;: null
+    }
+</code></pre>
+
+<h2 id="10">10. 查看会员等级设置</h2>
+<ul>
+<li>
+<p>HTTP请求方式: <code>GET</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/settings/level/rules?access_token={access_token}</code></p>
+</li>
+<li>
+<p>Response</p>
+</li>
+</ul>
 <pre><code class="json">{
-    &quot;dateCreated&quot;: &quot;2017-10-31T06:54:01Z&quot;,
-    &quot;id&quot;: 3,
-    &quot;lastUpdated&quot;: &quot;2017-10-31T06:54:01Z&quot;,
-    &quot;levelType&quot;: 0,
-    &quot;levelUpdateStatus&quot;: 1,
-    &quot;membershipId&quot;: 1,
-    &quot;newLevel&quot;: 8,
-    &quot;oldLevel&quot;: 0,
-    &quot;remark&quot;: null,
-    &quot;rule&quot;: null,
-    &quot;tenantId&quot;: 11
+        &quot;rows&quot;: [
+            {
+                &quot;desp&quot;: null,
+                &quot;id&quot;: 61,
+                &quot;isForever&quot;: true,
+                &quot;name&quot;: &quot;1&quot;,
+                &quot;operator&quot;: &quot;or&quot;,
+                &quot;priority&quot;: 0,
+                &quot;rules&quot;: {
+                    &quot;consumption&quot;: {
+                        &quot;enabled&quot;: false,
+                        &quot;month&quot;: 12,
+                        &quot;number&quot;: 5000
+                    },
+                    &quot;consumptionTotal&quot;: {
+                        &quot;enabled&quot;: false,
+                        &quot;month&quot;: 12,
+                        &quot;number&quot;: 5000
+                    },
+                    &quot;desp&quot;: &quot;默认最低等级&quot;,
+                    &quot;frequency&quot;: {
+                        &quot;enabled&quot;: false,
+                        &quot;month&quot;: 12,
+                        &quot;number&quot;: 5000
+                    },
+                    &quot;frequencyTotal&quot;: {
+                        &quot;enabled&quot;: false,
+                        &quot;month&quot;: 12,
+                        &quot;number&quot;: 5000
+                    },
+                    &quot;points&quot;: {
+                        &quot;enabled&quot;: false,
+                        &quot;month&quot;: 12,
+                        &quot;number&quot;: 5000
+                    },
+                    &quot;pointsTotal&quot;: {
+                        &quot;enabled&quot;: false,
+                        &quot;month&quot;: 12,
+                        &quot;number&quot;: 5000
+                    }
+                },
+                &quot;status&quot;: 0
+            },
+            {
+                &quot;desp&quot;: null,
+                &quot;id&quot;: 62,
+                &quot;isForever&quot;: false,
+                &quot;name&quot;: &quot;2&quot;,
+                &quot;operator&quot;: &quot;or&quot;,
+                &quot;priority&quot;: 1,
+                &quot;rules&quot;: {},
+                &quot;status&quot;: 0
+            },
+            {
+                &quot;desp&quot;: null,
+                &quot;id&quot;: 63,
+                &quot;isForever&quot;: true,
+                &quot;name&quot;: &quot;3&quot;,
+                &quot;operator&quot;: &quot;or&quot;,
+                &quot;priority&quot;: 2,
+                &quot;rules&quot;: {},
+                &quot;status&quot;: 0
+            },
+            {
+                &quot;desp&quot;: null,
+                &quot;id&quot;: 64,
+                &quot;isForever&quot;: false,
+                &quot;name&quot;: &quot;5&quot;,
+                &quot;operator&quot;: &quot;or&quot;,
+                &quot;priority&quot;: 3,
+                &quot;rules&quot;: {},
+                &quot;status&quot;: 0
+            }
+        ]
 }
 </code></pre>
             <div class="ds-thread" data-thread-key="Api接口" data-title="Api接口" data-url=""></div>
