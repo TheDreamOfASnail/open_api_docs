@@ -191,7 +191,7 @@ DM Hub内置了几个身份类型
 }
 ```
 
-## 4. 修改会员
+## 4. 修改一个会员
 
 - HTTP请求方式: `PUT`
 
@@ -239,7 +239,42 @@ DM Hub内置了几个身份类型
 }
 ```
 
-## 5. 绑定会员身份
+## 5. 修改会员等级
+- HTTP请求方式: `PUT`
+
+- `/loyalty/v1/membership/${membershipId}/level?access_token={access_token}`
+
+- Request Payload
+
+```json
+
+    {
+        "level": 8
+    }
+
+```
+- Response
+
+```json
+
+    {
+            "dateCreated": "2017-10-31T06:54:01Z",
+            "id": 3,
+            "lastUpdated": "2017-10-31T06:54:01Z",
+            "levelType": 0,
+            "levelUpdateStatus": 1,
+            "membershipId": 1,
+            "newLevel": 8,
+            "oldLevel": 0,
+            "remark": null,
+            "rule": null,
+            "tenantId": 11
+    }
+
+```
+
+
+## 6. 绑定会员身份
 
 - HTTP请求方式: `POST`
 
@@ -269,7 +304,7 @@ DM Hub内置了几个身份类型
 ]
 ```
 
-## 6. 根据会员身份查找会员
+## 7. 根据会员身份查找会员
 
 - HTTP请求方式: `GET`
 
@@ -316,7 +351,7 @@ DM Hub内置了几个身份类型
 }
 ```
 
-## 7. 根据会员身份列表查找会员
+## 8. 根据会员身份列表查找会员
 
 - HTTP请求方式: `POST`
 
@@ -417,35 +452,149 @@ DM Hub内置了几个身份类型
     ]
 }
 ```
-
-## 8. 修改会员等级
+## 9. 修改会员手机号
 
 - HTTP请求方式: `PUT`
 
-- `/loyalty/v1/membership/${membershipId}/level?access_token={access_token}`
+- `/loyalty/v1/membershipService/${membershipId}/updateMobile?access_token={access_token}`
 
 - Request Payload
 
 ```json
-{
-    "level": 8
-}
+    {
+        "oldMobile": "123",
+        "newMobile": "456"
+    }
 ```
+- Response
+
+```json
+    {
+        "address": null,
+        "balance": null,
+        "birthday": "1999-01-01",
+        "c_111": null,
+        "c_1111": null,
+        "c_12": null,
+        "c_123": null,
+        "c_123123": null,
+        "c_Member": null,
+        "c_qqq": null,
+        "c_qwa123": null,
+        "c_qwqqw": null,
+        "c_sd": null,
+        "c_sdsf": null,
+        "c_wewe": null,
+        "c_wewe1": null,
+        "c_驱蚊器": null,
+        "createChannel": null,
+        "createMethod": "外部系统导入",
+        "customerId": 20526992,
+        "dateCreated": "2017-11-13T08:43:05Z",
+        "dateJoin": "2017-11-13T08:43:05Z",
+        "educationBackgro": null,
+        "email": null,
+        "familyName": null,
+        "gender": 1,
+        "givenName": null,
+        "id": 85,
+        "idCard": null,
+        "img": null,
+        "income": null,
+        "industry": null,
+        "lastUpdated": "2017-11-13T08:46:24Z",
+        "level": 0,
+        "membershipCode": null,
+        "mobile": "456",
+        "name": "test",
+        "point": 0,
+        "referrer": null
+    }
+```
+
+## 10. 查看会员等级设置
+
+- HTTP请求方式: `GET`
+
+- `/loyalty/v1/settings/level/rules?access_token={access_token}`
 
 - Response
 
 ```json
 {
-    "dateCreated": "2017-10-31T06:54:01Z",
-    "id": 3,
-    "lastUpdated": "2017-10-31T06:54:01Z",
-    "levelType": 0,
-    "levelUpdateStatus": 1,
-    "membershipId": 1,
-    "newLevel": 8,
-    "oldLevel": 0,
-    "remark": null,
-    "rule": null,
-    "tenantId": 11
+        "rows": [
+            {
+                "desp": null,
+                "id": 61,
+                "isForever": true,
+                "name": "1",
+                "operator": "or",
+                "priority": 0,
+                "rules": {
+                    "consumption": {
+                        "enabled": false,
+                        "month": 12,
+                        "number": 5000
+                    },
+                    "consumptionTotal": {
+                        "enabled": false,
+                        "month": 12,
+                        "number": 5000
+                    },
+                    "desp": "默认最低等级",
+                    "frequency": {
+                        "enabled": false,
+                        "month": 12,
+                        "number": 5000
+                    },
+                    "frequencyTotal": {
+                        "enabled": false,
+                        "month": 12,
+                        "number": 5000
+                    },
+                    "points": {
+                        "enabled": false,
+                        "month": 12,
+                        "number": 5000
+                    },
+                    "pointsTotal": {
+                        "enabled": false,
+                        "month": 12,
+                        "number": 5000
+                    }
+                },
+                "status": 0
+            },
+            {
+                "desp": null,
+                "id": 62,
+                "isForever": false,
+                "name": "2",
+                "operator": "or",
+                "priority": 1,
+                "rules": {},
+                "status": 0
+            },
+            {
+                "desp": null,
+                "id": 63,
+                "isForever": true,
+                "name": "3",
+                "operator": "or",
+                "priority": 2,
+                "rules": {},
+                "status": 0
+            },
+            {
+                "desp": null,
+                "id": 64,
+                "isForever": false,
+                "name": "5",
+                "operator": "or",
+                "priority": 3,
+                "rules": {},
+                "status": 0
+            }
+        ]
 }
 ```
