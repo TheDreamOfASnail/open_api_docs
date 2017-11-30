@@ -598,3 +598,177 @@ DM Hub内置了几个身份类型
         ]
 }
 ```
+
+## 11. 订单Api
+###1. 创建订单
+- HTTP请求方式: `POST`
+- `/loyalty/v1/deal?access_token={token}`
+- Payload
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "dealLine": [
+    {
+      "lineId": "11111"
+    },
+    {
+    "lineId": "22222"
+    }
+  ]
+}
+
+```
+
+订单头
+
+|英文名称|	字段名称|	字段类型|	必须字段|说明  |
+| ------------ | ------- |-----|-----| ---------------- |
+|salesChannel| 销售渠道 |  String|  是|  |
+|store| 店铺 |  String|  是|  |
+|orderNo| 订单号 |  String|  是|  |
+|type| 订单类型 |  String|  |  |
+|dateOrder| 订单时间 |  DateTime|  是| UTC时间 |
+|membershipId| 会员ID |  Number|  是|  |
+|amountDiscount| 订单折扣 |  Number|  是|  |
+|couponCode| 优惠券Code |  String|  |  |
+|groupId| 团购ID |  String|  |  |
+|amountTotal| 订单总额 |  Number|  |  |
+|amountPaid| 实际支付金额 |  Number| 是 |  |
+|paymentTerm| 支付方式 |  String|  |  |
+|paymentNo| 支付号 |  String|  |  |
+|shippingMethod| 运送方式 |  String|  |  |
+|contactName| 收货人姓名 |  String|  |  |
+|contactTel| 收货人手机 |  String|  |  |
+|shippingProvince| 收货人省份 |  String|  |  |
+|shippingCity| 收货人城市 |  String|  |  |
+|shippingCounty| 收货人区县 |  String|  |  |
+|shippingStreet| 收货人街道 |  String|  |  |
+|shippingAddress| 收货人具体地址 |  String|  |  |
+|dealLines| 订单行 |  JsonArray| 是 | 结构见订单行 |
+
+
+订单行
+
+|英文名称|	字段名称|	字段类型|	必须字段|说明  |
+| ------------ | ------- |-----|-----| ---------------- |
+|lineId| 订单行id |  String| 是 |可使用skuid，在一个订单中保证唯一 |
+|productName| 产品名称 |  String| 是 |  |
+|productId| 产品ID |  String|  |  |
+|skuId| SKU ID |  String|  |  |
+|category| 品类 |  String|  |  |
+|qty| 数量 |  Number| 是 |  |
+|priceUnit| 单价 |  Number|  |  |
+|priceSubTotal| 总价 |  Number|  |  |
+
+- Response
+
+成功
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "id": "1",
+  "dealLine": [
+    {
+      "lineId": "11111"
+    },
+    {
+      "lineId": "22222"
+    }
+  ],
+  "state": "已付款"
+}
+```
+失败
+```json
+{
+  "error": {
+  "code":"409000",
+  "message": "error info"
+  }
+}
+```
+
+###2. 取消订单
+- HTTP请求方式: `POST`
+- ` /loyalty/v1/dealService/cancel?access_token={token}`
+- Payload
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456"
+}
+```
+
+- Response
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "id": "1",
+  "dealLine": [
+    {
+      "lineId": "11111"
+    },
+    {
+      "lineId": "22222"
+    }
+  ],
+  "state": "已取消"
+}
+```
+
+###3. 退单
+- HTTP请求方式: `POST`
+- ` /loyalty/v1/dealService/refund?access_token={token}`
+- Payload
+```json
+{
+  "refundLines": [
+    {
+      "lineId": "11111"
+    }
+  ],
+  "refundTotal": 1111,
+  "orderNo": "123456",
+  "membershipId": 1
+}
+```
+
+退单头
+
+|英文名称|	字段名称|	字段类型|	必须字段|说明  |
+| ------------ | ------- |-----|-----| ---------------- |
+|membershipId| 会员ID |  Number| 是 | |
+|orderNo| 订单号 |  String| 是 | |
+|dateRefund| 退单时间 |  DateTime| 是 | |
+|refundTotal| 退单金额 |  Number| 是 | |
+|reason| 退单原因 |  String|  | |
+|refundLines| 退单行 |  JsonArray| 是 |结构见退单行 |
+
+退单行
+
+|英文名称|	字段名称|	字段类型|	必须字段|说明  |
+| ------------ | ------- |-----|-----| ---------------- |
+|lineId| 订单行id |  String| 是 | 可使用skuid，在一个订单中保证唯一|
+
+- Response
+
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "refundTotal": "1",
+  "refundLines": [
+    {
+      "lineId": "11111"
+    }
+  ]
+}
+```
+
+
+
+
+
