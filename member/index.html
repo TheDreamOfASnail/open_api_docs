@@ -153,6 +153,21 @@
                     <li class=""><a href="#10">10. 查看会员等级设置</a></li>
                     
                   
+                    <li class=""><a href="#11-api">11. 订单Api</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#1_1">1. 创建订单</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#2_1">2. 取消订单</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#3_1">3. 退单</a></li>
+                      </ul>
+                    
+                  
                   </ul>
                 
               </li>
@@ -948,6 +963,436 @@
                 &quot;status&quot;: 0
             }
         ]
+}
+</code></pre>
+
+<h2 id="11-api">11. 订单Api</h2>
+<h3 id="1_1">1. 创建订单</h3>
+<ul>
+<li>HTTP请求方式: <code>POST</code></li>
+<li><code>/loyalty/v1/deal?access_token={token}</code></li>
+<li>Payload</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;dealLine&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    },
+    {
+    &quot;lineId&quot;: &quot;22222&quot;
+    }
+  ]
+}
+
+</code></pre>
+
+<p>订单头</p>
+<table>
+<thead>
+<tr>
+<th>英文名称</th>
+<th>字段名称</th>
+<th>字段类型</th>
+<th>必须字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>salesChannel</td>
+<td>销售渠道</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>store</td>
+<td>店铺</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>orderNo</td>
+<td>订单号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>订单类型</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>dateOrder</td>
+<td>订单时间</td>
+<td>DateTime</td>
+<td>是</td>
+<td>UTC时间</td>
+</tr>
+<tr>
+<td>membershipId</td>
+<td>会员ID</td>
+<td>Number</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>amountDiscount</td>
+<td>订单折扣</td>
+<td>Number</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>couponCode</td>
+<td>优惠券Code</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>groupId</td>
+<td>团购ID</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>amountTotal</td>
+<td>订单总额</td>
+<td>Number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>amountPaid</td>
+<td>实际支付金额</td>
+<td>Number</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>paymentTerm</td>
+<td>支付方式</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>paymentNo</td>
+<td>支付号</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shippingMethod</td>
+<td>运送方式</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>contactName</td>
+<td>收货人姓名</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>contactTel</td>
+<td>收货人手机</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shippingProvince</td>
+<td>收货人省份</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shippingCity</td>
+<td>收货人城市</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shippingCounty</td>
+<td>收货人区县</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shippingStreet</td>
+<td>收货人街道</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shippingAddress</td>
+<td>收货人具体地址</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>dealLines</td>
+<td>订单行</td>
+<td>JsonArray</td>
+<td>是</td>
+<td>结构见订单行</td>
+</tr>
+</tbody>
+</table>
+<p>订单行</p>
+<table>
+<thead>
+<tr>
+<th>英文名称</th>
+<th>字段名称</th>
+<th>字段类型</th>
+<th>必须字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lineId</td>
+<td>订单行id</td>
+<td>String</td>
+<td>是</td>
+<td>可使用skuid，在一个订单中保证唯一</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>产品名称</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>productId</td>
+<td>产品ID</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>skuId</td>
+<td>SKU ID</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>category</td>
+<td>品类</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>qty</td>
+<td>数量</td>
+<td>Number</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>priceUnit</td>
+<td>单价</td>
+<td>Number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>priceSubTotal</td>
+<td>总价</td>
+<td>Number</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Response</li>
+</ul>
+<p>成功</p>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;id&quot;: &quot;1&quot;,
+  &quot;dealLine&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    },
+    {
+      &quot;lineId&quot;: &quot;22222&quot;
+    }
+  ],
+  &quot;state&quot;: &quot;已付款&quot;
+}
+</code></pre>
+
+<p>失败</p>
+<pre><code class="json">{
+  &quot;error&quot;: {
+  &quot;code&quot;:&quot;409000&quot;,
+  &quot;message&quot;: &quot;error info&quot;
+  }
+}
+</code></pre>
+
+<h3 id="2_1">2. 取消订单</h3>
+<ul>
+<li>HTTP请求方式: <code>POST</code></li>
+<li><code>/loyalty/v1/dealService/cancel?access_token={token}</code></li>
+<li>Payload</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;
+}
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;id&quot;: &quot;1&quot;,
+  &quot;dealLine&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    },
+    {
+      &quot;lineId&quot;: &quot;22222&quot;
+    }
+  ],
+  &quot;state&quot;: &quot;已取消&quot;
+}
+</code></pre>
+
+<h3 id="3_1">3. 退单</h3>
+<ul>
+<li>HTTP请求方式: <code>POST</code></li>
+<li><code>/loyalty/v1/dealService/refund?access_token={token}</code></li>
+<li>Payload</li>
+</ul>
+<pre><code class="json">{
+  &quot;refundLines&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    }
+  ],
+  &quot;refundTotal&quot;: 1111,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;membershipId&quot;: 1
+}
+</code></pre>
+
+<p>退单头</p>
+<table>
+<thead>
+<tr>
+<th>英文名称</th>
+<th>字段名称</th>
+<th>字段类型</th>
+<th>必须字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>membershipId</td>
+<td>会员ID</td>
+<td>Number</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>orderNo</td>
+<td>订单号</td>
+<td>String</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>dateRefund</td>
+<td>退单时间</td>
+<td>DateTime</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>refundTotal</td>
+<td>退单金额</td>
+<td>Number</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>reason</td>
+<td>退单原因</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>refundLines</td>
+<td>退单行</td>
+<td>JsonArray</td>
+<td>是</td>
+<td>结构见退单行</td>
+</tr>
+</tbody>
+</table>
+<p>退单行</p>
+<table>
+<thead>
+<tr>
+<th>英文名称</th>
+<th>字段名称</th>
+<th>字段类型</th>
+<th>必须字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lineId</td>
+<td>订单行id</td>
+<td>String</td>
+<td>是</td>
+<td>可使用skuid，在一个订单中保证唯一</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Response</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;refundTotal&quot;: &quot;1&quot;,
+  &quot;refundLines&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    }
+  ]
 }
 </code></pre>
             <div class="ds-thread" data-thread-key="Api接口" data-title="Api接口" data-url=""></div>
