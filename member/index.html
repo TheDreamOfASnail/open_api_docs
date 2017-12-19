@@ -168,6 +168,9 @@
                       </ul>
                     
                   
+                    <li class=""><a href="#12">12. 会员注册推送设备信息</a></li>
+                    
+                  
                   </ul>
                 
               </li>
@@ -1393,6 +1396,61 @@
       &quot;lineId&quot;: &quot;11111&quot;
     }
   ]
+}
+</code></pre>
+
+<h2 id="12">12. 会员注册推送设备信息</h2>
+<p>请求方式：<code>POST</code></p>
+<p>请求路径：<code>https://api.convertlab.com/loyalty/v1/appPush/register?access_token={access_token}</code></p>
+<p>参数说明：</p>
+<ul>
+<li>access_token ：访问该 API 的令牌</li>
+</ul>
+<p>POST 数据说明：</p>
+<pre><code class="json">{
+    &quot;provider&quot;: &quot;&lt;必传&gt; 推送服务提供商，'jpush' 或 'getui'&quot;,
+    &quot;appKey&quot;: &quot;&lt;必传&gt; 在推送服务提供商平台创建应用时得到的 AppKey&quot;,
+    &quot;pushId&quot;: &quot;&lt;必传&gt; 推送服务提供商分配给设备的 PushID（极光称作 Registration ID，个推称作 ClientID，本文档统一称作 PushID）&quot;,
+    &quot;os&quot;: &quot;&lt;必传&gt; 移动端平台类型，'android' 或 'ios'&quot;,
+    &quot;membershipId&quot;: &quot;&lt;非必传&gt; 会员 ID。&quot;,
+    &quot;mobile&quot;: &quot;&lt;非必传&gt; 会员手机号。&quot;
+}
+</code></pre>
+
+<p>注：<em>membershipId</em> 参数和 <em>mobile</em> 参数用于将推送设备信息与会员建立关联，建立关联过程中，优先根据 <em>membershipId</em> 查找会员，如果没有找到会员，再根据 <em>mobile</em> 查找会员，如果找到会员，则将推送设备信息与该会员建立关联；否则，推送设备信息会被注册为匿名的信息。</p>
+<p>返回结果说明：</p>
+<ul>
+<li>注册成功</li>
+</ul>
+<pre><code class="json">{
+    &quot;appKey&quot;: &quot;&lt;AppKey&gt;&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;os&quot;: &quot;&lt;os&gt;&quot;,
+    &quot;provider&quot;: &quot;&lt;provider&gt;&quot;,
+    &quot;pushId&quot;: &quot;&lt;PushID&gt;&quot;
+}
+</code></pre>
+
+<p>注：如果返回结果中的 <em>membershiprId</em> 为 <code>null</code>，则表明推送设备信息被注册为匿名的信息。</p>
+<ul>
+<li>必传字段缺失</li>
+</ul>
+<pre><code class="json">{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400005&quot;,
+        &quot;message&quot;: &quot;Missing field provider!&quot;
+    }
+}
+</code></pre>
+
+<ul>
+<li>必传字段无效</li>
+</ul>
+<pre><code class="json">{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400001&quot;,
+        &quot;message&quot;: &quot;Invalid os(winphone)!&quot;
+    }
 }
 </code></pre>
             <div class="ds-thread" data-thread-key="Api接口" data-title="Api接口" data-url=""></div>
