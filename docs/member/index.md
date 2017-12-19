@@ -767,6 +767,68 @@ DM Hub内置了几个身份类型
   ]
 }
 ```
+## 12. 会员注册推送设备信息
+
+请求方式：`POST`
+
+请求路径：`https://api.convertlab.com/loyalty/v1/appPush/register?access_token={access_token}`
+
+参数说明：
+
+- access_token ：访问该 API 的令牌
+
+POST 数据说明：
+
+```json
+{
+    "provider": "<必传> 推送服务提供商，'jpush' 或 'getui'",
+    "appKey": "<必传> 在推送服务提供商平台创建应用时得到的 AppKey",
+    "pushId": "<必传> 推送服务提供商分配给设备的 PushID（极光称作 Registration ID，个推称作 ClientID，本文档统一称作 PushID）",
+    "os": "<必传> 移动端平台类型，'android' 或 'ios'",
+    "membershipId": "<非必传> 会员 ID。",
+    "mobile": "<非必传> 会员手机号。"
+}
+```
+
+注：_membershipId_ 参数和 _mobile_ 参数用于将推送设备信息与会员建立关联，建立关联过程中，优先根据 _membershipId_ 查找会员，如果没有找到会员，再根据 _mobile_ 查找会员，如果找到会员，则将推送设备信息与该会员建立关联；否则，推送设备信息会被注册为匿名的信息。
+
+返回结果说明：
+
+- 注册成功
+
+```json
+{
+    "appKey": "<AppKey>",
+    "membershipId": "<会员 ID>",
+    "os": "<os>",
+    "provider": "<provider>",
+    "pushId": "<PushID>"
+}
+```
+
+注：如果返回结果中的 _membershiprId_ 为 `null`，则表明推送设备信息被注册为匿名的信息。
+
+- 必传字段缺失
+
+```json
+{
+    "error": {
+        "code": "400005",
+        "message": "Missing field provider!"
+    }
+}
+```
+
+- 必传字段无效
+
+```json
+{
+    "error": {
+        "code": "400001",
+        "message": "Invalid os(winphone)!"
+    }
+}
+```
 
 
 
