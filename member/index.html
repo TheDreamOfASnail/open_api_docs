@@ -178,7 +178,31 @@
                       </ul>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#_4">接口</a></li>
+                        <li><a class="itm-l2" href="#131coupon">13.1.获取所有coupon</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#132couponidcoupon">13.2.根据couponId获取coupon</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#133couponchannelcoupon">13.3.根据couponChannel获取coupon</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#134">13.4.领券</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#135couponcodemembershipcoupon">13.5.根据couponCode获取membershipCoupon</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#136membershipidmembershipcoupon">13.6.根据membershipId获取membershipCoupon列表</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#137">13.7.核销</a></li>
                       </ul>
                     
                   
@@ -1767,8 +1791,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_4">接口</h3>
-<h4 id="131coupon">13.1.获取所有coupon</h4>
+<h3 id="131coupon">13.1.获取所有coupon</h3>
 <p><code>GET /loyalty/v1/coupon</code></p>
 <ul>
 <li>Request</li>
@@ -1819,7 +1842,7 @@ sord          升序asc或降序desc</p>
 </code></pre>
 
 <p>只有在使用needTotal后会有total和records值。</p>
-<h4 id="132couponidcoupon">13.2.根据couponId获取coupon</h4>
+<h3 id="132couponidcoupon">13.2.根据couponId获取coupon</h3>
 <p><code>GET /loyalty/v1/coupon/$couponId</code></p>
 <ul>
 <li>Request</li>
@@ -1868,7 +1891,7 @@ sord          升序asc或降序desc</p>
 }
 </code></pre>
 
-<h4 id="133couponchannelcoupon">13.3.根据couponChannel获取coupon</h4>
+<h3 id="133couponchannelcoupon">13.3.根据couponChannel获取coupon</h3>
 <p><code>GET /loyalty/v1/couponService/getCouponByChannel</code></p>
 <ul>
 <li>Request</li>
@@ -1923,7 +1946,7 @@ couponId      对应渠道的couponId</p>
 }
 </code></pre>
 
-<h4 id="134">13.4.领券</h4>
+<h3 id="134">13.4.领券</h3>
 <p><code>POST /loyalty/v1/membership/$membershipId/coupon/draw</code></p>
 <ul>
 <li>Request</li>
@@ -1984,7 +2007,7 @@ couponId      对应渠道的couponId</p>
 }
 </code></pre>
 
-<h4 id="135couponcodemembershipcoupon">13.5.根据couponCode获取membershipCoupon</h4>
+<h3 id="135couponcodemembershipcoupon">13.5.根据couponCode获取membershipCoupon</h3>
 <p><code>GET /loyalty/v1/membershipCoupon/$couponCode</code></p>
 <ul>
 <li>Request</li>
@@ -2027,7 +2050,7 @@ couponId      对应渠道的couponId</p>
 }
 </code></pre>
 
-<h4 id="136membershipidmembershipcoupon">13.6.根据membershipId获取membershipCoupon列表</h4>
+<h3 id="136membershipidmembershipcoupon">13.6.根据membershipId获取membershipCoupon列表</h3>
 <p><code>GET /loyalty/v1/membership/$membershipId/coupon</code></p>
 <ul>
 <li>Request</li>
@@ -2077,7 +2100,7 @@ status 筛选membershipCoupon状态，normal为可使用，used为已使用</p>
 }
 </code></pre>
 
-<h4 id="137">13.7.核销</h4>
+<h3 id="137">13.7.核销</h3>
 <p><code>POST /loyalty/v1/membershipCoupon/$couponCode/redeem</code></p>
 <ul>
 <li>Request</li>
