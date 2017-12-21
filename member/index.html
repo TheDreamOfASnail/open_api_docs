@@ -156,15 +156,15 @@
                     <li class=""><a href="#11-api">11. 订单Api</a></li>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#1_1">1. 创建订单</a></li>
+                        <li><a class="itm-l2" href="#111">11.1. 创建订单</a></li>
                       </ul>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#2_1">2. 取消订单</a></li>
+                        <li><a class="itm-l2" href="#112">11.2. 取消订单</a></li>
                       </ul>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#3_1">3. 退单</a></li>
+                        <li><a class="itm-l2" href="#113">11.3. 退单</a></li>
                       </ul>
                     
                   
@@ -174,11 +174,11 @@
                     <li class=""><a href="#13-api">13. 优惠券Api</a></li>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#_3">一、模型</a></li>
+                        <li><a class="itm-l2" href="#_3">模型</a></li>
                       </ul>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#_4">二、接口</a></li>
+                        <li><a class="itm-l2" href="#_4">接口</a></li>
                       </ul>
                     
                   
@@ -981,7 +981,7 @@
 </code></pre>
 
 <h2 id="11-api">11. 订单Api</h2>
-<h3 id="1_1">1. 创建订单</h3>
+<h3 id="111">11.1. 创建订单</h3>
 <ul>
 <li>HTTP请求方式: <code>POST</code></li>
 <li><code>/loyalty/v1/deal?access_token={token}</code></li>
@@ -1269,7 +1269,7 @@
 }
 </code></pre>
 
-<h3 id="2_1">2. 取消订单</h3>
+<h3 id="112">11.2. 取消订单</h3>
 <ul>
 <li>HTTP请求方式: <code>POST</code></li>
 <li><code>/loyalty/v1/dealService/cancel?access_token={token}</code></li>
@@ -1300,7 +1300,7 @@
 }
 </code></pre>
 
-<h3 id="3_1">3. 退单</h3>
+<h3 id="113">11.3. 退单</h3>
 <ul>
 <li>HTTP请求方式: <code>POST</code></li>
 <li><code>/loyalty/v1/dealService/refund?access_token={token}</code></li>
@@ -1466,7 +1466,7 @@
 </code></pre>
 
 <h2 id="13-api">13. 优惠券Api</h2>
-<h3 id="_3">一、模型</h3>
+<h3 id="_3">模型</h3>
 <p>优惠券包括优惠券（coupon）和优惠券认领（membershipCoupon） 两个模型。操作员在会员系统的前端设置了一个优惠券后，会生成一个coupon实体；在会员领取/系统发放之后，系统会生成某会员专属的一个membershipCoupon实体。</p>
 <p>每一个coupon都有唯一标识couponId，每一个membershipCoupon都有唯一标识couponCode。具体的模型如下。</p>
 <p>coupon</p>
@@ -1767,10 +1767,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_4">二、接口</h3>
-<p>1.获取所有coupon
-GET /loyalty/v1/coupon
-- Request</p>
+<h3 id="_4">接口</h3>
+<h4 id="131coupon">13.1.获取所有coupon</h4>
+<p><code>GET /loyalty/v1/coupon</code></p>
+<ul>
+<li>Request</li>
+</ul>
 <p>access_token  根据appid请求的token 
 needTotal     是否需要总页数
 rows          每页行数
@@ -1817,9 +1819,11 @@ sord          升序asc或降序desc</p>
 </code></pre>
 
 <p>只有在使用needTotal后会有total和records值。</p>
-<p>2.根据couponId获取coupon
-GET /loyalty/v1/coupon/$couponId
-- Request</p>
+<h4 id="132couponidcoupon">13.2.根据couponId获取coupon</h4>
+<p><code>GET /loyalty/v1/coupon/$couponId</code></p>
+<ul>
+<li>Request</li>
+</ul>
 <p>access_token  根据appid请求的token</p>
 <ul>
 <li>Response</li>
@@ -1864,8 +1868,8 @@ GET /loyalty/v1/coupon/$couponId
 }
 </code></pre>
 
-<p>3.根据couponChannel获取coupon
-GET /loyalty/v1/couponService/getCouponByChannel</p>
+<h4 id="133couponchannelcoupon">13.3.根据couponChannel获取coupon</h4>
+<p><code>GET /loyalty/v1/couponService/getCouponByChannel</code></p>
 <ul>
 <li>Request</li>
 </ul>
@@ -1919,8 +1923,8 @@ couponId      对应渠道的couponId</p>
 }
 </code></pre>
 
-<p>4.领券
-POST /loyalty/v1/membership/$membershipId/coupon/draw</p>
+<h4 id="134">13.4.领券</h4>
+<p><code>POST /loyalty/v1/membership/$membershipId/coupon/draw</code></p>
 <ul>
 <li>Request</li>
 </ul>
@@ -1980,9 +1984,11 @@ POST /loyalty/v1/membership/$membershipId/coupon/draw</p>
 }
 </code></pre>
 
-<p>5.根据couponCode获取membershipCoupon
-GET /loyalty/v1/membershipCoupon/$couponCode
-- Request</p>
+<h4 id="135couponcodemembershipcoupon">13.5.根据couponCode获取membershipCoupon</h4>
+<p><code>GET /loyalty/v1/membershipCoupon/$couponCode</code></p>
+<ul>
+<li>Request</li>
+</ul>
 <p>access_token  根据appid请求的token</p>
 <ul>
 <li>Response</li>
@@ -2021,8 +2027,8 @@ GET /loyalty/v1/membershipCoupon/$couponCode
 }
 </code></pre>
 
-<p>6.根据membershipId获取membershipCoupon列表
-GET /loyalty/v1/membership/$membershipId/coupon</p>
+<h4 id="136membershipidmembershipcoupon">13.6.根据membershipId获取membershipCoupon列表</h4>
+<p><code>GET /loyalty/v1/membership/$membershipId/coupon</code></p>
 <ul>
 <li>Request</li>
 </ul>
@@ -2071,8 +2077,8 @@ status 筛选membershipCoupon状态，normal为可使用，used为已使用</p>
 }
 </code></pre>
 
-<p>7.核销
-POST /loyalty/v1/membershipCoupon/$couponCode/redeem</p>
+<h4 id="137">13.7.核销</h4>
+<p><code>POST /loyalty/v1/membershipCoupon/$couponCode/redeem</code></p>
 <ul>
 <li>Request</li>
 </ul>
