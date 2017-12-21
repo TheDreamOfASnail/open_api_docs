@@ -600,7 +600,7 @@ DM Hub内置了几个身份类型
 ```
 
 ## 11. 订单Api
-###1. 创建订单
+### 11.1. 创建订单
 - HTTP请求方式: `POST`
 - `/loyalty/v1/deal?access_token={token}`
 - Payload
@@ -690,7 +690,7 @@ DM Hub内置了几个身份类型
 }
 ```
 
-###2. 取消订单
+### 11.2. 取消订单
 - HTTP请求方式: `POST`
 - ` /loyalty/v1/dealService/cancel?access_token={token}`
 - Payload
@@ -719,7 +719,7 @@ DM Hub内置了几个身份类型
 }
 ```
 
-###3. 退单
+### 11.3. 退单
 - HTTP请求方式: `POST`
 - ` /loyalty/v1/dealService/refund?access_token={token}`
 - Payload
@@ -830,7 +830,451 @@ POST 数据说明：
 }
 ```
 
+## 13. 优惠券Api
+### 模型
+优惠券包括优惠券（coupon）和优惠券认领（membershipCoupon） 两个模型。操作员在会员系统的前端设置了一个优惠券后，会生成一个coupon实体；在会员领取/系统发放之后，系统会生成某会员专属的一个membershipCoupon实体。
+
+每一个coupon都有唯一标识couponId，每一个membershipCoupon都有唯一标识couponCode。具体的模型如下。
+
+coupon
+
+|英文名称|	字段名称|	字段类型|	说明 |
+| ------------ | ------- |-----|----- |
+|couponId| 优惠券id |  String|  |
+|couponName| 优惠券名称 |  String|  |
+|couponLabel| 优惠券标题 |  String|  |
+|couponSubLabel| 优惠券副标题 |  String|  |
+|couponType| 优惠券类型 |  Number| 1为代金券，2为折扣券，3为商品券 |
+|channels| 优惠券渠道 |  JsonArray| 目前界面最多可设置线上和线下两个渠道 |
+|drawLimit| 每人限令张数 |  Number|  |
+|total| 总张数 |  Number|  |
+|store| 库存 |  Number|  |
+|note| 使用须知 |  String|  |
+|validType| 有效类型 |  Number| 1为绝对日期范围，2为相对领取时间 |
+|validDate| 有效日期 |  JsonObject| 根据validType区分 |
+|rule| 使用规则 |  JsonObject|  |
+
+coupon.channels
+
+|英文名称|	字段名称|	字段类型|	说明 |
+| ------------ | ------- |-----|----- |
+|couponId| 优惠券渠道码 |  String|  |
+|couponChannel| 优惠券渠道 |  String| 目前有两个渠道，线上online，线下offline |
+|url| 渠道对应的url |  String|  |
+
+coupon.validDate
+
+|英文名称|	字段名称|	字段类型|	说明 |
+| ------------ | ------- |-----|----- |
+|startDays| 领取后有效起始天数 |  Number| 相对有效日期使用 |
+|validDays| 有效后终止天数 |  Number| 相对有效日期使用 |
+|startDate| 起始有效期 |  Date|绝对有效日期使用  |
+|endDate| 终止有效期 |  Date| 绝对有效日期使用 |
+
+coupon.rule
+
+|英文名称|	字段名称|	字段类型|	说明 |
+| ------------ | ------- |-----|----- |
+|amountLimit| 最低消费 |  Number|  |
+|discount| 折扣额度 |  Number| 折扣券使用 |
+|freeFee| 减免金额 |  Number|代金券使用  |
+|goodsLimit| 指定商品 |  String|  |
+|...| 自定义规则 |  ...|  |
+
+membershipCoupon
+
+|英文名称|	字段名称|	字段类型|	说明 |
+| ------------ | ------- |-----|----- |
+|membershipId| 会员id |  Number|  |
+|couponId| 优惠券id |  String| 折扣券使用 |
+|dateDraw| 领取日期 |  DateTime|代金券使用  |
+|dateRedeem| 核销日期 |  DateTime|  |
+|startDate| 起始有效期 |  Date|  |
+|endDate| 终止有效期 |  Date|  |
+|status| 状态 |  Number| 折扣券使用 |
+|couponCode| 券码 |  String|代金券使用  |
+|uuid| 券码加密 |  String|  |
+|barcodeUrl| 条形码地址 |  String |  |
+|qrcodeUrl| 二维码地址 |  String |  |
+
+membershipCoupon.status
+
+|返回值|	normal|	used|
+| ------------ | ------- |----- |
+|含义| 可使用 | 已使用 |
 
 
 
+### 13.1.获取所有coupon
+`GET /loyalty/v1/coupon`
+
+- Request
+
+access_token  根据appid请求的token 
+needTotal     是否需要总页数
+rows          每页行数
+page          所选页数
+sidx          排序字段
+sord          升序asc或降序desc
+
+- Response
+
+```json
+{
+  "rows": [
+    {
+      "channels": [
+        {
+          "couponId": "test",
+          "couponChannel": "offline",
+          "url": null
+        }
+      ],
+      "couponId": "STxgWromTbt727eBcPOo",
+      "couponLabel": "test",
+      "couponName": "test",
+      "couponSubLabel": "test",
+      "couponType": 1,
+      "drawLimit": 100,
+      "note": "test",
+      "rule": {
+        "amountLimit": null,
+        "discount": null,
+        "freeFee": null,
+        "goodsLimit": "null"
+      },
+      "total": 100000,
+      "validDate": {
+        "startDays": 5,
+        "validDays": 5
+      },
+      "validType": 2
+      }
+      ],
+  "total": 12, //总页数
+  "records": 10 //总条数
+}
+```
+
+只有在使用needTotal后会有total和records值。
+
+### 13.2.根据couponId获取coupon
+`GET /loyalty/v1/coupon/$couponId`
+
+- Request
+
+access_token  根据appid请求的token
+
+- Response
+
+成功
+
+```json
+{
+  "channels": [
+    {
+      "couponId": "test",
+      "couponChannel": "offline",
+      "url": null
+    }
+  ],
+  "couponId": "STxgWromTbt727eBcPOo",
+  "couponLabel": "test",
+  "couponName": "test",
+  "couponSubLabel": "test",
+  "couponType": 1,
+  "drawLimit": 100,
+  "note": "test",
+  "rule": {
+    "amountLimit": null,
+    "discount": null,
+    "freeFee": null,
+    "goodsLimit": "null"
+  },
+  "total": 100000,
+  "validDate": {
+    "startDays": 5,
+    "validDays": 5
+  },
+  "validType": 2
+}
+```
+
+失败
+```json
+{
+  "error": {
+    "code":"409000",
+    "message": "error info"
+  }
+}
+```
+
+### 13.3.根据couponChannel获取coupon
+`GET /loyalty/v1/couponService/getCouponByChannel`
+
+- Request
+
+access_token  根据appid请求的token
+channel       online或者offline
+couponId      对应渠道的couponId
+
+- Response
+
+成功
+```json
+{
+  "rows": [
+    {
+      "channels": [
+        {
+          "couponId": "test",
+          "couponChannel": "offline",
+          "url": null
+        }
+      ],
+      "couponId": "STxgWromTbt727eBcPOo",
+      "couponLabel": "test",
+      "couponName": "test",
+      "couponSubLabel": "test",
+      "couponType": 1,
+      "drawLimit": 100,
+      "note": "test",
+      "rule": {
+        "amountLimit": null,
+        "discount": null,
+        "freeFee": null,
+        "goodsLimit": "null"
+      },
+      "total": 100000,
+      "validDate": {
+        "startDays": 5,
+        "validDays": 5
+      },
+      "validType": 2
+    }
+  ]
+}
+```
+
+失败
+```json
+{
+  "error": {
+    "code":"409000",
+    "message": "error info"
+  }
+}
+```
+
+### 13.4.领券
+`POST /loyalty/v1/membership/$membershipId/coupon/draw`
+
+- Request
+
+access_token  根据appid请求的token
+
+- Payload
+
+```json
+{
+"couponId": "11111"
+}
+```
+- Response
+
+成功
+```json
+{
+  "dateDraw": "2017-12-05T05:54:10Z",
+  "endDate": "2017-12-15",
+  "couponId": "STxgWromTbt727eBcPOo",
+  "qrcodeUrl": "http://127.0.0.1:8004/loyalty/qrimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+  "membershipId": 1,
+  "barcodeUrl": "http://127.0.0.1:8004/loyalty/barimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+  "dateRedeem": null,
+  "uuid": "cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0\r\n",
+  "startDate": "2017-12-10",
+  "couponCode": "34636772868722688",
+  "status": "notStarted",
+  "couponType": 1,
+  "couponName": "test",
+  "couponLabel": "test",
+  "couponSubLabel": "test",
+  "note": "test",
+  "channels": [
+    {
+      "couponId": "test",
+      "couponChannel": "offline",
+      "url": null
+    }
+  ],
+  "rule": {
+    "goodsLimit": "null",
+    "freeFee": null,
+    "discount": null,
+    "amountLimit": null
+  }
+}
+```
+从couponType开始，之后的字段是这张券所属coupon的信息。
+
+失败
+```json
+{
+  "error": {
+    "code":"409000",
+    "message": "error info"
+  }
+}
+```
+
+### 13.5.根据couponCode获取membershipCoupon
+`GET /loyalty/v1/membershipCoupon/$couponCode`
+
+- Request
+
+access_token  根据appid请求的token
+
+- Response
+
+成功
+
+```json
+{
+  "dateDraw": "2017-12-05T05:54:10Z",
+  "endDate": "2017-12-15",
+  "couponId": "STxgWromTbt727eBcPOo",
+  "qrcodeUrl": "http://127.0.0.1:8004/loyalty/qrimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+  "membershipId": 1,
+  "barcodeUrl": "http://127.0.0.1:8004/loyalty/barimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+  "dateRedeem": null,
+  "uuid": "cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0\r\n",
+  "startDate": "2017-12-10",
+  "couponCode": "34636772868722688",
+  "status": "notStarted",
+  "couponType": 1,
+  "couponName": "test",
+  "couponLabel": "test",
+  "couponSubLabel": "test",
+  "note": "test",
+  "channels": [
+    {
+      "couponId": "test",
+      "couponChannel": "offline",
+      "url": null
+    }
+  ],
+  "rule": {
+    "goodsLimit": "null",
+    "freeFee": null,
+    "discount": null,
+    "amountLimit": null
+  }
+}
+```
+
+### 13.6.根据membershipId获取membershipCoupon列表
+`GET /loyalty/v1/membership/$membershipId/coupon`
+
+- Request
+
+access_token  根据appid请求的token
+status 筛选membershipCoupon状态，normal为可使用，used为已使用
+
+- Response
+
+成功
+
+```json
+{
+  "rows": [
+    {
+      "dateDraw": "2017-12-05T05:54:10Z",
+      "endDate": "2017-12-15",
+      "couponId": "STxgWromTbt727eBcPOo",
+      "qrcodeUrl": "http://127.0.0.1:8004/loyalty/qrimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+      "membershipId": 1,
+      "barcodeUrl": "http://127.0.0.1:8004/loyalty/barimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+      "dateRedeem": null,
+      "uuid": "cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0\r\n",
+      "startDate": "2017-12-10",
+      "couponCode": "34636772868722688",
+      "status": "notStarted",
+      "couponType": 1,
+      "couponName": "test",
+      "couponLabel": "test",
+      "couponSubLabel": "test",
+      "note": "test",
+      "channels": [
+        {
+          "couponId": "test",
+          "couponChannel": "offline",
+          "url": null
+        }
+      ],
+      "rule": {
+        "goodsLimit": "null",
+        "freeFee": null,
+        "discount": null,
+        "amountLimit": null
+      }
+    }
+  ],
+  "total": 12,
+  "records": 10
+}
+```
+
+### 13.7.核销
+`POST /loyalty/v1/membershipCoupon/$couponCode/redeem`
+
+- Request
+
+access_token  根据appid请求的token
+
+- Payload
+```json
+{
+"membershipId": 1
+}
+```
+
+- Response
+
+成功
+
+```json
+{
+  "dateDraw": "2017-12-05T05:54:10Z",
+  "endDate": "2017-12-15",
+  "couponId": "STxgWromTbt727eBcPOo",
+  "qrcodeUrl": "http://127.0.0.1:8004/loyalty/qrimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+  "membershipId": 1,
+  "barcodeUrl": "http://127.0.0.1:8004/loyalty/barimg/cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0",
+  "dateRedeem": null,
+  "uuid": "cnik8caw3EqPVCLAFP4IsmVeXwqb-EtxJSw3gugIq-0\r\n",
+  "startDate": "2017-12-10",
+  "couponCode": "34636772868722688",
+  "status": "used",
+  "couponType": 1,
+  "couponName": "test",
+  "couponLabel": "test",
+  "couponSubLabel": "test",
+  "note": "test",
+  "channels": [
+    {
+      "couponId": "test",
+      "couponChannel": "offline",
+      "url": null
+    }
+  ],
+  "rule": {
+    "goodsLimit": "null",
+    "freeFee": null,
+    "discount": null,
+    "amountLimit": null
+  }
+}
+```
 
