@@ -40,3 +40,6 @@ pages:
   - 'Api接口': 'member/index.md'
 # - 'TRY IT':
 #   - 'TRY IT': 'test/index.md'
+#- '百威接口文档':
+#  - '百威-旺店通对接设计文档': 'BudweiserDocument/index.md'
+
