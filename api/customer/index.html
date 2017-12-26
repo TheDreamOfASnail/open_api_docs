@@ -154,6 +154,9 @@
                     <li class=""><a href="#api_8">查询客户身份的API</a></li>
                     
                   
+                    <li class=""><a href="#_4">查询客户的统计信息</a></li>
+                    
+                  
                   </ul>
                 
               </li>
@@ -1102,6 +1105,197 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 <li>customerId 客户的id</li>
 <li>identityName客户身份名称</li>
 </ul>
+<h2 id="_4">查询客户的统计信息</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>GET
+/v1/customerStatistics?access_token={access_token}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}&amp;customerId={customerId}
+</code></pre>
+
+<p><strong>请求参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>query</td>
+<td>yes</td>
+<td>string</td>
+<td>用从“获取身份权限”节拿到的access_token替换</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>query</td>
+<td>no</td>
+<td>number</td>
+<td>一页包含多少条记录，默认值为5</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>no</td>
+<td>number</td>
+<td>取第几页的数据，默认值为1</td>
+</tr>
+<tr>
+<td>sidx</td>
+<td>query</td>
+<td>no</td>
+<td>string</td>
+<td>用于排序的字段，默认为“id”</td>
+</tr>
+<tr>
+<td>sord</td>
+<td>query</td>
+<td>no</td>
+<td>string</td>
+<td>排序方式，asc表示升序，desc表示降序，默认为asc</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>query</td>
+<td>no</td>
+<td>number</td>
+<td>精确查询某个客户的记录</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回数据</strong></p>
+<pre><code>  {
+      &quot;items&quot;:[
+          {
+              &quot;customerId&quot;: 4678,
+              &quot;firstOrderDate&quot;: &quot;2015-04-28T03:43:33Z&quot;,
+              &quot;id&quot;: 10948,
+              &quot;lastOrderDate&quot;: &quot;2015-04-28T03:43:33Z&quot;,
+              &quot;lastOrderDays&quot;: 635,
+              &quot;lastUpdated&quot;: &quot;2017-01-22T16:34:03Z&quot;,
+              &quot;latest30daysScore&quot;: 0,
+              &quot;orderAMT&quot;: 0.05,
+              &quot;orderAMTA&quot;: 4.2,
+              &quot;orderAPCT&quot;: 88,
+              &quot;orderTotal&quot;: 1,
+              &quot;orderTotalAmount&quot;: 88,
+              &quot;totalScore&quot;: 0
+          }
+      ],
+      &quot;meta&quot;: {
+          &quot;records&quot;: 20,
+          &quot;total&quot;: 7,
+          &quot;hasNext&quot;: true
+      }
+  }
+</code></pre>
+
+<p><strong>返回数据说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>items</td>
+<td>array</td>
+<td>数据块标签</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>firstOrderDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>这条记录的ID</td>
+</tr>
+<tr>
+<td>lastOrderDate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lastOrderDays</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lastUpdated</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>latest30daysScore</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>orderAMT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>orderAMTA</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>orderAPCT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>orderTotal</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>orderTotalAmount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>totalScore</td>
+<td>number</td>
+<td>客户活跃度值</td>
+</tr>
+<tr>
+<td>meta</td>
+<td>object</td>
+<td>元数据块标签</td>
+</tr>
+<tr>
+<td>records</td>
+<td>number</td>
+<td>总记录条数</td>
+</tr>
+<tr>
+<td>total</td>
+<td>number</td>
+<td>总页数</td>
+</tr>
+<tr>
+<td>hasNext</td>
+<td>boolean</td>
+<td>是否还有记录</td>
+</tr>
+</tbody>
+</table>
             <div class="ds-thread" data-thread-key="客户信息" data-title="客户信息" data-url=""></div>
         </div>
         
