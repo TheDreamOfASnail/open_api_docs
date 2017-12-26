@@ -526,3 +526,74 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&cus
 - identityValue 客户的在你系统中的id
 - customerId 客户的id
 - identityName客户身份名称
+
+## 查询客户的统计信息
+
+**调用请求**
+```
+GET
+/v1/customerStatistics?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}&customerId={customerId}
+```
+
+**请求参数说明**
+
+|Name|	In|	Required|Type|	Description|
+|-----|----|----|----|----|
+|access_token|query|yes|string|用从“获取身份权限”节拿到的access_token替换|
+|rows	     |query|no |number|一页包含多少条记录，默认值为5|
+|page        |query|no |number|取第几页的数据，默认值为1|
+|sidx        |query|no |string|用于排序的字段，默认为“id”|
+|sord        |query|no |string|排序方式，asc表示升序，desc表示降序，默认为asc|
+|customerId  |query|no |number|精确查询某个客户的记录|
+
+**返回数据**
+```
+  {
+      "items":[
+          {
+              "customerId": 4678,
+              "firstOrderDate": "2015-04-28T03:43:33Z",
+              "id": 10948,
+              "lastOrderDate": "2015-04-28T03:43:33Z",
+              "lastOrderDays": 635,
+              "lastUpdated": "2017-01-22T16:34:03Z",
+              "latest30daysScore": 0,
+              "orderAMT": 0.05,
+              "orderAMTA": 4.2,
+              "orderAPCT": 88,
+              "orderTotal": 1,
+              "orderTotalAmount": 88,
+              "totalScore": 0
+          }
+      ],
+      "meta": {
+          "records": 20,
+          "total": 7,
+          "hasNext": true
+      }
+  }
+```
+
+**返回数据说明**
+
+|Name|	Type|	Description|
+|-----|----|----|
+|items            |array  |数据块标签|
+|customerId	      |       ||
+|firstOrderDate   |		  ||
+|id               |number |这条记录的ID |
+|lastOrderDate    |	      ||
+|lastOrderDays    |       ||
+|lastUpdated      |		  ||
+|latest30daysScore|	      ||
+|orderAMT         |		  ||
+|orderAMTA	      |       ||
+|orderAPCT        |		  ||
+|orderTotal       |	      ||
+|orderTotalAmount |		  ||
+|totalScore	      |number |客户活跃度值|
+|meta             |object |元数据块标签|
+|records          |number |总记录条数 |
+|total            |number |总页数|
+|hasNext	      |boolean|是否还有记录|
+
