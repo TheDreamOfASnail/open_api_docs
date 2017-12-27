@@ -856,62 +856,63 @@
 <p>HTTP请求方式: <code>PUT</code></p>
 </li>
 <li>
-<p><code>/loyalty/v1/membershipService/${membershipId}/updateMobile?access_token={access_token}</code></p>
+<p><code>/loyalty/v1/membershipService/updateMobile?access_token={access_token}</code></p>
 </li>
 <li>
 <p>Request Payload</p>
 </li>
 </ul>
-<pre><code class="json">    {
-        &quot;oldMobile&quot;: &quot;123&quot;,
-        &quot;newMobile&quot;: &quot;456&quot;
-    }
+<pre><code class="json">{
+    &quot;oldMobile&quot;: &quot;123&quot;,
+    &quot;newMobile&quot;: &quot;456&quot;,
+    &quot;membershipId&quot;:8
+}
 </code></pre>
 
 <ul>
 <li>Response</li>
 </ul>
-<pre><code class="json">    {
-        &quot;address&quot;: null,
-        &quot;balance&quot;: null,
-        &quot;birthday&quot;: &quot;1999-01-01&quot;,
-        &quot;c_111&quot;: null,
-        &quot;c_1111&quot;: null,
-        &quot;c_12&quot;: null,
-        &quot;c_123&quot;: null,
-        &quot;c_123123&quot;: null,
-        &quot;c_Member&quot;: null,
-        &quot;c_qqq&quot;: null,
-        &quot;c_qwa123&quot;: null,
-        &quot;c_qwqqw&quot;: null,
-        &quot;c_sd&quot;: null,
-        &quot;c_sdsf&quot;: null,
-        &quot;c_wewe&quot;: null,
-        &quot;c_wewe1&quot;: null,
-        &quot;c_驱蚊器&quot;: null,
-        &quot;createChannel&quot;: null,
-        &quot;createMethod&quot;: &quot;外部系统导入&quot;,
-        &quot;customerId&quot;: 20526992,
-        &quot;dateCreated&quot;: &quot;2017-11-13T08:43:05Z&quot;,
-        &quot;dateJoin&quot;: &quot;2017-11-13T08:43:05Z&quot;,
-        &quot;educationBackgro&quot;: null,
-        &quot;email&quot;: null,
-        &quot;familyName&quot;: null,
-        &quot;gender&quot;: 1,
-        &quot;givenName&quot;: null,
-        &quot;id&quot;: 85,
-        &quot;idCard&quot;: null,
-        &quot;img&quot;: null,
-        &quot;income&quot;: null,
-        &quot;industry&quot;: null,
-        &quot;lastUpdated&quot;: &quot;2017-11-13T08:46:24Z&quot;,
-        &quot;level&quot;: 0,
-        &quot;membershipCode&quot;: null,
-        &quot;mobile&quot;: &quot;456&quot;,
-        &quot;name&quot;: &quot;test&quot;,
-        &quot;point&quot;: 0,
-        &quot;referrer&quot;: null
-    }
+<pre><code class="json">{
+    &quot;address&quot;: null,
+    &quot;balance&quot;: null,
+    &quot;birthday&quot;: &quot;1999-01-01&quot;,
+    &quot;c_111&quot;: null,
+    &quot;c_1111&quot;: null,
+    &quot;c_12&quot;: null,
+    &quot;c_123&quot;: null,
+    &quot;c_123123&quot;: null,
+    &quot;c_Member&quot;: null,
+    &quot;c_qqq&quot;: null,
+    &quot;c_qwa123&quot;: null,
+    &quot;c_qwqqw&quot;: null,
+    &quot;c_sd&quot;: null,
+    &quot;c_sdsf&quot;: null,
+    &quot;c_wewe&quot;: null,
+    &quot;c_wewe1&quot;: null,
+    &quot;c_驱蚊器&quot;: null,
+    &quot;createChannel&quot;: null,
+    &quot;createMethod&quot;: &quot;外部系统导入&quot;,
+    &quot;customerId&quot;: 20526992,
+    &quot;dateCreated&quot;: &quot;2017-11-13T08:43:05Z&quot;,
+    &quot;dateJoin&quot;: &quot;2017-11-13T08:43:05Z&quot;,
+    &quot;educationBackgro&quot;: null,
+    &quot;email&quot;: null,
+    &quot;familyName&quot;: null,
+    &quot;gender&quot;: 1,
+    &quot;givenName&quot;: null,
+    &quot;id&quot;: 85,
+    &quot;idCard&quot;: null,
+    &quot;img&quot;: null,
+    &quot;income&quot;: null,
+    &quot;industry&quot;: null,
+    &quot;lastUpdated&quot;: &quot;2017-11-13T08:46:24Z&quot;,
+    &quot;level&quot;: 0,
+    &quot;membershipCode&quot;: null,
+    &quot;mobile&quot;: &quot;456&quot;,
+    &quot;name&quot;: &quot;test&quot;,
+    &quot;point&quot;: 0,
+    &quot;referrer&quot;: null
+}
 </code></pre>
 
 <h2 id="10">10. 查看会员等级设置</h2>
