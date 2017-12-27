@@ -456,60 +456,61 @@ DM Hub内置了几个身份类型
 
 - HTTP请求方式: `PUT`
 
-- `/loyalty/v1/membershipService/${membershipId}/updateMobile?access_token={access_token}`
+- `/loyalty/v1/membershipService/updateMobile?access_token={access_token}`
 
 - Request Payload
 
 ```json
-    {
-        "oldMobile": "123",
-        "newMobile": "456"
-    }
+{
+    "oldMobile": "123",
+    "newMobile": "456",
+    "membershipId":8
+}
 ```
 - Response
 
 ```json
-    {
-        "address": null,
-        "balance": null,
-        "birthday": "1999-01-01",
-        "c_111": null,
-        "c_1111": null,
-        "c_12": null,
-        "c_123": null,
-        "c_123123": null,
-        "c_Member": null,
-        "c_qqq": null,
-        "c_qwa123": null,
-        "c_qwqqw": null,
-        "c_sd": null,
-        "c_sdsf": null,
-        "c_wewe": null,
-        "c_wewe1": null,
-        "c_驱蚊器": null,
-        "createChannel": null,
-        "createMethod": "外部系统导入",
-        "customerId": 20526992,
-        "dateCreated": "2017-11-13T08:43:05Z",
-        "dateJoin": "2017-11-13T08:43:05Z",
-        "educationBackgro": null,
-        "email": null,
-        "familyName": null,
-        "gender": 1,
-        "givenName": null,
-        "id": 85,
-        "idCard": null,
-        "img": null,
-        "income": null,
-        "industry": null,
-        "lastUpdated": "2017-11-13T08:46:24Z",
-        "level": 0,
-        "membershipCode": null,
-        "mobile": "456",
-        "name": "test",
-        "point": 0,
-        "referrer": null
-    }
+{
+    "address": null,
+    "balance": null,
+    "birthday": "1999-01-01",
+    "c_111": null,
+    "c_1111": null,
+    "c_12": null,
+    "c_123": null,
+    "c_123123": null,
+    "c_Member": null,
+    "c_qqq": null,
+    "c_qwa123": null,
+    "c_qwqqw": null,
+    "c_sd": null,
+    "c_sdsf": null,
+    "c_wewe": null,
+    "c_wewe1": null,
+    "c_驱蚊器": null,
+    "createChannel": null,
+    "createMethod": "外部系统导入",
+    "customerId": 20526992,
+    "dateCreated": "2017-11-13T08:43:05Z",
+    "dateJoin": "2017-11-13T08:43:05Z",
+    "educationBackgro": null,
+    "email": null,
+    "familyName": null,
+    "gender": 1,
+    "givenName": null,
+    "id": 85,
+    "idCard": null,
+    "img": null,
+    "income": null,
+    "industry": null,
+    "lastUpdated": "2017-11-13T08:46:24Z",
+    "level": 0,
+    "membershipCode": null,
+    "mobile": "456",
+    "name": "test",
+    "point": 0,
+    "referrer": null
+}
 ```
 
 ## 10. 查看会员等级设置
