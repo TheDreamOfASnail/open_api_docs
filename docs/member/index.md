@@ -28,8 +28,14 @@ DM Hub为**会员**内置一些比较通用的会员属性，这些属性的名�
 | balance | 储值余额 | 数字 |
 | referrer | 推广人 | 文本 |
 | lastUpdated | 最后更新时间 | 日期时间 |
-| level | 会员等级 | 文本 |
+| level | 会员等级 | Json对象 |
 | point | 会员积分 | 数字 |
+| source | 来源 | 文本 |
+| contentName | 来源内容 | 文本 |
+| country | 国家 | 文本 |
+| province | 省 | 文本 |
+| city | 市 | 文本 |
+| county | 区县 | 文本 |
 | dateCreated | 系统创建时间 | 日期时间 |
 
 除了系统内置的会员属性外，您还可以增加自定义属性。  
@@ -81,12 +87,22 @@ DM Hub内置了几个身份类型
             "industry": null,
             "givenName": null,
             "lastUpdated": "2017-10-31T03:07:47Z",
-            "level": 0,
+            "level":  {
+                        "priority": 0,        //等级所代表的层级，0为最低，向上递增
+                        "name": "青铜会员",
+                        "id": 422
+                        },
             "membershipCode": null,
             "mobile": null,
             "name": "test",
             "point": 0,
-            "referrer": null
+            "source": null,                 //新增字段
+            "contentName": null,            //新增字段
+            "campaignId": null,             //新增字段
+            "country": null,                //新增字段
+            "province": null,               //新增字段
+            "city": null,                   //新增字段
+            "county": null                  //新增字段
         }
     ]
 }
@@ -144,12 +160,22 @@ DM Hub内置了几个身份类型
     "industry": null,
     "givenName": null,
     "lastUpdated": "2017-10-31T03:21:09Z",
-    "level": 0,
+    "level": {
+        "priority": 0,
+        "name": "青铜会员",
+        "id": 422
+    },
     "membershipCode": null,
     "mobile": null,
     "name": "test",
     "point": 0,
-    "referrer": null
+    "source": null,
+    "contentName": null,
+    "campaignId": null,
+    "country": null,
+    "province": null,
+    "city": null,
+    "county": null
 }
 ```
 
@@ -182,12 +208,22 @@ DM Hub内置了几个身份类型
     "industry": null,
     "givenName": null,
     "lastUpdated": "2017-10-31T03:07:47Z",
-    "level": 0,
+    "level": {
+        "priority": 0,
+        "name": "青铜会员",
+        "id": 422
+    },
     "membershipCode": null,
     "mobile": null,
     "name": "test",
     "point": 0,
-    "referrer": null
+    "source": null,
+    "contentName": null,
+    "campaignId": null,
+    "country": null,
+    "province": null,
+    "city": null,
+    "county": null
 }
 ```
 
@@ -230,12 +266,22 @@ DM Hub内置了几个身份类型
     "industry": null,
     "givenName": null,
     "lastUpdated": "2017-10-31T05:56:57Z",
-    "level": 0,
+    "level": {
+        "priority": 0,
+        "name": "青铜会员",
+        "id": 422
+    }, 
     "membershipCode": null,
     "mobile": null,
     "name": "test1",
     "point": 0,
-    "referrer": null
+    "source": null,
+    "contentName": null,
+    "campaignId": null,
+    "country": null,
+    "province": null,
+    "city": null,
+    "county": null
 }
 ```
 
@@ -341,12 +387,22 @@ DM Hub内置了几个身份类型
         "industry": null,
         "givenName": null,
         "lastUpdated": "2017-10-31T05:56:57Z",
-        "level": 0,
+        "level": {
+            "priority": 0,
+            "name": "青铜会员",
+            "id": 422
+        }, 
         "membershipCode": null,
         "mobile": null,
         "name": "test1",
         "point": 0,
-        "referrer": null
+        "source": null,
+        "contentName": null,
+        "campaignId": null,
+        "country": null,
+        "province": null,
+        "city": null,
+        "county": null
     }
 }
 ```
@@ -405,12 +461,22 @@ DM Hub内置了几个身份类型
                 "industry": null,
                 "givenName": null,
                 "lastUpdated": "2017-10-31T05:56:57Z",
-                "level": 0,
+                "level": {
+                    "priority": 0,
+                    "name": "青铜会员",
+                    "id": 422
+                }, 
                 "membershipCode": null,
                 "mobile": null,
                 "name": "test1",
                 "point": 0,
-                "referrer": null
+                "source": null,
+                "contentName": null,
+                "campaignId": null,
+                "country": null,
+                "province": null,
+                "city": null,
+                "county": null
             }
         },
         {
@@ -441,12 +507,22 @@ DM Hub内置了几个身份类型
                 "industry": null,
                 "givenName": null,
                 "lastUpdated": "2017-10-31T03:21:09Z",
-                "level": 0,
+                "level": {
+                    "priority": 0,
+                    "name": "青铜会员",
+                    "id": 422
+                },
                 "membershipCode": null,
                 "mobile": null,
                 "name": "test",
                 "point": 0,
-                "referrer": null
+                "source": null,
+                "contentName": null,
+                "campaignId": null,
+                "country": null,
+                "province": null,
+                "city": null,
+                "county": null
             }
         }
     ]
@@ -504,12 +580,21 @@ DM Hub内置了几个身份类型
     "income": null,
     "industry": null,
     "lastUpdated": "2017-11-13T08:46:24Z",
-    "level": 0,
+    "level": {
+        "priority": 0,
+        "name": "青铜会员",
+        "id": 422
+    }, 
     "membershipCode": null,
     "mobile": "456",
     "name": "test",
     "point": 0,
-    "referrer": null
+    "contentName": null,
+    "campaignId": null,
+    "country": null,
+    "province": null,
+    "city": null,
+    "county": null
 }
 ```
 
