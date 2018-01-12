@@ -369,13 +369,49 @@
 <tr>
 <td>level</td>
 <td>会员等级</td>
-<td>文本</td>
+<td>Json对象</td>
 <td></td>
 </tr>
 <tr>
 <td>point</td>
 <td>会员积分</td>
 <td>数字</td>
+<td></td>
+</tr>
+<tr>
+<td>source</td>
+<td>来源</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>contentName</td>
+<td>来源内容</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>国家</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>province</td>
+<td>省</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>市</td>
+<td>文本</td>
+<td></td>
+</tr>
+<tr>
+<td>county</td>
+<td>区县</td>
+<td>文本</td>
 <td></td>
 </tr>
 <tr>
@@ -457,12 +493,22 @@
             &quot;industry&quot;: null,
             &quot;givenName&quot;: null,
             &quot;lastUpdated&quot;: &quot;2017-10-31T03:07:47Z&quot;,
-            &quot;level&quot;: 0,
+            &quot;level&quot;:  {
+                        &quot;priority&quot;: 0,        //等级所代表的层级，0为最低，向上递增
+                        &quot;name&quot;: &quot;青铜会员&quot;,
+                        &quot;id&quot;: 422
+                        },
             &quot;membershipCode&quot;: null,
             &quot;mobile&quot;: null,
             &quot;name&quot;: &quot;test&quot;,
             &quot;point&quot;: 0,
-            &quot;referrer&quot;: null
+            &quot;source&quot;: null,                 //新增字段
+            &quot;contentName&quot;: null,            //新增字段
+            &quot;campaignId&quot;: null,             //新增字段
+            &quot;country&quot;: null,                //新增字段
+            &quot;province&quot;: null,               //新增字段
+            &quot;city&quot;: null,                   //新增字段
+            &quot;county&quot;: null                  //新增字段
         }
     ]
 }
@@ -522,12 +568,22 @@
     &quot;industry&quot;: null,
     &quot;givenName&quot;: null,
     &quot;lastUpdated&quot;: &quot;2017-10-31T03:21:09Z&quot;,
-    &quot;level&quot;: 0,
+    &quot;level&quot;: {
+        &quot;priority&quot;: 0,
+        &quot;name&quot;: &quot;青铜会员&quot;,
+        &quot;id&quot;: 422
+    },
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: null,
     &quot;name&quot;: &quot;test&quot;,
     &quot;point&quot;: 0,
-    &quot;referrer&quot;: null
+    &quot;source&quot;: null,
+    &quot;contentName&quot;: null,
+    &quot;campaignId&quot;: null,
+    &quot;country&quot;: null,
+    &quot;province&quot;: null,
+    &quot;city&quot;: null,
+    &quot;county&quot;: null
 }
 </code></pre>
 
@@ -563,12 +619,22 @@
     &quot;industry&quot;: null,
     &quot;givenName&quot;: null,
     &quot;lastUpdated&quot;: &quot;2017-10-31T03:07:47Z&quot;,
-    &quot;level&quot;: 0,
+    &quot;level&quot;: {
+        &quot;priority&quot;: 0,
+        &quot;name&quot;: &quot;青铜会员&quot;,
+        &quot;id&quot;: 422
+    },
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: null,
     &quot;name&quot;: &quot;test&quot;,
     &quot;point&quot;: 0,
-    &quot;referrer&quot;: null
+    &quot;source&quot;: null,
+    &quot;contentName&quot;: null,
+    &quot;campaignId&quot;: null,
+    &quot;country&quot;: null,
+    &quot;province&quot;: null,
+    &quot;city&quot;: null,
+    &quot;county&quot;: null
 }
 </code></pre>
 
@@ -614,12 +680,22 @@
     &quot;industry&quot;: null,
     &quot;givenName&quot;: null,
     &quot;lastUpdated&quot;: &quot;2017-10-31T05:56:57Z&quot;,
-    &quot;level&quot;: 0,
+    &quot;level&quot;: {
+        &quot;priority&quot;: 0,
+        &quot;name&quot;: &quot;青铜会员&quot;,
+        &quot;id&quot;: 422
+    }, 
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: null,
     &quot;name&quot;: &quot;test1&quot;,
     &quot;point&quot;: 0,
-    &quot;referrer&quot;: null
+    &quot;source&quot;: null,
+    &quot;contentName&quot;: null,
+    &quot;campaignId&quot;: null,
+    &quot;country&quot;: null,
+    &quot;province&quot;: null,
+    &quot;city&quot;: null,
+    &quot;county&quot;: null
 }
 </code></pre>
 
@@ -735,12 +811,22 @@
         &quot;industry&quot;: null,
         &quot;givenName&quot;: null,
         &quot;lastUpdated&quot;: &quot;2017-10-31T05:56:57Z&quot;,
-        &quot;level&quot;: 0,
+        &quot;level&quot;: {
+        &quot;priority&quot;: 0,
+        &quot;name&quot;: &quot;青铜会员&quot;,
+        &quot;id&quot;: 422
+        }, 
         &quot;membershipCode&quot;: null,
         &quot;mobile&quot;: null,
         &quot;name&quot;: &quot;test1&quot;,
         &quot;point&quot;: 0,
-        &quot;referrer&quot;: null
+        &quot;source&quot;: null,
+        &quot;contentName&quot;: null,
+        &quot;campaignId&quot;: null,
+        &quot;country&quot;: null,
+        &quot;province&quot;: null,
+        &quot;city&quot;: null,
+        &quot;county&quot;: null
     }
 }
 </code></pre>
@@ -802,12 +888,22 @@
                 &quot;industry&quot;: null,
                 &quot;givenName&quot;: null,
                 &quot;lastUpdated&quot;: &quot;2017-10-31T05:56:57Z&quot;,
-                &quot;level&quot;: 0,
+                &quot;level&quot;: {
+                &quot;priority&quot;: 0,
+                &quot;name&quot;: &quot;青铜会员&quot;,
+                &quot;id&quot;: 422
+                }, 
                 &quot;membershipCode&quot;: null,
                 &quot;mobile&quot;: null,
                 &quot;name&quot;: &quot;test1&quot;,
                 &quot;point&quot;: 0,
-                &quot;referrer&quot;: null
+                &quot;source&quot;: null,
+                &quot;contentName&quot;: null,
+                &quot;campaignId&quot;: null,
+                &quot;country&quot;: null,
+                &quot;province&quot;: null,
+                &quot;city&quot;: null,
+                &quot;county&quot;: null
             }
         },
         {
@@ -838,12 +934,22 @@
                 &quot;industry&quot;: null,
                 &quot;givenName&quot;: null,
                 &quot;lastUpdated&quot;: &quot;2017-10-31T03:21:09Z&quot;,
-                &quot;level&quot;: 0,
+                &quot;level&quot;: {
+                &quot;priority&quot;: 0,
+                &quot;name&quot;: &quot;青铜会员&quot;,
+                &quot;id&quot;: 422
+                },
                 &quot;membershipCode&quot;: null,
                 &quot;mobile&quot;: null,
                 &quot;name&quot;: &quot;test&quot;,
                 &quot;point&quot;: 0,
-                &quot;referrer&quot;: null
+                &quot;source&quot;: null,
+                &quot;contentName&quot;: null,
+                &quot;campaignId&quot;: null,
+                &quot;country&quot;: null,
+                &quot;province&quot;: null,
+                &quot;city&quot;: null,
+                &quot;county&quot;: null
             }
         }
     ]
@@ -906,12 +1012,21 @@
     &quot;income&quot;: null,
     &quot;industry&quot;: null,
     &quot;lastUpdated&quot;: &quot;2017-11-13T08:46:24Z&quot;,
-    &quot;level&quot;: 0,
+    &quot;level&quot;: {
+        &quot;priority&quot;: 0,
+        &quot;name&quot;: &quot;青铜会员&quot;,
+        &quot;id&quot;: 422
+    }, 
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: &quot;456&quot;,
     &quot;name&quot;: &quot;test&quot;,
     &quot;point&quot;: 0,
-    &quot;referrer&quot;: null
+    &quot;contentName&quot;: null,
+    &quot;campaignId&quot;: null,
+    &quot;country&quot;: null,
+    &quot;province&quot;: null,
+    &quot;city&quot;: null,
+    &quot;county&quot;: null
 }
 </code></pre>
 
