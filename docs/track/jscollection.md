@@ -105,7 +105,7 @@ if(_cl_tracker){
 ### 2. 获取action
 <img src="../../resources/selfForm14.png" width="600"/>
 
-将用户的from表单中的<font color=red>name</font>和action替换为DM hub提供的<font color=red>name</font>和action,就能使用自己的form表单样式,将数据提交到DM hub中
+将用户的form表单中的<font color=red>name</font>和action替换为DM hub提供的<font color=red>name</font>和action,就能使用自己的form表单样式,将数据提交到DM hub中
 
 ### 3. 怎么查看uuid
 <img src="../../resources/selfForm15.png" width="800"/>
@@ -117,7 +117,7 @@ if(_cl_tracker){
 
 在打开页面时，发GET请求获取cltoken，该token在提交表单时使用，并且只能使用一次，如果要再次提交需重新获取cltoken,
 如果要重复使用token,请参考如下demo:
-**红色框注明的是要添加到外部from表单中的**
+**红色框注明的是要添加到外部form表单中的**
 <img src="../../resources/selfForm17.png" width="800"/>
 
 ```
@@ -155,15 +155,15 @@ GET: http://host.convertlab.com/formdata/get/{uuid}
 获得的数据中包含名称为“token”的数据，即后续提交表单时要使用的cltoken
 
 **怎样获取注册用户的事件**
-要使用非原生的from表单,并追踪注册用户注册之前也之后的浏览与操作记录,还需要如下配置:
+要使用非原生的form表单,并追踪注册用户注册之前也之后的浏览与操作记录,还需要如下配置:
 1. 将form表单的data-cl-attached 的值设置为 false
-2. 在from表单中添加   
+2. 在form表单中添加   
 ```
 <input type="hidden" id="utmb" name="utmb" value="" />
 <input type="hidden" id="utma" name="utma" value="" />
 ```
 
-From表单示例与js方法示例:
+Form表单示例与js方法示例:
 ```
 <form method="post" data-cl-attached="false"
   action="http://host.convertwork.cn/form/bcd110f972d44083b2cdc569d6058af5"
