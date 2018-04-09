@@ -5,43 +5,49 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/accesstoken/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customer/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/customerevent/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/tag/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/list/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//api/deal/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://api-docs.convertlab.com//api/app/</loc>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,19 +57,19 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//track/jscollection/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/ioscollection/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>http://api-docs.convertlab.com//track/androidcollection/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -73,7 +79,7 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//webhook/webhook_payload/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -83,7 +89,7 @@
         
     <url>
      <loc>http://api-docs.convertlab.com//member/</loc>
-     <lastmod>2018-02-02</lastmod>
+     <lastmod>2018-04-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

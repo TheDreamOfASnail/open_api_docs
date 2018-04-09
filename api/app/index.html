@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/app/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>APP消息推送 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../track/jscollection/">前端埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../webhook/webhook_payload/">Webhook</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../member/">会员(Beta)</a>
+                    
+                  </li>
+                
+                  <!--<li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>-->
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>APP消息推送</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../..">创建集成应用</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../accesstoken/">获取ACCESS_TOKEN</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customer/">客户信息</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customerevent/">客户事件</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../tag/">客户标签</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../list/">客户群组</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../deal/">客户交易</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">APP消息推送</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#1">1. 功能简介</a></li>
+                    
+                  
+                    <li class=""><a href="#2">2. 推送应用绑定</a></li>
+                    
+                  
+                    <li class=""><a href="#3">3. 注册推送设备信息</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#31">3.1 客户注册推送设备信息</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#32">3.2 会员注册推送设备信息</a></li>
+                      </ul>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>APP消息推送</h1>
+
+<h2 id="1">1. 功能简介</h2>
+<p>在 DMHub 平台中，App 消息推送功能是触达客户的一种方式，与短信发送、邮件发送类似。</p>
+<p>使用 App 消息推送功能可以对批量客户进行消息群推，也可以在自动流程中实现事件触发的消息推送。</p>
+<p>目前，DMHub 平台 App 消息推送功能支持 <code>Android</code> 和 <code>iOS</code> 两类移动端平台，支持 <code>极光</code> 和 <code>个推</code> 两家推送服务提供商，使用该功能之前，您的 App 需要集成极光推送或个推推送，实现推送功能。</p>
+<h2 id="2">2. 推送应用绑定</h2>
+<p>由于推送功能的实现需要使用到您在推送服务提供商注册应用时得到的一些信息，因此使用 App 消息推送功能之前需要先将您的应用绑定到 DMHub 平台。</p>
+<p>登录 DMHub 平台，选择 <code>互动</code> 菜单下的 <code>App消息推送</code> 进入 App 消息推送页面，点击 <code>应用管理</code> 按钮进入应用管理页面，根据需要选择推送服务提供商进行应用绑定。</p>
+<h2 id="3">3. 注册推送设备信息</h2>
+<p>在 App 获取到推送设备信息时，需要调用 OpenAPI 向 DMHub 平台进行注册，以便 DMHub 平台根据推送设备信息进行 App 消息推送。</p>
+<h3 id="31">3.1 客户注册推送设备信息</h3>
+<p>请求方式：<code>POST</code></p>
+<p>请求路径：<code>https://api.convertlab.com/v1/appPush/register?access_token={access_token}</code></p>
+<p>参数说明：</p>
+<ul>
+<li>access_token ：访问该 API 的令牌</li>
+</ul>
+<p>POST 数据说明：</p>
+<pre><code class="json">{
+    &quot;provider&quot;: &quot;&lt;必传&gt; 推送服务提供商，'jpush' 或 'getui'&quot;,
+    &quot;appKey&quot;: &quot;&lt;必传&gt; 在推送服务提供商平台创建应用时得到的 AppKey&quot;,
+    &quot;pushId&quot;: &quot;&lt;必传&gt; 推送服务提供商分配给设备的 PushID（极光称作 Registration ID，个推称作 ClientID，本文档统一称作 PushID）&quot;,
+    &quot;os&quot;: &quot;&lt;必传&gt; 移动端平台类型，'android' 或 'ios'&quot;,
+    &quot;customerId&quot;: &quot;&lt;非必传&gt; DMHub 平台的客户 ID。如果没有传入合法的 customerId，推送设备信息会被注册为匿名的信息。另外，如果该推送设备信息已存在，则只会更新 customerId，即更新推送信息与客户的关联关系。&quot;
+}
+</code></pre>
+
+<p>返回结果说明：</p>
+<ul>
+<li>注册成功</li>
+</ul>
+<pre><code class="json">{
+    &quot;appKey&quot;: &quot;&lt;AppKey&gt;&quot;,
+    &quot;customerId&quot;: &quot;&lt;DMHub 平台的客户 ID&gt;&quot;,
+    &quot;os&quot;: &quot;&lt;os&gt;&quot;,
+    &quot;provider&quot;: &quot;&lt;provider&gt;&quot;,
+    &quot;pushId&quot;: &quot;&lt;PushID&gt;&quot;
+}
+</code></pre>
+
+<p>注：如果返回结果中的 <em>customerId</em> 为 <code>null</code>，则表明推送设备信息被注册为匿名的信息。</p>
+<ul>
+<li>必传字段缺失</li>
+</ul>
+<pre><code class="json">{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400005&quot;,
+        &quot;message&quot;: &quot;Missing field provider!&quot;
+    }
+}
+</code></pre>
+
+<ul>
+<li>必传字段无效</li>
+</ul>
+<pre><code class="json">{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400001&quot;,
+        &quot;message&quot;: &quot;Invalid os(winphone)!&quot;
+    }
+}
+</code></pre>
+
+<h3 id="32">3.2 会员注册推送设备信息</h3>
+<p>请求方式：<code>POST</code></p>
+<p>请求路径：<code>https://api.convertlab.com/loyalty/v1/appPush/register?access_token={access_token}</code></p>
+<p>参数说明：</p>
+<ul>
+<li>access_token ：访问该 API 的令牌</li>
+</ul>
+<p>POST 数据说明：</p>
+<pre><code class="json">{
+    &quot;provider&quot;: &quot;&lt;必传&gt; 推送服务提供商，'jpush' 或 'getui'&quot;,
+    &quot;appKey&quot;: &quot;&lt;必传&gt; 在推送服务提供商平台创建应用时得到的 AppKey&quot;,
+    &quot;pushId&quot;: &quot;&lt;必传&gt; 推送服务提供商分配给设备的 PushID（极光称作 Registration ID，个推称作 ClientID，本文档统一称作 PushID）&quot;,
+    &quot;os&quot;: &quot;&lt;必传&gt; 移动端平台类型，'android' 或 'ios'&quot;,
+    &quot;membershipId&quot;: &quot;&lt;非必传&gt; 会员 ID。&quot;,
+    &quot;mobile&quot;: &quot;&lt;非必传&gt; 会员手机号。&quot;
+}
+</code></pre>
+
+<p>注：<em>membershipId</em> 参数和 <em>mobile</em> 参数用于将推送设备信息与会员建立关联，建立关联过程中，优先根据 <em>membershipId</em> 查找会员，如果没有找到会员，再根据 <em>mobile</em> 查找会员，如果找到会员，则将推送设备信息与该会员建立关联；否则，推送设备信息会被注册为匿名的信息。</p>
+<p>返回结果说明：</p>
+<ul>
+<li>注册成功</li>
+</ul>
+<pre><code class="json">{
+    &quot;appKey&quot;: &quot;&lt;AppKey&gt;&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;os&quot;: &quot;&lt;os&gt;&quot;,
+    &quot;provider&quot;: &quot;&lt;provider&gt;&quot;,
+    &quot;pushId&quot;: &quot;&lt;PushID&gt;&quot;
+}
+</code></pre>
+
+<p>注：如果返回结果中的 <em>membershiprId</em> 为 <code>null</code>，则表明推送设备信息被注册为匿名的信息。</p>
+<ul>
+<li>必传字段缺失</li>
+</ul>
+<pre><code class="json">{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400005&quot;,
+        &quot;message&quot;: &quot;Missing field provider!&quot;
+    }
+}
+</code></pre>
+
+<ul>
+<li>必传字段无效</li>
+</ul>
+<pre><code class="json">{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400001&quot;,
+        &quot;message&quot;: &quot;Invalid os(winphone)!&quot;
+    }
+}
+</code></pre>
+            <div class="ds-thread" data-thread-key="APP消息推送" data-title="APP消息推送" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
