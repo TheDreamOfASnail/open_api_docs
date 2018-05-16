@@ -13,14 +13,26 @@ require('./utils/cl_tracker.js');
 
 __注意：小程序只能使用javascript来提交事件__
 
-例如：
+当拿到对应身份时,设置对应的身份类型(type)和value,  例如：
+```
+app.cl_tracker.push({ 
+ identityType: 'wechat',
+ identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id
+ });
+```
+
+如果有多个身份: (最多支持3个身份)
 ```
 var app = getApp();
-   
-app.cl_tracker.push({ identityValue: ‘oI_M5xC_YlVhrGe5kcYhkzEQM6wM' });
-// identityValue 是用户的open_id
 
-app.cl_tracker.track('c_getInfo', info);
+app.cl_tracker.push({
+    identityType: 'wechat',
+    identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM',   // identityValue 是用户的open_id
+    identityType1: 'face_id_type',
+    identityValue1: 'faceID',
+    identityType2: 'maya_member_type',
+    identityValue2: 'maya_member_ID',
+});
 ```
 
 ## conf.js 参数配置
