@@ -1,5 +1,5 @@
 ## 下载 sdk
-从 github 上下载 微信小程序 sdk https://github.com/xsio/collector-entry/blob/master/collector-jsapi/src/main/resources/miniprograme_cl_tracker
+从 github 上下载 微信小程序 sdk https://github.com/xsio/DMHubSDK/blob/master/dmhubsdk-miniprogram/cl_tracker.js
 
 在 app.js 第一行加上. 
 
