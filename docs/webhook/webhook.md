@@ -75,6 +75,8 @@ String sign(Map payload, String secret) {
 
 ## 5. Webhook 消息类型说明
 
+Webhook 支持消息类型包括：自动流相关、表单提交相关以及会员相关，具体使用如下所述。
+
 ### 5.1 使用 Webhook 接收自动流相关消息
 
 如下图所示，在创建自动流程时，可以添加 Webhook 动作节点，用以将相关的上下文信息通过 Webhook 推送给外部系统。Webhook 的消息体可以根据实际需求进行定制，详见 [Webhook 消息体定制说明](webhook_payload)。
@@ -97,6 +99,8 @@ String sign(Map payload, String secret) {
 
 `loyalty/membership_level_up`
 
+消息内容 payload：
+
 ```json
 {
     "tenantId": <tenantId>,
@@ -114,6 +118,8 @@ String sign(Map payload, String secret) {
 
 `loyalty/membership_level_down`
 
+消息内容 payload：
+
 ```json
 {
     "tenantId": <tenantId>,
@@ -130,6 +136,8 @@ String sign(Map payload, String secret) {
 #### 5.3.3 系统发放优惠券
 
 `loyalty/loyalty_dispatch_coupon`
+
+消息内容 payload：
 
 ```json
 {
@@ -150,6 +158,8 @@ String sign(Map payload, String secret) {
 
 `loyalty/membership_draw_coupon`
 
+消息内容 payload：
+
 ```json
 {
     "tenantId": <tenantId>,
@@ -167,6 +177,8 @@ String sign(Map payload, String secret) {
 #### 5.3.5 核销优惠券
 
 `loyalty/membership_redeem_coupon`
+
+消息内容 payload：
 
 ```json
 {
