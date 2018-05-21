@@ -31,12 +31,13 @@ pages:
 #  - '设置埋点': 'track/index.md'
 #  - '客户自定义事件': 'track/customerevent.md'
 #  - '来源跟踪': 'track/sourcetracking.md'
-  - '通过PC端的JS SDK进行数据采集': 'track/jscollection.md'
-  - '通过IOS SDK进行数据采集': 'track/dmhubsdk_ios_guide.md'
-  - '通过ANDROID SDK进行数据采集': 'track/dmhubsdk_android_guide.md'
-  - '通过微信小程序SDK进行数据采集': 'track/MiniProgram_SDK_User_Guide.md'
+  - '通过 PC 端的 JS SDK 进行数据采集': 'track/jscollection.md'
+  - '通过 iOS SDK 进行数据采集': 'track/dmhubsdk_ios_guide.md'
+  - '通过 Android SDK 进行数据采集': 'track/dmhubsdk_android_guide.md'
+  - '通过微信小程序 SDK 进行数据采集': 'track/MiniProgram_SDK_User_Guide.md'
 - 'Webhook':
-  - '自动流中webhook消息体定制说明': 'webhook/webhook_payload.md'
+  - 'Webhook 使用说明': 'webhook/webhook.md'
+  - 'Webhook 消息体定制说明': 'webhook/webhook_payload.md'
 - '会员(Beta)':
   - 'Api接口': 'member/index.md'
 # - 'TRY IT':
