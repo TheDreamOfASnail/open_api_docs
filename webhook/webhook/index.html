@@ -242,6 +242,7 @@ String sign(Map payload, String secret) {
 </code></pre>
 
 <h2 id="5-webhook">5. Webhook 消息类型说明</h2>
+<p>Webhook 支持消息类型包括：自动流相关、表单提交相关以及会员相关，具体使用如下所述。</p>
 <h3 id="51-webhook">5.1 使用 Webhook 接收自动流相关消息</h3>
 <p>如下图所示，在创建自动流程时，可以添加 Webhook 动作节点，用以将相关的上下文信息通过 Webhook 推送给外部系统。Webhook 的消息体可以根据实际需求进行定制，详见 <a href="../webhook_payload">Webhook 消息体定制说明</a>。</p>
 <p><img alt="left | 0x0" src="../../resources/assets/webhook_guide03.png" /></p>
@@ -253,6 +254,7 @@ String sign(Map payload, String secret) {
 <p>如果开通了会员功能，则可以使用 Webhook 接收会员相关消息，用以将会员相关事件发生时的上下文信息通过 Webhook 推送给外部系统。目前支持 5 种会员相关事件。</p>
 <h4 id="531">5.3.1 会员等级升级</h4>
 <p><code>loyalty/membership_level_up</code></p>
+<p>消息内容 payload：</p>
 <pre><code class="json">{
     &quot;tenantId&quot;: &lt;tenantId&gt;,
     &quot;event&quot;: &quot;loyalty/membership_level_up&quot;,
@@ -267,6 +269,7 @@ String sign(Map payload, String secret) {
 
 <h4 id="532">5.3.2 会员等级降级</h4>
 <p><code>loyalty/membership_level_down</code></p>
+<p>消息内容 payload：</p>
 <pre><code class="json">{
     &quot;tenantId&quot;: &lt;tenantId&gt;,
     &quot;event&quot;: &quot;loyalty/membership_level_down&quot;,
@@ -281,6 +284,7 @@ String sign(Map payload, String secret) {
 
 <h4 id="533">5.3.3 系统发放优惠券</h4>
 <p><code>loyalty/loyalty_dispatch_coupon</code></p>
+<p>消息内容 payload：</p>
 <pre><code class="json">{
     &quot;tenantId&quot;: &lt;tenantId&gt;,
     &quot;event&quot;: &quot;loyalty/loyalty_dispatch_coupon&quot;,
@@ -297,6 +301,7 @@ String sign(Map payload, String secret) {
 
 <h4 id="534">5.3.4 领取优惠券</h4>
 <p><code>loyalty/membership_draw_coupon</code></p>
+<p>消息内容 payload：</p>
 <pre><code class="json">{
     &quot;tenantId&quot;: &lt;tenantId&gt;,
     &quot;event&quot;: &quot;loyalty/membership_draw_coupon&quot;,
@@ -312,6 +317,7 @@ String sign(Map payload, String secret) {
 
 <h4 id="535">5.3.5 核销优惠券</h4>
 <p><code>loyalty/membership_redeem_coupon</code></p>
+<p>消息内容 payload：</p>
 <pre><code class="json">{
     &quot;tenantId&quot;: &lt;tenantId&gt;,
     &quot;event&quot;: &quot;loyalty/membership_redeem_coupon&quot;,
