@@ -78,6 +78,12 @@
     
         
     <url>
+     <loc>http://api-docs.convertlab.com//webhook/webhook/</loc>
+     <lastmod>2018-05-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://api-docs.convertlab.com//webhook/webhook_payload/</loc>
      <lastmod>2018-05-21</lastmod>
      <changefreq>daily</changefreq>

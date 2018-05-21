@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/webhook/webhook/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Webhook 使用说明 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../track/jscollection/">前端埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="./">Webhook</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../member/">会员(Beta)</a>
+                    
+                  </li>
+                
+                  <!--<li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>-->
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>Webhook 使用说明</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">Webhook 使用说明</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#1-webhook">1. Webhook 简介</a></li>
+                    
+                  
+                    <li class=""><a href="#2-webhook">2. 新建 Webhook</a></li>
+                    
+                  
+                    <li class=""><a href="#3-webhook">3. 测试 Webhook</a></li>
+                    
+                  
+                    <li class=""><a href="#4-webhook">4. Webhook 验签</a></li>
+                    
+                  
+                    <li class=""><a href="#5-webhook">5. Webhook 消息类型说明</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#51-webhook">5.1 使用 Webhook 接收自动流相关消息</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#52-webhook">5.2 使用 Webhook 接收表单提交相关消息</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#53-webhook">5.3 使用 Webhook 接收会员相关消息</a></li>
+                      </ul>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../webhook_payload/">Webhook 消息体定制说明</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>Webhook 使用说明</h1>
+
+<h2 id="1-webhook">1. Webhook 简介</h2>
+<p>DM Hub 平台提供了各种 Open API 供外部系统调用，但在某些情况下，可能需要 DM Hub 在<strong>合适的时刻</strong>能够<strong>主动推送消息</strong>给外部系统，例如在自动流程执行到特定步骤时，能推送消息给客户的各种终端系统。</p>
+<p>Webhook 功能就是 DM Hub 提供的消息推送机制，能够给在 DM Hub 平台上注册过的接口推送消息。</p>
+<p>比如，如果某个客户活跃度达到了 500 分，达到你公司的“高质量线索”标准，你就可以以“活跃度达到 500 分”为触发条件，使用DM Hub 的 Webhook 功能，自动给你的 CRM 系统发送此通知，将该客户等级上调。</p>
+<h2 id="2-webhook">2. 新建 Webhook</h2>
+<p>在【设置】-【Webhook】中新建 Webhook，填写相关参数配置后，点击【保存】完成创建。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/webhook_guide01.png" /></p>
+<p>参数说明：</p>
+<ul>
+<li>
+<p>Web Hook 配置名称：给新建的 Webhook 起一个有意义的名称，该名称会显示在左侧的列表中，方便后续查看和更改。</p>
+</li>
+<li>
+<p>消息接收地址：要接收消息推送的接口地址，必须是合法的完整地址，包含使用的协议（如 http 或 https）。</p>
+</li>
+<li>
+<p>验证 SSL 证书：填写 <code>https</code> 开头的消息接收地址后会出现该选项，对于 <code>https</code> 协议的消息接收地址，默认会验证 SSL 证书，如果不需要验证，请不要勾选该选项。</p>
+</li>
+<li>
+<p>秘钥：填写 <code>https</code> 开头的消息接收地址后会出现该选项，请填写 SSL 证书对应的秘钥，用于对消息内容进行签名，在接收到消息时进行<a href="#4-webhook">验签</a>，从而保证消息来源以及消息内容没有被篡改过。</p>
+</li>
+<li>
+<p>接收消息的类型：不同的类型对应不同的使用场景，详见 <a href="#5-webhook">5. Webhook 消息类型说明</a>。</p>
+</li>
+<li>
+<p>是否激活：DM Hub 只会向处于激活状态的 Webhook 推送消息，如果不想接收消息推送，则可以在此关闭推送功能。</p>
+</li>
+<li>
+<p>是否自动重试：如果推送失败，会自动进行重试。</p>
+</li>
+</ul>
+<h2 id="3-webhook">3. 测试 Webhook</h2>
+<p>Webhook 创建完成后，可以对 Webhook 的推送配置进行测试。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/webhook_guide02.png" /></p>
+<p>测试步骤：</p>
+<ol>
+<li>
+<p>选择消息类型，默认选择全部。</p>
+</li>
+<li>
+<p>在消息内容文本框里输入消息内容，消息内容必须是接受消息推送的接口可以识别的消息类型。</p>
+</li>
+<li>
+<p>点击【测试发送】按钮进行测试。</p>
+</li>
+<li>
+<p>点击【查看推送结果】按钮可查看测试推送的历史记录。</p>
+</li>
+</ol>
+<h2 id="4-webhook">4. Webhook 验签</h2>
+<p>对于设置了秘钥的 Webhook，DM Hub 向消息接收地址发送请求时，会使用秘钥生成消息内容的 hmac sha256 hex 摘要签名，携带在 header 的 <code>X-Clab-Hmac-Signature</code> 中。</p>
+<p>在接收消息的代码中，使用相同的秘钥生成接收到的 payload 的 hmac sha256 hex 摘要签名，并与 header 中的签名进行比对，如果两者一致，则验签通过，表明消息来源可靠且消息内容没有被篡改过。</p>
+<p>生成 hmac sha256 hex 摘要签名：</p>
+<ul>
+<li>使用的 jar 包：</li>
+</ul>
+<pre><code>com.google.code.gson:gson:2.8.1
+commons-codec:commons-codec:1.10
+</code></pre>
+
+<ul>
+<li>生成签名代码示例：</li>
+</ul>
+<pre><code class="java">import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import org.apache.commons.codec.digest.HmacUtils
+
+String sign(Map payload, String secret) {
+    Gson gson = new GsonBuilder().create();
+    String str = gson.toJson(payload);
+    return HmacUtils.hmacSha256Hex(secret, str.replaceAll(&quot;\\s+&quot;, &quot;&quot;));
+}
+</code></pre>
+
+<h2 id="5-webhook">5. Webhook 消息类型说明</h2>
+<h3 id="51-webhook">5.1 使用 Webhook 接收自动流相关消息</h3>
+<p>如下图所示，在创建自动流程时，可以添加 Webhook 动作节点，用以将相关的上下文信息通过 Webhook 推送给外部系统。Webhook 的消息体可以根据实际需求进行定制，详见 <a href="../webhook_payload">Webhook 消息体定制说明</a>。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/webhook_guide03.png" /></p>
+<h3 id="52-webhook">5.2 使用 Webhook 接收表单提交相关消息</h3>
+<p>如下图所示，在包含表单的微页面中，可以设置提交表单后触发 Webhook，用以将相关的上下文信息通过 Webhook 推送给外部系统。Webhook 的消息体可以根据实际需求进行定制，详见 <a href="http://api-docs.convertlab.com/webhook/webhook_payload/">Webhook 消息体定制说明</a>。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/webhook_guide04.png" /></p>
+<p><img alt="left | 0x0" src="../../resources/assets/webhook_guide05.png" /></p>
+<h3 id="53-webhook">5.3 使用 Webhook 接收会员相关消息</h3>
+<p>如果开通了会员功能，则可以使用 Webhook 接收会员相关消息，用以将会员相关事件发生时的上下文信息通过 Webhook 推送给外部系统。目前支持 5 种会员相关事件。</p>
+<h4 id="531">5.3.1 会员等级升级</h4>
+<p><code>loyalty/membership_level_up</code></p>
+<pre><code class="json">{
+    &quot;tenantId&quot;: &lt;tenantId&gt;,
+    &quot;event&quot;: &quot;loyalty/membership_level_up&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;date&quot;: &quot;&lt;事件发生的时间&gt;&quot;,
+    &quot;oldLevelId&quot;: &lt;原等级 ID&gt;,
+    &quot;newLevelId&quot;: &lt;新等级 ID&gt;,
+    &quot;oldLevel&quot;: &quot;&lt;原等级名称&gt;&quot;,
+    &quot;newLevel&quot;: &quot;&lt;新等级名称&gt;&quot;
+}
+</code></pre>
+
+<h4 id="532">5.3.2 会员等级降级</h4>
+<p><code>loyalty/membership_level_down</code></p>
+<pre><code class="json">{
+    &quot;tenantId&quot;: &lt;tenantId&gt;,
+    &quot;event&quot;: &quot;loyalty/membership_level_down&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;date&quot;: &quot;&lt;事件发生的时间&gt;&quot;,
+    &quot;oldLevelId&quot;: &lt;原等级 ID&gt;,
+    &quot;newLevelId&quot;: &lt;新等级 ID&gt;,
+    &quot;oldLevel&quot;: &quot;&lt;原等级名称&gt;&quot;,
+    &quot;newLevel&quot;: &quot;&lt;新等级名称&gt;&quot;
+}
+</code></pre>
+
+<h4 id="533">5.3.3 系统发放优惠券</h4>
+<p><code>loyalty/loyalty_dispatch_coupon</code></p>
+<pre><code class="json">{
+    &quot;tenantId&quot;: &lt;tenantId&gt;,
+    &quot;event&quot;: &quot;loyalty/loyalty_dispatch_coupon&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;date&quot;: &quot;&lt;事件发生的时间&gt;&quot;,
+    &quot;couponId&quot;: &quot;&lt;优惠券 ID&gt;&quot;,
+    &quot;couponName&quot;: &quot;&lt;优惠券名称&gt;&quot;,
+    &quot;batchId&quot;: &quot;&lt;批次号&gt;&quot;,
+    &quot;couponCode&quot;: &quot;&lt;优惠券 code（该客户的唯一 code）&gt;&quot;,
+    &quot;startDate&quot;: &quot;&lt;起始有效日期&gt;&quot;,
+    &quot;endDate&quot;: &quot;&lt;截止有效日期&gt;&quot;
+}
+</code></pre>
+
+<h4 id="534">5.3.4 领取优惠券</h4>
+<p><code>loyalty/membership_draw_coupon</code></p>
+<pre><code class="json">{
+    &quot;tenantId&quot;: &lt;tenantId&gt;,
+    &quot;event&quot;: &quot;loyalty/membership_draw_coupon&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;date&quot;: &quot;&lt;事件发生的时间&gt;&quot;,
+    &quot;couponId&quot;: &quot;&lt;优惠券 ID&gt;&quot;,
+    &quot;couponName&quot;: &quot;&lt;优惠券名称&gt;&quot;,
+    &quot;couponCode&quot;: &quot;&lt;优惠券 code（该客户的唯一 code）&gt;&quot;,
+    &quot;startDate&quot;: &quot;&lt;起始有效日期&gt;&quot;,
+    &quot;endDate&quot;: &quot;&lt;截止有效日期&gt;&quot;
+}
+</code></pre>
+
+<h4 id="535">5.3.5 核销优惠券</h4>
+<p><code>loyalty/membership_redeem_coupon</code></p>
+<pre><code class="json">{
+    &quot;tenantId&quot;: &lt;tenantId&gt;,
+    &quot;event&quot;: &quot;loyalty/membership_redeem_coupon&quot;,
+    &quot;membershipId&quot;: &quot;&lt;会员 ID&gt;&quot;,
+    &quot;date&quot;: &quot;&lt;事件发生的时间&gt;&quot;,
+    &quot;couponId&quot;: &quot;&lt;优惠券 ID&gt;&quot;,
+    &quot;couponName&quot;: &quot;&lt;优惠券名称&gt;&quot;,
+    &quot;couponCode&quot;: &quot;&lt;优惠券 code（该客户的唯一 code）&gt;&quot;
+}
+</code></pre>
+            <div class="ds-thread" data-thread-key="Webhook 使用说明" data-title="Webhook 使用说明" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
