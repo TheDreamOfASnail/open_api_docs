@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/track/dmhubsdk_android_guide/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>通过ANDROID SDK进行数据采集 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../jscollection/">前端埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../webhook/webhook_payload/">Webhook</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../member/">会员(Beta)</a>
+                    
+                  </li>
+                
+                  <!--<li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>-->
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>通过ANDROID SDK进行数据采集</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../jscollection/">通过PC端的JS SDK进行数据采集</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../dmhubsdk_ios_guide/">通过IOS SDK进行数据采集</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">通过ANDROID SDK进行数据采集</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#1">1. 使用说明</a></li>
+                    
+                  
+                    <li class=""><a href="#2">2. 创建应用</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#21">2.1 进入应用设置页面</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#22">2.2 新建应用</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#3-sdk">3. 导入 SDK</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#31-sdk">3.1 下载 SDK</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#32-jar">3.2 添加 jar 包</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#33-androidmanifestxml">3.3 配置 AndroidManifest.xml</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#4">4. 初始化</a></li>
+                    
+                  
+                    <li class=""><a href="#5">5. 客户身份</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#51">5.1 设置客户身份</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#52">5.2 当前客户身份</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#53">5.3 清除客户身份</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#6">6. 跟踪客户事件</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#61">6.1 跟踪自定义客户事件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#62">6.2 跟踪进入、离开视图事件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#63">6.3 跟踪通知推送相关事件</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#7">7. 混淆规则</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../MiniProgram_SDK_User_Guide/">通过微信小程序SDK进行数据采集</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>通过ANDROID SDK进行数据采集</h1>
+
+<h2 id="1">1. 使用说明</h2>
+<ul>
+<li>本文是 DMHub Android SDK 标准的开发指南文档，用以指导 SDK 的集成和使用，默认读者已经具备一定的 Android 开发能力。</li>
+<li>本篇指南匹配的 DMHub Android SDK 版本为： <code>v2.0.0</code> 。</li>
+<li>DMHub Android SDK 2.0.0 要求  <code>Java &gt;= 1.7</code>  &amp;  <code>Android API &gt;= 14</code> 。</li>
+</ul>
+<h2 id="2">2. 创建应用</h2>
+<p>集成 DMHub SDK 之前，您首先需要到 DM Hub 平台创建应用。</p>
+<h3 id="21">2.1 进入应用设置页面</h3>
+<p>点击 DM Hub 平台首页右上角的齿轮图标，选择 <code>开放与集成</code> 选项，进入应用设置页面。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/guide01.png" /></p>
+<h3 id="22">2.2 新建应用</h3>
+<p>在应用设置页面点击右上角的 <code>+ 新建</code> 按钮，在弹出的创建应用弹出框中填写应用信息后保存。应用创建成功之后，即可获得集成 SDK 所需的 appid。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/guide02.png" /></p>
+<h2 id="3-sdk">3. 导入 SDK</h2>
+<h3 id="31-sdk">3.1 下载 SDK</h3>
+<p><a href="https://github.com/xsio/open_api_docs/raw/master/sdk/dmhubsdk-android/dmhubsdk-android-2.0.0.zip">点击下载</a></p>
+<h3 id="32-jar">3.2 添加 jar 包</h3>
+<p>下载解压后复制 dmhubsdk-android-2.0.0.jar 文件到工程主 module 的 libs 目录下，右键 jar 包，选择 <code>Add As Library...</code> ，将 jar 包作为 Library 添加到主 module 中。</p>
+<h3 id="33-androidmanifestxml">3.3 配置 AndroidManifest.xml</h3>
+<ul>
+<li>配置 SDK 所需权限</li>
+</ul>
+<pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot; /&gt;
+</code></pre>
+
+<ul>
+<li>配置 SDK 所需参数</li>
+</ul>
+<p>在 AndroidManifest.xml 中的 <code>&lt;application&gt;&lt;/application&gt;</code> 标签内配置 SDK 相关参数：</p>
+<pre><code class="xml">&lt;!-- DMHubSDK 相关参数 --&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.DMHubSDKAppId&quot;
+    android:value=&quot;[Must Configure] The appid get from DM Hub.&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.Endpoint&quot;
+    android:value=&quot;A string URL endpoint. If you are not running DMHubSDK in the standard production environment, you need to configure this value. Defaults to 'https://api.convertlab.com'&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.EnableDebugLogging&quot;
+    android:value=&quot;A boolean value. If true, emit more detailed log messages. Defaults to false.&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.FlushInterval&quot;
+    android:value=&quot;An integer number of milliseconds, the maximum time to wait before upload if the bulk upload limit isn't reached. Defaults to 30000 millis&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.BulkUploadLimit&quot;
+    android:value=&quot;An integer count of events, the maximum number of events to queue before an upload attempt. This value should less than 50. Defaults to 40.&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.UploadOnlyWifi&quot;
+    android:value=&quot;A boolean value. If true, upload data only in wifi environment. Defaults to false.&quot; /&gt;
+&lt;meta-data
+    android:name=&quot;com.convertlab.dmhubsdk.config.MaximumBackgroundDuration&quot;
+    android:value=&quot;An integer number of milliseconds, if App enters the background more than this duration and open again from background, we will count as a new open. Defaults to 30000 millis.&quot; /&gt;
+</code></pre>
+
+<h2 id="4">4. 初始化</h2>
+<p>使用 SDK 记录事件之前需要先进行初始化，在整个应用程序全局，只需要进行一次初始化。
+- 接口定义</p>
+<pre><code class="java">/**
+ * 在自定义的 Application 中初始化 DMHubSDK
+ * 在整个应用程序全局，只需要进行一次初始化
+ */
+public static void init(@NonNull final Context context);
+</code></pre>
+
+<ul>
+<li>代码示例</li>
+</ul>
+<p>在自定义的 <code>Application</code> 中的 <code>onCreate</code> 方法中开启调试模式并进行初始化：</p>
+<pre><code class="java">public class YourApp extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        // 初始化 DMHubSDK
+        DMHubSDK.init(this);
+    }
+}
+</code></pre>
+
+<h2 id="5">5. 客户身份</h2>
+<p>客户身份是 DM Hub 中客户的标识，App 端 SDK 采集到的客户事件以及客户相关信息需要通过客户身份与客户进行绑定。</p>
+<h3 id="51">5.1 设置客户身份</h3>
+<p>为了将客户事件以及客户相关信息与客户绑定，需要在 App 获取到客户身份信息时（如客户注册或登录），设置客户身份。</p>
+<p>多次调用设置身份接口，新的身份将会覆盖旧的身份，此后产生的客户事件将与新身份对应的客户绑定。</p>
+<p>客户在未设置客户身份期间产生的事件将会作为匿名事件进行记录，匿名事件会保存 30 天。</p>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 设置客户身份，用于绑定事件
+ * 如果重复设置，将会使用新的客户身份进行事件绑定
+ */
+public static void setIdentity(final String identityType, final String identityValue);
+</code></pre>
+
+<h3 id="52">5.2 当前客户身份</h3>
+<p>获取当前设置的客户身份。</p>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 获取当前设置的客户身份
+ * @return 如果当前还未设置过有效的客户身份，返回 null
+ */
+public static DMHubIdentity currentIdentity();
+</code></pre>
+
+<h3 id="53">5.3 清除客户身份</h3>
+<p>清除客户身份之后产生的客户事件将会作为匿名事件进行记录。</p>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 清除当前设置的客户身份
+ * @return 当前设置的客户身份，如果当前还未设置过有效的客户身份，返回 null
+ */
+public static DMHubIdentity clearIdentity();
+</code></pre>
+
+<h2 id="6">6. 跟踪客户事件</h2>
+<h3 id="61">6.1 跟踪自定义客户事件</h3>
+<p>根据业务需求在 DM Hub 后台 <a href="https://github.com/xsio/open_api_docs/blob/master/docs/track/EVENT_GUIDE.md">新建自定义事件</a> 后，可以调用该 API 对自定义客户事件进行跟踪。在新建自定义事件时，还可以根据需要添加自定义属性，并在调用 API 时作为参数传入。</p>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 跟踪自定义客户事件
+ *
+ * @param eventId    在 DM Hub 中新建的自定义事件的事件 Id
+ * @param properties 事件的自定义属性，必须以在 DM Hub 中新建自定义事件时添加的自定义属性作为 key
+ */
+public static void trackMap(final String eventId, final Map&lt;String, Object&gt; properties);
+
+/**
+ * 跟踪自定义客户事件
+ *
+ * @param eventId    在 DM Hub 中新建的自定义事件的事件 Id
+ * @param properties 事件的自定义属性，必须以在 DM Hub 中新建自定义事件时添加的自定义属性作为 key
+ */
+public static void track(final String eventId, JSONObject properties);
+
+/**
+ * 跟踪自定义客户事件
+ *
+ * @param eventId 在 DM Hub 中新建的自定义事件的事件 Id
+ */
+public static void track(final String eventId);
+</code></pre>
+
+<h3 id="62">6.2 跟踪进入、离开视图事件</h3>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 跟踪进入视图事件
+ *
+ * @param viewName 视图的名称，客户时间轴上的显示为：'进入手机视图 ${viewName}'
+ */
+public static void trackOpenView(final String viewName);
+
+/**
+ * 跟踪离开视图事件
+ *
+ * @param viewName 视图的名称，客户时间轴上的显示为：'离开手机视图 ${viewName}'
+ */
+public static void trackExitView(final String viewName);
+</code></pre>
+
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code class="java">public class YourActivity extends Activity {
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        DMHubSDK.trackOpenView(&quot;&lt;viewName&gt;&quot;);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        DMHubSDK.trackExitView(&quot;&lt;viewName&gt;&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="63">6.3 跟踪通知推送相关事件</h3>
+<p>如果您使用了 DM Hub 平台提供的通知推送功能，则可以调用 SDK 提供的相关 API 对来自 DM Hub 平台的通知推送相关事件进行跟踪。</p>
+<h4 id="631-jpush">6.3.1 跟踪 JPush 推送相关事件</h4>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 当自定义的 JPush 广播接收器收到来自 JPush 的广播时调用
+ *
+ * @param intent 收到的广播的 intent
+ */
+public static void onJPushReceiveBroadcast(final Intent intent);
+</code></pre>
+
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code class="java">public class YourJPushReceiver extends BroadcastReceiver {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        DMHubSDK.onJPushReceiveBroadcast(intent);
+    }
+}
+</code></pre>
+
+<h4 id="632-getui">6.3.2 跟踪 GeTui 推送相关事件</h4>
+<ul>
+<li>接口定义</li>
+</ul>
+<pre><code class="java">/**
+ * 在自定义的 GTIntentService 的 onReceiveClientId 方法中调用
+ *
+ * @param clientId 收到的 clientId
+ */
+public static void onGeTuiReceiveClientId(final String clientId);
+
+/**
+ * 在自定义的 GTIntentService 的 onReceiveMessageData 方法中调用
+ *
+ * @param taskId    GTTransmitMessage 中携带的 taskId
+ * @param messageId GTTransmitMessage 中携带的 messageId
+ * @param payload   GTTransmitMessage 中携带的 payload
+ */
+public static void onGeTuiReceiveMessageData(final String taskId, final String messageId, final byte[] payload);
+
+/**
+ * 在自定义的 GTIntentService 的 onNotificationMessageArrived 方法中调用
+ *
+ * @param taskId    GTNotificationMessage 中携带的 taskId
+ * @param messageId GTNotificationMessage 中携带的 messageId
+ */
+public static void onGeTuiNotificationMessageArrived(final String taskId, final String messageId);
+</code></pre>
+
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code class="java">public class YourIntentService extends GTIntentService {
+
+    @Override
+    public void onReceiveClientId(Context context, String clientid) {
+        DMHubSDK.onGeTuiReceiveClientId(clientid);
+    }
+
+    @Override
+    public void onReceiveMessageData(Context context, GTTransmitMessage msg) {
+        String taskId = msg.getTaskId();
+        String messageId = msg.getMessageId();
+        byte[] payload = msg.getPayload();
+        DMHubSDK.onGeTuiReceiveMessageData(taskId, messageId, payload);
+    }
+
+    @Override
+    public void onNotificationMessageArrived(Context context, GTNotificationMessage gtNotificationMessage) {
+        String taskId = gtNotificationMessage.getTaskId();
+        String messageId = gtNotificationMessage.getMessageId();
+        DMHubSDK.onGeTuiNotificationMessageArrived(taskId, messageId);
+    }
+}
+</code></pre>
+
+<h2 id="7">7. 混淆规则</h2>
+<p>在工程的混淆规则文件中添加如下规则：</p>
+<pre><code class="prolog"># DMHubSDK
+-dontwarn com.convertlab.**
+-keep class com.convertlab.** { *; }
+</code></pre>
+            <div class="ds-thread" data-thread-key="通过ANDROID SDK进行数据采集" data-title="通过ANDROID SDK进行数据采集" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
