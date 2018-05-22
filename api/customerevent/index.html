@@ -294,6 +294,33 @@
 <p>对于自定义事件类型，除了系统内置的属性 (见 客户事件模型) 外，还能添加最多5个自定义属性。要添加自定义属性，请在自定义事件对话框内点击 添加自定义属性 按钮。</p>
 <p>还是以申请信用卡事件c_apply_card为例，我们可以增加一个属性touter来记录地推人员的id。</p>
 <p><img src="../../resources/customerevent3.png" width="600"/></p>
+<p>由于事件规模庞大，目前将历史事件放入相应的历史分区中，查询、删除时请使用<strong>partition</strong>字段。具体分区信息如下：</p>
+<table>
+<thead>
+<tr>
+<th>时间分区</th>
+<th>partition</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018年</td>
+<td>2018</td>
+<td>可以不填</td>
+</tr>
+<tr>
+<td>2017年</td>
+<td>2017</td>
+<td>index接口查询2017年的事件必填</td>
+</tr>
+<tr>
+<td>2017年之前</td>
+<td>2016</td>
+<td>index接口查询2017年之前的事件必填</td>
+</tr>
+</tbody>
+</table>
 <h2 id="api">创建客户事件的API</h2>
 <p>我们以上面定义的自定义事件c_apply_card为例介绍客户事件的创建。</p>
 <p><strong>调用请求</strong></p>
@@ -338,12 +365,13 @@ POST请求示例：
 <h2 id="api_1">获取单个事件的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
+https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&amp;partition={partition}
 </code></pre>
 
 <p><strong>参数说明</strong>
 - {access_token}用从“获取身份权限”节拿到的access_token替换
-- id 客户事件id</p>
+- id 客户事件id
+- partition 事件年限，选填</p>
 <p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 1,
@@ -367,7 +395,7 @@ https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
 <h2 id="api_2">查询事件的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;customerId={customerId}&amp;event={event}&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;max={max}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;customerId={customerId}&amp;event={event}&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;partition={partition}&amp;max={max}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
@@ -429,6 +457,11 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;cus
 <td>sord</td>
 <td>否</td>
 <td>asc表示升序，desc表示降序，默认为升序</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>否</td>
+<td>分时间信息，如果不填则代表默认分表，具体分表信息请查看时间分表</td>
 </tr>
 </tbody>
 </table>
