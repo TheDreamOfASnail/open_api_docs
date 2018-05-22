@@ -35,6 +35,8 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |shippingCounty|	收货人区县|	String	|收货人区县|
 |shippingStreet|	收货人街道	|String|	收货人街道|
 |shippingAddress	|收货人地址|	String|	收货人地址|
+|referrer	|推广人|	String|	推广人|
+|referPlan	|推广计划|	String|	推广计划|
 
 ### 订单物品模型
 
