@@ -39,6 +39,14 @@
 
 <img src="../../resources/customerevent3.png" width="600"/>
 
+由于事件规模庞大，目前将历史事件放入相应的历史分区中，查询、删除时请使用**partition**字段。具体分区信息如下：
+|     时间分区     | partition | 备注 |
+| ------------ | ------- |------------------------------- |
+|2018年|	2018	|可以不填|
+|2017年|	2017| index接口查询2017年的事件必填|
+|2017年之前|	2016| index接口查询2017年之前的事件必填|
+
+
 ## 创建客户事件的API
 我们以上面定义的自定义事件c_apply_card为例介绍客户事件的创建。
 
@@ -87,11 +95,12 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
+https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&partition={partition}
 ```
 **参数说明**
 - {access_token}用从“获取身份权限”节拿到的access_token替换
 - id 客户事件id
+- partition 事件年限，选填
 
 **返回结果**
 ```
@@ -118,7 +127,7 @@ https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents?access_token={access_token}&customerId={customerId}&event={event}&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}&max={max}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api.convertlab.com/v1/customerevents?access_token={access_token}&customerId={customerId}&event={event}&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}&partition={partition}&max={max}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**
@@ -135,6 +144,7 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&custome
 |page|	否|	起始页数，以1开始|
 |sidx|	否|	排序的字段，比如如果按lastUpdated排序，sidx=lastUpdated|
 |sord|	否|	asc表示升序，desc表示降序，默认为升序|
+|partition|	否| 分时间信息，如果不填则代表默认分表，具体分表信息请查看时间分表|
 
 **返回结果**
 ```
