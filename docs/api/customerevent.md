@@ -47,7 +47,7 @@
 |2017年|	2017| index接口查询2017年的事件必填|
 |2017年之前|	2016| index接口查询2017年之前的事件必填|
 
-<font color=red>注：对于同一时间（date），同一客户（customerId），发生的同一事件（event）</font>
+<span style="color:red;">注：对于同一时间（date），同一客户（customerId），发生的同一事件（event）</span>
 
 ## 创建客户事件的API
 我们以上面定义的自定义事件c_apply_card为例介绍客户事件的创建。
