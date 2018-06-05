@@ -50,6 +50,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |qty|	订购数量|	Integer|	订购数量|
 |priceUnit	|单件商品价格|	BigDecimal|	单件商品价格|
 |priceSubTotal|	该商品总价|	BigDecimal|	该商品总价|
+|brandName|	产品品牌 |	String |	产品品牌|
 
 ## 创建业务订单的API
 订单物品放在订单的line字段中一起创建。
@@ -130,7 +131,7 @@ POST请求示例：
 |qty|	是	|订购数量|
 |priceUnit|	否	|单件商品价格|
 |priceSubTotal|	否	|该商品总价|
-
+|brandName|	否 |	产品品牌|
 **返回结果**
 ```
 {
@@ -339,7 +340,8 @@ PUT请求示例：
       "category": "啤酒",
       "qty": 1,
       "priceUnit": 69.0,
-      "priceSubTotal": 69.0
+      "priceSubTotal": 69.0,
+      "brandName": "百威"
     }
   ]
 }
