@@ -62,7 +62,7 @@
                 
                   <li class="pull-left">
                     
-                    <a href="../../member/">会员(Beta)</a>
+                    <a href="../../member/">会员</a>
                     
                   </li>
                 
@@ -418,6 +418,12 @@
 <td>BigDecimal</td>
 <td>该商品总价</td>
 </tr>
+<tr>
+<td>brandName</td>
+<td>产品品牌</td>
+<td>String</td>
+<td>产品品牌</td>
+</tr>
 </tbody>
 </table>
 <h2 id="api">创建业务订单的API</h2>
@@ -623,9 +629,18 @@ POST请求示例：
 <td>否</td>
 <td>该商品总价</td>
 </tr>
+<tr>
+<td>brandName</td>
+<td>否</td>
+<td>产品品牌</td>
+</tr>
+<tr>
+<td><strong>返回结果</strong></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 1234,
   &quot;customerId&quot;: 8888,
@@ -878,7 +893,8 @@ PUT请求示例：
       &quot;category&quot;: &quot;啤酒&quot;,
       &quot;qty&quot;: 1,
       &quot;priceUnit&quot;: 69.0,
-      &quot;priceSubTotal&quot;: 69.0
+      &quot;priceSubTotal&quot;: 69.0,
+      &quot;brandName&quot;: &quot;百威&quot;
     }
   ]
 }
