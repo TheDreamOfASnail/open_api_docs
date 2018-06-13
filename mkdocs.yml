@@ -38,7 +38,7 @@ pages:
 - 'Webhook':
   - 'Webhook 使用说明': 'webhook/webhook.md'
   - 'Webhook 消息体定制说明': 'webhook/webhook_payload.md'
-- '会员(Beta)':
+- '会员':
   - 'Api接口': 'member/index.md'
 # - 'TRY IT':
 #   - 'TRY IT': 'test/index.md'
