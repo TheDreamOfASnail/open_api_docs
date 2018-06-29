@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/track/site_collection_guide/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>通过网站埋点进行数据采集 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="./">前端埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../webhook/webhook/">Webhook</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../member/">会员</a>
+                    
+                  </li>
+                
+                  <!--<li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>-->
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>通过网站埋点进行数据采集</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">通过网站埋点进行数据采集</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#1">1. 网站埋点说明</a></li>
+                    
+                  
+                    <li class=""><a href="#2">2. 设置追踪网站</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#21">2.1 嵌入追踪代码</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#22">2.2 设置追踪域名</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#3">3. 跟踪客户事件</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#31">3.1 打开链接触发的事件</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#32">3.2 其他行为触发的事件</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#4">4. 获取嵌入式表单</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#41">4.1 新建表单</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#42">4.2 集成表单</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#5">5. 用户来源跟踪</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#51-url">5.1 新建可追踪 URL</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#52-js">5.2 网站页面引入 JS 代码</a></li>
+                      </ul>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>通过网站埋点进行数据采集</h1>
+
+<h2 id="1">1. 网站埋点说明</h2>
+<p>DM Hub 中的网站埋点功能可以帮您统计网站流量，追踪流量来源，捕获网站访客信息。</p>
+<p>比起单一的网站流量统计与追踪，DM Hub 能够将线索在各渠道留下的痕迹整合，为营销人员提供完整的客户画像，以进行更加精准的营销与内容推送。</p>
+<h2 id="2">2. 设置追踪网站</h2>
+<p>在【设置】-【设置中心】中选择【网站】模块进行追踪网站设置。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/site_setting01.png" /></p>
+<h3 id="21">2.1 嵌入追踪代码</h3>
+<p><img alt="left | 0x0" src="../../resources/assets/site_setting02.png" /></p>
+<p>在所有需要统计的网站页面中嵌入追踪代码：</p>
+<pre><code class="javascript">&lt;script src=&quot;//cbe.convertlab.com/cbe/collect?tid={YOUR_TID}&amp;at=0&amp;h=web&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  clab_tracker.ready(function(){
+    this.push({&quot;pageType&quot;: &quot;web&quot;});
+    this.track(&quot;open_page&quot;, {});
+  });
+&lt;/script&gt;
+</code></pre>
+
+<p>其中的 <code>{YOUR_TID}</code> 是变化的，请前往追踪网站设置页面获取。</p>
+<h3 id="22">2.2 设置追踪域名</h3>
+<p><img alt="left | 0x0" src="../../resources/assets/site_setting03.png" /></p>
+<p>设置要追踪的网站的域名，只有设置过的域名才会被追踪。</p>
+<h2 id="3">3. 跟踪客户事件</h2>
+<h3 id="31">3.1 打开链接触发的事件</h3>
+<p>对于打开链接触发的事件，有两种方式来进行跟踪，开发者可以根据使用需求选择其中一种方式。</p>
+<ul>
+<li>方式一</li>
+</ul>
+<p>在被打开的页面中放入如下代码：</p>
+<pre><code class="javascript">&lt;script src=&quot;//cbe.convertlab.com/cbe/collect?tid={YOUR_TID}&amp;at=0&amp;h=web&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  clab_tracker.ready(function(){
+    this.push({});
+    this.track(event, targetName, targetId);
+  });
+&lt;/script&gt;
+</code></pre>
+
+<p>其中的 <code>{YOUR_TID}</code> 是变化的，请前往追踪网站设置页面获取。</p>
+<ul>
+<li>方式二</li>
+</ul>
+<p>在链接上添加 <code>data-cl-event</code> 属性，值 <code>{event}</code> 为要触发的事件：</p>
+<pre><code>&lt;a data-cl-event=&quot;{event}&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+<h3 id="32">3.2 其他行为触发的事件</h3>
+<p>如果事件不是由打开链接触发的，可以通过如下 <code>track</code> 方法来提交事件：</p>
+<pre><code class="javascript">if (clab_tracker) {
+  clab_tracker.track(event, targetName, targetId, properties, callback);
+}
+</code></pre>
+
+<p><code>track</code> 方法参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td>事件 id</td>
+</tr>
+<tr>
+<td>targetName</td>
+<td>比如事件为关注公众号，targetName 为公众号的名字</td>
+</tr>
+<tr>
+<td>targetId</td>
+<td>比如事件为关注公众号，targetId 为公众号在 DM Hub 系统中的 id</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>可选，如果有 properties 参数会替换 page 的 properties</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>可选，如果有 callback 在完成 track 发送动作后调用此方法</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. 获取嵌入式表单</h2>
+<h3 id="41">4.1 新建表单</h3>
+<p>登录 DM Hub 系统，在【互动】-【公司网站】中选择【访客信息收集】-【嵌入式表单】新建嵌入式表单。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/site_form01.png" /></p>
+<p>根据实际需求创建表单完成后，点击【保存】完成创建。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/site_form02.png" /></p>
+<h3 id="42">4.2 集成表单</h3>
+<p>表单创建完成后，在嵌入式表单列表中就会出现新创建的表单，开发者可以点击对应表单的【文档】按钮查看表单的集成文档。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/site_form03.png" /></p>
+<h4 id="421-dm-hub">4.2.1 场景一：使用 DM Hub 嵌入式表单</h4>
+<p>使用该方式将自动在网页上生成表单，无需自行开发。</p>
+<pre><code class="javascript">&lt;form id=&quot;clForm&quot; data-cl-attached=&quot;true&quot; data-cl-id=&quot;{表单UUID}&quot; action=&quot;http://host.convertlab.com/form/{表单UUID}&quot; method=&quot;POST&quot;&gt;&lt;/form&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://host.convertlab.com/js/forms/form.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  _clForm.loadForm(&quot;http://host.convertlab.com&quot;, &quot;{表单UUID}&quot;,{
+    formInit: function(){},
+    beforeSubmit: function(){},
+    onSubmit: function(args){}
+  });
+&lt;/script&gt;
+</code></pre>
+
+<p>其中 <code>{表单UUID}</code> 填写在 DM Hub 中创建的具体表单的 uuid。此外，需要在网页的合适地方嵌入追踪脚本，嵌入方式参考 <a href="#2">2. 设置追踪网站</a>。</p>
+<h4 id="422">4.2.2 场景二：使用自定义表单</h4>
+<p>如果需要使用自定义表单，请按照下述步骤自行开发：</p>
+<ol>
+<li>
+<p>自行开发表单，并在 DM Hub 中创建相同字段的嵌入式表单用来接收数据。请确保自定义表单字段的 <code>name</code> 属性和生成的嵌入式表单中对应字段的 <code>name</code>（即 DM Hub 客户属性 ID）相同。</p>
+</li>
+<li>
+<p>在自定义表单的 form 标签中增加如下两个 data 属性： <code>data-cl-attached="false" data-cl-id="{表单UUID}"</code>，其中 <code>{表单UUID}</code> 填写在 DM Hub 中创建的具体表单的 uuid。</p>
+</li>
+<li>
+<p>按要求嵌入追踪脚本，嵌入方式参考 <a href="#2">2. 设置追踪网站</a>。</p>
+</li>
+<li>
+<p>追踪脚本会在表单中增加如下字段： <code>&lt;input type="hidden" name="cl_context" value="utma=xxx.xxx&amp;utmb=xxx.xxx"&gt;</code></p>
+</li>
+<li>
+<p>发 GET 请求获取 cltoken，该 token 在提交表单时使用，并且只能使用一次，如果要再次提交需重新获取 cltoken。获取方式如下：GET: <code>http://host.convertlab.com/formdata/get/{表单UUID}</code>，其中 <code>{表单UUID}</code> 填写具体表单的 uuid。获得的数据中包含名称为 <code>token</code> 的数据，即后续提交表单时要使用的 cltoken。</p>
+</li>
+<li>
+<p>提交表单时，将表单数据以 form data 的形式提交，请注意字段名称必须和创建的嵌入式表单匹配，同时 form data 里需额外增加一个字段 cltoken，值为前面请求取到的 token 值。隐藏字段 cl_context 里面的 utma 和 utmb 也请一并提交。提交表单的地址：POST: <code>http://host.convertlab.com/page/{表单UUID}?channelType={channelType}&amp;userId={userId}</code>，其中 <code>{表单UUID}</code> 填写具体表单的 uuid，<code>{channelType}</code> 和 <code>{userId}</code> 根据实际情况酌情添加，<code>{channelType}</code> 表示当前渠道，例如 wechat，<code>{userId}</code> 表示用户在当前渠道的 ID，例如当前用户的 openId。</p>
+</li>
+</ol>
+<p>使用自定义表单的示例代码：</p>
+<pre><code>&lt;form id=&quot;clForm&quot; method=&quot;post&quot; data-cl-attached=&quot;false&quot; action=&quot;http://host.convertlab.com/page/{表单UUID}?channelType={channelType}&amp;userId={userId}&quot;&gt;
+  &lt;!-- 此处示例 3 个表单字段，实际开发中请确保每个字段的 name 属性和 DM Hub 中创建的嵌入式表单中对应字段的 name 相同 --&gt;
+  &lt;!-- DM Hub 预置客户属性，DM Hub 预置，不可修改 --&gt;
+  姓名：&lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;&lt;br/&gt;
+  &lt;!-- DM Hub 预置客户属性，DM Hub 预置，不可修改 --&gt;
+  手机号码：&lt;input type=&quot;text&quot; name=&quot;mobile&quot; /&gt;&lt;br/&gt;
+  &lt;!-- DM Hub 自定义客户属性，根据业务需求自行创建 --&gt;
+  自定义属性：&lt;input type=&quot;text&quot; name=&quot;attr1&quot; /&gt;&lt;br/&gt;
+
+  &lt;input type=&quot;hidden&quot; id=&quot;cltoken&quot; name=&quot;cltoken&quot; value=&quot;&quot; /&gt;
+  &lt;input type=&quot;hidden&quot; id=&quot;utmb&quot; name=&quot;utmb&quot; value=&quot;&quot; /&gt;
+  &lt;input type=&quot;hidden&quot; id=&quot;utma&quot; name=&quot;utma&quot; value=&quot;&quot; /&gt;
+  &lt;input type=&quot;button&quot; value=&quot;提交&quot; onclick=&quot;f1()&quot; class=&quot;buttons&quot; /&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+  function f1() {
+    $.ajaxSettings.async = false;
+    $.getJSON(&quot;http://host.convertlab.com/formdata/get/{表单UUID}&quot;, function(json) {
+      $(&quot;#cltoken&quot;).val(json.token);
+    });
+
+    var cookievalue = $(&quot;input[name='cl_context']&quot;).val();
+    if (cookievalue == &quot;&quot; || cookievalue == null) {
+      $(&quot;#utma&quot;).val(&quot;&quot;);
+      $(&quot;#utmb&quot;).val(&quot;&quot;);
+    } else {
+      var cookiearr = cookievalue.split(&quot;&amp;&quot;);
+      var str1 = cookiearr[0];
+      var utmas = str1.split(&quot;=&quot;);
+      var utmavalue =utmas[1];
+      var str2 = cookiearr[1];
+      var utmbs = str2.split(&quot;=&quot;);
+      var utmbvalue =utmbs[1];
+
+      $(&quot;#utma&quot;).val(utmavalue);
+      $(&quot;#utmb&quot;).val(utmbvalue);
+    }
+
+    var fromurl = $(&quot;form&quot;).attr(&quot;action&quot;);
+    $.ajax({
+      cache: true,
+      type: &quot;POST&quot;,
+      url:fromurl,
+      data:$('#clForm').serialize(),
+      async: false,
+      error: function(request) {
+        alert(&quot;Connection error&quot;);
+      },
+      success: function(data) {
+        alert(&quot;success&quot;);
+        window.location=&quot;xxxxxx.jsp&quot;;
+      }
+    });
+  }
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="5">5. 用户来源跟踪</h2>
+<p>如果需要将网站页面投放到外部营销渠道（例如百度），可以在 URL 中加上渠道来源参数，进行来源追踪和统计。</p>
+<h3 id="51-url">5.1 新建可追踪 URL</h3>
+<p>登录 DM Hub 系统，在【互动】-【公司网站】中选择【网页数据统计】-【传播你的网页】新建可追踪 URL。</p>
+<p><img alt="left | 0x0" src="../../resources/assets/site_spread01.png" /></p>
+<h3 id="52-js">5.2 网站页面引入 JS 代码</h3>
+<p>创建可追踪 URL 后，在网站的每个页面中都需要引入如下 JS 代码：</p>
+<pre><code class="javascript">$(document).ready(function() {
+  var pageurl = window.location.href;
+  var urlsource = &quot;&quot;;
+  if(pageurl.indexOf(&quot;cl_sr&quot;) != -1) {
+    var arrs = pageurl.split(&quot;cl_sr&quot;);
+    var urlsource = arrs[1];
+    urlsource = &quot;?cl_sr&quot; + urlsource;
+  }
+
+  $(&quot;a&quot;).each(function() {
+    var href = $(this).attr(&quot;href&quot;);
+    if(urlsource != &quot;&quot;) {
+      var Ahref = href + urlsource;
+      $(this).attr(&quot;href&quot;, Ahref);
+    }
+  });
+});
+</code></pre>
+            <div class="ds-thread" data-thread-key="通过网站埋点进行数据采集" data-title="通过网站埋点进行数据采集" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
