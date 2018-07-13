@@ -135,7 +135,10 @@
                     <li class=""><a href="#4">4. 修改一个会员</a></li>
                     
                   
-                    <li class=""><a href="#5">5. 修改会员等级</a></li>
+                    <li class=""><a href="#51">5.1. 修改会员等级</a></li>
+                    
+                  
+                    <li class=""><a href="#52">5.2. 增减积分</a></li>
                     
                   
                     <li class=""><a href="#6">6. 绑定会员身份</a></li>
@@ -297,7 +300,7 @@
 <tr>
 <td>gender</td>
 <td>性别</td>
-<td>文本</td>
+<td>数字</td>
 <td></td>
 </tr>
 <tr>
@@ -684,7 +687,7 @@
         &quot;priority&quot;: 0,
         &quot;name&quot;: &quot;青铜会员&quot;,
         &quot;id&quot;: 422
-    }, 
+    },
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: null,
     &quot;name&quot;: &quot;test1&quot;,
@@ -699,7 +702,7 @@
 }
 </code></pre>
 
-<h2 id="5">5. 修改会员等级</h2>
+<h2 id="51">5.1. 修改会员等级</h2>
 <ul>
 <li>
 <p>HTTP请求方式: <code>PUT</code></p>
@@ -736,6 +739,56 @@
             &quot;tenantId&quot;: 11
     }
 
+</code></pre>
+
+<h2 id="52">5.2. 增减积分</h2>
+<ul>
+<li>
+<p><code>POST</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/membership/$membershipId/point/incr?access_token={access_token}</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/membership/$membershipId/point/decr?access_token={access_token}</code></p>
+</li>
+<li>
+<p>Request Payload</p>
+</li>
+</ul>
+<pre><code class="json">{
+    &quot;point&quot;:8,
+    &quot;pattern&quot;:0                        //积分获取/减少方式（必填）
+}
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+<pre><code class="json">{
+    &quot;point&quot;: 8
+}
+</code></pre>
+
+<p>积分方式：</p>
+<pre><code class="json">{
+  &quot;积分增加&quot;: {
+    &quot;0&quot;: &quot;其他&quot;,
+    &quot;1&quot;: &quot;初始积分&quot;,
+    &quot;2&quot;: &quot;交易送积分&quot;,
+    &quot;3&quot;: &quot;参与互动得积分&quot;,
+    &quot;4&quot;: &quot;积分奖励&quot;,
+    &quot;5&quot;: &quot;积分调整&quot;
+  },&quot;积分减少&quot;: {
+    &quot;0&quot;: &quot;其他&quot;,
+    &quot;1&quot;: &quot;积分兑换&quot;,
+    &quot;2&quot;: &quot;交易退积分&quot;,
+    &quot;3&quot;: &quot;参与互动消耗积分&quot;,
+    &quot;4&quot;: &quot;惩罚扣积分&quot;,
+    &quot;5&quot;: &quot;积分调整&quot;,
+    &quot;6&quot;: &quot;积分失效&quot;
+  }
+}
 </code></pre>
 
 <h2 id="6">6. 绑定会员身份</h2>
@@ -815,7 +868,7 @@
             &quot;priority&quot;: 0,
             &quot;name&quot;: &quot;青铜会员&quot;,
             &quot;id&quot;: 422
-        }, 
+        },
         &quot;membershipCode&quot;: null,
         &quot;mobile&quot;: null,
         &quot;name&quot;: &quot;test1&quot;,
@@ -892,7 +945,7 @@
                     &quot;priority&quot;: 0,
                     &quot;name&quot;: &quot;青铜会员&quot;,
                     &quot;id&quot;: 422
-                }, 
+                },
                 &quot;membershipCode&quot;: null,
                 &quot;mobile&quot;: null,
                 &quot;name&quot;: &quot;test1&quot;,
@@ -1016,7 +1069,7 @@
         &quot;priority&quot;: 0,
         &quot;name&quot;: &quot;青铜会员&quot;,
         &quot;id&quot;: 422
-    }, 
+    },
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: &quot;456&quot;,
     &quot;name&quot;: &quot;test&quot;,
@@ -1130,7 +1183,7 @@
 <pre><code class="json">{
   &quot;membershipId&quot;: 1,
   &quot;orderNo&quot;: &quot;123456&quot;,
-  &quot;dealLine&quot;: [
+  &quot;dealLines&quot;: [
     {
       &quot;lineId&quot;: &quot;11111&quot;
     },
@@ -1388,7 +1441,7 @@
   &quot;membershipId&quot;: 1,
   &quot;orderNo&quot;: &quot;123456&quot;,
   &quot;id&quot;: &quot;1&quot;,
-  &quot;dealLine&quot;: [
+  &quot;dealLines&quot;: [
     {
       &quot;lineId&quot;: &quot;11111&quot;
     },
@@ -1428,7 +1481,7 @@
   &quot;membershipId&quot;: 1,
   &quot;orderNo&quot;: &quot;123456&quot;,
   &quot;id&quot;: &quot;1&quot;,
-  &quot;dealLine&quot;: [
+  &quot;dealLines&quot;: [
     {
       &quot;lineId&quot;: &quot;11111&quot;
     },
@@ -1912,7 +1965,7 @@
 <ul>
 <li>Request</li>
 </ul>
-<p>access_token  根据appid请求的token 
+<p>access_token  根据appid请求的token
 needTotal     是否需要总页数
 rows          每页行数
 page          所选页数
