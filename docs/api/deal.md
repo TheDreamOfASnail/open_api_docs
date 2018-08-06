@@ -141,14 +141,14 @@ POST请求示例：
 |merchantPoint	|否|	订单积分|
 |orderNo|是|	交易在对接系统中的订单号|
 |lineId|是|	订单行在该订单中的唯一标识，可以传商品id或skuid|
-|discountType|是|	优惠类型|
-|counponCode	|是|	优惠券码|
+|discountType|否|	优惠类型|
+|counponCode	|否|	优惠券码|
 |productName|是|商品名称|
 |productId	|否|商品ID|
 |skuId|	否	|SkuID|
 |brandName|	否 |	产品品牌|
 |category|	否|	产品所属品类|
-|qty|	是	|订购数量|
+|qty|	是	|商品数量|
 |priceUnit|	否	|单件商品价格|
 |priceSubTotal|	否	|该商品总价|
 |priceSubPaid|否|	该商品实际支付金额|
