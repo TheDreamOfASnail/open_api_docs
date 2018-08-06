@@ -18,25 +18,29 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |orderNo|	订单号	|String|	交易在对接系统中的订单号|
 |amountTotal	|订单总金额|	BigDecimal|	在交易中订单的总额，包括支付金额和优惠金额|
 |amountPaid|	实际支付金额|	BigDecimal|	客户支付金额|
-|amountDiscount|	优惠金额	|BigDecimal|	订单折扣|
+|amountDiscount|订单折扣金额	|BigDecimal|	订单折扣|
+|discountType|优惠类型	|String|	优惠类型|
 |counponCode	|优惠券	|String|	优惠券码|
 |groupId	|团购|	String|	团购id|
 |paymentTerm	|支付方式|	String|	现金、信用卡、微信支付、支付宝等支付方式|
 |paymentNo|	支付号|	String|	支付后的交易号码|
 |type	|订单类型	|String|	线上、线下等类型|
-|dateOrder|	订单时间|	DateTime|	订单支付完成时间，采用UTC时间格式为:“2017-06-07T12:20:20Z”|
-|store	|店铺|	String|	订单店铺（线下或线上的店铺名）|
+|dateOrder|	订单时间|	DateTime|	订单支付完成时间，采用UTC时间格式为:“2017-06-07T12:20:20Z” 如是北京时间，请减8小时|
+|store	|店铺名称|	String|	订单店铺（线下或线上的店铺名）|
 |salesChannel	|渠道|	String	|订单渠道（如线下，天猫等）|
 |shippingMethod|	运送方式|	String|	货物的运送方式|
 |contactName|	收货人名称|	String|	收货人名称|
 |contactTel|	收货人电话|	String|	收货人电话|
+|zipcode|	邮编|	String|	邮编|
 |shippingProvince|	收货人省份|	String|	收货人省份|
 |shippingCity	|收货人城市|	String|	收货人城市|
 |shippingCounty|	收货人区县|	String	|收货人区县|
 |shippingStreet|	收货人街道	|String|	收货人街道|
 |shippingAddress	|收货人地址|	String|	收货人地址|
-|referrer	|推广人|	String|	推广人|
-|referPlan	|推广计划|	String|	推广计划|
+|buyerMessage	|买家留言|	String|	买家留言|
+|remark	|订单备注|	String|	订单备注|
+|campaign	|营销活动编码|	String|	营销活动编码|
+|merchantPoint	|订单积分|	Integer|	订单积分|
 
 ### 订单物品模型
 
