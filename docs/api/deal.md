@@ -36,7 +36,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |shippingCity	|收货人城市|	String|	收货人城市|
 |shippingCounty|	收货人区县|	String	|收货人区县|
 |shippingStreet|	收货人街道	|String|	收货人街道|
-|shippingAddress	|收货人地址|	String|	收货人地址|
+|shippingAddress	|收货人详细地址|	String|	收货人详细地址|
 |buyerMessage	|买家留言|	String|	买家留言|
 |remark	|订单备注|	String|	订单备注|
 |campaign	|营销活动编码|	String|	营销活动编码|
@@ -47,14 +47,19 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |属性|	属性意义|	类型	|说明|
 | ------------ | ------- |-------|------------ |
 |orderNo|	订单号|	String|	交易在对接系统中的订单号|
-|productName|	产品名称|	String|	产品名称|
-|productId|	产品的ID|	String|	产品ID|
-|skuId	|sku	|id|	String|
+|lineId|	订单行ID|	String|	订单行在该订单中的唯一标识，可以传商品id或skuid|
+|discountType|优惠类型	|String|	优惠类型|
+|counponCode	|优惠券	|String|	优惠券码|
+|productName|商品名称|	String|商品名称|
+|productId|商品ID|	String|商品ID|
+|skuId	|skuid|	String|skuID|
+|brandName|	产品品牌 |	String |	产品品牌|
 |category|	产品所属品类	|String|	产品所属品类，比如啤酒|
 |qty|	订购数量|	Integer|	订购数量|
 |priceUnit	|单件商品价格|	BigDecimal|	单件商品价格|
 |priceSubTotal|	该商品总价|	BigDecimal|	该商品总价|
-|brandName|	产品品牌 |	String |	产品品牌|
+|priceSubPaid|	该商品实际支付金额|	BigDecimal|	该商品实际支付金额|
+
 
 ## 创建业务订单的API
 订单物品放在订单的line字段中一起创建。
