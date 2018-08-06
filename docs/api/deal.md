@@ -41,6 +41,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |remark	|订单备注|	String|	订单备注|
 |campaign	|营销活动编码|	String|	营销活动编码|
 |merchantPoint	|订单积分|	Integer|	订单积分|
+>支持订单头自定义字段
 
 ### 订单物品模型
 
@@ -59,7 +60,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |priceUnit	|单件商品价格|	BigDecimal|	单件商品价格|
 |priceSubTotal|	该商品总价|	BigDecimal|	该商品总价|
 |priceSubPaid|	该商品实际支付金额|	BigDecimal|	该商品实际支付金额|
-
+>支持订单行自定义字段
 
 ## 创建业务订单的API
 订单物品放在订单的line字段中一起创建。
@@ -113,34 +114,45 @@ POST请求示例：
 |id|	是|	客户交易ID|
 |customerId|	是|	客户id|
 |orderNo|	是	|订单号|
-|amountTotal	|是	|订单总金额|
+|amountTotal	|否	|订单总金额|
 |amountPaid|	是	|实际支付金额|
-|amountDiscount|	是	|优惠金额|
-|counponCode|	否	|优惠券|
+|amountDiscount|否|	订单折扣|
+|discountType|否|	优惠类型|
+|counponCode	|否|	优惠券码|
 |groupId|	否|	团购|
 |paymentTerm	|否|	支付方式|
 |paymentNo|	否|	支付号|
 |type|	否	|订单类型|
 |dateOrder	|是	|订单时间|
-|store	|否	|店铺|
+|store	|否	|店铺名称|
 |salesChannel|	否|	渠道|
 |shippingMethod|	否	|运送方式|
 |contactName|	否	|收货人名称|
 |contactTel|	否|	收货人电话|
+|zipcode|否|	邮编|
 |shippingProvince|	否	|收货人省份|
 |shippingCity	|否|	收货人城市|
 |shippingCounty|	否|	收货人区县|
 |shippingStreet|	否|	收货人街道|
-|shippingAddress	|否	|收货人地址|
-|lines|	否	|订单物品|
-|productName|	否|	产品名称|
-|productId	|否|	产品ID|
+|shippingAddress	|否	|收货人详细地址|
+|buyerMessage	|否|	买家留言|
+|remark	|否|	订单备注|
+|campaign	|否|	营销活动编码|
+|merchantPoint	|否|	订单积分|
+|orderNo|是|	交易在对接系统中的订单号|
+|lineId|是|	订单行在该订单中的唯一标识，可以传商品id或skuid|
+|discountType|是|	优惠类型|
+|counponCode	|是|	优惠券码|
+|productName|是|商品名称|
+|productId	|否|商品ID|
 |skuId|	否	|SkuID|
+|brandName|	否 |	产品品牌|
 |category|	否|	产品所属品类|
 |qty|	是	|订购数量|
 |priceUnit|	否	|单件商品价格|
 |priceSubTotal|	否	|该商品总价|
-|brandName|	否 |	产品品牌|
+|priceSubPaid|否|	该商品实际支付金额|
+
 **返回结果**
 ```
 {
