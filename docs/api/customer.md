@@ -382,7 +382,7 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&stage={stage
 |email	|否	|用客户的邮箱查询|
 |gender|	否|	用客户的性别查询, 1代表男性，2代表女性，0代表未知|
 |idList|	否	|支持以逗号分开的客户id列表，如idList=1,2,3,4|
-|dateCreatedFrom	|否|	客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件|
+|dateCreatedFrom	|否|	客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件,备注：北京时间需要减8后传入|
 |dateCreatedTo|	否	|客户创建的结束时间|
 |lastUpdatedFrom	|否|	客户更新的起始时间(包含)|
 |lastUpdatedTo	|否	|客户更新的结束时间|
