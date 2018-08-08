@@ -105,7 +105,11 @@ POST数据示例:
         "name": "小D",
         "mobile": "18612341234",
         "mobileVerified": true,
-        "gender": 1
+        "gender": 1,
+        "attr":{
+            "attr1":"",
+            "attr2":""
+        }
     },
 
     "customerIdentities": [
