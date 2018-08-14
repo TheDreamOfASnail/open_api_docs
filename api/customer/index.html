@@ -538,7 +538,11 @@ POST数据示例:
         &quot;name&quot;: &quot;小D&quot;,
         &quot;mobile&quot;: &quot;18612341234&quot;,
         &quot;mobileVerified&quot;: true,
-        &quot;gender&quot;: 1
+        &quot;gender&quot;: 1,
+        &quot;attr&quot;:{
+            &quot;attr1&quot;:&quot;&quot;,
+            &quot;attr2&quot;:&quot;&quot;
+        }
     },
 
     &quot;customerIdentities&quot;: [
@@ -829,7 +833,7 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&amp;stage={s
 <tr>
 <td>dateCreatedFrom</td>
 <td>否</td>
-<td>客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件</td>
+<td>客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件,备注：北京时间需要减8后传入</td>
 </tr>
 <tr>
 <td>dateCreatedTo</td>

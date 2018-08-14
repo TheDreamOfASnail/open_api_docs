@@ -161,10 +161,13 @@
                     <li class=""><a href="#api_6">将多个客户加入某群组的API</a></li>
                     
                   
-                    <li class=""><a href="#api_7">根据条件获取群组成员的客户详情的API</a></li>
+                    <li class=""><a href="#api_7">查看群组成员详情的API</a></li>
                     
                   
-                    <li class=""><a href="#api_8">根据条件获取群组成员的数量的API</a></li>
+                    <li class=""><a href="#api_8">根据条件获取群组成员的客户详情的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_9">根据条件获取群组成员的数量的API</a></li>
                     
                   
                   </ul>
@@ -613,50 +616,85 @@ POST请求示例：
       }
     ]
   }
-  ```
 
-## 查看群组成员详情的API
-**调用请求**
 </code></pre>
 
-<p>HTTP请求方式：GET
-https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}&amp;page={page}&amp;rows={rows}&amp;sidx={sidx}&amp;sord={sord}</p>
-<pre><code>
-**参数说明**
-
-|参数|    是否必填|   说明|
-| ------------ | ------- |-------------- |
-|access_token|  是   |访问API的令牌|
-|listId|    否|  要查询群组成员详情的群组id|
-|customerId|    否|  要查询群组成员详情的客户id|
-|page|  否|  起始页，从1开始|
-|rows|  否|  每页的记录数|
-|sidx|  否|  排序的字段，默认按id排序|
-|sord|  否|  asc表示升序，desc表示降序，默认为升序|
-
-**返回结果**
+<h2 id="api_7">查看群组成员详情的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式：GET
+https://api.convertlab.com/v1/listMembers?access_token={access_token}&amp;listId={listId}&amp;customerId={customerId}&amp;page={page}&amp;rows={rows}&amp;sidx={sidx}&amp;sord={sord}
 </code></pre>
 
-<p>{
-    "items": [
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>否</td>
+<td>要查询群组成员详情的群组id</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>否</td>
+<td>要查询群组成员详情的客户id</td>
+</tr>
+<tr>
+<td>page</td>
+<td>否</td>
+<td>起始页，从1开始</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
+</tr>
+<tr>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
+</tr>
+<tr>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+    &quot;items&quot;: [
       {
-        "id": 1,
-        "customerId": 92,
-        "dateCreated": "2017-01-24T07:32:33Z",
-        "lastUpdated": "2017-01-24T07:32:34Z",
-        "listId": 1
+        &quot;id&quot;: 1,
+        &quot;customerId&quot;: 92,
+        &quot;dateCreated&quot;: &quot;2017-01-24T07:32:33Z&quot;,
+        &quot;lastUpdated&quot;: &quot;2017-01-24T07:32:34Z&quot;,
+        &quot;listId&quot;: 1
       },
       {
-        "id": 2,
-        "customerId": 91,
-        "dateCreated": "2017-01-24T07:33:34Z",
-        "lastUpdated": "2017-01-24T07:33:34Z",
-        "listId": 1
+        &quot;id&quot;: 2,
+        &quot;customerId&quot;: 91,
+        &quot;dateCreated&quot;: &quot;2017-01-24T07:33:34Z&quot;,
+        &quot;lastUpdated&quot;: &quot;2017-01-24T07:33:34Z&quot;,
+        &quot;listId&quot;: 1
       }
     ]
   }
-  ```</p>
-<h2 id="api_7">根据条件获取群组成员的客户详情的API</h2>
+
+</code></pre>
+
+<h2 id="api_8">根据条件获取群组成员的客户详情的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式：GET
 https://api.convertlab.com/v1/listservice/members?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
@@ -755,7 +793,7 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&am
 }
 </code></pre>
 
-<h2 id="api_8">根据条件获取群组成员的数量的API</h2>
+<h2 id="api_9">根据条件获取群组成员的数量的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方法：GET
 https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token}&amp;listId={listId}&amp;joinListDateSince={joinListDateSince}&amp;joinListDateTo={joinListDateTo}

@@ -1,73 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+        
     <url>
-     <loc>http://api-docs.convertlab.com/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/api/accesstoken/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//api/accesstoken/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/api/customer/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//api/customer/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/api/customerevent/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//api/customerevent/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/api/tag/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//api/tag/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/api/list/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//api/list/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/api/deal/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//api/deal/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>http://api-docs.convertlab.com/track/site_collection_guide/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//track/site_collection_guide/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/track/dmhubsdk_ios_guide/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//track/dmhubsdk_ios_guide/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/track/dmhubsdk_android_guide/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//track/dmhubsdk_android_guide/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/track/MiniProgram_SDK_User_Guide/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//track/MiniProgram_SDK_User_Guide/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>http://api-docs.convertlab.com/webhook/webhook/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//webhook/webhook/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>http://api-docs.convertlab.com/webhook/webhook_payload/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//webhook/webhook_payload/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>http://api-docs.convertlab.com/member/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>http://api-docs.convertlab.com//member/</loc>
+     <lastmod>2018-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
 </urlset>
