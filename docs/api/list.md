@@ -149,7 +149,9 @@ POST请求示例：
 - dateCreated 为客户加入群组中的时间
 
 ## 将一个客户从某个群组中删除的API
+
 **调用请求**
+
 ```
 http请求方式：DELETE
 https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
@@ -163,7 +165,9 @@ https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
 |id|	是|	要删除客户在群组中的id|
 
 ## 将多个客户从某个群组中删除的API
+
 **调用请求**
+
 ```
 http请求方式：POST
 https://api.convertlab.com/v1/listservice/removeFromList?customerIds={customerIds}&listId={listId}&access_token={access_token}
@@ -178,7 +182,9 @@ https://api.convertlab.com/v1/listservice/removeFromList?customerIds={customerId
 |listId|	是|	要把客户删除的群组id|
 
 ## 将多个客户加入某群组的API
+
 **调用请求**
+
 ```
 HTTP请求方式：POST
 https://api.convertlab.com/v1/listMembersBatch?access_token={access_token}
@@ -227,10 +233,13 @@ POST请求示例：
       }
     ]
   }
-  ```
+
+```
 
 ## 查看群组成员详情的API
+
 **调用请求**
+
 ```
 HTTP请求方式：GET
 https://api.convertlab.com/v1/listMembers?access_token={access_token}&listId={listId}&customerId={customerId}&page={page}&rows={rows}&sidx={sidx}&sord={sord}
@@ -249,6 +258,7 @@ https://api.convertlab.com/v1/listMembers?access_token={access_token}&listId={li
 |sord|	否|	asc表示升序，desc表示降序，默认为升序|
 
 **返回结果**
+
 ```
 {
     "items": [
@@ -268,9 +278,13 @@ https://api.convertlab.com/v1/listMembers?access_token={access_token}&listId={li
       }
     ]
   }
-  ```
+
+```
+
 ## 根据条件获取群组成员的客户详情的API
+
 **调用请求**
+
 ```
 HTTP请求方式：GET
 https://api.convertlab.com/v1/listservice/members?access_token={access_token}&listId={listId}&joinListDateSince={joinListDateSince}&joinListDateTo={joinListDateTo}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
@@ -290,6 +304,7 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&li
 |sord|	否|	asc表示升序，desc表示降序，默认为升序|
 
 **返回结果**
+
 ```
 {
   "rows": [
@@ -332,7 +347,9 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&li
 ```
 
 ## 根据条件获取群组成员的数量的API
+
 **调用请求**
+
 ```
 HTTP请求方法：GET
 https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token}&listId={listId}&joinListDateSince={joinListDateSince}&joinListDateTo={joinListDateTo}
