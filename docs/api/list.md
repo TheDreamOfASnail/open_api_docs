@@ -25,7 +25,7 @@
 **调用请求**
 ```
 http请求方式：POST
-https://api.convertlab.com/v1/lists?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/lists?access_token={access_token}
 
 POST请求示例：
 {
@@ -54,7 +54,7 @@ POST请求示例：
 **调用请求**
 ```
 http请求方式：DELETE
-https://api.convertlab.com/v1/lists/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/lists/{id}?access_token={access_token}
 ```
 **参数说明**
 
@@ -69,7 +69,7 @@ https://api.convertlab.com/v1/lists/{id}?access_token={access_token}
 **调用请求**
 ```
 http请求方式GET
-https://api.convertlab.com/v1/lists?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/lists?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**
@@ -110,7 +110,7 @@ https://api.convertlab.com/v1/lists?access_token={access_token}&rows={rows}&page
 **请求调用**
 ```
 http请求方式：POST
-https://api.convertlab.com/v1/listMembers?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/listMembers?access_token={access_token}
 
 POST请求示例：
 {
@@ -154,7 +154,7 @@ POST请求示例：
 
 ```
 http请求方式：DELETE
-https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/listMembers/{id}?access_token={access_token}
 ```
 
 **参数说明**
@@ -170,7 +170,7 @@ https://api.convertlab.com/v1/listMembers/{id}?access_token={access_token}
 
 ```
 http请求方式：POST
-https://api.convertlab.com/v1/listservice/removeFromList?customerIds={customerIds}&listId={listId}&access_token={access_token}
+https://api-zhike.jdcloud.com/v1/listservice/removeFromList?customerIds={customerIds}&listId={listId}&access_token={access_token}
 ```
 
 **参数说明**
@@ -187,7 +187,7 @@ https://api.convertlab.com/v1/listservice/removeFromList?customerIds={customerId
 
 ```
 HTTP请求方式：POST
-https://api.convertlab.com/v1/listMembersBatch?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/listMembersBatch?access_token={access_token}
 
 POST请求示例：
 {
@@ -242,7 +242,7 @@ POST请求示例：
 
 ```
 HTTP请求方式：GET
-https://api.convertlab.com/v1/listMembers?access_token={access_token}&listId={listId}&customerId={customerId}&page={page}&rows={rows}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/listMembers?access_token={access_token}&listId={listId}&customerId={customerId}&page={page}&rows={rows}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**
@@ -287,7 +287,7 @@ https://api.convertlab.com/v1/listMembers?access_token={access_token}&listId={li
 
 ```
 HTTP请求方式：GET
-https://api.convertlab.com/v1/listservice/members?access_token={access_token}&listId={listId}&joinListDateSince={joinListDateSince}&joinListDateTo={joinListDateTo}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/listservice/members?access_token={access_token}&listId={listId}&joinListDateSince={joinListDateSince}&joinListDateTo={joinListDateTo}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**
@@ -352,7 +352,7 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&li
 
 ```
 HTTP请求方法：GET
-https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token}&listId={listId}&joinListDateSince={joinListDateSince}&joinListDateTo={joinListDateTo}
+https://api-zhike.jdcloud.com/v1/listservice/memberCount?access_token={access_token}&listId={listId}&joinListDateSince={joinListDateSince}&joinListDateTo={joinListDateTo}
 ```
 
 **参数说明**

@@ -45,7 +45,7 @@ app.cl_tracker.push({
 var conf = {
   name: 'cl_tracker',
   tenantId: '',
-  domain: 'cbe.convertlab.com',
+  domain: 'cbejd.xiaoshu.biz',
   maxStringLength: 255,
   autoTrack: false
 };
@@ -55,7 +55,7 @@ module.exports = conf;
 
 - `name`: SDK 使用的一个默认的全局变量,会注册在 App 全局函数内，在 Page 中可以通过 app[name].track 来使用，默认值是 cl_tracker。
 - `tenantId`: 您的tenantId hash值
-- `domain`: 数据接收地址域名， 默认为cbe.convertlab.com 
+- `domain`: 数据接收地址域名， 默认为cbejd.xiaoshu.biz 
 	  注意: 请在微信开发设置，服务器域名的 request 合法域名内，把这个地址加上. 详情参考https://developers.weixin.qq.com/miniprogram/dev/api/api-network.html
 - `maxStringLength`: 字符串最大长度，防止属性中误传了特别长的字符串，导致请求失败等异常。
 - `autoTrack`: 是否自动记录open_page事件， 注意：只能记录页面的路径，如果要显示页面的标题，请主动调用track方法

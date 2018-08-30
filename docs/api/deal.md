@@ -68,7 +68,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 **调用请求**
 ```
 http请求方式：POST
-https://api.convertlab.com/v1/deals?access_token=<access_token>
+https://api-zhike.jdcloud.com/v1/deals?access_token=<access_token>
 
 POST请求示例：
 {
@@ -197,7 +197,7 @@ POST请求示例：
 ```
 HTTP请求方法GET
 
-https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/deals/{id}?access_token={access_token}
 ```
 
 **参数说明**
@@ -250,7 +250,7 @@ https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
 **调用请求**
 ```
 http请求方式：GET
-https://api.convertlab.com/v1/deals?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/deals?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**
@@ -313,7 +313,7 @@ https://api.convertlab.com/v1/deals?access_token={access_token}&rows={rows}&page
 **调用请求**
 ```
 http请求方式：PUT
-https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/deals/{id}?access_token={access_token}
 
 PUT请求示例：
 {
@@ -373,7 +373,7 @@ PUT请求示例：
 
 ```
 http请求方式：DELETE
-https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/deals/{id}?access_token={access_token}
 ```
 
 **参数说明**

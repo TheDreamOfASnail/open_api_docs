@@ -17,7 +17,7 @@ DM Hub 中的网站埋点功能可以帮您统计网站流量，追踪流量来�
 在所有需要统计的网站页面中嵌入追踪代码：
 
 ```javascript
-<script src="//cbe.convertlab.com/cbe/collect?tid={YOUR_TID}&at=0&h=web"></script>
+<script src="//cbejd.xiaoshu.biz/cbe/collect?tid={YOUR_TID}&at=0&h=web"></script>
 <script>
   clab_tracker.ready(function(){
     this.push({"pageType": "web"});
@@ -45,7 +45,7 @@ DM Hub 中的网站埋点功能可以帮您统计网站流量，追踪流量来�
 在被打开的页面中放入如下代码：
 
 ```javascript
-<script src="//cbe.convertlab.com/cbe/collect?tid={YOUR_TID}&at=0&h=web"></script>
+<script src="//cbejd.xiaoshu.biz/cbe/collect?tid={YOUR_TID}&at=0&h=web"></script>
 <script>
   clab_tracker.ready(function(){
     this.push({});
@@ -107,10 +107,10 @@ if (clab_tracker) {
 使用该方式将自动在网页上生成表单，无需自行开发。
 
 ```javascript
-<form id="clForm" data-cl-attached="true" data-cl-id="{表单UUID}" action="http://host.convertlab.com/form/{表单UUID}" method="POST"></form>
-<script type="text/javascript" src="http://host.convertlab.com/js/forms/form.js"></script>
+<form id="clForm" data-cl-attached="true" data-cl-id="{表单UUID}" action="http://hostjd.xiaoshu.biz/form/{表单UUID}" method="POST"></form>
+<script type="text/javascript" src="http://hostjd.xiaoshu.biz/js/forms/form.js"></script>
 <script>
-  _clForm.loadForm("http://host.convertlab.com", "{表单UUID}",{
+  _clForm.loadForm("http://hostjd.xiaoshu.biz", "{表单UUID}",{
     formInit: function(){},
     beforeSubmit: function(){},
     onSubmit: function(args){}
@@ -132,14 +132,14 @@ if (clab_tracker) {
 
 4. 追踪脚本会在表单中增加如下字段： `<input type="hidden" name="cl_context" value="utma=xxx.xxx&utmb=xxx.xxx">`
 
-5. 发 GET 请求获取 cltoken，该 token 在提交表单时使用，并且只能使用一次，如果要再次提交需重新获取 cltoken。获取方式如下：GET: `http://host.convertlab.com/formdata/get/{表单UUID}`，其中 `{表单UUID}` 填写具体表单的 uuid。获得的数据中包含名称为 `token` 的数据，即后续提交表单时要使用的 cltoken。
+5. 发 GET 请求获取 cltoken，该 token 在提交表单时使用，并且只能使用一次，如果要再次提交需重新获取 cltoken。获取方式如下：GET: `http://hostjd.xiaoshu.biz/formdata/get/{表单UUID}`，其中 `{表单UUID}` 填写具体表单的 uuid。获得的数据中包含名称为 `token` 的数据，即后续提交表单时要使用的 cltoken。
 
-6. 提交表单时，将表单数据以 form data 的形式提交，请注意字段名称必须和创建的嵌入式表单匹配，同时 form data 里需额外增加一个字段 cltoken，值为前面请求取到的 token 值。隐藏字段 cl_context 里面的 utma 和 utmb 也请一并提交。提交表单的地址：POST: `http://host.convertlab.com/page/{表单UUID}?channelType={channelType}&userId={userId}`，其中 `{表单UUID}` 填写具体表单的 uuid，`{channelType}` 和 `{userId}` 根据实际情况酌情添加，`{channelType}` 表示当前渠道，例如 wechat，`{userId}` 表示用户在当前渠道的 ID，例如当前用户的 openId。
+6. 提交表单时，将表单数据以 form data 的形式提交，请注意字段名称必须和创建的嵌入式表单匹配，同时 form data 里需额外增加一个字段 cltoken，值为前面请求取到的 token 值。隐藏字段 cl_context 里面的 utma 和 utmb 也请一并提交。提交表单的地址：POST: `http://hostjd.xiaoshu.biz/page/{表单UUID}?channelType={channelType}&userId={userId}`，其中 `{表单UUID}` 填写具体表单的 uuid，`{channelType}` 和 `{userId}` 根据实际情况酌情添加，`{channelType}` 表示当前渠道，例如 wechat，`{userId}` 表示用户在当前渠道的 ID，例如当前用户的 openId。
 
 使用自定义表单的示例代码：
 
 ```
-<form id="clForm" method="post" data-cl-attached="false" action="http://host.convertlab.com/page/{表单UUID}?channelType={channelType}&userId={userId}">
+<form id="clForm" method="post" data-cl-attached="false" action="http://hostjd.xiaoshu.biz/page/{表单UUID}?channelType={channelType}&userId={userId}">
   <!-- 此处示例 3 个表单字段，实际开发中请确保每个字段的 name 属性和 DM Hub 中创建的嵌入式表单中对应字段的 name 相同 -->
   <!-- DM Hub 预置客户属性，DM Hub 预置，不可修改 -->
   姓名：<input type="text" name="name" /><br/>
@@ -157,7 +157,7 @@ if (clab_tracker) {
 <script>
   function f1() {
     $.ajaxSettings.async = false;
-    $.getJSON("http://host.convertlab.com/formdata/get/{表单UUID}", function(json) {
+    $.getJSON("http://hostjd.xiaoshu.biz/formdata/get/{表单UUID}", function(json) {
       $("#cltoken").val(json.token);
     });
 

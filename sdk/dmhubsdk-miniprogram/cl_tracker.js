@@ -2,7 +2,7 @@ var cl_tracker = {
     param: {
         name: 'cl_tracker',
         tenantId: '',
-        domain: 'cbe.convertlab.com',
+        domain: 'cbejd.xiaoshu.biz',
         maxStringLength: 255,
         autoTrack: false,
         register: {

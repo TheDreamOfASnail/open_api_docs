@@ -58,7 +58,7 @@
  启动 DMHubSDK
 
  @param appId 在 DM Hub 平台创建应用时获得的 appid
- @param endpoint 如果不是在标准生产环境运行 DMHubSDK，需要配置该参数，默认值：@"https://api.convertlab.com"
+ @param endpoint 如果不是在标准生产环境运行 DMHubSDK，需要配置该参数，默认值：@"https://api-zhike.jdcloud.com"
  @param launchOptions Application 的启动参数
  */
 + (void)startWithAppId:(NSString *)appId
@@ -69,7 +69,7 @@
  启动 DMHubSDK
 
  @param appId 在 DM Hub 平台创建应用时获得的 appid
- @param endpoint 如果不是在标准生产环境运行 DMHubSDK，需要配置该参数，默认值：@"https://api.convertlab.com"
+ @param endpoint 如果不是在标准生产环境运行 DMHubSDK，需要配置该参数，默认值：@"https://api-zhike.jdcloud.com"
  @param autoTrackViewEvent 是否自动记录进入、离开视图事件，默认值：NO
  @param flushInterval 上传数据的时间间隔（单位：秒），默认值：30
  @param launchOptions Application 的启动参数

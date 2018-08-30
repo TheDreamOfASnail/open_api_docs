@@ -73,7 +73,7 @@ DM Hub系统内置了一些事件类型，可以通过访问 **设置 > 客户�
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/customerevents?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customerevents?access_token={access_token}
 
 POST请求示例：
 {
@@ -115,7 +115,7 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&partition={partition}
+https://api-zhike.jdcloud.com/v1/customerevents/{id}?access_token={access_token}&partition={partition}
 ```
 **参数说明**
 - {access_token}用从“获取身份权限”节拿到的access_token替换
@@ -147,7 +147,7 @@ https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&pa
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents?access_token={access_token}&customerId={customerId}&event={event}&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}&partition={partition}&max={max}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/customerevents?access_token={access_token}&customerId={customerId}&event={event}&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}&partition={partition}&max={max}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**

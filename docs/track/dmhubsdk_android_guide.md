@@ -53,7 +53,7 @@
     android:value="[Must Configure] The appid get from DM Hub." />
 <meta-data
     android:name="com.convertlab.dmhubsdk.config.Endpoint"
-    android:value="A string URL endpoint. If you are not running DMHubSDK in the standard production environment, you need to configure this value. Defaults to 'https://api.convertlab.com'" />
+    android:value="A string URL endpoint. If you are not running DMHubSDK in the standard production environment, you need to configure this value. Defaults to 'https://api-zhike.jdcloud.com'" />
 <meta-data
     android:name="com.convertlab.dmhubsdk.config.EnableDebugLogging"
     android:value="A boolean value. If true, emit more detailed log messages. Defaults to false." />

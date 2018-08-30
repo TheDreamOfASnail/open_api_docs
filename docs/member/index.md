@@ -903,7 +903,7 @@ DM Hub内置了几个身份类型
 
 请求方式：`POST`
 
-请求路径：`https://api.convertlab.com/loyalty/v1/appPush/register?access_token={access_token}`
+请求路径：`https://api-zhike.jdcloud.com/loyalty/v1/appPush/register?access_token={access_token}`
 
 参数说明：
 

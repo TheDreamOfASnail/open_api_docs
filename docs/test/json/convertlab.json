@@ -5,7 +5,7 @@
         "version": "0.1",
         "title": "API参考文档"
     },
-    "host": "api.convertlab.com",
+    "host": "api-zhike.jdcloud.com",
     "basePath": "/",
     "tags": [
         {

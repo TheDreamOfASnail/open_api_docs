@@ -98,7 +98,7 @@ DM Hub内置了几个身份类型:
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/customerandidentities?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customerandidentities?access_token={access_token}
 POST数据示例:
 {
     "customer": {
@@ -194,7 +194,7 @@ POST数据示例:
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/customers?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customers?access_token={access_token}
 POST数据示例:
 {
     "name": "小D",
@@ -262,7 +262,7 @@ POST数据示例:
 **调用请求**
 ```
 HTTP请求方式: PUT
-https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customers/{id}?access_token={access_token}
 PUT数据示例：
 {
     "name": "小D",
@@ -289,7 +289,7 @@ PUT数据示例：
 **调用请求**
 ```
 HTTP请求方式: DELETE
-https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customers/{id}?access_token={access_token}
 ```
 
 **参数说明**
@@ -306,7 +306,7 @@ https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customers/{id}?access_token={access_token}
 ```
 
 **参数说明**
@@ -368,7 +368,7 @@ https://api.convertlab.com/v1/customers/{id}?access_token={access_token}
 
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customers?access_token={access_token}&stage={stage}&source={source}&mobile={mobile}&email={email}&gender={gender}&idList={idList}&dateCreatedFrom={dateCreatedFrom}&dateCreatedTo&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}&select={select}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/customers?access_token={access_token}&stage={stage}&source={source}&mobile={mobile}&email={email}&gender={gender}&idList={idList}&dateCreatedFrom={dateCreatedFrom}&dateCreatedTo&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}&select={select}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 
 **参数说明**
@@ -427,7 +427,7 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&stage={stage
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customers/count?access_token={access_token}&stage={stage}&source={source}&mobile={mobile}&gender={gender}&idList={idList}&dateCreatedFrom={dateCreatedFrom}&dateCreatedTo&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}
+https://api-zhike.jdcloud.com/v1/customers/count?access_token={access_token}&stage={stage}&source={source}&mobile={mobile}&gender={gender}&idList={idList}&dateCreatedFrom={dateCreatedFrom}&dateCreatedTo&lastUpdatedFrom={lastUpdatedFrom}&lastUpdatedTo={lastUpdatedTo}
 ```
 
 **参数说明**
@@ -457,7 +457,7 @@ https://api.convertlab.com/v1/customers/count?access_token={access_token}&stage=
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/customeridentities?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/customeridentities?access_token={access_token}
 
 POST请求示例：
 
@@ -495,7 +495,7 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/v1/customeridentities?access_token={access_token}&customerIds={customerIds}&identityType={identityType}&identityValue={identityValue}
+https://api-zhike.jdcloud.com/v1/customeridentities?access_token={access_token}&customerIds={customerIds}&identityType={identityType}&identityValue={identityValue}
 ```
 
 **参数说明**

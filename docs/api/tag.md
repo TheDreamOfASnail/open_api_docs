@@ -21,7 +21,7 @@
 **调用请求**
 ```
 HTTP请求方式：POST
-https://api.convertlab.com/v1/tagdimensions?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/tagdimensions?access_token={access_token}
 
 POST请求示例：
 {
@@ -43,7 +43,7 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式：GET
-https://api.convertlab.com/v1/tagdimensions?access_token={access_token}&max={max}
+https://api-zhike.jdcloud.com/v1/tagdimensions?access_token={access_token}&max={max}
 ```
 **参数说明**
 
@@ -75,7 +75,7 @@ https://api.convertlab.com/v1/tagdimensions?access_token={access_token}&max={max
 **调用请求**
 ```
 HTTP请求方式：POST
-https://api.convertlab.com/v1/tags?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/tags?access_token={access_token}
 
 POST请求示例：
 {
@@ -100,7 +100,7 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式：PUT
-https://api.convertlab.com/v1/tags/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/tags/{id}?access_token={access_token}
 
 POST请求示例：
 {
@@ -131,7 +131,7 @@ POST请求示例：
 **调用请求**
 ```
 http请求方式：DELETE
-https://api.convertlab.com/v1/tags/{id}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/tags/{id}?access_token={access_token}
 ```
 **参数说明**
 
@@ -144,7 +144,7 @@ https://api.convertlab.com/v1/tags/{id}?access_token={access_token}
 **调用请求**
 ```
 http请求方式：GET
-https://api.convertlab.com/v1/tags?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
+https://api-zhike.jdcloud.com/v1/tags?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}
 ```
 **参数说明**
 
@@ -182,7 +182,7 @@ https://api.convertlab.com/v1/tags?access_token={access_token}&rows={rows}&page=
 ## 为客户添加标签的API
 ```
 http请求方式：POST
-https://api.convertlab.com/v1/tagservice/addCustomerTag?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/tagservice/addCustomerTag?access_token={access_token}
 
 POST请求示例：
 {
@@ -213,7 +213,7 @@ POST请求示例：
 ## 将标签从客户删除的API
 ```
 http请求方式:POST
-https://api.convertlab.com/v1/tagservice/removeCustomerTag?access_token=<access_token>
+https://api-zhike.jdcloud.com/v1/tagservice/removeCustomerTag?access_token=<access_token>
 
 POST请求示例：
 {
@@ -240,7 +240,7 @@ POST请求示例：
 ## 查询客户标签API
 ```
 http请求方式：GET
-https://api.convertlab.com/v1/tagservice/getCustomerTags?access_token={access_token}&customerId={customerId}
+https://api-zhike.jdcloud.com/v1/tagservice/getCustomerTags?access_token={access_token}&customerId={customerId}
 ```
 **参数说明**
 
@@ -258,7 +258,7 @@ https://api.convertlab.com/v1/tagservice/getCustomerTags?access_token={access_to
 ## 合并标签的API
 ```
 http请求方式：POST
-https://api.convertlab.com/v1/tags/{fromId}/mergeto/{toid}?access_token={access_token}
+https://api-zhike.jdcloud.com/v1/tags/{fromId}/mergeto/{toid}?access_token={access_token}
 ```
 **参数说明**
 

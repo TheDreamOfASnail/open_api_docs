@@ -6,7 +6,7 @@
 **调用请求**
 ```
 HTTP请求方式: GET
-https://api.convertlab.com/security/accesstoken?grant_type=client_credentials&appid={appid}&secret={secret}
+https://api-zhike.jdcloud.com/security/accesstoken?grant_type=client_credentials&appid={appid}&secret={secret}
 ```
 
 **参数说明**

@@ -17,7 +17,7 @@
 
 对于打开链接触发的事件,只需要在被打开的页面中放入如下代码:
 ```
-<script  src="//cbe.convertwork.cn/cbe/collect?tid=7680584538142272831&at=0&h=web">
+<script  src="//cbejd.xiaoshu.biz/cbe/collect?tid=7680584538142272831&at=0&h=web">
 </script>
       <script>
         clab_tracker.ready(function(){
@@ -121,7 +121,7 @@ if(_cl_tracker){
 <img src="../../resources/selfForm17.png" width="800"/>
 
 ```
-GET: http://host.convertlab.com/formdata/get/{uuid}    
+GET: http://hostjd.xiaoshu.biz/formdata/get/{uuid}    
 ```
 
 返回的结果格式如下:
@@ -148,7 +148,7 @@ GET: http://host.convertlab.com/formdata/get/{uuid}
   "redirectText": "",
   "dateCreated": "2017-07-12T05:32:37Z",
   "lastUpdated": "2017-07-12T05:32:37Z",
-  "server": "http://host.convertwork.cn",
+  "server": "http://hostjd.xiaoshu.biz",
   "token": "e3f1042e4c174f7f994b1ea4dd1c551b"
 }
 ```
@@ -166,7 +166,7 @@ GET: http://host.convertlab.com/formdata/get/{uuid}
 Form表单示例与js方法示例:
 ```
 <form method="post" data-cl-attached="false"
-  action="http://host.convertwork.cn/form/bcd110f972d44083b2cdc569d6058af5"
+  action="http://hostjd.xiaoshu.biz/form/bcd110f972d44083b2cdc569d6058af5"
   name="clForm" id="clForm">
 
             姓名:  <input type="text" id="last_name_local" name="name" /> <br/>
@@ -183,7 +183,7 @@ Form表单示例与js方法示例:
       <script>
    	  function f1(){
 	      $.ajaxSettings.async = false; //设置getJson同步
-	      $.getJSON("http://host.convertwork.cn/formdata/get/bcd110f972d44083b2cdc569d6058af5",
+	      $.getJSON("http://hostjd.xiaoshu.biz/formdata/get/bcd110f972d44083b2cdc569d6058af5",
 	      function(json) {
 	        $("#cltoken").val(json.token);
 	      });
@@ -222,7 +222,7 @@ Form表单示例与js方法示例:
 	    }
       </script>
 
-      <script src="//cbe.convertwork.cn/cbe/collect?tid=7680584538142272831&at=0&h=web"></script>
+      <script src="//cbejd.xiaoshu.biz/cbe/collect?tid=7680584538142272831&at=0&h=web"></script>
       <script>
         clab_tracker.ready(function(){
           this.push({});
