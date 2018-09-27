@@ -425,7 +425,7 @@ cl_tracker.info = {
         function getNetwork() {
             wx.getNetworkType({
                 success: function (t) {
-                    props.$network_type = t.networkType
+                    props.network_type = t.networkType
                 },
                 complete: getSystemInfo
             })
@@ -434,11 +434,11 @@ cl_tracker.info = {
         function getSystemInfo() {
             wx.getSystemInfo({
                 success: function (t) {
-                    props.$model = t.model;
-                    props.$screen_width = Number(t.windowWidth);
-                    props.$screen_height = Number(t.windowHeight);
-                    props.$os = t.system.split(' ')[0];
-                    props.$os_version = t.system.split(' ')[1];
+                    props.model = t.model;
+                    props.screen_width = Number(t.windowWidth);
+                    props.screen_height = Number(t.windowHeight);
+                    props.os = t.system.split(' ')[0];
+                    props.os_version = t.system.split(' ')[1];
                 },
                 complete: self.setStatusComplete
             })
