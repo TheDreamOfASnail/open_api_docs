@@ -85,7 +85,7 @@
 
   
     
-      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
     
   
 
@@ -129,10 +129,16 @@
                     <li class=""><a href="#api">创建客户事件的API</a></li>
                     
                   
-                    <li class=""><a href="#api_1">获取单个事件的API</a></li>
+                    <li class=""><a href="#api_1">采集客户事件的 API</a></li>
                     
                   
-                    <li class=""><a href="#api_2">查询事件的API</a></li>
+                    <li class=""><a href="#api_2">批量采集客户事件的 API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_3">获取单个事件的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_4">查询事件的API</a></li>
                     
                   
                   </ul>
@@ -420,9 +426,15 @@ POST请求示例：
 }
 </code></pre>
 
-<p><strong>参数说明</strong>
-- {access_token}为访问接口的令牌
-- 请求体内字段的意义请参见客户事件模型部分</p>
+<p><strong>参数说明</strong></p>
+<ul>
+<li>
+<p>{access_token}为访问接口的令牌</p>
+</li>
+<li>
+<p>请求体内字段的意义请参见客户事件模型部分</p>
+</li>
+</ul>
 <p><strong>返回结果</strong></p>
 <pre><code>{
   &quot;id&quot;: 1,
@@ -443,7 +455,99 @@ POST请求示例：
 }
 </code></pre>
 
-<h2 id="api_1">获取单个事件的API</h2>
+<h2 id="api_1">采集客户事件的 API</h2>
+<p>与上述创建客户事件的 API 不同，采集客户事件的 API 通过客户身份将事件与客户绑定。</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/collector/batchPushEvents?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;identityType&quot;: &quot;mobile&quot;,
+  &quot;identityValue&quot;: &quot;18612345678&quot;,
+  &quot;event&quot;: &quot;c_apply_card&quot;,
+  &quot;cardType&quot;: &quot;golden_card&quot;,
+  &quot;cardTypeLabel&quot;: &quot;金卡&quot;,
+  &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+  &quot;source&quot;: &quot;人民广场&quot;,
+  &quot;touter&quot;: &quot;t00001&quot;
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>
+<p>{access_token}为访问接口的令牌</p>
+</li>
+<li>
+<p>请求体内字段的意义请参见客户事件模型部分</p>
+</li>
+</ul>
+<p><strong>返回结果</strong></p>
+<pre><code class="json">{
+  &quot;success&quot;: true
+}
+</code></pre>
+
+<h2 id="api_2">批量采集客户事件的 API</h2>
+<p>批量上传的每个事件都通过客户身份与客户绑定。</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/collector/pushevent?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;events&quot;: [
+    {
+      &quot;identityType&quot;: &quot;mobile&quot;,
+      &quot;identityValue&quot;: &quot;18612345678&quot;,
+      &quot;cardType&quot;: &quot;golden_card&quot;,
+      &quot;cardTypeLabel&quot;: &quot;金卡&quot;,
+      &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+      &quot;source&quot;: &quot;人民广场&quot;,
+      &quot;touter&quot;: &quot;t00001&quot;
+    },
+    {
+      &quot;identityType&quot;: &quot;wechat&quot;,
+      &quot;identityValue&quot;: &quot;12sdjfeg&quot;,
+      &quot;cardType&quot;: &quot;golden_card&quot;,
+      &quot;cardTypeLabel&quot;: &quot;金卡&quot;,
+      &quot;date&quot;: &quot;2017-06-07T03:43:00Z&quot;,
+      &quot;source&quot;: &quot;人民广场&quot;,
+      &quot;touter&quot;: &quot;t00001&quot;
+    }
+  ],
+  &quot;commonProps&quot;: {
+    &quot;event&quot;: &quot;c_apply_card&quot;
+  }
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li>
+<p>{access_token}为访问接口的令牌</p>
+</li>
+<li>
+<p>请求体内字段的意义请参见客户事件模型部分</p>
+</li>
+</ul>
+<p><strong>POST请求数据说明</strong></p>
+<ul>
+<li>
+<p>events：必传，事件列表，事件总数不能超过 100</p>
+</li>
+<li>
+<p>commonProps：非必传，事件全局属性字典，全局属性会添加到每个事件中，如果与 events 中的事件属性冲突，则会覆盖事件属性</p>
+</li>
+</ul>
+<p><strong>返回结果</strong></p>
+<pre><code class="json">{
+  &quot;success&quot;: true
+}
+</code></pre>
+
+<h2 id="api_3">获取单个事件的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
 https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&amp;partition={partition}
@@ -473,10 +577,10 @@ https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&am
 }
 </code></pre>
 
-<h2 id="api_2">查询事件的API</h2>
+<h2 id="api_4">查询事件的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: GET
-https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;customerId={customerId}&amp;event={event}&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;partition={partition}&amp;max={max}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;customerId={customerId}&amp;event={event}&amp;idFrom={idFrom}&amp;idTo={idTo}&amp;lastUpdatedFrom={lastUpdatedFrom}&amp;lastUpdatedTo={lastUpdatedTo}&amp;partition={partition}&amp;max={max}&amp;sidx={sidx}&amp;sord={sord}
 </code></pre>
 
 <p><strong>参数说明</strong></p>
@@ -505,6 +609,16 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;cus
 <td>查询指定的事件类型。多个事件类型可用逗号分开</td>
 </tr>
 <tr>
+<td>idFrom</td>
+<td>否</td>
+<td>查询事件的起始 id</td>
+</tr>
+<tr>
+<td>idTo</td>
+<td>否</td>
+<td>查询事件的结束 id</td>
+</tr>
+<tr>
 <td>lastUpdatedFrom</td>
 <td>否</td>
 <td>事件更新的起始时间。时间格式为 “2017-06-07T12:13:14Z”, 为UTC时间</td>
@@ -518,16 +632,6 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;cus
 <td>max</td>
 <td>否</td>
 <td>最多返回多少条数据，默认为20，最大可到1000</td>
-</tr>
-<tr>
-<td>rows</td>
-<td>否</td>
-<td>每页的记录数</td>
-</tr>
-<tr>
-<td>page</td>
-<td>否</td>
-<td>起始页数，以1开始</td>
 </tr>
 <tr>
 <td>sidx</td>
