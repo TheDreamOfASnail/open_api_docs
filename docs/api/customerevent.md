@@ -120,7 +120,7 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/collector/batchPushEvents?access_token={access_token}
+https://api.convertlab.com/v1/collector/pushevent?access_token={access_token}
 
 POST请求示例：
 {
@@ -155,7 +155,7 @@ POST请求示例：
 **调用请求**
 ```
 HTTP请求方式: POST
-https://api.convertlab.com/v1/collector/pushevent?access_token={access_token}
+https://api.convertlab.com/v1/collector/batchPushEvents?access_token={access_token}
 
 POST请求示例：
 {
