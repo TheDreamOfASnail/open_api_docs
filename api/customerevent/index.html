@@ -85,7 +85,7 @@
 
   
     
-      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
     
   
 
@@ -459,7 +459,7 @@ POST请求示例：
 <p>与上述创建客户事件的 API 不同，采集客户事件的 API 通过客户身份将事件与客户绑定。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: POST
-https://api.convertlab.com/v1/collector/batchPushEvents?access_token={access_token}
+https://api.convertlab.com/v1/collector/pushevent?access_token={access_token}
 
 POST请求示例：
 {
@@ -493,7 +493,7 @@ POST请求示例：
 <p>批量上传的每个事件都通过客户身份与客户绑定。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>HTTP请求方式: POST
-https://api.convertlab.com/v1/collector/pushevent?access_token={access_token}
+https://api.convertlab.com/v1/collector/batchPushEvents?access_token={access_token}
 
 POST请求示例：
 {
