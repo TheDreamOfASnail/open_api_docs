@@ -647,7 +647,7 @@ POST请求示例：
 ```
 HTTP请求方式: POST
 https://api.convertlab.com/v1/customerService/mergeCustomerById?access_token={access_token}&fromId={fromId}&toId={toId}
-
+```
 
 **参数说明**
 
