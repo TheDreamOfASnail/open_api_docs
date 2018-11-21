@@ -654,8 +654,8 @@ https://api.convertlab.com/v1/customerService/mergeCustomerById?access_token={ac
 |参数|	是否必填|	说明|
 |-----|----|----|
 |access_token|	是|	访问API的令牌|
-|fromId|	是|	 需要合并的来源客户|
-|toId|	是	|需要合并的目标客户|
+|fromId|	是|	 需要合并的来源客户ID|
+|toId|	是	|需要合并的目标客户ID|
 
 
 **返回结果**
