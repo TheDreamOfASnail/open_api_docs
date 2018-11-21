@@ -85,7 +85,7 @@
 
   
     
-      <a href="https://github.com/xsio/open_api_docs" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
     
   
 
@@ -155,6 +155,12 @@
                     
                   
                     <li class=""><a href="#_4">查询客户的统计信息</a></li>
+                    
+                  
+                    <li class=""><a href="#api_9">根据客户身份合并客户API</a></li>
+                    
+                  
+                    <li class=""><a href="#idapi">根据客户ID合并客户API</a></li>
                     
                   
                   </ul>
@@ -1300,6 +1306,102 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 </tr>
 </tbody>
 </table>
+<h2 id="api_9">根据客户身份合并客户API</h2>
+<p>根据客户身份把两个客户进行合并，合并后customer（From）会被删除掉,customer（To）的customerid 会被返回</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/customerService/mergeCustomerByIdentities?access_token={access_token}
+
+POST请求示例：
+
+{
+  &quot;from&quot;: {
+    &quot;identityType&quot;: &quot;wechat&quot;,
+    &quot;identityValue&quot;: &quot;aaaa&quot;
+  },
+  &quot;to&quot;: {
+    &quot;identityType&quot;: &quot;wechat-openid&quot;,
+    &quot;identityValue&quot;: &quot;oVLMTt0zw5JEZc6PE0tIsA5Kz7f0&quot;
+  }
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>identityType</td>
+<td>是</td>
+<td>客户身份类型，详见 客户身份模型,最长32位字符</td>
+</tr>
+<tr>
+<td>identityValue</td>
+<td>是</td>
+<td>客户身份值，最长128位字符</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;data&quot;: {
+    &quot;customerId&quot;: &quot;{合并后的客户id}&quot;
+  }
+}
+</code></pre>
+
+<h2 id="idapi">根据客户ID合并客户API</h2>
+<p>根据客户ID把两个客户进行合并，合并后customer（From）会被删除掉,customer（To）的customerid 会被返回</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/customerService/mergeCustomerById?access_token={access_token}&amp;fromId={fromId}&amp;toId={toId}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>fromId</td>
+<td>是</td>
+<td>需要合并的来源客户ID</td>
+</tr>
+<tr>
+<td>toId</td>
+<td>是</td>
+<td>需要合并的目标客户ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;data&quot;: {
+    &quot;customerId&quot;: &quot;{合并后的客户id}&quot;
+  }
+}
+</code></pre>
             <div class="ds-thread" data-thread-key="客户信息" data-title="客户信息" data-url=""></div>
         </div>
         
