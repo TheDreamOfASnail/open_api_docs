@@ -601,3 +601,68 @@ GET
 |total            |number |总页数|
 |hasNext	      |boolean|是否还有记录|
 
+## 根据客户身份合并客户API
+根据客户身份把两个客户进行合并，合并后customer（From）会被删除掉,customer（To）的customerid 会被返回
+
+**调用请求**
+```
+HTTP请求方式: POST
+https://api.convertlab.com/v1/customerService/mergeCustomerByIdentities?access_token={access_token}
+
+POST请求示例：
+
+{
+  "from": {
+    "identityType": "wechat",
+    "identityValue": "aaaa"
+  },
+  "to": {
+    "identityType": "wechat-openid",
+    "identityValue": "oVLMTt0zw5JEZc6PE0tIsA5Kz7f0"
+  }
+}
+```
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+|-----|----|----|
+|access_token|	是|	访问API的令牌|
+|identityType|	是|	客户身份类型，详见 客户身份模型,最长32位字符|
+|identityValue|	是	|客户身份值，最长128位字符|
+
+
+**返回结果**
+```
+{
+  "data": {
+    "customerId": "{合并后的客户id}"
+  }
+}
+```
+## 根据客户ID合并客户API
+根据客户ID把两个客户进行合并，合并后customer（From）会被删除掉,customer（To）的customerid 会被返回
+
+**调用请求**
+```
+HTTP请求方式: POST
+https://api.convertlab.com/v1/customerService/mergeCustomerById?access_token={access_token}&fromId={fromId}&toId={toId}
+
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+|-----|----|----|
+|access_token|	是|	访问API的令牌|
+|fromId|	是|	 需要合并的来源客户|
+|toId|	是	|需要合并的目标客户|
+
+
+**返回结果**
+```
+{
+  "data": {
+    "customerId": "{合并后的客户id}"
+  }
+}
+```
