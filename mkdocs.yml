@@ -2,8 +2,7 @@ site_name: Convertlab 文档中心
 
 site_url: http://api-docs.convertlab.com/
 
-repo_url: https://github.com/xsio/open_api_docs
-
+repo_url: git@github.com:xsio/open_api_docs.git
 theme_dir: themes/mkdocs
 
 
