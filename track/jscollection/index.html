@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://api-docs.convertlab.com/track/jscollection/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Jscollection - Convertlab 文档中心</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../../test/css/print.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">Convertlab 文档中心</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenAPI V1 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../..">创建集成应用</a>
+</li>
+                                    
+<li >
+    <a href="../../api/accesstoken/">获取ACCESS_TOKEN</a>
+</li>
+                                    
+<li >
+    <a href="../../api/customer/">客户信息</a>
+</li>
+                                    
+<li >
+    <a href="../../api/customerevent/">客户事件</a>
+</li>
+                                    
+<li >
+    <a href="../../api/tag/">客户标签</a>
+</li>
+                                    
+<li >
+    <a href="../../api/list/">客户群组</a>
+</li>
+                                    
+<li >
+    <a href="../../api/deal/">客户交易</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">前端埋点 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../site_collection_guide/">通过网站埋点进行数据采集</a>
+</li>
+                                    
+<li >
+    <a href="../dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
+</li>
+                                    
+<li >
+    <a href="../dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
+</li>
+                                    
+<li >
+    <a href="../MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../webhook/webhook/">Webhook 使用说明</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">会员 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../member/">Api接口</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li>
+                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/track/jscollection.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#_1">公共埋点说明</a></li>
+        <li class="main "><a href="#js">事件推送 js埋点</a></li>
+        <li class="main "><a href="#form">获取嵌入式form表单</a></li>
+            <li><a href="#1-dm-hub">1. 登录 DM Hub</a></li>
+            <li><a href="#2">2. 点击互动按钮,出现下拉框选项,选择公司网站</a></li>
+            <li><a href="#3-form">3. 创建form表单,点击需要的属性,右边会生成对应的表单</a></li>
+            <li><a href="#4-formformform">4. 保存成功后,跳转到form列表,列出你创建的所有的form表单,可以通过表单名称查看指定的form表单</a></li>
+            <li><a href="#5-form-form">5. 获取form表单代码,点击按钮 表单代码,弹出框中显示的就是form表单的代码</a></li>
+        <li class="main "><a href="#_2">用户自由表单提交数据</a></li>
+            <li><a href="#1-id">1. 查询属性的id</a></li>
+            <li><a href="#2-action">2. 获取action</a></li>
+            <li><a href="#3-uuid">3. 怎么查看uuid</a></li>
+        <li class="main "><a href="#_3">来源跟踪</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="_1">公共埋点说明</h2>
+<p>要先导入埋点的js文件才能使用埋点功能,
+登录DM Hub,点击互动,在下拉列表中选择公司网站
+<img src="../../resources/selfForm1.png" width="600"/></p>
+<p>进入如下页面:
+<img src="../../resources/selfForm18.png" width="800"/></p>
+<p>点击连接网站,在打开的页面中复制如下代码
+<img src="../../resources/selfForm19.png" width="800"/></p>
+<p>这段代码就是埋点的js文件,在每个页面中都要导入该js文件,这样就可以使用埋点功能来进行追踪和统计了</p>
+<h2 id="js">事件推送 js埋点</h2>
+<p>对于打开链接触发的事件,只需要在被打开的页面中放入如下代码:</p>
+<pre><code>&lt;script  src=&quot;//cbe.convertlab.com/cbe/collect?tid=7680584538142272831&amp;at=0&amp;h=web&quot;&gt;
+&lt;/script&gt;
+      &lt;script&gt;
+        clab_tracker.ready(function(){
+          this.push({});
+          this.track(event,targetName,targetId);
+        });
+&lt;/script&gt;
+</code></pre>
+
+<p>还可以直接在链接上 添加一个属性<code>data-cl-event</code>,值为要触发的事件,如:</p>
+<pre><code>&lt;a data-cl-event = &quot;open_page&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+<p>如果事件的触发不是有链接的点击触发的，也可以使用track方法来提交事件，
+track方法的定义：</p>
+<p><strong>track:function(event,targetName,targetId,properties,callback)</strong><br />
+<strong>properties参数为可选，如果有properties参数会替换page的properties</strong><br />
+<strong>callback 参数为可选，如果有callback在完成track发送动作后调用此方法</strong></p>
+<p>对于点击按钮事件,需要在该按钮触发的onclick方法中添加如下代码:</p>
+<pre><code>if(_cl_tracker){
+           _cl_tracker.track(event,targetName,targetId);
+       }
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Track方法的参数意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event</td>
+<td>事件类型</td>
+</tr>
+<tr>
+<td>targetName</td>
+<td>比如如果事件为关注公众号，targetName为公众号的名字</td>
+</tr>
+<tr>
+<td>targetId</td>
+<td>比如如果事件为关注公众号，targetId为公众号在DM Hub系统中的id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="form">获取嵌入式form表单</h2>
+<h3 id="1-dm-hub">1. 登录 DM Hub</h3>
+<h3 id="2">2. 点击互动按钮,出现下拉框选项,选择公司网站</h3>
+<p><img src="../../resources/selfForm1.png" width="600"/></p>
+<p>选择公司网站后,进入如下页面
+<img src="../../resources/selfForm2.png" width="600"/></p>
+<p>点击访客信息收集,点击后进入form表单页面,点击右侧的 <strong>新建表单</strong>:
+<img src="../../resources/selfForm3.png" width="600"/></p>
+<p>这样我们就进入了创建form表单页面,表单名可自定义,页面布局如下:
+<img src="../../resources/selfForm4.png" width="800"/></p>
+<p>左侧配置表单信息,配置form表单的属性,请点击按钮 <strong>添加字段</strong>
+<img src="../../resources/selfForm5.png" width="800"/></p>
+<p>如果需要自定义属性,请点击按钮 <strong>新建客户属性</strong>
+<img src="../../resources/selfForm6.png" width="600"/></p>
+<p>点击后,在输入框中输入自定义的属性名称,点击保存后,添加自定义属性成功
+<img src="../../resources/selfForm7.png" width="600"/></p>
+<h3 id="3-form">3. 创建form表单,点击需要的属性,右边会生成对应的表单</h3>
+<p><img src="../../resources/selfForm8.png" width="800"/></p>
+<p>点击右上角的 <strong>保存</strong> 按钮,保存form表单</p>
+<h3 id="4-formformform">4. 保存成功后,跳转到form列表,列出你创建的所有的form表单,可以通过表单名称查看指定的form表单</h3>
+<p><img src="../../resources/selfForm9.png" width="800"/></p>
+<h3 id="5-form-form">5. 获取form表单代码,点击按钮 <strong>表单代码</strong>,弹出框中显示的就是form表单的代码</h3>
+<p><img src="../../resources/selfForm10.png" width="800"/></p>
+<p>把这段代码放入需要嵌入表单的地方,就可以生成对应的form表单</p>
+<h2 id="_2">用户自由表单提交数据</h2>
+<p>如何使用自己的form表单样式
+我们已经创建好了form表单,但是原生form表单的样式是无法修改的,如果用户想要使用自己的表单样式,
+操作流程如下:</p>
+<h3 id="1-id">1. 查询属性的id</h3>
+<p><img src="../../resources/selfForm11.png" width="600"/></p>
+<p>进入设置中心后,点击按钮”客户属性”
+<img src="../../resources/selfForm12.png" width="800"/></p>
+<p>进入客户属性页面,里面有客户属性的id,包括自定义的属性
+<img src="../../resources/selfForm13.png" width="600"/></p>
+<h3 id="2-action">2. 获取action</h3>
+<p><img src="../../resources/selfForm14.png" width="600"/></p>
+<p>将用户的form表单中的<font color=red>name</font>和action替换为DM hub提供的<font color=red>name</font>和action,就能使用自己的form表单样式,将数据提交到DM hub中</p>
+<h3 id="3-uuid">3. 怎么查看uuid</h3>
+<p><img src="../../resources/selfForm15.png" width="800"/></p>
+<p>这是我们创建的表单,点击表单名称,跳转到表单数据页面,注意表单的url
+<img src="../../resources/selfForm16.png" width="800"/></p>
+<p>最后一个参数就是uuid</p>
+<p>在打开页面时，发GET请求获取cltoken，该token在提交表单时使用，并且只能使用一次，如果要再次提交需重新获取cltoken,
+如果要重复使用token,请参考如下demo:
+<strong>红色框注明的是要添加到外部form表单中的</strong>
+<img src="../../resources/selfForm17.png" width="800"/></p>
+<pre><code>GET: http://host.convertlab.com/formdata/get/{uuid}    
+</code></pre>
+
+<p>返回的结果格式如下:</p>
+<pre><code>{
+  &quot;uuid&quot;: &quot;d8625e52aa2b42d8882546b581a5046c&quot;,
+  &quot;title&quot;: &quot;新表单&quot;,
+  &quot;content&quot;: &quot;{\&quot;fields\&quot;:[{\&quot;name\&quot;:\&quot;name\&quot;,\&quot;type\&quot;:\&quot;Text\&quot;,\&quot;label\&quot;:\&quot;姓名\&quot;,\&quot;description\&quot;:\&quot;\&quot;,\&quot;required\&quot;:false,\&quot;placeholder\&quot;:\&quot;姓名\&quot;},{\&quot;name\&quot;:\&quot;wechat\&quot;,\&quot;type\&quot;:\&quot;Text\&quot;,\&quot;label\&quot;:\&quot;微信号\&quot;,\&quot;description\&quot;:\&quot;\&quot;,\&quot;required\&quot;:false,\&quot;placeholder\&quot;:\&quot;微信号\&quot;}],\&quot;btnText\&quot;:\&quot;提交\&quot;,\&quot;style\&quot;:{\&quot;label\&quot;:{\&quot;fontFamily\&quot;:\&quot;Microsoft YaHei\&quot;,\&quot;fontSize\&quot;:\&quot;medium\&quot;,\&quot;bold\&quot;:false,\&quot;color\&quot;:\&quot;#444444\&quot;},\&quot;description\&quot;:{\&quot;fontFamily\&quot;:\&quot;Microsoft YaHei\&quot;,\&quot;fontSize\&quot;:\&quot;medium\&quot;,\&quot;bold\&quot;:false,\&quot;color\&quot;:\&quot;#9a9a9a\&quot;},\&quot;option\&quot;:{\&quot;fontFamily\&quot;:\&quot;Microsoft YaHei\&quot;,\&quot;fontSize\&quot;:\&quot;medium\&quot;,\&quot;bold\&quot;:false,\&quot;color\&quot;:\&quot;#777777\&quot;},\&quot;lingHeight\&quot;:\&quot;small\&quot;,\&quot;field\&quot;:{\&quot;radius\&quot;:\&quot;on\&quot;,\&quot;size\&quot;:\&quot;1\&quot;,\&quot;color\&quot;:\&quot;#e6e2e2\&quot;},\&quot;button\&quot;:{\&quot;shadow\&quot;:\&quot;off\&quot;,\&quot;size\&quot;:\&quot;medium\&quot;,\&quot;color\&quot;:\&quot;#2eb2ed\&quot;,\&quot;borderRadius\&quot;:\&quot;on\&quot;,\&quot;borderSize\&quot;:\&quot;0\&quot;,\&quot;borderColor\&quot;:\&quot;#2eb2ed\&quot;,\&quot;textFont\&quot;:\&quot;Microsoft YaHei\&quot;,\&quot;textSize\&quot;:\&quot;medium\&quot;,\&quot;textColor\&quot;:\&quot;#ffffff\&quot;,\&quot;textBold\&quot;:false,\&quot;layout\&quot;:\&quot;center\&quot;}}}&quot;,
+  &quot;targetGroup&quot;: 0,
+  &quot;submitScore&quot;: 0,
+  &quot;styleId&quot;: 0,
+  &quot;style&quot;: &quot;&quot;,
+  &quot;stage&quot;: &quot;&quot;,
+  &quot;showLimitSubmit&quot;: false,
+  &quot;showTask&quot;: false,
+  &quot;autoFill&quot;: false,
+  &quot;taskTitle&quot;: &quot;&quot;,
+  &quot;taskPriority&quot;: &quot;Medium&quot;,
+  &quot;taskAssignee&quot;: &quot;0&quot;,
+  &quot;redirectUuid&quot;: &quot;&quot;,
+  &quot;redirectUrl&quot;: &quot;&quot;,
+  &quot;redirectType&quot;: &quot;text&quot;,
+  &quot;redirectText&quot;: &quot;&quot;,
+  &quot;dateCreated&quot;: &quot;2017-07-12T05:32:37Z&quot;,
+  &quot;lastUpdated&quot;: &quot;2017-07-12T05:32:37Z&quot;,
+  &quot;server&quot;: &quot;http://host.convertlab.com&quot;,
+  &quot;token&quot;: &quot;e3f1042e4c174f7f994b1ea4dd1c551b&quot;
+}
+</code></pre>
+
+<p>获得的数据中包含名称为“token”的数据，即后续提交表单时要使用的cltoken</p>
+<p><strong>怎样获取注册用户的事件</strong>
+要使用非原生的form表单,并追踪注册用户注册之前也之后的浏览与操作记录,还需要如下配置:
+1. 将form表单的data-cl-attached 的值设置为 false
+2. 在form表单中添加   </p>
+<pre><code>&lt;input type=&quot;hidden&quot; id=&quot;utmb&quot; name=&quot;utmb&quot; value=&quot;&quot; /&gt;
+&lt;input type=&quot;hidden&quot; id=&quot;utma&quot; name=&quot;utma&quot; value=&quot;&quot; /&gt;
+</code></pre>
+
+<p>Form表单示例与js方法示例:</p>
+<pre><code>&lt;form method=&quot;post&quot; data-cl-attached=&quot;false&quot;
+  action=&quot;http://host.convertlab.com/form/bcd110f972d44083b2cdc569d6058af5&quot;
+  name=&quot;clForm&quot; id=&quot;clForm&quot;&gt;
+
+            姓名:  &lt;input type=&quot;text&quot; id=&quot;last_name_local&quot; name=&quot;name&quot; /&gt; &lt;br/&gt;
+
+              邮箱:&lt;input id=&quot;email&quot; maxlength=&quot;80&quot; name=&quot;email&quot; size=&quot;20&quot; type=&quot;text&quot; /&gt;  &lt;br/&gt;
+
+                &lt;input type=&quot;hidden&quot; id=&quot;cltoken&quot; name=&quot;cltoken&quot; value=&quot;&quot; /&gt;
+               &lt;input type=&quot;hidden&quot; id=&quot;utmb&quot; name=&quot;utmb&quot; value=&quot;&quot; /&gt;
+                &lt;input type=&quot;hidden&quot; id=&quot;utma&quot; name=&quot;utma&quot; value=&quot;&quot; /&gt;  
+                &lt;input type=&quot;button&quot; value=&quot;提交&quot; onclick=&quot;f1()&quot; class=&quot;buttons&quot; /&gt;
+  &lt;/form&gt;
+
+
+      &lt;script&gt;
+      function f1(){
+          $.ajaxSettings.async = false; //设置getJson同步
+          $.getJSON(&quot;http://host.convertlab.com/formdata/get/bcd110f972d44083b2cdc569d6058af5&quot;,
+          function(json) {
+            $(&quot;#cltoken&quot;).val(json.token);
+          });
+
+          var cookievalue = $(&quot;input[name='cl_context']&quot;).val();
+          if(cookievalue == &quot;&quot; || cookievalue == null){
+            $(&quot;#utma&quot;).val(&quot;&quot;);
+            $(&quot;#utmb&quot;).val(&quot;&quot;);
+          }else{
+            var cookiearr = cookievalue.split(&quot;&amp;&quot;);
+            var str1 = cookiearr[0];
+            var utmas = str1.split(&quot;=&quot;);
+            var utmavalue =utmas[1];
+            var str2 = cookiearr[1];
+            var utmbs = str2.split(&quot;=&quot;);
+            var utmbvalue =utmbs[1];
+
+            $(&quot;#utma&quot;).val(utmavalue);
+            $(&quot;#utmb&quot;).val(utmbvalue);
+          }
+            var fromurl = $(&quot;form&quot;).attr(&quot;action&quot;);
+          $.ajax({
+              cache: true,
+              type: &quot;POST&quot;,
+              url:fromurl,
+              data:$('#clForm').serialize(),// 你的formid
+              async: false,
+              error: function(request) {
+                  alert(&quot;Connection error&quot;);
+              },
+              success: function(data) {
+                  alert(&quot;success&quot;);
+                  window.location=&quot;dengbaishi2.jsp&quot;;
+              }
+          });
+        }
+      &lt;/script&gt;
+
+      &lt;script src=&quot;//cbe.convertlab.com/cbe/collect?tid=7680584538142272831&amp;at=0&amp;h=web&quot;&gt;&lt;/script&gt;
+      &lt;script&gt;
+        clab_tracker.ready(function(){
+          this.push({});
+          this.track(&quot;open_page&quot;,&quot;form表单&quot;,&quot;11&quot;);
+
+        });
+      &lt;/script&gt;
+</code></pre>
+
+<h2 id="_3">来源跟踪</h2>
+<p>如果要将网站页面投放到外部营销渠道（例如百度），你可以为URL加上渠道来源参数，进行来源追踪和统计
+操作流程如下:
+点击互动,在下拉列表中选择公司网站
+<img src="../../resources/selfForm1.png" width="600"/></p>
+<p>在进入的页面中点击
+<img src="../../resources/selfForm20.png" width="800"/></p>
+<p>在这里可以设置可追踪来源的url,点击 <strong>新建可追踪url</strong>
+<img src="../../resources/selfForm21.png" width="800"/></p>
+<p>可配置来源与来源内容</p>
+<p>将以下该代码封装入js文件中,在每个页面中都要导入该js文件</p>
+<pre><code>$(document).ready(function(){
+          var pageurl = window.location.href;
+          var urlsource = &quot;&quot;;
+          if(pageurl.indexOf(&quot;cl_sr&quot;)!=-1){
+              var arrs =  pageurl.split(&quot;cl_sr&quot;);
+                 var urlsource = arrs[1];
+                 urlsource = '?cl_sr' + urlsource;
+          }
+
+          $('a').each(function(){
+                var href = $(this).attr('href');
+                if(urlsource != &quot;&quot;){
+                    var Ahref = href + urlsource;
+                    $(this).attr(&quot;href&quot;,Ahref);
+                }
+
+            });
+
+        });
+</code></pre>
+
+<p><strong>这样我们就能追踪到用户的来源</strong>     </p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2017, Convertlab</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "search": 83, "next": 78, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../test/swagger-ui.min.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
