@@ -1,167 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://api-docs.convertlab.com/webhook/webhook/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Webhook 使用说明 - Convertlab 文档中心</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <link href="../../test/css/print.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/webhook/webhook/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Webhook 使用说明 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
 
-    <body>
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">Convertlab 文档中心</a>
-                </div>
-
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenAPI V1 <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../..">创建集成应用</a>
-</li>
-                                    
-<li >
-    <a href="../../api/accesstoken/">获取ACCESS_TOKEN</a>
-</li>
-                                    
-<li >
-    <a href="../../api/customer/">客户信息</a>
-</li>
-                                    
-<li >
-    <a href="../../api/customerevent/">客户事件</a>
-</li>
-                                    
-<li >
-    <a href="../../api/tag/">客户标签</a>
-</li>
-                                    
-<li >
-    <a href="../../api/list/">客户群组</a>
-</li>
-                                    
-<li >
-    <a href="../../api/deal/">客户交易</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">前端埋点 <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../track/site_collection_guide/">通过网站埋点进行数据采集</a>
-</li>
-                                    
-<li >
-    <a href="../../track/dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
-</li>
-                                    
-<li >
-    <a href="../../track/dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
-</li>
-                                    
-<li >
-    <a href="../../track/MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li class="active">
-    <a href="./">Webhook 使用说明</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">会员 <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../member/">Api接口</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../../track/MiniProgram_SDK_User_Guide/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../../member/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/webhook/webhook.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
         </div>
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../track/site_collection_guide/">前端埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left active">
+                    
+                    <a href="./">Webhook</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../member/">会员</a>
+                    
+                  </li>
+                
+                  <!--<li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>-->
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>Webhook 使用说明</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#1-webhook">1. Webhook 简介</a></li>
-        <li class="main "><a href="#2-webhook">2. 新建 Webhook</a></li>
-        <li class="main "><a href="#3-webhook">3. 群发 Webhook消息</a></li>
-        <li class="main "><a href="#4-webhook">4. 测试 Webhook</a></li>
-        <li class="main "><a href="#5">5. 查看发送结果</a></li>
-        <li class="main "><a href="#6-webhook">6. Webhook 鉴权</a></li>
-            <li><a href="#61-webhook">6.1 Webhook秘钥</a></li>
-            <li><a href="#62">6.2 基本身份认证</a></li>
-        <li class="main "><a href="#7-webhook">7. Webhook 触发类型说明</a></li>
-            <li><a href="#71">7.1 固定事件触发</a></li>
-            <li><a href="#72">7.2 固定事件触发</a></li>
+     
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">Webhook 使用说明</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#1-webhook">1. Webhook 简介</a></li>
+                    
+                  
+                    <li class=""><a href="#2-webhook">2. 新建 Webhook</a></li>
+                    
+                  
+                    <li class=""><a href="#3-webhook">3. 群发 Webhook消息</a></li>
+                    
+                  
+                    <li class=""><a href="#4-webhook">4. 测试 Webhook</a></li>
+                    
+                  
+                    <li class=""><a href="#5">5. 查看发送结果</a></li>
+                    
+                  
+                    <li class=""><a href="#6-webhook">6. Webhook 鉴权</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#61-webhook">6.1 Webhook秘钥</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#62">6.2 基本身份认证</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#7-webhook">7. Webhook 触发类型说明</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#71">7.1 固定事件触发</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#72">7.2 固定事件触发</a></li>
+                      </ul>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>Webhook 使用说明</h1>
 
 <h2 id="1-webhook">1. Webhook 简介</h2>
 <p>DM Hub 平台提供了各种 Open API 供外部系统调用，但在某些情况下，可能需要 DM Hub 在<strong>合适的时刻</strong>能够<strong>主动推送消息</strong>给外部系统，例如在自动流程执行到特定步骤时，能推送消息给客户的各种终端系统。</p>
@@ -377,85 +384,13 @@ httpPost.setHeader(&quot;Authorization&quot;, token);
     &quot;couponName&quot;: &quot;&lt;优惠券名称&gt;&quot;,
     &quot;couponCode&quot;: &quot;&lt;优惠券 code（该客户的唯一 code）&gt;&quot;
 }
-</code></pre></div>
+</code></pre>
+            <div class="ds-thread" data-thread-key="Webhook 使用说明" data-title="Webhook 使用说明" data-url=""></div>
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2017, Convertlab</p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"search": 83, "help": 191, "previous": 80, "next": 78};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../test/swagger-ui.min.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+        
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
+    
+    </script>
+</body>
 
-    </body>
 </html>
