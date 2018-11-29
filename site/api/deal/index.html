@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/deal/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>客户交易 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="http://www.convertlab.com/">Convertlab 文档中心</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="pull-left active">
+                    
+                    <a href="../..">OpenAPI V1</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../track/site_collection_guide/">前端埋点</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../webhook/webhook/">Webhook</a>
+                    
+                  </li>
+                
+                  <li class="pull-left">
+                    
+                    <a href="../../member/">会员</a>
+                    
+                  </li>
+                
+                  <!--<li class="pull-left">
+                    
+                    <a href="/test/">TRY IT</a>
+                    
+                  </li>-->
+                </ul>
+            
+        </div>
+    </div>
+</div>
+    <div class="container main">
+       <!--   <div class="toolbar clearfix">
+  <ol class="breadcrumb pull-left">
+    <li><a href="">文档</a></li>
+    <li>客户交易</li>
+  </ol>
+
+  
+    
+      <a href="https://github.com/xsio/open_api_docs/" class="github-edit pull-right"><i class="fa fa-github"></i> Edit on GitHub</a>
+    
+  
+
+</div> -->
+        <div class="col-md-3"><div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="80" role="complementary">
+    <ul class="nav bs-sidenav">
+     
+      
+        
+          
+
+              <li class="">
+                <a class="itm-l1" href="../..">创建集成应用</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../accesstoken/">获取ACCESS_TOKEN</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customer/">客户信息</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customerevent/">客户事件</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../tag/">客户标签</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../list/">客户群组</a>
+                
+              </li>
+
+          
+
+              <li class="active">
+                <a class="itm-l1" href="./">客户交易</a>
+                
+                  <ul class="nav">
+                  
+                    <li class="active "><a href="#_1">客户交易模型</a></li>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#_2">订单物品模型</a></li>
+                      </ul>
+                    
+                  
+                    <li class=""><a href="#api">创建业务订单的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_1">查询订单的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_2">查询所有订单的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_3">修改业务订单的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_4">删除业务订单的API</a></li>
+                    
+                  
+                  </ul>
+                
+              </li>
+
+          
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+      
+        
+      
+
+    
+    </ul>
+</div></div>
+        <div class="col-md-9 content-body" role="main">
+             
+
+<h1>客户交易</h1>
+
+<h2 id="_1">客户交易模型</h2>
+<p>DM Hub系统中所有交易信息都可以被记录下来。这里的交易可以是有订单发生的订单信息或没有订单行为的交易，如电话充值等。</p>
+<p>通过客户交易接口，您可以将 交易成功 的订单导入DM Hub，也可以查询、修改和删除已经导入的订单。DM Hub会将导入的订单数据进行分析，您可以在导入后通过页面操作浏览，筛选，分析交易数据，也可以通过订单中的一些客户信息进行客户触达。</p>
+<p>客户交易API包括查看所有订单API，增加订单API，修改订单API，查询订单API和删除订单API。这些API使用客户订单模型，如下所示。</p>
+<p><img src="../../resources/deal1.png" width="600"/></p>
+<p>在模型中，每一个交易都会包含n个订单物品，交易和订单物品通过订单编号相关联。具体的模型结构如下。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>客户交易ID</td>
+<td>Long</td>
+<td>只读字段</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>客户id</td>
+<td>Long</td>
+<td>交易所属客户</td>
+</tr>
+<tr>
+<td>orderNo</td>
+<td>订单号</td>
+<td>String</td>
+<td>交易在对接系统中的订单号</td>
+</tr>
+<tr>
+<td>amountTotal</td>
+<td>订单总金额</td>
+<td>BigDecimal</td>
+<td>在交易中订单的总额，包括支付金额和优惠金额</td>
+</tr>
+<tr>
+<td>amountPaid</td>
+<td>实际支付金额</td>
+<td>BigDecimal</td>
+<td>客户支付金额</td>
+</tr>
+<tr>
+<td>amountDiscount</td>
+<td>订单折扣金额</td>
+<td>BigDecimal</td>
+<td>订单折扣</td>
+</tr>
+<tr>
+<td>discountType</td>
+<td>优惠类型</td>
+<td>String</td>
+<td>优惠类型</td>
+</tr>
+<tr>
+<td>counponCode</td>
+<td>优惠券</td>
+<td>String</td>
+<td>优惠券码</td>
+</tr>
+<tr>
+<td>groupId</td>
+<td>团购</td>
+<td>String</td>
+<td>团购id</td>
+</tr>
+<tr>
+<td>paymentTerm</td>
+<td>支付方式</td>
+<td>String</td>
+<td>现金、信用卡、微信支付、支付宝等支付方式</td>
+</tr>
+<tr>
+<td>paymentNo</td>
+<td>支付号</td>
+<td>String</td>
+<td>支付后的交易号码</td>
+</tr>
+<tr>
+<td>type</td>
+<td>订单类型</td>
+<td>String</td>
+<td>线上、线下等类型</td>
+</tr>
+<tr>
+<td>dateOrder</td>
+<td>订单时间</td>
+<td>DateTime</td>
+<td>订单支付完成时间，采用UTC时间格式为:“2017-06-07T12:20:20Z” 如是北京时间，请减8小时</td>
+</tr>
+<tr>
+<td>store</td>
+<td>店铺名称</td>
+<td>String</td>
+<td>订单店铺（线下或线上的店铺名）</td>
+</tr>
+<tr>
+<td>salesChannel</td>
+<td>渠道</td>
+<td>String</td>
+<td>订单渠道（如线下，天猫等）</td>
+</tr>
+<tr>
+<td>shippingMethod</td>
+<td>运送方式</td>
+<td>String</td>
+<td>货物的运送方式</td>
+</tr>
+<tr>
+<td>contactName</td>
+<td>收货人名称</td>
+<td>String</td>
+<td>收货人名称</td>
+</tr>
+<tr>
+<td>contactTel</td>
+<td>收货人电话</td>
+<td>String</td>
+<td>收货人电话</td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>邮编</td>
+<td>String</td>
+<td>邮编</td>
+</tr>
+<tr>
+<td>shippingProvince</td>
+<td>收货人省份</td>
+<td>String</td>
+<td>收货人省份</td>
+</tr>
+<tr>
+<td>shippingCity</td>
+<td>收货人城市</td>
+<td>String</td>
+<td>收货人城市</td>
+</tr>
+<tr>
+<td>shippingCounty</td>
+<td>收货人区县</td>
+<td>String</td>
+<td>收货人区县</td>
+</tr>
+<tr>
+<td>shippingStreet</td>
+<td>收货人街道</td>
+<td>String</td>
+<td>收货人街道</td>
+</tr>
+<tr>
+<td>shippingAddress</td>
+<td>收货人详细地址</td>
+<td>String</td>
+<td>收货人详细地址</td>
+</tr>
+<tr>
+<td>buyerMessage</td>
+<td>买家留言</td>
+<td>String</td>
+<td>买家留言</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>订单备注</td>
+<td>String</td>
+<td>订单备注</td>
+</tr>
+<tr>
+<td>campaign</td>
+<td>营销活动编码</td>
+<td>String</td>
+<td>营销活动编码</td>
+</tr>
+<tr>
+<td>merchantPoint</td>
+<td>订单积分</td>
+<td>Integer</td>
+<td>订单积分</td>
+</tr>
+<tr>
+<td>&gt;支持订单头自定义字段</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">订单物品模型</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>属性意义</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orderNo</td>
+<td>订单号</td>
+<td>String</td>
+<td>交易在对接系统中的订单号</td>
+</tr>
+<tr>
+<td>lineId</td>
+<td>订单行ID</td>
+<td>String</td>
+<td>订单行在该订单中的唯一标识，可以传商品id或skuid</td>
+</tr>
+<tr>
+<td>discountType</td>
+<td>优惠类型</td>
+<td>String</td>
+<td>优惠类型</td>
+</tr>
+<tr>
+<td>counponCode</td>
+<td>优惠券</td>
+<td>String</td>
+<td>优惠券码</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>商品名称</td>
+<td>String</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>商品ID</td>
+<td>String</td>
+<td>商品ID</td>
+</tr>
+<tr>
+<td>skuId</td>
+<td>skuid</td>
+<td>String</td>
+<td>skuID</td>
+</tr>
+<tr>
+<td>brandName</td>
+<td>产品品牌</td>
+<td>String</td>
+<td>产品品牌</td>
+</tr>
+<tr>
+<td>category</td>
+<td>产品所属品类</td>
+<td>String</td>
+<td>产品所属品类，比如啤酒</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>订购数量</td>
+<td>Integer</td>
+<td>订购数量</td>
+</tr>
+<tr>
+<td>priceUnit</td>
+<td>单件商品价格</td>
+<td>BigDecimal</td>
+<td>单件商品价格</td>
+</tr>
+<tr>
+<td>priceSubTotal</td>
+<td>该商品总价</td>
+<td>BigDecimal</td>
+<td>该商品总价</td>
+</tr>
+<tr>
+<td>priceSubPaid</td>
+<td>该商品实际支付金额</td>
+<td>BigDecimal</td>
+<td>该商品实际支付金额</td>
+</tr>
+<tr>
+<td>&gt;支持订单行自定义字段</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">创建业务订单的API</h2>
+<p>订单物品放在订单的line字段中一起创建。</p>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：POST
+https://api.convertlab.com/v1/deals?access_token=&lt;access_token&gt;
+
+POST请求示例：
+{
+  &quot;customerId&quot;: 8888,
+  &quot;orderNo&quot;: &quot;11122233344455&quot;,
+  &quot;amountTotal&quot;: 69.0,
+  &quot;amountPaid&quot;: 59.0,
+  &quot;amountDiscount&quot;: 10,
+  &quot;counponCode&quot;: &quot;222333444&quot;,
+  &quot;groupId&quot;: &quot;888&quot;,
+  &quot;paymentTerm&quot;: &quot;wechat&quot;,
+  &quot;paymentNo&quot;: &quot;555666777&quot;,
+  &quot;type&quot;: &quot;online&quot;,
+  &quot;dateOrder&quot;: &quot;2017-04-20T12:56:47Z&quot;,
+  &quot;store&quot;: &quot;CL官方商城&quot;,
+  &quot;salesChannel&quot;: &quot;tmall&quot;,
+  &quot;shippingMethod&quot;: &quot;zto&quot;,
+  &quot;contactName&quot;: &quot;JH&quot;,
+  &quot;contactTel&quot;: &quot;12399988877&quot;,
+  &quot;shippingProvince&quot;: &quot;上海&quot;,
+  &quot;shippingCity&quot;: &quot;上海&quot;,
+  &quot;shippingCounty&quot;: &quot;徐汇区&quot;,
+  &quot;shippingStreet&quot;: &quot;汇谷科技园&quot;,
+  &quot;shippingAddress&quot;: &quot;上海市徐汇区汇谷科技园1幢605&quot;,
+  &quot;lines&quot;: [
+{
+&quot;productName&quot;: &quot;啤酒6瓶装&quot;,
+      &quot;productId&quot;: &quot;1497&quot;,
+&quot;skuId&quot;: &quot;149766666&quot;,
+&quot;category&quot;: &quot;啤酒&quot;,
+      &quot;qty&quot;: 1,
+      &quot;priceUnit&quot;: 69.0,
+      &quot;priceSubTotal&quot;: 69.0
+    }
+  ]
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>客户交易ID</td>
+</tr>
+<tr>
+<td>customerId</td>
+<td>是</td>
+<td>客户id</td>
+</tr>
+<tr>
+<td>orderNo</td>
+<td>是</td>
+<td>订单号</td>
+</tr>
+<tr>
+<td>amountTotal</td>
+<td>否</td>
+<td>订单总金额</td>
+</tr>
+<tr>
+<td>amountPaid</td>
+<td>是</td>
+<td>实际支付金额</td>
+</tr>
+<tr>
+<td>amountDiscount</td>
+<td>否</td>
+<td>订单折扣</td>
+</tr>
+<tr>
+<td>discountType</td>
+<td>否</td>
+<td>优惠类型</td>
+</tr>
+<tr>
+<td>counponCode</td>
+<td>否</td>
+<td>优惠券码</td>
+</tr>
+<tr>
+<td>groupId</td>
+<td>否</td>
+<td>团购</td>
+</tr>
+<tr>
+<td>paymentTerm</td>
+<td>否</td>
+<td>支付方式</td>
+</tr>
+<tr>
+<td>paymentNo</td>
+<td>否</td>
+<td>支付号</td>
+</tr>
+<tr>
+<td>type</td>
+<td>否</td>
+<td>订单类型</td>
+</tr>
+<tr>
+<td>dateOrder</td>
+<td>是</td>
+<td>订单时间</td>
+</tr>
+<tr>
+<td>store</td>
+<td>否</td>
+<td>店铺名称</td>
+</tr>
+<tr>
+<td>salesChannel</td>
+<td>否</td>
+<td>渠道</td>
+</tr>
+<tr>
+<td>shippingMethod</td>
+<td>否</td>
+<td>运送方式</td>
+</tr>
+<tr>
+<td>contactName</td>
+<td>否</td>
+<td>收货人名称</td>
+</tr>
+<tr>
+<td>contactTel</td>
+<td>否</td>
+<td>收货人电话</td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>否</td>
+<td>邮编</td>
+</tr>
+<tr>
+<td>shippingProvince</td>
+<td>否</td>
+<td>收货人省份</td>
+</tr>
+<tr>
+<td>shippingCity</td>
+<td>否</td>
+<td>收货人城市</td>
+</tr>
+<tr>
+<td>shippingCounty</td>
+<td>否</td>
+<td>收货人区县</td>
+</tr>
+<tr>
+<td>shippingStreet</td>
+<td>否</td>
+<td>收货人街道</td>
+</tr>
+<tr>
+<td>shippingAddress</td>
+<td>否</td>
+<td>收货人详细地址</td>
+</tr>
+<tr>
+<td>buyerMessage</td>
+<td>否</td>
+<td>买家留言</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>否</td>
+<td>订单备注</td>
+</tr>
+<tr>
+<td>campaign</td>
+<td>否</td>
+<td>营销活动编码</td>
+</tr>
+<tr>
+<td>merchantPoint</td>
+<td>否</td>
+<td>订单积分</td>
+</tr>
+<tr>
+<td>orderNo</td>
+<td>是</td>
+<td>交易在对接系统中的订单号</td>
+</tr>
+<tr>
+<td>lineId</td>
+<td>是</td>
+<td>订单行在该订单中的唯一标识，可以传商品id或skuid</td>
+</tr>
+<tr>
+<td>discountType</td>
+<td>否</td>
+<td>优惠类型</td>
+</tr>
+<tr>
+<td>counponCode</td>
+<td>否</td>
+<td>优惠券码</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>是</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>否</td>
+<td>商品ID</td>
+</tr>
+<tr>
+<td>skuId</td>
+<td>否</td>
+<td>SkuID</td>
+</tr>
+<tr>
+<td>brandName</td>
+<td>否</td>
+<td>产品品牌</td>
+</tr>
+<tr>
+<td>category</td>
+<td>否</td>
+<td>产品所属品类</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>是</td>
+<td>商品数量</td>
+</tr>
+<tr>
+<td>priceUnit</td>
+<td>否</td>
+<td>单件商品价格</td>
+</tr>
+<tr>
+<td>priceSubTotal</td>
+<td>否</td>
+<td>该商品总价</td>
+</tr>
+<tr>
+<td>priceSubPaid</td>
+<td>否</td>
+<td>该商品实际支付金额</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 1234,
+  &quot;customerId&quot;: 8888,
+  &quot;orderNo&quot;: &quot;11122233344455&quot;,
+  &quot;amountTotal&quot;: 69.0,
+  &quot;amountPaid&quot;: 59.0,
+  &quot;amountDiscount&quot;: 10,
+  &quot;counponCode&quot;: &quot;222333444&quot;,
+  &quot;groupId&quot;: &quot;888&quot;,
+  &quot;paymentTerm&quot;: &quot;wechat&quot;,
+  &quot;paymentNo&quot;: &quot;555666777&quot;,
+  &quot;type&quot;: &quot;online&quot;,
+  &quot;dateOrder&quot;: &quot;2017-04-20T12:56:47Z&quot;,
+  &quot;store&quot;: &quot;CL官方商城&quot;,
+  &quot;salesChannel&quot;: &quot;tmall&quot;,
+  &quot;shippingMethod&quot;: &quot;zto&quot;,
+  &quot;contactName&quot;: &quot;JH&quot;,
+  &quot;contactTel&quot;: &quot;12399988877&quot;,
+  &quot;shippingProvince&quot;: &quot;上海&quot;,
+  &quot;shippingCity&quot;: &quot;上海&quot;,
+  &quot;shippingCounty&quot;: &quot;徐汇区&quot;,
+  &quot;shippingStreet&quot;: &quot;汇谷科技园&quot;,
+  &quot;shippingAddress&quot;: &quot;上海市徐汇区汇谷科技园1幢605&quot;,
+  &quot;lines&quot;: [
+{
+&quot;productName&quot;: &quot;啤酒6瓶装&quot;,
+      &quot;productId&quot;: &quot;1497&quot;,
+      &quot;skuId&quot;: &quot;149766666&quot;,
+      &quot;category&quot;: &quot;啤酒&quot;,
+      &quot;qty&quot;: 1,
+      &quot;priceUnit&quot;: 69.0,
+      &quot;priceSubTotal&quot;: 69.0
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="api_1">查询订单的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方法GET
+
+https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>请求凭证</td>
+</tr>
+<tr>
+<td>id</td>
+<td>是</td>
+<td>客户交易ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回数据</strong></p>
+<pre><code>{
+  &quot;id&quot;: 1234,
+  &quot;customerId&quot;: 8888,
+  &quot;orderNo&quot;: &quot;11122233344455&quot;,
+  &quot;amountTotal&quot;: 69.0,
+  &quot;amountPaid&quot;: 59.0,
+  &quot;amountDiscount&quot;: 10,
+  &quot;counponCode&quot;: &quot;222333444&quot;,
+  &quot;groupId&quot;: &quot;888&quot;,
+  &quot;paymentTerm&quot;: &quot;wechat&quot;,
+  &quot;paymentNo&quot;: &quot;555666777&quot;,
+  &quot;type&quot;: &quot;online&quot;,
+  &quot;dateOrder&quot;: &quot;2017-04-20T12:56:47Z&quot;,
+  &quot;store&quot;: &quot;CL官方商城&quot;,
+  &quot;salesChannel&quot;: &quot;tmall&quot;,
+  &quot;shippingMethod&quot;: &quot;zto&quot;,
+  &quot;contactName&quot;: &quot;JH&quot;,
+  &quot;contactTel&quot;: &quot;12399988877&quot;,
+  &quot;shippingProvince&quot;: &quot;上海&quot;,
+  &quot;shippingCity&quot;: &quot;上海&quot;,
+  &quot;shippingCounty&quot;: &quot;徐汇区&quot;,
+  &quot;shippingStreet&quot;: &quot;汇谷科技园&quot;,
+  &quot;shippingAddress&quot;: &quot;上海市徐汇区汇谷科技园1幢605&quot;,
+  &quot;lines&quot;: [
+{
+    &quot;productName&quot;: &quot;啤酒6瓶装&quot;,
+        &quot;productId&quot;: &quot;1497&quot;,
+    &quot;skuId&quot;: &quot;149766666&quot;,
+    &quot;category&quot;: &quot;啤酒&quot;,
+        &quot;qty&quot;: 1,
+        &quot;priceUnit&quot;: 69.0,
+        &quot;priceSubTotal&quot;: 69.0
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="api_2">查询所有订单的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：GET
+https://api.convertlab.com/v1/deals?access_token={access_token}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>请求凭证</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>否</td>
+<td>每页的记录数</td>
+</tr>
+<tr>
+<td>page</td>
+<td>否</td>
+<td>起始页数，以1开始</td>
+</tr>
+<tr>
+<td>sidx</td>
+<td>否</td>
+<td>排序的字段，默认按id排序</td>
+</tr>
+<tr>
+<td>sord</td>
+<td>否</td>
+<td>asc表示升序，desc表示降序，默认为升序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;page&quot;: 1,
+  &quot;records&quot;: 1,
+  &quot;rows&quot;: [
+    {
+      &quot;id&quot;: 1234,
+      &quot;customerId&quot;: 8888,
+      &quot;orderNo&quot;: &quot;11122233344455&quot;,
+      &quot;amountTotal&quot;: 69.0,
+      &quot;amountPaid&quot;: 59.0,
+      &quot;amountDiscount&quot;: 10,
+      &quot;counponCode&quot;: &quot;222333444&quot;,
+      &quot;groupId&quot;: &quot;888&quot;,
+      &quot;paymentTerm&quot;: &quot;wechat&quot;,
+      &quot;paymentNo&quot;: &quot;555666777&quot;,
+      &quot;type&quot;: &quot;online&quot;,
+      &quot;dateOrder&quot;: &quot;2017-04-20T12:56:47Z&quot;,
+      &quot;store&quot;: &quot;CL官方商城&quot;,
+      &quot;salesChannel&quot;: &quot;tmall&quot;,
+      &quot;shippingMethod&quot;: &quot;zto&quot;,
+      &quot;contactName&quot;: &quot;JH&quot;,
+      &quot;contactTel&quot;: &quot;12399988877&quot;,
+      &quot;shippingProvince&quot;: &quot;上海&quot;,
+      &quot;shippingCity&quot;: &quot;上海&quot;,
+      &quot;shippingCounty&quot;: &quot;徐汇区&quot;,
+      &quot;shippingStreet&quot;: &quot;汇谷科技园&quot;,
+      &quot;shippingAddress&quot;: &quot;上海市徐汇区汇谷科技园1幢605&quot;,
+      &quot;lines&quot;: [
+        {
+          &quot;productName&quot;: &quot;啤酒6瓶装&quot;,
+          &quot;productId&quot;: &quot;1497&quot;,
+          &quot;skuId&quot;: &quot;149766666&quot;,
+          &quot;category&quot;: &quot;啤酒&quot;,
+          &quot;qty&quot;: 1,
+          &quot;priceUnit&quot;: 69.0,
+          &quot;priceSubTotal&quot;: 69.0
+        }
+      ]
+    }
+  ]
+</code></pre>
+
+<h2 id="api_3">修改业务订单的API</h2>
+<p>所有订单相关字段均可以修改</p>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：PUT
+https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
+
+PUT请求示例：
+{
+  &quot;contactName&quot;: &quot;CL&quot;,
+  &quot;contactTel&quot;: &quot;18566677788&quot;,
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>请求凭证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;id&quot;: 1234,
+  &quot;customerId&quot;: 8888,
+  &quot;orderNo&quot;: &quot;11122233344455&quot;,
+  &quot;amountTotal&quot;: 69.0,
+  &quot;amountPaid&quot;: 59.0,
+  &quot;amountDiscount&quot;: 10,
+  &quot;counponCode&quot;: &quot;222333444&quot;,
+  &quot;groupId&quot;: &quot;888&quot;,
+  &quot;paymentTerm&quot;: &quot;wechat&quot;,
+  &quot;paymentNo&quot;: &quot;555666777&quot;,
+  &quot;type&quot;: &quot;online&quot;,
+  &quot;dateOrder&quot;: &quot;2017-04-20T12:56:47Z&quot;,
+  &quot;store&quot;: &quot;CL官方商城&quot;,
+  &quot;salesChannel&quot;: &quot;tmall&quot;,
+  &quot;shippingMethod&quot;: &quot;zto&quot;,
+  &quot;contactName&quot;: &quot;CL&quot;,
+  &quot;contactTel&quot;: &quot;18566677788&quot;,
+  &quot;shippingProvince&quot;: &quot;上海&quot;,
+  &quot;shippingCity&quot;: &quot;上海&quot;,
+  &quot;shippingCounty&quot;: &quot;徐汇区&quot;,
+  &quot;shippingStreet&quot;: &quot;汇谷科技园&quot;,
+  &quot;shippingAddress&quot;: &quot;上海市徐汇区汇谷科技园1幢605&quot;,
+  &quot;lines&quot;: [
+{
+      &quot;productName&quot;: &quot;啤酒6瓶装&quot;,
+      &quot;productId&quot;: &quot;1497&quot;,
+      &quot;skuId&quot;: &quot;149766666&quot;,
+      &quot;category&quot;: &quot;啤酒&quot;,
+      &quot;qty&quot;: 1,
+      &quot;priceUnit&quot;: 69.0,
+      &quot;priceSubTotal&quot;: 69.0,
+      &quot;brandName&quot;: &quot;百威&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="api_4">删除业务订单的API</h2>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：DELETE
+https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>请求凭证</td>
+</tr>
+</tbody>
+</table>
+            <div class="ds-thread" data-thread-key="客户交易" data-title="客户交易" data-url=""></div>
+        </div>
+        
+    </div>
+    
+    </script>
+</body>
+
+</html>
