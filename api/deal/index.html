@@ -481,10 +481,11 @@ POST请求示例：
   &quot;shippingAddress&quot;: &quot;上海市徐汇区汇谷科技园1幢605&quot;,
   &quot;lines&quot;: [
 {
-&quot;productName&quot;: &quot;啤酒6瓶装&quot;,
+      &quot;lineId&quot;: &quot;149766666&quot;,
+      &quot;productName&quot;: &quot;啤酒6瓶装&quot;,
       &quot;productId&quot;: &quot;1497&quot;,
-&quot;skuId&quot;: &quot;149766666&quot;,
-&quot;category&quot;: &quot;啤酒&quot;,
+      &quot;skuId&quot;: &quot;149766666&quot;,
+      &quot;category&quot;: &quot;啤酒&quot;,
       &quot;qty&quot;: 1,
       &quot;priceUnit&quot;: 69.0,
       &quot;priceSubTotal&quot;: 69.0
@@ -1144,7 +1145,7 @@ https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"previous": 80, "search": 83, "help": 191, "next": 78};
+                shortcuts = {"next": 78, "previous": 80, "help": 191, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../test/swagger-ui.min.js" defer></script>
