@@ -95,10 +95,11 @@ POST请求示例：
   "shippingAddress": "上海市徐汇区汇谷科技园1幢605",
   "lines": [
 {
-"productName": "啤酒6瓶装",
+      "lineId": "149766666",
+      "productName": "啤酒6瓶装",
       "productId": "1497",
-"skuId": "149766666",
-"category": "啤酒",
+      "skuId": "149766666",
+      "category": "啤酒",
       "qty": 1,
       "priceUnit": 69.0,
       "priceSubTotal": 69.0
