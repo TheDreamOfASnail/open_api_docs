@@ -509,3 +509,114 @@ https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
 |参数|	是否必填|	说明|
 | ------------ | ------- |----------- |
 |access_token|	是	|请求凭证|
+
+
+## 根据订单号查询订单详情的API
+**调用请求**
+
+```
+http请求方式：GET
+https://api.convertlab.com/v1/dealService/getDealByOrderNo?access_token={access_token}&orderNo={orderNo}
+```
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+| ------------ | ------- |----------- |
+|access_token|	是	|请求凭证|
+|orderNo|	是	|需要查询的订单号|
+
+**返回结果**
+```
+{
+	"campaign": null,
+	"shippingCounty": "徐汇区",
+	"shippingStreet": "汇谷科技园",
+	"zipcode": null,
+	"shippingAddress": "上海市徐汇区汇谷科技园1幢605",
+	"salesChannel": "tmall",
+	"amountPaid": 59.000000,
+	"contactName": "JH",
+	"shippingCity": "上海",
+	"state": "已付款",
+	"merchantPoint": null,
+	"groupId": "888",
+	"amountTotal": 69.000000,
+	"couponCode": null,
+	"contactTel": "12399988877",
+	"dateOrder": "2018-12-20T12:56:47Z",
+	"buyerMessage": null,
+	"customerId": 90840682394599424,
+	"shippingMethod": "zto",
+	"paymentTerm": "wechat",
+	"shippingProvince": "上海",
+	"store": "CL官方商城",
+	"amountDiscount": 10.000000,
+	"discountType": null,
+	"paymentNo": "555666777",
+	"remark": null,
+	"type": "online",
+	"lines": [
+	{
+		"couponCode": null,
+		"priceSubPaid": null,
+		"skuId": "149766666",
+		"lNum3": null,
+		"lNum2": null,
+		"lNum4": null,
+		"category": "啤酒",
+		"priceUnit": 69.000000,
+		"brandName": null,
+		"priceSubTotal": 69.000000,
+		"lNum1": null,
+		"discountType": null,
+		"lDate3": null,
+		"lDate2": null,
+		"lAttr6": null,
+		"productId": "1497",
+		"lDate4": null,
+		"lAttr5": null,
+		"productName": "啤酒6瓶装",
+		"qty": 1,
+		"lineId": "149766666",
+		"lAttr4": null,
+		"lAttr3": null,
+		"lDate1": null,
+		"lAttr2": null,
+		"lAttr1": null
+	}, 
+	{
+		"couponCode": null,
+		"priceSubPaid": null,
+		"lNum3": null,
+		"lNum2": null,
+		"lNum4": null,
+		"category": "啤酒",
+		"priceUnit": 69.000000,
+		"productName": "啤酒12瓶装",
+		"lineId": "149766699",
+		"brandName": null,
+		"priceSubTotal": 69.000000,
+		"lNum1": null,
+		"discountType": null,
+		"skuId": "149766699",
+		"lDate3": null,
+		"lDate2": null,
+		"lAttr6": null,
+		"productId": "1497",
+		"lDate4": null,
+		"lAttr5": null,
+		"qty": 1,
+		"lAttr4": null,
+		"lAttr3": null,
+		"lDate1": null,
+		"lAttr2": null,
+		"lAttr1": null
+	}
+	],
+	"id": 2307902913,
+	"orderNo": "11111111024",
+	"customerIdStr": "90840682394599424"
+}
+
+```
