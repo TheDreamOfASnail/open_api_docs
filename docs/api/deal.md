@@ -180,7 +180,8 @@ POST请求示例：
   "shippingAddress": "上海市徐汇区汇谷科技园1幢605",
   "lines": [
 {
-"productName": "啤酒6瓶装",
+      "lineId": "149766666",
+      "productName": "啤酒6瓶装",
       "productId": "1497",
       "skuId": "149766666",
       "category": "啤酒",
@@ -234,13 +235,14 @@ https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
   "shippingAddress": "上海市徐汇区汇谷科技园1幢605",
   "lines": [
 {
+    "lineId": "149766666",
     "productName": "啤酒6瓶装",
-        "productId": "1497",
+    "productId": "1497",
     "skuId": "149766666",
     "category": "啤酒",
-        "qty": 1,
-        "priceUnit": 69.0,
-        "priceSubTotal": 69.0
+    "qty": 1,
+    "priceUnit": 69.0,
+    "priceSubTotal": 69.0
     }
   ]
 }
@@ -293,15 +295,17 @@ https://api.convertlab.com/v1/deals?access_token={access_token}&rows={rows}&page
       "shippingStreet": "汇谷科技园",
       "shippingAddress": "上海市徐汇区汇谷科技园1幢605",
       "lines": [
-        {
-          "productName": "啤酒6瓶装",
-          "productId": "1497",
-          "skuId": "149766666",
-          "category": "啤酒",
-          "qty": 1,
-          "priceUnit": 69.0,
-          "priceSubTotal": 69.0
-        }
+{
+      "lineId": "149766666",
+      "productName": "啤酒6瓶装",
+      "productId": "1497",
+      "skuId": "149766666",
+      "category": "啤酒",
+      "qty": 1,
+      "priceUnit": 69.0,
+      "priceSubTotal": 69.0,
+      "brandName": "百威"
+    }
       ]
     }
   ]
@@ -355,6 +359,7 @@ PUT请求示例：
   "shippingAddress": "上海市徐汇区汇谷科技园1幢605",
   "lines": [
 {
+      "lineId": "149766666",
       "productName": "啤酒6瓶装",
       "productId": "1497",
       "skuId": "149766666",
@@ -367,6 +372,128 @@ PUT请求示例：
   ]
 }
 ```
+
+## 取消业务订单的API
+取消业务订单
+
+**调用请求**
+```
+http请求方式：POST
+https://api.convertlab.com/v1/dealService/cancel?access_token={access_token}
+
+POST请求示例：
+{
+  "customerId": 8888,
+  "orderNo": "11122233344455"
+}
+```
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+| ------------ | ------- |-------- |
+|access_token|	是|	请求凭证|
+
+**返回结果**
+```
+{
+  "id": 1234,
+  "customerId": 8888,
+  "orderNo": "11122233344455",
+  "amountTotal": 69.0,
+  "amountPaid": 59.0,
+  "amountDiscount": 10,
+  "counponCode": "222333444",
+  "groupId": "888",
+  "paymentTerm": "wechat",
+  "paymentNo": "555666777",
+  "type": "online",
+  "dateOrder": "2017-04-20T12:56:47Z",
+  "store": "CL官方商城",
+  "state": "已取消",
+  "salesChannel": "tmall",
+  "shippingMethod": "zto",
+  "contactName": "CL",
+  "contactTel": "18566677788",
+  "shippingProvince": "上海",
+  "shippingCity": "上海",
+  "shippingCounty": "徐汇区",
+  "shippingStreet": "汇谷科技园",
+  "shippingAddress": "上海市徐汇区汇谷科技园1幢605",
+  "lines": [
+{
+      "lineId": "149766666",
+      "productName": "啤酒6瓶装",
+      "productId": "1497",
+      "skuId": "149766666",
+      "category": "啤酒",
+      "qty": 1,
+      "priceUnit": 69.0,
+      "priceSubTotal": 69.0,
+      "brandName": "百威"
+    }
+  ]
+}
+```
+
+## 退货订单的API
+退货业务订单
+
+**调用请求**
+```
+http请求方式：POST
+https://api.convertlab.com/v1/dealService/refund?access_token={access_token}
+
+POST请求示例：
+{
+"refundLines": [
+    {
+      "lineId": "149766666"  
+    }
+  ],
+  "refundTotal": 69.0,   // 退款金额
+  "orderNo": "11122233344455",		
+  "customerId": 8888
+
+}
+```
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+| ------------ | ------- |-------- |
+|access_token|	是|	请求凭证|
+
+**返回结果**
+```
+{
+	"dateRefund": null,
+	"dateCreated": "2018-12-20T03:14:02Z",
+	"orderNo": "11122233344455",
+	"refundTotal": 69,
+	"lastUpdated": "2018-12-20T03:14:02Z",
+	"customerId": 8888,
+	"reason": null,
+	"id": 2100032073,
+	"refundLines": [
+  {
+		"customerId": 8888,
+		"skuId": "149766699",
+		"orderNo": "11111111024",
+		"productId": "1497",
+		"qty": 1,
+		"category": "啤酒",
+		"priceUnit": 69.000000,
+		"productName": "啤酒12瓶装",
+		"lineId": "149766666",
+		"refundId": 2100032073,
+		"priceSubTotal": 69.000000
+	}
+  ]
+}
+
+```
+
 
 ## 删除业务订单的API
 **调用请求**
