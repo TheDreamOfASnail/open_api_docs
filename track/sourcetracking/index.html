@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://api-docs.convertlab.com/api/accesstoken/">
+        <link rel="canonical" href="http://api-docs.convertlab.com/track/sourcetracking/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>获取ACCESS_TOKEN - Convertlab 文档中心</title>
+        <title>Sourcetracking - Convertlab 文档中心</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenAPI V1 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -55,28 +55,28 @@
     <a href="../..">创建集成应用</a>
 </li>
                                     
-<li class="active">
-    <a href="./">获取ACCESS_TOKEN</a>
+<li >
+    <a href="../../api/accesstoken/">获取ACCESS_TOKEN</a>
 </li>
                                     
 <li >
-    <a href="../customer/">客户信息</a>
+    <a href="../../api/customer/">客户信息</a>
 </li>
                                     
 <li >
-    <a href="../customerevent/">客户事件</a>
+    <a href="../../api/customerevent/">客户事件</a>
 </li>
                                     
 <li >
-    <a href="../tag/">客户标签</a>
+    <a href="../../api/tag/">客户标签</a>
 </li>
                                     
 <li >
-    <a href="../list/">客户群组</a>
+    <a href="../../api/list/">客户群组</a>
 </li>
                                     
 <li >
-    <a href="../deal/">客户交易</a>
+    <a href="../../api/deal/">客户交易</a>
 </li>
                                 </ul>
                             </li>
@@ -85,19 +85,19 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../track/site_collection_guide/">通过网站埋点进行数据采集</a>
+    <a href="../site_collection_guide/">通过网站埋点进行数据采集</a>
 </li>
                                     
 <li >
-    <a href="../../track/dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
+    <a href="../dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
 </li>
                                     
 <li >
-    <a href="../../track/dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
+    <a href="../dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
 </li>
                                     
 <li >
-    <a href="../../track/MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
+    <a href="../MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
 </li>
                                 </ul>
                             </li>
@@ -127,18 +127,8 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../..">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../customer/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                             <li>
-                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/api/accesstoken.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/track/sourcetracking.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -148,77 +138,16 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#access_token">获取access_token</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="access_token">获取access_token</h2>
-<p>通过appid和appsecret获取access token, 并用于其它功能性API的请求。</p>
-<p><strong>调用请求</strong></p>
-<pre><code>HTTP请求方式: GET
-https://api.convertlab.com/security/accesstoken?grant_type=client_credentials&amp;appid={appid}&amp;secret={secret}
-</code></pre>
-
-<p><strong>参数说明</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必填</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grant_type</td>
-<td>是</td>
-<td>必须是client_credential</td>
-</tr>
-<tr>
-<td>appid</td>
-<td>是</td>
-<td>在上一步中创建的应用的appid</td>
-</tr>
-<tr>
-<td>secret</td>
-<td>是</td>
-<td>在上一步中创建的应用的secret</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回说明</strong></p>
-<pre><code>{
-    &quot;error_code&quot;: 0,
-  &quot;access_token&quot;: &quot;47c010ea********d30db952ac&quot;,
-  &quot;expires_in&quot;: 7200
-}
-</code></pre>
-
-<p><strong>返回字段说明</strong></p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>access_token</td>
-<td>获取到的API调用凭证</td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>凭证有效时间，单位：秒</td>
-</tr>
-<tr>
-<td>error_code</td>
-<td>错误码，0表示返回正常</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意</strong>: 记住access_token留备后用。</p></div>
+<ol>
+<li>进入<strong>客户&gt;来源管理</strong>，创建需要的来源</li>
+<li>进入<strong>内容&gt;公司网站&gt;网页可追踪URL</strong>，创建可追踪URL，并选择需要的来源。</li>
+<li>将可追踪URL传播出去，比如通过百度广告，邮件，微信等。</li>
+<li>进入<strong>内容&gt;公司网站&gt;网站页面</strong>，可以看到网页的来源访问分析。</li>
+</ol></div>
         </div>
 
         <footer class="col-md-12">
