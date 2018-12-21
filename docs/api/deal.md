@@ -20,7 +20,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 |amountPaid|	实际支付金额|	BigDecimal|	客户支付金额|
 |amountDiscount|订单折扣金额	|BigDecimal|	订单折扣|
 |discountType|优惠类型	|String|	优惠类型|
-|counponCode	|优惠券	|String|	优惠券码|
+|couponCode	|优惠券	|String|	优惠券码|
 |groupId	|团购|	String|	团购id|
 |paymentTerm	|支付方式|	String|	现金、信用卡、微信支付、支付宝等支付方式|
 |paymentNo|	支付号|	String|	支付后的交易号码|
