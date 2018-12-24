@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="canonical" href="http://api-docs.convertlab.com/"> 
-    <link rel="shortcut icon" href="./img/favicon.ico">
-    <title>创建集成应用 - Convertlab 文档中心</title>
-    <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-    <link href="./css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/highlight.css">
-    <link href="test/css/print.css" rel="stylesheet">
+    <link rel="canonical" href="http://api-docs.convertlab.com/track/sourcetracking/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Sourcetracking - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
 
     
 </head>
@@ -42,7 +42,7 @@
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav navbar-right">
                 
-                  <li class="pull-left active">
+                  <li class="pull-left">
                     
                     <a href="">OpenAPI V1</a>
                     
@@ -80,7 +80,7 @@
        <!--   <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
     <li><a href="">文档</a></li>
-    <li>创建集成应用</li>
+    <li>Sourcetracking</li>
   </ol>
 
   
@@ -94,61 +94,6 @@
     <ul class="nav bs-sidenav">
      
       
-        
-          
-
-              <li class="active">
-                <a class="itm-l1" href="">创建集成应用</a>
-                
-                  <ul class="nav">
-                  
-                  </ul>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/accesstoken/">获取ACCESS_TOKEN</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/customer/">客户信息</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/customerevent/">客户事件</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/tag/">客户标签</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/list/">客户群组</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/deal/">客户交易</a>
-                
-              </li>
-
-          
         
       
 
@@ -173,16 +118,15 @@
         <div class="col-md-9 content-body" role="main">
              
 
-<h1>创建集成应用</h1>
+<h1>Sourcetracking</h1>
 
-<p><strong>注意:</strong> DM Hub数据接口遵循OAuth 2.0协议，调用所有功能API之前都需要先获取access_token。access_token是调用DM Hub 数据接口的凭证，开发者需要妥善保管。access_token的有效期目前是2小时，需定时刷新。</p>
-<p>获取access_token之前需要先在DM Hub设置&gt;开发与集成, 中创建一个应用（以集成演示为例）</p>
-<p><img src="../resources/create4.png" width="400"/></p>
-<p>应用创建好后，勾选允许应用所访问接口的权限，点击更新按钮。</p>
-<p>每个新创建的应用都会有appid和secret两个数据，这两个数据相当于系统的用户名和密码，开发人员需要妥善保存。</p>
-<p>集成系统可以使用appid和secret来调用/oauth/accesstoken接口来获取access_token。</p>
-<p><strong>注意：</strong>DM Hub的所有接口都必须是用https协议。</p>
-            <div class="ds-thread" data-thread-key="创建集成应用" data-title="创建集成应用" data-url=""></div>
+<ol>
+<li>进入<strong>客户&gt;来源管理</strong>，创建需要的来源</li>
+<li>进入<strong>内容&gt;公司网站&gt;网页可追踪URL</strong>，创建可追踪URL，并选择需要的来源。</li>
+<li>将可追踪URL传播出去，比如通过百度广告，邮件，微信等。</li>
+<li>进入<strong>内容&gt;公司网站&gt;网站页面</strong>，可以看到网页的来源访问分析。</li>
+</ol>
+            <div class="ds-thread" data-thread-key="Sourcetracking" data-title="Sourcetracking" data-url=""></div>
         </div>
         
     </div>
