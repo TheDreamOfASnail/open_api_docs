@@ -3,8 +3,10 @@ site_name: Convertlab 文档中心
 site_url: http://api-docs.convertlab.com/
 
 repo_url: https://github.com/xsio/open_api_docs
-theme_dir: themes/mkdocs
-
+# theme_dir: themes/mkdocs
+theme:
+    name: null
+    custom_dir: themes/mkdocs
 
 copyright: Copyright &copy; 2017, Convertlab
 
