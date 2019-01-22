@@ -18,8 +18,8 @@ __注意：小程序只能使用javascript来提交事件__
 var app = getApp();
 
 app.cl_tracker.push({ 
- identityType: 'wechat',
- identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id
+ identityType: 'wechat', //如果identityValue使用unionid,identityType请使用"wechat-unionid"
+ identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id或unionid
  });
 ```
 
