@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="canonical" href="http://api-docs.convertlab.com/"> 
-    <link rel="shortcut icon" href="./img/favicon.ico">
-    <title>创建集成应用 - Convertlab 文档中心</title>
-    <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-    <link href="./css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/highlight.css">
-    <link href="test/css/print.css" rel="stylesheet">
+    <link rel="canonical" href="http://api-docs.convertlab.com/webhook/webhook_payload/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Webhook payload - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
 
     
 </head>
@@ -42,7 +42,7 @@
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav navbar-right">
                 
-                  <li class="pull-left active">
+                  <li class="pull-left">
                     
                     <a href="">OpenAPI V1</a>
                     
@@ -80,7 +80,7 @@
        <!--   <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
     <li><a href="">文档</a></li>
-    <li>创建集成应用</li>
+    <li>Webhook payload</li>
   </ol>
 
   
@@ -94,61 +94,6 @@
     <ul class="nav bs-sidenav">
      
       
-        
-          
-
-              <li class="active">
-                <a class="itm-l1" href="">创建集成应用</a>
-                
-                  <ul class="nav">
-                  
-                  </ul>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/accesstoken/">获取ACCESS_TOKEN</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/customer/">客户信息</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/customerevent/">客户事件</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/tag/">客户标签</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/list/">客户群组</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/deal/">客户交易</a>
-                
-              </li>
-
-          
         
       
 
@@ -173,16 +118,39 @@
         <div class="col-md-9 content-body" role="main">
              
 
-<h1>创建集成应用</h1>
+<h1>Webhook payload</h1>
 
-<p><strong>注意:</strong> DM Hub数据接口遵循OAuth 2.0协议，调用所有功能API之前都需要先获取access_token。access_token是调用DM Hub 数据接口的凭证，开发者需要妥善保管。access_token的有效期目前是2小时，需定时刷新。</p>
-<p>获取access_token之前需要先在DM Hub设置&gt;开发与集成, 中创建一个应用（以集成演示为例）</p>
-<p><img src="../resources/create4.png" width="400"/></p>
-<p>应用创建好后，勾选允许应用所访问接口的权限，点击更新按钮。</p>
-<p>每个新创建的应用都会有appid和secret两个数据，这两个数据相当于系统的用户名和密码，开发人员需要妥善保存。</p>
-<p>集成系统可以使用appid和secret来调用/oauth/accesstoken接口来获取access_token。</p>
-<p><strong>注意：</strong>DM Hub的所有接口都必须是用https协议。</p>
-            <div class="ds-thread" data-thread-key="创建集成应用" data-title="创建集成应用" data-url=""></div>
+<ol>
+<li><code>Webhook</code> 消息目前只支持 <code>JSON</code> 格式。</li>
+<li><code>JSON</code> 消息支持变量，例如，变量 var 在消息中表示为 <code>"${var}"</code>；</li>
+<li>目前 <code>JSON</code> 变量包含<code>内置变量</code>和<code>客户属性变量</code>，<code>客户属性变量</code>需要添加 <code>customer</code> 前缀。以下<code>内置变量</code>，不需要任何前缀： <code>"flowId"</code>（自动流程 ID）, <code>"flowStep"</code>（自动流程步骤）, <code>"customerId"</code>（客户 ID）。</li>
+<li><code>客户属性变量</code>，例如客户名称（<code>customer.name</code>），客户邮箱（<code>customer.email</code>），客户电话（<code>customer.mobile</code>） 等；也支持<code>客户自定义属性</code>（ID以 attr 开头） 更多客户属性，请到 "设置中心" -&gt; "客户属性" 查看。</li>
+<li>没有定义的客户属性或者客户的属性值为空，消息体内的内容也为空。</li>
+<li>以下是一个实际的 <code>Webhook</code> 消息的例子 - </li>
+</ol>
+<pre><code>{
+  &quot;customerId&quot;: &quot;${customerId}&quot;,
+  &quot;flowId&quot;: &quot;${flowId}&quot;,
+  &quot;flowStep&quot;: &quot;${flowStep}&quot;,
+  &quot;email&quot; : &quot;${customer.email}&quot;,
+  &quot;mobile&quot;: &quot;${customer.mobile}&quot;,
+  &quot;customerAdditionInfo&quot;: &quot;${customer.attr1}&quot;,
+  &quot;webhookSource&quot;: &quot;convertlab&quot;
+}
+</code></pre>
+
+<p>如果客户的 id 为 123456， 自动流 id 为 789， 自动流步骤为 5， 客户email 为 customer@company.com， 客户电话号码为空， 客户的 attr1 属性为 "蓝色"，则用户收到的 webhook消息为 -</p>
+<pre><code>{
+  &quot;customerId&quot;: &quot;123456&quot;,
+  &quot;flowId&quot;: &quot;789&quot;,
+  &quot;flowStep&quot;: &quot;3&quot;,
+  &quot;email&quot; : &quot;customer@company.com&quot;,
+  &quot;mobile&quot;: &quot;&quot;,
+  &quot;customerAdditionInfo&quot;: &quot;蓝色&quot;,
+  &quot;webhookSource&quot;: &quot;convertlab&quot;
+}
+</code></pre>
+            <div class="ds-thread" data-thread-key="Webhook payload" data-title="Webhook payload" data-url=""></div>
         </div>
         
     </div>
