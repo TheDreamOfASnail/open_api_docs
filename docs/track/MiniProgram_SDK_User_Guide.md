@@ -1,5 +1,5 @@
 ## 下载 sdk
-从 github 上下载 微信小程序 sdk https://github.com/xsio/open_api_docs/blob/master/sdk/dmhubsdk-miniprogram/cl_tracker.js
+从DM Hub的设置中心下载，路径为：设置中心->微信设置->小程序设置
 
 在 app.js 第一行加上. 
 
@@ -18,7 +18,7 @@ __注意：小程序只能使用javascript来提交事件__
 var app = getApp();
 
 app.cl_tracker.push({ 
- identityType: 'wechat', //如果identityValue使用unionid,identityType请使用"wechat-unionid"
+ identityType: 'wechat', //如果identityValue使用unionid,identityType请设置为"wechat-unionid"
  identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id或unionid
  });
 ```
