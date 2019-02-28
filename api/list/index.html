@@ -482,7 +482,7 @@ POST请求示例：
 <p><strong>返回结果说明</strong></p>
 <ul>
 <li>id为客户在群组中的id</li>
-<li>dateCreated 为客户加入群组中的时间</li>
+<li>dateCreated 为客户加入群组中的时间, 格式为:“2017-06-01T12:12:12Z” 为UTC时间</li>
 </ul>
 <h2 id="api_4">将一个客户从某个群组中删除的API</h2>
 <p><strong>调用请求</strong></p>
@@ -723,12 +723,12 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&am
 <tr>
 <td>joinListDateSince</td>
 <td>否</td>
-<td>加入群组的最早时间</td>
+<td>加入群组的最早时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 <tr>
 <td>joinListDateTo</td>
 <td>否</td>
-<td>加入群组的最晚时间</td>
+<td>加入群组的最晚时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 <tr>
 <td>rows</td>
@@ -822,12 +822,12 @@ https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token
 <tr>
 <td>joinListDateSince</td>
 <td>否</td>
-<td>加入群组的最早时间</td>
+<td>加入群组的最早时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 <tr>
 <td>joinListDateTo</td>
 <td>否</td>
-<td>加入群组的最晚时间</td>
+<td>加入群组的最晚时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 </tbody>
 </table>

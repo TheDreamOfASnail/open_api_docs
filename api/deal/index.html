@@ -612,7 +612,7 @@ POST请求示例：
 <tr>
 <td>dateOrder</td>
 <td>是</td>
-<td>订单时间</td>
+<td>订单时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 <tr>
 <td>store</td>
@@ -1102,11 +1102,11 @@ POST请求示例：
 {
 &quot;refundLines&quot;: [
     {
-      &quot;lineId&quot;: &quot;149766666&quot;  
+      &quot;lineId&quot;: &quot;149766666&quot;
     }
   ],
   &quot;refundTotal&quot;: 69.0,   // 退款金额
-  &quot;orderNo&quot;: &quot;11122233344455&quot;,      
+  &quot;orderNo&quot;: &quot;11122233344455&quot;,
   &quot;customerId&quot;: 8888
 
 }
@@ -1266,7 +1266,7 @@ https://api.convertlab.com/v1/dealService/getDealByOrderNo?access_token={access_
         &quot;lDate1&quot;: null,
         &quot;lAttr2&quot;: null,
         &quot;lAttr1&quot;: null
-    }, 
+    },
     {
         &quot;couponCode&quot;: null,
         &quot;priceSubPaid&quot;: null,

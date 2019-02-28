@@ -325,7 +325,7 @@
 <td>dateJoin</td>
 <td>注册时间</td>
 <td>日期时间</td>
-<td></td>
+<td>时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 <tr>
 <td>createMethod</td>
@@ -367,7 +367,7 @@
 <td>lastUpdated</td>
 <td>最后更新时间</td>
 <td>日期时间</td>
-<td></td>
+<td>时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 <tr>
 <td>level</td>
@@ -421,11 +421,11 @@
 <td>dateCreated</td>
 <td>系统创建时间</td>
 <td>日期时间</td>
-<td></td>
+<td>时间格式为 “2016-11-11T11:11:11” 为UTC时间</td>
 </tr>
 </tbody>
 </table>
-<p>除了系统内置的会员属性外，您还可以增加自定义属性。<br />
+<p>除了系统内置的会员属性外，您还可以增加自定义属性。
 登录DM Hub，在会员属性设置页面中，可增加自定义会员属性。包括属性名、属性代码、属性类型等。
 自定义属性的代码以"c_"作为前缀。</p>
 <h2 id="_2">会员身份模型</h2>
@@ -518,7 +518,7 @@
 </code></pre>
 
 <h2 id="2">2. 创建会员和会员身份</h2>
-<p>创建会员时需要同时包含会员身份的信息，即membership和identities两项都不能为空值。  </p>
+<p>创建会员时需要同时包含会员身份的信息，即membership和identities两项都不能为空值。</p>
 <ul>
 <li>
 <p>HTTP请求方式: <code>POST</code></p>
@@ -687,7 +687,7 @@
         &quot;priority&quot;: 0,
         &quot;name&quot;: &quot;青铜会员&quot;,
         &quot;id&quot;: 422
-    }, 
+    },
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: null,
     &quot;name&quot;: &quot;test1&quot;,
@@ -868,7 +868,7 @@
             &quot;priority&quot;: 0,
             &quot;name&quot;: &quot;青铜会员&quot;,
             &quot;id&quot;: 422
-        }, 
+        },
         &quot;membershipCode&quot;: null,
         &quot;mobile&quot;: null,
         &quot;name&quot;: &quot;test1&quot;,
@@ -945,7 +945,7 @@
                     &quot;priority&quot;: 0,
                     &quot;name&quot;: &quot;青铜会员&quot;,
                     &quot;id&quot;: 422
-                }, 
+                },
                 &quot;membershipCode&quot;: null,
                 &quot;mobile&quot;: null,
                 &quot;name&quot;: &quot;test1&quot;,
@@ -1069,7 +1069,7 @@
         &quot;priority&quot;: 0,
         &quot;name&quot;: &quot;青铜会员&quot;,
         &quot;id&quot;: 422
-    }, 
+    },
     &quot;membershipCode&quot;: null,
     &quot;mobile&quot;: &quot;456&quot;,
     &quot;name&quot;: &quot;test&quot;,
@@ -1240,7 +1240,7 @@
 <td>订单时间</td>
 <td>DateTime</td>
 <td>是</td>
-<td>UTC时间</td>
+<td>时间格式为 “2016-11-11T11:11:11”, UTC时间</td>
 </tr>
 <tr>
 <td>membershipId</td>
@@ -1542,7 +1542,7 @@
 <td>退单时间</td>
 <td>DateTime</td>
 <td>是</td>
-<td></td>
+<td>时间格式为 “2016-11-11T11:11:11”, UTC时间</td>
 </tr>
 <tr>
 <td>refundTotal</td>
@@ -1891,13 +1891,13 @@
 <td>dateDraw</td>
 <td>领取日期</td>
 <td>DateTime</td>
-<td>代金券使用</td>
+<td>代金券使用，格式为:“2017-06-01T12:12:12Z” 为UTC时间</td>
 </tr>
 <tr>
 <td>dateRedeem</td>
 <td>核销日期</td>
 <td>DateTime</td>
-<td></td>
+<td>格式为:“2017-06-01T12:12:12Z” 为UTC时间</td>
 </tr>
 <tr>
 <td>startDate</td>
@@ -1965,7 +1965,7 @@
 <ul>
 <li>Request</li>
 </ul>
-<p>access_token  根据appid请求的token 
+<p>access_token  根据appid请求的token
 needTotal     是否需要总页数
 rows          每页行数
 page          所选页数
