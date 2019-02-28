@@ -19,7 +19,7 @@ DM Hub系统内置了一些事件类型，可以通过访问 **设置 > 客户�
 |event  |事件类型ID|  String| 事件类型ID，最长32个英文字符。可在 设置>客户事件页面查看|
 |targetId |行为所关联的目标id|  String| 比如如果事件为关注公众号，targetId为公众号在DM Hub系统中的id。最长255个字符。|
 |targetName|  行为所关联的目标名称  |String|  比如如果事件为关注公众号，targetName为公众号的名字。最长255个字符。|
-|date|  行为所发生的时间| String| 格式为:“2017-06-07T12:20:20Z”|
+|date|  行为所发生的时间| String| 格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 |source|  来源| String| 预先设定的来源，比如订单是从淘宝来的，则来源可以设置为淘宝。|
 |contentName| 来源内容| String| 来源内容|
 |score  |客户活跃度| Integer|  发送该事件会给客户增加多少活跃度。|
@@ -27,7 +27,7 @@ DM Hub系统内置了一些事件类型，可以通过访问 **设置 > 客户�
 |campaign|  营销活动code| String| DM Hub创建的营销活动代码|
 |campaignName|  营销活动名称| String| DM Hub创建的营销活动的名称|
 |summary| 摘要| String| 1024个字节或汉字|
-|lastUpdated| 事件记录进入在DM Hub系统的时间| String| 只读字段|
+|lastUpdated| 事件记录进入在DM Hub系统的时间| String| 只读字段，格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 
 除了系统内置事件，您还可以添加自定义事件。要添加自定义事件，请在客户设置页面点击 新建自定义事件 按钮：
 
@@ -42,14 +42,14 @@ DM Hub系统内置了一些事件类型，可以通过访问 **设置 > 客户�
 |id |客户事件ID|  Long  |只读字段|
 |customerId |客户id|  Long| 发生行为的客户。|
 |event  |事件类型ID|  String| 事件类型ID，最长32个英文字符。可在 设置>客户事件页面查看|
-|date|  行为所发生的时间| String| 格式为:“2017-06-07T12:20:20Z”|
+|date|  行为所发生的时间| String| 格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 |source|  来源| String| 预先设定的来源，比如订单是从淘宝来的，则来源可以设置为淘宝。|
 |contentName| 来源内容| String| 来源内容|
 |score  |客户活跃度| Integer|  发送该事件会给客户增加多少活跃度。|
 |tag| 事件发生后为客户添加的内容标签|  String| 多个标签可以用逗号隔开。最长255个字符。|
 |campaign|  营销活动code| String| DM Hub创建的营销活动代码|
 |campaignName|  营销活动名称| String| DM Hub创建的营销活动的名称|
-|lastUpdated| 事件记录进入在DM Hub系统的时间| String| 只读字段|
+|lastUpdated| 事件记录进入在DM Hub系统的时间| String| 只读字段，格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 
 除了预置属性，自定义事件还能添加最多16个自定义属性(10个字符型, 3个数量型，3个金额型)。要添加自定义属性，请在自定义事件对话框内点击 添加自定义属性 按钮。
 

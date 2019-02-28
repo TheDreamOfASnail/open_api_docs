@@ -382,10 +382,10 @@ https://api.convertlab.com/v1/customers?access_token={access_token}&stage={stage
 |email	|否	|用客户的邮箱查询|
 |gender|	否|	用客户的性别查询, 1代表男性，2代表女性，0代表未知|
 |idList|	否	|支持以逗号分开的客户id列表，如idList=1,2,3,4|
-|dateCreatedFrom	|否|	客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件,备注：北京时间需要减8后传入|
-|dateCreatedTo|	否	|客户创建的结束时间|
-|lastUpdatedFrom	|否|	客户更新的起始时间(包含)|
-|lastUpdatedTo	|否	|客户更新的结束时间|
+|dateCreatedFrom	|否|	客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间,备注：北京时间需要减8后传入|
+|dateCreatedTo|	否	|客户创建的结束时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
+|lastUpdatedFrom	|否|	客户更新的起始时间(包含)，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
+|lastUpdatedTo	|否	|客户更新的结束时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
 |select|	否	|返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段|
 |rows	|否	|每页的记录数，默认每页返回20行|
 |page|	否	|返回第几页，默认返回第1页|
@@ -440,10 +440,10 @@ https://api.convertlab.com/v1/customers/count?access_token={access_token}&stage=
 |mobile|	否|	用客户的手机查询|
 |gender	|否	|用客户的性别查询, 1代表男性，2代表女性，0代表未知|
 |idList	|否|	支持以逗号分开的客户id列表，如idList=1,2,3,4|
-|dateCreatedFrom|	否	|客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC事件|
-|dateCreatedTo|	否	|客户创建的结束时间|
-|lastUpdatedFrom	|否	|客户更新的其实时间(包含)|
-|lastUpdateTo|	否	|客户更新的结束时间|
+|dateCreatedFrom|	否	|客户创建的起始时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
+|dateCreatedTo|	否	|客户创建的结束时间，格式为:“2017-06-01T12:12:12Z” 为UTC时间|
+|lastUpdatedFrom	|否	|客户更新的其实时间(包含)，格式为:“2017-06-01T12:12:12Z” 为UTC时间|
+|lastUpdateTo|	否	|客户更新的结束时间，格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 |select|	否	|返回的字段，多个字段用逗号隔开。默认返回所有字段，可以用select指定要返回的字段|
 
 **返回结果**
@@ -584,11 +584,11 @@ GET
 |-----|----|----|
 |items            |array  |数据块标签|
 |customerId	      |       ||
-|firstOrderDate   |		  ||
+|firstOrderDate   |		  |格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 |id               |number |这条记录的ID |
-|lastOrderDate    |	      ||
+|lastOrderDate    |	      |格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 |lastOrderDays    |       ||
-|lastUpdated      |		  ||
+|lastUpdated      |		  |格式为:“2017-06-01T12:12:12Z” 为UTC时间|
 |latest30daysScore|	      ||
 |orderAMT         |		  ||
 |orderAMTA	      |       ||

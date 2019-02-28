@@ -146,7 +146,7 @@ POST请求示例：
 **返回结果说明**
 
 - id为客户在群组中的id
-- dateCreated 为客户加入群组中的时间
+- dateCreated 为客户加入群组中的时间, 格式为:“2017-06-01T12:12:12Z” 为UTC时间
 
 ## 将一个客户从某个群组中删除的API
 
@@ -296,8 +296,8 @@ https://api.convertlab.com/v1/listservice/members?access_token={access_token}&li
 | ------------ | ------- |-------------- |
 |access_token|	是|	访问API的令牌|
 |listId|	是	|要查询的群组|
-|joinListDateSince|	否|	加入群组的最早时间|
-|joinListDateTo|	否|	加入群组的最晚时间|
+|joinListDateSince|	否|	加入群组的最早时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
+|joinListDateTo|	否|	加入群组的最晚时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
 |rows|	否|	每页的记录数|
 |page|	否|	起始页数，以1开始|
 |sidx|	否|	排序的字段，默认按id排序|
@@ -361,5 +361,5 @@ https://api.convertlab.com/v1/listservice/memberCount?access_token={access_token
 | ------------ | ------- |-------------- |
 |access_token|	是	|访问API的令牌|
 |listId|	是|	要查询的群组|
-|joinListDateSince|	否	|加入群组的最早时间|
-|joinListDateTo|	否|	加入群组的最晚时间|
+|joinListDateSince|	否	|加入群组的最早时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
+|joinListDateTo|	否|	加入群组的最晚时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|

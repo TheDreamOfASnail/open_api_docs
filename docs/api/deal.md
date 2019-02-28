@@ -124,7 +124,7 @@ POST请求示例：
 |paymentTerm	|否|	支付方式|
 |paymentNo|	否|	支付号|
 |type|	否	|订单类型|
-|dateOrder	|是	|订单时间|
+|dateOrder	|是	|订单时间，时间格式为 “2016-11-11T11:11:11” 为UTC时间|
 |store	|否	|店铺名称|
 |salesChannel|	否|	渠道|
 |shippingMethod|	否	|运送方式|
@@ -449,11 +449,11 @@ POST请求示例：
 {
 "refundLines": [
     {
-      "lineId": "149766666"  
+      "lineId": "149766666"
     }
   ],
   "refundTotal": 69.0,   // 退款金额
-  "orderNo": "11122233344455",		
+  "orderNo": "11122233344455",
   "customerId": 8888
 
 }
@@ -584,7 +584,7 @@ https://api.convertlab.com/v1/dealService/getDealByOrderNo?access_token={access_
 		"lDate1": null,
 		"lAttr2": null,
 		"lAttr1": null
-	}, 
+	},
 	{
 		"couponCode": null,
 		"priceSubPaid": null,
