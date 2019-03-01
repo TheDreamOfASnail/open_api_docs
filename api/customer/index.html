@@ -622,6 +622,31 @@ POST数据示例:
 </code></pre>
 
 <p><strong>注意事项:</strong> 使用微信openid或unionid作为客户身份之前，请将微信公众号绑定到DM Hub系统，并将微信粉丝导入到DM Hub系统。</p>
+<p><strong>缺少customer数据-返回结果</strong></p>
+<pre><code>status: 400
+&quot;No customer field found&quot;
+</code></pre>
+
+<p><strong>缺少customerIdentities数据-返回结果</strong></p>
+<pre><code>status: 400
+&quot;No customerIdentities field found&quot;
+</code></pre>
+
+<p><strong>customerIdentities非list类型-返回结果</strong></p>
+<pre><code>status: 400
+&quot;customerIdentities must be an array of values in customerIdentity&quot;
+</code></pre>
+
+<p><strong>字段验证错误-返回结果</strong></p>
+<pre><code>status: 200
+{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;C0002&quot;,
+        &quot;message&quot;: &quot;{\&quot;field\&quot;:\&quot;birthday\&quot;,\&quot;message\&quot;:\&quot;testet parse error\&quot;}&quot;
+    }
+}
+</code></pre>
+
 <h3 id="api_1">普通创建客户API</h3>
 <p>普通创建客户API会根据请求体中的手机号码和邮件地址去查找现有客户，如果能查找到客户，就会更新现有客户，否则则创建一下新客户。</p>
 <p><strong>调用请求</strong></p>
@@ -636,10 +661,11 @@ POST数据示例:
     &quot;createMethod&quot;: &quot;ImportFromExternalSystem&quot;
 }
 参数说明
-
 {access_token} 的值为调用API的令牌，请参见 获取access_token
-返回结果
 
+返回结果
+新客户 status:201
+已有客户 status:200
 {
   &quot;id&quot;: 7,
   &quot;displayName&quot;: &quot;小D&quot;,
@@ -684,6 +710,27 @@ POST数据示例:
   &quot;attr&quot;: {
     &quot;attr1&quot;: null
   }
+}
+</code></pre>
+
+<p><strong>请求对象为空-返回结果</strong></p>
+<pre><code>status: 400
+&quot;Request data need at least one field&quot;
+</code></pre>
+
+<p><strong>字段验证错误-返回结果</strong></p>
+<pre><code>status: 200
+{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400001&quot;,
+        &quot;message&quot;: &quot;field validation exception&quot;,
+        &quot;fieldErrors&quot;: [
+            {
+                &quot;fieldName&quot;: &quot;birthday&quot;,
+                &quot;message&quot;: &quot;testet parse error&quot;
+            }
+        ]
+    }
 }
 </code></pre>
 
@@ -1115,6 +1162,22 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 <li>customerId 客户的id</li>
 <li>identityName客户身份名称</li>
 </ul>
+<p><strong>customerIds非数值类型-返回结果</strong></p>
+<pre><code>status: 200 OK
+{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;400001&quot;,
+        &quot;message&quot;: &quot;customer id should be a number&quot;,
+        &quot;fieldErrors&quot;: [
+            {
+                &quot;fieldName&quot;: &quot;customerIds&quot;,
+                &quot;message&quot;: &quot;customer id should be a number&quot;
+            }
+        ]
+    }
+}
+</code></pre>
+
 <h2 id="_4">查询客户的统计信息</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>GET
