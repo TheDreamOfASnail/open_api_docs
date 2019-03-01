@@ -187,6 +187,34 @@ POST数据示例:
 
 **注意事项:** 使用微信openid或unionid作为客户身份之前，请将微信公众号绑定到DM Hub系统，并将微信粉丝导入到DM Hub系统。
 
+**缺少customer数据-返回结果**
+```
+status: 400
+"No customer field found"
+```
+
+**缺少customerIdentities数据-返回结果**
+```
+status: 400
+"No customerIdentities field found"
+```
+
+**customerIdentities非list类型-返回结果**
+```
+status: 400
+"customerIdentities must be an array of values in customerIdentity"
+```
+
+**字段验证错误-返回结果**
+```
+status: 200
+{
+    "error": {
+        "code": "C0002",
+        "message": "{\"field\":\"birthday\",\"message\":\"testet parse error\"}"
+    }
+}
+```
 ### 普通创建客户API
 
 普通创建客户API会根据请求体中的手机号码和邮件地址去查找现有客户，如果能查找到客户，就会更新现有客户，否则则创建一下新客户。
@@ -204,10 +232,11 @@ POST数据示例:
     "createMethod": "ImportFromExternalSystem"
 }
 参数说明
-
 {access_token} 的值为调用API的令牌，请参见 获取access_token
-返回结果
 
+返回结果
+新客户 status:201
+已有客户 status:200
 {
   "id": 7,
   "displayName": "小D",
@@ -255,6 +284,28 @@ POST数据示例:
 }
 ```
 
+**请求对象为空-返回结果**
+```
+status: 400
+"Request data need at least one field"
+```
+
+**字段验证错误-返回结果**
+```
+status: 200
+{
+    "error": {
+        "code": "400001",
+        "message": "field validation exception",
+        "fieldErrors": [
+            {
+                "fieldName": "birthday",
+                "message": "testet parse error"
+            }
+        ]
+    }
+}
+```
 ## 更新客户的API
 
 调用该API可以对DM Hub系统中的客户进行修改。 需要注意的一点是，对于mobileVerified为true的手机号，在手机号码不变的情况下，无法将mobileVerified字段改为false。对于emailVerified为true的电子邮箱，在邮箱地址不变的情况下，无法将emailVerified字段改为false。
@@ -530,6 +581,23 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&cus
 - identityValue 客户的在你系统中的id
 - customerId 客户的id
 - identityName客户身份名称
+
+**customerIds非数值类型-返回结果**
+```
+status: 200 OK
+{
+    "error": {
+        "code": "400001",
+        "message": "customer id should be a number",
+        "fieldErrors": [
+            {
+                "fieldName": "customerIds",
+                "message": "customer id should be a number"
+            }
+        ]
+    }
+}
+```
 
 ## 查询客户的统计信息
 
