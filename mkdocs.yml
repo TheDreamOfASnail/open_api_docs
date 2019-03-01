@@ -28,6 +28,7 @@ pages:
   - '客户标签': 'api/tag.md'
   - '客户群组': 'api/list.md'
   - '客户交易': 'api/deal.md'
+  - '媒体数据': 'api/third_party_data.md'
 - '前端埋点':
 #  - '设置埋点': 'track/index.md'
 #  - '客户自定义事件': 'track/customerevent.md'
