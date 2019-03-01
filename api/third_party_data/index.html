@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="canonical" href="http://api-docs.convertlab.com/"> 
-    <link rel="shortcut icon" href="./img/favicon.ico">
-    <title>创建集成应用 - Convertlab 文档中心</title>
-    <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-    <link href="./css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/highlight.css">
-    <link href="./test/css/print.css" rel="stylesheet">
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/third_party_data/"> 
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>媒体数据 - Convertlab 文档中心</title>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../test/css/print.css" rel="stylesheet">
 
     
 </head>
-<body class="homepage" >
+<body>
     <div class="navbar navbar-default" role="navigation">
     <div class="container">
 
@@ -44,25 +44,25 @@
                 
                   <li class="pull-left active">
                     
-                    <a href=".">OpenAPI V1</a>
+                    <a href="../..">OpenAPI V1</a>
                     
                   </li>
                 
                   <li class="pull-left">
                     
-                    <a href="track/site_collection_guide/">前端埋点</a>
+                    <a href="../../track/site_collection_guide/">前端埋点</a>
                     
                   </li>
                 
                   <li class="pull-left">
                     
-                    <a href="webhook/webhook/">Webhook</a>
+                    <a href="../../webhook/webhook/">Webhook</a>
                     
                   </li>
                 
                   <li class="pull-left">
                     
-                    <a href="member/">会员</a>
+                    <a href="../../member/">会员</a>
                     
                   </li>
                 
@@ -80,7 +80,7 @@
        <!--   <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
     <li><a href="">文档</a></li>
-    <li>创建集成应用</li>
+    <li>媒体数据</li>
   </ol>
 
   
@@ -97,61 +97,64 @@
         
           
 
+              <li class="">
+                <a class="itm-l1" href="../..">创建集成应用</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../accesstoken/">获取ACCESS_TOKEN</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customer/">客户信息</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../customerevent/">客户事件</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../tag/">客户标签</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../list/">客户群组</a>
+                
+              </li>
+
+          
+
+              <li class="">
+                <a class="itm-l1" href="../deal/">客户交易</a>
+                
+              </li>
+
+          
+
               <li class="active">
-                <a class="itm-l1" href=".">创建集成应用</a>
+                <a class="itm-l1" href="./">媒体数据</a>
                 
                   <ul class="nav">
                   
+                    <li class="active "><a href="#_1">导入媒体数据</a></li>
+                    
+                  
                   </ul>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/accesstoken/">获取ACCESS_TOKEN</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/customer/">客户信息</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/customerevent/">客户事件</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/tag/">客户标签</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/list/">客户群组</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/deal/">客户交易</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="api/third_party_data/">媒体数据</a>
                 
               </li>
 
@@ -180,16 +183,91 @@
         <div class="col-md-9 content-body" role="main">
              
 
-<h1>创建集成应用</h1>
+<h1>媒体数据</h1>
 
-<p><strong>注意:</strong> DM Hub数据接口遵循OAuth 2.0协议，调用所有功能API之前都需要先获取access_token。access_token是调用DM Hub 数据接口的凭证，开发者需要妥善保管。access_token的有效期目前是2小时，需定时刷新。</p>
-<p>获取access_token之前需要先在DM Hub设置&gt;开发与集成, 中创建一个应用（以集成演示为例）</p>
-<p><img src="../resources/create4.png" width="400"/></p>
-<p>应用创建好后，勾选允许应用所访问接口的权限，点击更新按钮。</p>
-<p>每个新创建的应用都会有appid和secret两个数据，这两个数据相当于系统的用户名和密码，开发人员需要妥善保存。</p>
-<p>集成系统可以使用appid和secret来调用/oauth/accesstoken接口来获取access_token。</p>
-<p><strong>注意：</strong>DM Hub的所有接口都必须是用https协议。</p>
-            <div class="ds-thread" data-thread-key="创建集成应用" data-title="创建集成应用" data-url=""></div>
+<h2 id="_1">导入媒体数据</h2>
+<p>将已经存在oss上的文件进行导入</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: POST
+https://api.convertlab.com/v1/third_party_data/importData?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;fileList&quot;: [{
+    file: &quot;$file&quot;,
+    eventType: &quot;$eventType&quot;
+  }]
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fileList</td>
+<td>是</td>
+<td>要导入的文件列表</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>字符串(String)</td>
+<td>文件在oss上的路径，例如： oss://cl-data/test1</td>
+</tr>
+<tr>
+<td>eventType</td>
+<td>字符串(String)</td>
+<td>事件类型，可以为："event.mediaView"（曝光事件）或者 "event.mediaClick"（点击事件）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回说明</strong></p>
+<pre><code>{
+   &quot;error&quot;: { 
+        code： ''，
+        message: 'xxx',
+   },
+  &quot;taskList&quot;: [$taskid]
+}
+</code></pre>
+
+<p><strong>返回字段说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td>导入任务未创建成功</td>
+</tr>
+<tr>
+<td>taskList</td>
+<td>导入任务id列表</td>
+</tr>
+</tbody>
+</table>
+            <div class="ds-thread" data-thread-key="媒体数据" data-title="媒体数据" data-url=""></div>
         </div>
         
     </div>
