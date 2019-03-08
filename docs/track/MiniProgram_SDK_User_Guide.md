@@ -57,7 +57,7 @@ module.exports = conf;
 - `domain`: 数据接收地址域名， 默认为cbe.convertlab.com 
 	  注意: 请在微信开发设置，服务器域名的 request 合法域名内，把这个地址加上. 详情参考https://developers.weixin.qq.com/miniprogram/dev/api/api-network.html
 - `maxStringLength`: 字符串最大长度，防止属性中误传了特别长的字符串，导致请求失败等异常。
-- `autoTrack`: 是否自动记录open_page事件， 注意：只能记录页面的路径，如果要显示页面的标题，请主动调用track方法
+- `autoTrack`: 是否自动记录mini_program_open事件， 注意：只能记录页面的路径，如果要显示页面的标题，请主动调用track方法
 
 ## 标识用户
 在没有identityValue之前，事件将一直是匿名的。
