@@ -193,8 +193,7 @@ POST请求示例：
   "customerId": 12345,
   "tags": [
     {
-    "name":"土豪",
-    "dimension":"精英"
+        "name":"土豪"
      }
    ]
 }
@@ -210,8 +209,7 @@ POST请求示例：
 **返回结果**
 ```
 [
-   "name":"土豪",
-   "dimension":"精英"
+   "name":"土豪"
 ]
 ```
 ## 将标签从客户删除的API
