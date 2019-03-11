@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="http://api-docs.convertlab.com/track/MiniProgram_SDK_User_Guide/">
+        <link rel="canonical" href="http://api-docs.convertlab.com/webhook/webhook_payload/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>通过微信小程序 SDK 进行数据采集 - Convertlab 文档中心</title>
+        <title>Webhook payload - Convertlab 文档中心</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -84,24 +84,24 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">前端埋点 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../site_collection_guide/">通过网站埋点进行数据采集</a>
+    <a href="../../track/site_collection_guide/">通过网站埋点进行数据采集</a>
 </li>
                                     
 <li >
-    <a href="../dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
+    <a href="../../track/dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
 </li>
                                     
 <li >
-    <a href="../dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
+    <a href="../../track/dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
 </li>
                                     
-<li class="active">
-    <a href="./">通过微信小程序 SDK 进行数据采集</a>
+<li >
+    <a href="../../track/MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
 </li>
                                 </ul>
                             </li>
@@ -110,7 +110,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../webhook/webhook/">Webhook 使用说明</a>
+    <a href="../webhook/">Webhook 使用说明</a>
 </li>
                                 </ul>
                             </li>
@@ -131,18 +131,8 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../dmhubsdk_android_guide/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../../webhook/webhook/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                             <li>
-                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/track/MiniProgram_SDK_User_Guide.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/webhook/webhook_payload.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -152,71 +142,39 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#sdk">下载 sdk</a></li>
-        <li class="main "><a href="#confjs">conf.js 参数配置</a></li>
-        <li class="main "><a href="#_1">标识用户</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="sdk">下载 sdk</h2>
-<p>从DM Hub的设置中心下载，路径为：设置中心-&gt;微信设置-&gt;小程序设置</p>
-<p>在 app.js 第一行加上. </p>
-<pre><code>require('./utils/cl_tracker.js');
+<ol>
+<li><code>Webhook</code> 消息目前只支持 <code>JSON</code> 格式。</li>
+<li><code>JSON</code> 消息支持变量，例如，变量 var 在消息中表示为 <code>"${var}"</code>；</li>
+<li>目前 <code>JSON</code> 变量包含<code>内置变量</code>和<code>客户属性变量</code>，<code>客户属性变量</code>需要添加 <code>customer</code> 前缀。以下<code>内置变量</code>，不需要任何前缀： <code>"flowId"</code>（自动流程 ID）, <code>"flowStep"</code>（自动流程步骤）, <code>"customerId"</code>（客户 ID）。</li>
+<li><code>客户属性变量</code>，例如客户名称（<code>customer.name</code>），客户邮箱（<code>customer.email</code>），客户电话（<code>customer.mobile</code>） 等；也支持<code>客户自定义属性</code>（ID以 attr 开头） 更多客户属性，请到 "设置中心" -&gt; "客户属性" 查看。</li>
+<li>没有定义的客户属性或者客户的属性值为空，消息体内的内容也为空。</li>
+<li>以下是一个实际的 <code>Webhook</code> 消息的例子 - </li>
+</ol>
+<pre><code>{
+  &quot;customerId&quot;: &quot;${customerId}&quot;,
+  &quot;flowId&quot;: &quot;${flowId}&quot;,
+  &quot;flowStep&quot;: &quot;${flowStep}&quot;,
+  &quot;email&quot; : &quot;${customer.email}&quot;,
+  &quot;mobile&quot;: &quot;${customer.mobile}&quot;,
+  &quot;customerAdditionInfo&quot;: &quot;${customer.attr1}&quot;,
+  &quot;webhookSource&quot;: &quot;convertlab&quot;
+}
 </code></pre>
 
-<p>现在在其他 Page 里就可以通过 getApp 来使用Convertlab的追踪了</p>
-<p>埋点使用详情请参考 http://help.convertlab.com/hc/kb/article/159033/</p>
-<p><strong>注意：小程序只能使用javascript来提交事件</strong></p>
-<p>当拿到对应身份时,设置对应的身份类型(type)和value,  例如：</p>
-<pre><code>var app = getApp();
-
-app.cl_tracker.push({ 
- identityType: 'wechat', //如果identityValue使用unionid,identityType请设置为&quot;wechat-unionid&quot;
- identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id或unionid
- });
-</code></pre>
-
-<p>如果有多个身份: (最多支持3个身份)</p>
-<pre><code>var app = getApp();
-
-app.cl_tracker.push({
-    identityType: 'wechat',
-    identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM',   // identityValue 是用户的open_id
-    identityType1: 'face_id_type',
-    identityValue1: 'faceID',
-    identityType2: 'maya_member_type',
-    identityValue2: 'maya_member_ID',
-});
-</code></pre>
-
-<h2 id="confjs">conf.js 参数配置</h2>
-<p>可以在与sdk文件同一级目录下创建一个名为conf.js 的文件来修改默认设置, 例如：</p>
-<pre><code>var conf = {
-  name: 'cl_tracker',
-  tenantId: '',
-  domain: 'cbe.convertlab.com',
-  maxStringLength: 255,
-  autoTrack: false
-};
-
-module.exports = conf;
-</code></pre>
-
-<ul>
-<li><code>name</code>: SDK 使用的一个默认的全局变量,会注册在 App 全局函数内，在 Page 中可以通过 app[name].track 来使用，默认值是 cl_tracker。</li>
-<li><code>tenantId</code>: 您的tenantId hash值</li>
-<li><code>domain</code>: 数据接收地址域名， 默认为cbe.convertlab.com 
-      注意: 请在微信开发设置，服务器域名的 request 合法域名内，把这个地址加上. 详情参考https://developers.weixin.qq.com/miniprogram/dev/api/api-network.html</li>
-<li><code>maxStringLength</code>: 字符串最大长度，防止属性中误传了特别长的字符串，导致请求失败等异常。</li>
-<li><code>autoTrack</code>: 是否自动记录mini_program_open事件， 注意：只能记录页面的路径，如果要显示页面的标题，请主动调用track方法</li>
-</ul>
-<h2 id="_1">标识用户</h2>
-<p>在没有identityValue之前，事件将一直是匿名的。
-当获得用户的openId后，请将它设置在全局参数中</p>
-<pre><code>cl_tracker.push({
-   identityValue:'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'
-});
+<p>如果客户的 id 为 123456， 自动流 id 为 789， 自动流步骤为 5， 客户email 为 customer@company.com， 客户电话号码为空， 客户的 attr1 属性为 "蓝色"，则用户收到的 webhook消息为 -</p>
+<pre><code>{
+  &quot;customerId&quot;: &quot;123456&quot;,
+  &quot;flowId&quot;: &quot;789&quot;,
+  &quot;flowStep&quot;: &quot;3&quot;,
+  &quot;email&quot; : &quot;customer@company.com&quot;,
+  &quot;mobile&quot;: &quot;&quot;,
+  &quot;customerAdditionInfo&quot;: &quot;蓝色&quot;,
+  &quot;webhookSource&quot;: &quot;convertlab&quot;
+}
 </code></pre></div>
         </div>
 

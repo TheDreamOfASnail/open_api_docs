@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="http://api-docs.convertlab.com/BudweiserDocument/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Convertlab 文档中心</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../test/css/print.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Convertlab 文档中心</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenAPI V1 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="..">创建集成应用</a>
+</li>
+                                    
+<li >
+    <a href="../api/accesstoken/">获取ACCESS_TOKEN</a>
+</li>
+                                    
+<li >
+    <a href="../api/customer/">客户信息</a>
+</li>
+                                    
+<li >
+    <a href="../api/customerevent/">客户事件</a>
+</li>
+                                    
+<li >
+    <a href="../api/tag/">客户标签</a>
+</li>
+                                    
+<li >
+    <a href="../api/list/">客户群组</a>
+</li>
+                                    
+<li >
+    <a href="../api/deal/">客户交易</a>
+</li>
+                                    
+<li >
+    <a href="../api/third_party_data/">媒体数据</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">前端埋点 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../track/site_collection_guide/">通过网站埋点进行数据采集</a>
+</li>
+                                    
+<li >
+    <a href="../track/dmhubsdk_ios_guide/">通过 iOS SDK 进行数据采集</a>
+</li>
+                                    
+<li >
+    <a href="../track/dmhubsdk_android_guide/">通过 Android SDK 进行数据采集</a>
+</li>
+                                    
+<li >
+    <a href="../track/MiniProgram_SDK_User_Guide/">通过微信小程序 SDK 进行数据采集</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Webhook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../webhook/webhook/">Webhook 使用说明</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">会员 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../member/">Api接口</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li>
+                                <a href="https://github.com/xsio/open_api_docs/edit/master/docs/BudweiserDocument/index.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#_1">订单接口</a></li>
+            <li><a href="#_2">订单模型</a></li>
+            <li><a href="#_3">商品模型</a></li>
+        <li class="main "><a href="#_4">退换货接口</a></li>
+            <li><a href="#_5">退换货订单模型</a></li>
+            <li><a href="#_6">退货商品模型</a></li>
+            <li><a href="#_7">换货商品模型</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="_1">订单接口</h2>
+<h3 id="_2">订单模型</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tid</td>
+<td>varchar</td>
+<td>订单编号</td>
+</tr>
+<tr>
+<td>orderstatus</td>
+<td>varchar</td>
+<td>交易状态</td>
+</tr>
+<tr>
+<td>total_weight</td>
+<td>varchar</td>
+<td>该笔交易中所有商品的总数量</td>
+</tr>
+<tr>
+<td>receiver_address</td>
+<td>varchar</td>
+<td>收货人详细地址</td>
+</tr>
+<tr>
+<td>trade_memo</td>
+<td>varchar</td>
+<td>交易的备注内容</td>
+</tr>
+<tr>
+<td>created</td>
+<td>datetime</td>
+<td>交易创建时间</td>
+</tr>
+<tr>
+<td>total_goods_fee</td>
+<td>varchar</td>
+<td>商品总额（不包括配送费用</td>
+</tr>
+<tr>
+<td>receiver_city</td>
+<td>varchar</td>
+<td>收货人城市</td>
+</tr>
+<tr>
+<td>pay_time</td>
+<td>datetime</td>
+<td>付款时间</td>
+</tr>
+<tr>
+<td>shipping_fee</td>
+<td>varchar</td>
+<td>交易物流配送费用</td>
+</tr>
+<tr>
+<td>receiver_mobile</td>
+<td>varchar</td>
+<td>收货人电话</td>
+</tr>
+<tr>
+<td>receiver_name</td>
+<td>varchar</td>
+<td>收货人姓名</td>
+</tr>
+<tr>
+<td>seller_uname</td>
+<td>varchar</td>
+<td>卖家账号</td>
+</tr>
+<tr>
+<td>total_trade_fee</td>
+<td>varchar</td>
+<td>交易应付总额（包括商品价格+配送费用）</td>
+</tr>
+<tr>
+<td>receiver_state</td>
+<td>varchar</td>
+<td>收货人省份</td>
+</tr>
+<tr>
+<td>receiver_district</td>
+<td>varchar</td>
+<td>收货人地区</td>
+</tr>
+<tr>
+<td>orders_number</td>
+<td>varchar</td>
+<td>子订单数量</td>
+</tr>
+<tr>
+<td>buy_name</td>
+<td>varchar</td>
+<td>买家会员名</td>
+</tr>
+<tr>
+<td>buyer_account</td>
+<td>varchar</td>
+<td>买家支付账号</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">商品模型</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tid</td>
+<td>varchar</td>
+<td>订单编号</td>
+</tr>
+<tr>
+<td>status</td>
+<td>varchar</td>
+<td>交易状态</td>
+</tr>
+<tr>
+<td>msgid</td>
+<td>varchar</td>
+<td>旺店通数据库的主键id</td>
+</tr>
+<tr>
+<td>oid</td>
+<td>varchar</td>
+<td>子订单编号</td>
+</tr>
+<tr>
+<td>iid</td>
+<td>varchar</td>
+<td>商品id</td>
+</tr>
+<tr>
+<td>title</td>
+<td>varchar</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td>refund_status</td>
+<td>varchar</td>
+<td>退款状态</td>
+</tr>
+<tr>
+<td>sale_price</td>
+<td>varchar</td>
+<td>销售单价</td>
+</tr>
+<tr>
+<td>sku_properties</td>
+<td>varchar</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td>bn</td>
+<td>varchar</td>
+<td>商家编码</td>
+</tr>
+<tr>
+<td>num</td>
+<td>varchar</td>
+<td>货品数量</td>
+</tr>
+<tr>
+<td>price</td>
+<td>varchar</td>
+<td>原价</td>
+</tr>
+<tr>
+<td>sku_id</td>
+<td>varchar</td>
+<td>规格编码</td>
+</tr>
+<tr>
+<td>total_item_fee</td>
+<td>int</td>
+<td>子订单实付金额</td>
+</tr>
+</tbody>
+</table>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式：POST
+http://(生产环境ip)/pushData?customerid=BudweiserTmall
+
+POST请求示例：
+{
+  &quot;from_type&quot;: &quot;淘宝&quot;,
+          &quot;msg_id&quot;: &quot;149245&quot;,
+          &quot;data&quot;: {
+              &quot;total_weight&quot;: &quot;7.0000&quot;,
+              &quot;receiver_address&quot;: &quot;天涯镇三亚天涯海角漫享时光海景客栈&quot;,
+              &quot;trade_memo&quot;: &quot;&quot;,
+              &quot;created&quot;: &quot;2017-04-21 13:52:40&quot;,
+              &quot;tid&quot;: &quot;AT201704210011&quot;,
+              &quot;status&quot;: &quot;TRADE_FINISHED&quot;,
+              &quot;total_goods_fee&quot;: &quot;18.0000&quot;,
+              &quot;receiver_city&quot;: &quot;460200&quot;,
+              &quot;pay_time&quot;: &quot;2017-04-21 13:52:40&quot;,
+              &quot;shipping_fee&quot;: &quot;0.0000&quot;,
+              &quot;receiver_mobile&quot;: &quot;15001253861&quot;,
+              &quot;receiver_name&quot;: &quot;大海&quot;,
+              &quot;seller_uname&quot;: &quot;绿岛&quot;,
+              &quot;total_trade_fee&quot;: 18,
+              &quot;receiver_state&quot;: &quot;460000&quot;,
+              &quot;receiver_district&quot;: &quot;海南省 三亚市&quot;,
+            &quot;orders_number&quot;:&quot;2&quot;,
+              &quot;payment_lists&quot;: {
+                  &quot;buy_name&quot;: &quot;巴黎新疆安康&quot;,
+                  &quot;buyer_account&quot;: &quot;&quot;
+              },
+              &quot;orders&quot;: {
+                  &quot;iid&quot;: &quot;5&quot;,
+                  &quot;title&quot;: &quot;&quot;,
+                  &quot;oid&quot;: &quot;AD201704210025&quot;,
+                  &quot;refund_status&quot;: &quot;0&quot;,
+                  &quot;orders_items&quot;: {
+                      &quot;sale_price&quot;: 0,
+                      &quot;sku_properties&quot;: &quot;&quot;,
+                      &quot;bn&quot;: &quot;1HSD211-1-A1&quot;,
+                      &quot;num&quot;: &quot;1.0000&quot;,
+                      &quot;price&quot;: &quot;18.0000&quot;,
+                      &quot;sku_id&quot;: &quot;sdfffds&quot;,
+                      &quot;total_item_fee&quot;: 0
+                  }
+              }
+          }
+}
+</code></pre>
+
+<p><strong>参数说明</strong>
+customerid为推送数据的客户,只接受customerid为 BudweiserTmall
+- 请求体内字段的意义请参考属性模型</p>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+    &quot;flag&quot;: &quot;success&quot;, //成功 success,失败 error
+    &quot;code&quot;: &quot;0&quot;,   //success :0 ,error :1
+    &quot;message&quot;: &quot;&quot; // 程序处理信息
+}
+</code></pre>
+
+<h2 id="_4">退换货接口</h2>
+<h3 id="_5">退换货订单模型</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refund_id</td>
+<td>int</td>
+<td>退换单主键</td>
+</tr>
+<tr>
+<td>refund_no</td>
+<td>varchar</td>
+<td>erp退换单号</td>
+</tr>
+<tr>
+<td>platform_id</td>
+<td>int</td>
+<td>平台类型（此处返回的是id）</td>
+</tr>
+<tr>
+<td>src_no</td>
+<td>varchar</td>
+<td>平台退款单号</td>
+</tr>
+<tr>
+<td>type</td>
+<td>int</td>
+<td>1.退款(未发货，退款申请) 2.退货 3.换货 4.退款不退货 5.订单补款</td>
+</tr>
+<tr>
+<td>process_statusYes</td>
+<td>int</td>
+<td>处理状态</td>
+</tr>
+<tr>
+<td>status</td>
+<td>int</td>
+<td>平台状态</td>
+</tr>
+<tr>
+<td>guarantee_mode</td>
+<td>int</td>
+<td>担保方式：1.担保交易 2.非担保交易 3.非担保在线交易（ecshop）</td>
+</tr>
+<tr>
+<td>cs_status</td>
+<td>int</td>
+<td>1.需要客服介入 2.客服已经介入 3.客服初审完成 4.客服主管复审失败5.客服处理完成</td>
+</tr>
+<tr>
+<td>shop_no</td>
+<td>varchar</td>
+<td>店铺编号</td>
+</tr>
+<tr>
+<td>swap_trade_id</td>
+<td>decimal(19,4)</td>
+<td>换货订单id</td>
+</tr>
+<tr>
+<td>pay_account</td>
+<td>varchar</td>
+<td>买家支付帐号</td>
+</tr>
+<tr>
+<td>pay_no</td>
+<td>varchar</td>
+<td>支付订单号</td>
+</tr>
+<tr>
+<td>goods_amount</td>
+<td>decimal(19,4)</td>
+<td>货品金额</td>
+</tr>
+<tr>
+<td>refund_amount</td>
+<td>decimal(19,4)</td>
+<td>买家申请退款金额</td>
+</tr>
+<tr>
+<td>guarante_refund_amount</td>
+<td>decimal(19,4)</td>
+<td>平台退款金额</td>
+</tr>
+<tr>
+<td>actual_refund_amount</td>
+<td>decimal(19,4)</td>
+<td>实际退款/收款金额</td>
+</tr>
+<tr>
+<td>post_amount</td>
+<td>decimal(19,4)</td>
+<td>邮费金额</td>
+</tr>
+<tr>
+<td>other_amount</td>
+<td>decimal(19,4)</td>
+<td>其它金额</td>
+</tr>
+<tr>
+<td>paid</td>
+<td>decimal(19,4)</td>
+<td>已退款/已收款</td>
+</tr>
+<tr>
+<td>tid</td>
+<td>varchar</td>
+<td>订单的原始单号</td>
+</tr>
+<tr>
+<td>sales_trade_id</td>
+<td>int</td>
+<td>系统订单ID</td>
+</tr>
+<tr>
+<td>sales_tid</td>
+<td>varchar</td>
+<td>系统订单号</td>
+</tr>
+<tr>
+<td>buyer_nick</td>
+<td>varchar</td>
+<td>昵称</td>
+</tr>
+<tr>
+<td>receiver_name</td>
+<td>varchar</td>
+<td>退款订单中收件人姓名</td>
+</tr>
+<tr>
+<td>receiver_address</td>
+<td>varchar</td>
+<td>退款订单中收件人地址</td>
+</tr>
+<tr>
+<td>receiver_telno</td>
+<td>varchar</td>
+<td>退款订单中收件人电话</td>
+</tr>
+<tr>
+<td>return_name</td>
+<td>varchar</td>
+<td>退货人姓名</td>
+</tr>
+<tr>
+<td>return_mobile</td>
+<td>varchar</td>
+<td>退货人手机号</td>
+</tr>
+<tr>
+<td>return_telno</td>
+<td>varchar</td>
+<td>退货人电话</td>
+</tr>
+<tr>
+<td>return_address</td>
+<td>varchar</td>
+<td>退回仓库地址</td>
+</tr>
+<tr>
+<td>swap_receiver</td>
+<td>varchar</td>
+<td>换货收件人姓名</td>
+</tr>
+<tr>
+<td>swap_mobile</td>
+<td>varchar</td>
+<td>换收发件人姓名手机</td>
+</tr>
+<tr>
+<td>swap_telno</td>
+<td>varchar</td>
+<td>换货收件人姓名电话</td>
+</tr>
+<tr>
+<td>swap_province</td>
+<td>varchar</td>
+<td>换货收件人省份</td>
+</tr>
+<tr>
+<td>swap_city</td>
+<td>varchar</td>
+<td>换货收件人城市</td>
+</tr>
+<tr>
+<td>swap_district</td>
+<td>varchar</td>
+<td>换货收件人区县</td>
+</tr>
+<tr>
+<td>swap_area</td>
+<td>varchar</td>
+<td>换货收件人省市区</td>
+</tr>
+<tr>
+<td>swap_warehouse_no</td>
+<td>varchar</td>
+<td>换出货品出库仓库编号</td>
+</tr>
+<tr>
+<td>swap_address</td>
+<td>varchar</td>
+<td>换货收件人姓名地址</td>
+</tr>
+<tr>
+<td>warehouse_no</td>
+<td>varchar</td>
+<td>期望退回的仓库编号</td>
+</tr>
+<tr>
+<td>refund_time</td>
+<td>date</td>
+<td>退款创建时间</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>varchar</td>
+<td>退款说明</td>
+</tr>
+<tr>
+<td>modified</td>
+<td>date</td>
+<td>最后修改时间</td>
+</tr>
+<tr>
+<td>return_logistics_name</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>return_logistics_no</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>direct_refund_amount</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>shop_name</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>customer_no</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>customer_name</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>swap_zip</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>swap_logistics_no</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>swap_logistics_typeswap_logistics_name</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>creator_name</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>exchange_amount</td>
+<td>decimal(19,4)</td>
+<td></td>
+</tr>
+<tr>
+<td>created</td>
+<td>date</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">退货商品模型</h3>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order_id</td>
+<td>int</td>
+<td>erp子订单主键</td>
+</tr>
+<tr>
+<td>refund_id</td>
+<td>int</td>
+<td>退换单主键</td>
+</tr>
+<tr>
+<td>oid</td>
+<td>int</td>
+<td>原始子订单id</td>
+</tr>
+<tr>
+<td>tid</td>
+<td>varchar</td>
+<td>订单子订单的原始单号</td>
+</tr>
+<tr>
+<td>process_status</td>
+<td>int</td>
+<td>处理状态</td>
+</tr>
+<tr>
+<td>sales_tid</td>
+<td>varchar</td>
+<td>销售订单编号</td>
+</tr>
+<tr>
+<td>order_num</td>
+<td>decimal(19,4)</td>
+<td>实际数量</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal(19,4)</td>
+<td>价格</td>
+</tr>
+<tr>
+<td>original_price</td>
+<td>decimal(19,4)</td>
+<td>原价</td>
+</tr>
+<tr>
+<td>discount</td>
+<td>decimal(19,4)</td>
+<td>优惠</td>
+</tr>
+<tr>
+<td>paid</td>
+<td>decimal(19,4)</td>
+<td>已付金额</td>
+</tr>
+<tr>
+<td>refund_num</td>
+<td>decimal(19,4)</td>
+<td>退款数量</td>
+</tr>
+<tr>
+<td>total_amount</td>
+<td>decimal(19,4)</td>
+<td>退款总金额</td>
+</tr>
+<tr>
+<td>spec_id</td>
+<td>int</td>
+<td>erp商品主键</td>
+</tr>
+<tr>
+<td>spec_no</td>
+<td>varchar</td>
+<td>商家编码</td>
+</tr>
+<tr>
+<td>goods_name</td>
+<td>varchar</td>
+<td>货品名称</td>
+</tr>
+<tr>
+<td>spec_name</td>
+<td>varchar</td>
+<td>规格名称</td>
+</tr>
+<tr>
+<td>suite_no</td>
+<td>varchar</td>
+<td>组合装编号</td>
+</tr>
+<tr>
+<td>suite_name</td>
+<td>varchar</td>
+<td>组合装名称</td>
+</tr>
+<tr>
+<td>suite_num</td>
+<td>decimal(19,4)</td>
+<td>组合装数量</td>
+</tr>
+<tr>
+<td>stockin_num</td>
+<td>decimal(19,4)</td>
+<td>退货入库数量</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>varchar</td>
+<td>退款说明</td>
+</tr>
+<tr>
+<td>market_price</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>spec_code</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>goods_no</td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_price</td>
+<td>decimal(19,4)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">换货商品模型</h3>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rec_id</td>
+<td>int</td>
+<td>主键id</td>
+</tr>
+<tr>
+<td>refund_id</td>
+<td>int</td>
+<td>退换单主键id</td>
+</tr>
+<tr>
+<td>target_type</td>
+<td>int</td>
+<td>商品类型 1.表示单品 2.表示组合装</td>
+</tr>
+<tr>
+<td>target_id</td>
+<td>varchar</td>
+<td>商品id</td>
+</tr>
+<tr>
+<td>goods_name</td>
+<td>varchar</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td>spec_name</td>
+<td>varchar</td>
+<td>规格名称</td>
+</tr>
+<tr>
+<td>merchant_no</td>
+<td>varchar</td>
+<td>商家编码</td>
+</tr>
+<tr>
+<td>retail_price</td>
+<td>decimal(19,4)</td>
+<td>零售价</td>
+</tr>
+<tr>
+<td>num</td>
+<td>decimal(19,4)</td>
+<td>数量</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>varchar</td>
+<td>备注</td>
+</tr>
+</tbody>
+</table>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式：POST
+http://(生产环境ip)/pushReturngoods?app_key=24647807
+
+POST请求示例：
+{
+&quot;data&quot;: {
+        &quot;refunds&quot;: [
+            {
+                &quot;shop_no&quot;: &quot;api_test&quot;,
+                &quot;warehouse_no&quot;: &quot;0&quot;,
+                &quot;exchange_amount&quot;: &quot;0.0000&quot;,
+                &quot;remark&quot;: &quot;0&quot;,
+                &quot;receiver_address&quot;: &quot;上海 上海市 徐汇区 宜山路1289二楼前台&quot;,
+                &quot;type&quot;: &quot;2&quot;,
+                &quot;return_logistics_name&quot;: &quot;圆通速递&quot;,
+                &quot;pay_account&quot;: &quot;1&quot;,
+                &quot;platform_id&quot;: &quot;127&quot;,
+                &quot;swap_zip&quot;: &quot;0&quot;,
+                &quot;created&quot;: &quot;2017-12-07 13:29:44&quot;,
+                &quot;actual_refund_amount&quot;: &quot;0&quot;,
+                &quot;return_mobile&quot;: &quot;18900890089&quot;,
+                &quot;tid&quot;: &quot;1712051519002014&quot;,
+                &quot;refund_amount&quot;: &quot;0.0000&quot;,
+                &quot;receiver_telno&quot;: &quot;323232&quot;,
+                &quot;cs_status&quot;: &quot;0&quot;,
+                &quot;swap_logistics_name&quot;: &quot;0&quot;,
+                &quot;refund_out_goods_list&quot;: [
+                    {
+                        &quot;refund_id&quot;: &quot;1&quot;,
+                        &quot;num&quot;: &quot;2.0000&quot;,
+                        &quot;merchant_no&quot;: &quot;test001&quot;,
+                        &quot;remark&quot;: &quot;2&quot;,
+                        &quot;goods_name&quot;: &quot;测试商品用例1&quot;,
+                        &quot;retail_price&quot;: &quot;10.0000&quot;,
+                        &quot;target_type&quot;: &quot;1&quot;,
+                        &quot;spec_name&quot;: &quot;默认规格&quot;,
+                        &quot;target_id&quot;: &quot;1&quot;,
+                        &quot;rec_id&quot;: &quot;1&quot;
+                    }
+                ],
+                &quot;status&quot;: &quot;5&quot;,
+                &quot;customer_name&quot;: &quot;测试c&quot;,
+                &quot;swap_address&quot;: &quot;0&quot;,
+                &quot;customer_no&quot;: &quot;KH201712050001&quot;,
+                &quot;receiver_name&quot;: &quot;测试c&quot;,
+                &quot;src_no&quot;: &quot;0&quot;,
+                &quot;modified&quot;: &quot;2017-12-07 13:29:44&quot;,
+                &quot;buyer_nick&quot;: &quot;测试c&quot;,
+                &quot;swap_logistics_no&quot;: &quot;0&quot;,
+                &quot;sales_trade_id&quot;: &quot;20990&quot;,
+                &quot;swap_telno&quot;: &quot;1&quot;,
+                &quot;return_name&quot;: &quot;测试c&quot;,
+                &quot;refund_order_list&quot;: [
+                    {
+                        &quot;suite_no&quot;: &quot;232&quot;,
+                        &quot;refund_num&quot;: &quot;1.0000&quot;,
+                        &quot;goods_no&quot;: &quot;lztestyj001&quot;,
+                        &quot;remark&quot;: &quot;2&quot;,
+                        &quot;original_price&quot;: &quot;0.0000&quot;,
+                        &quot;suite_name&quot;: &quot;4343&quot;,
+                        &quot;suite_num&quot;: &quot;0.0000&quot;,
+                        &quot;spec_code&quot;: &quot;4&quot;,
+                        &quot;goods_name&quot;: &quot;ERP普通测试商品0001&quot;,
+                        &quot;order_id&quot;: &quot;1044&quot;,
+                        &quot;paid&quot;: &quot;0.0000&quot;,
+                        &quot;order_num&quot;: &quot;1.0000&quot;,
+                        &quot;oid&quot;: &quot;1001767&quot;,
+                        &quot;process_status&quot;: &quot;0&quot;,
+                        &quot;tid&quot;: &quot;1712051519002014&quot;,
+                        &quot;refund_id&quot;: &quot;884&quot;,
+                        &quot;total_amount&quot;: &quot;0.0000&quot;,
+                        &quot;refund_order_amount&quot;: &quot;0.0000&quot;,
+                        &quot;cost_price&quot;: &quot;0.0000&quot;,
+                        &quot;spec_id&quot;: &quot;2&quot;,
+                        &quot;stockin_num&quot;: &quot;1.0000&quot;,
+                        &quot;discount&quot;: &quot;0.0000&quot;,
+                        &quot;spec_name&quot;: &quot;默认规格&quot;,
+                        &quot;price&quot;: &quot;0.0000&quot;,
+                        &quot;market_price&quot;: &quot;0.0000&quot;,
+                        &quot;spec_no&quot;: &quot;2323&quot;
+                    }
+                ],
+                &quot;creator_name&quot;: &quot;0&quot;,
+                &quot;pay_no&quot;: &quot;123&quot;,
+                &quot;guarante_refund_amount&quot;: &quot;0&quot;,
+                &quot;refund_no&quot;: &quot;TK1712070002&quot;,
+                &quot;guarantee_mode&quot;: &quot;2&quot;,
+                &quot;swap_province&quot;: &quot;0&quot;,
+                &quot;post_amount&quot;: &quot;0.0000&quot;,
+                &quot;goods_amount&quot;: &quot;0.0000&quot;,
+                &quot;paid&quot;: &quot;0.0000&quot;,
+                &quot;other_amount&quot;: &quot;0.0000&quot;,
+                &quot;sales_tid&quot;: &quot;JY201712050001&quot;,
+                &quot;swap_receiver&quot;: &quot;1&quot;,
+                &quot;process_status&quot;: &quot;90&quot;,
+                &quot;refund_id&quot;: &quot;884&quot;,
+                &quot;swap_mobile&quot;: &quot;1&quot;,
+                &quot;return_address&quot;: &quot;热热&quot;,
+                &quot;refund_time&quot;: &quot;0&quot;,
+                &quot;return_telno&quot;: &quot;3232&quot;,
+                &quot;swap_area&quot;: &quot;0&quot;,
+                &quot;return_logistics_no&quot;: &quot;0&quot;,
+                &quot;swap_trade_id&quot;: &quot;0&quot;,
+                &quot;shop_name&quot;: &quot;API公共测试&quot;,
+                &quot;swap_city&quot;: &quot;0&quot;,
+                &quot;swap_logistics_type&quot;: &quot;0&quot;,
+                &quot;direct_refund_amount&quot;: &quot;0&quot;,
+                &quot;swap_district&quot;: &quot;0&quot;
+            }
+        ]
+    }
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<p>"refund_order_list"：此节点为退回货品详情信息。
+"refund_out_goods_list"：此节点为换出货品详情信息。
+如果只退货，那么refund_out_goods_list 的值设置为null即可
+如果换货业务，比如用A换B，那么refund_order_list为货品A的详情信息，refund_out_goods_list为货品B的详情信息。
+请求体内字段的意义请参见设计模型</p>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+  &quot;returnflag&quot;: &quot;success&quot;, //处理成功:success ,失败:error
+  &quot;returncode&quot;: &quot;0&quot;,  //success :0 error:1
+  &quot;returnmessage&quot;: &quot;&quot; //成功为空,失败为异常信息
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2017, Convertlab</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../test/swagger-ui.min.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-03-11 11:47:28
+-->
