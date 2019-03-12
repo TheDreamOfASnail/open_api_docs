@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="canonical" href="http://api-docs.convertlab.com/api/accesstoken/"> 
+    <link rel="canonical" href="http://api-docs.convertlab.com/api/create/"> 
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>获取ACCESS_TOKEN - Convertlab 文档中心</title>
+    <title>Create - Convertlab 文档中心</title>
     <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -42,7 +42,7 @@
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav navbar-right">
                 
-                  <li class="pull-left active">
+                  <li class="pull-left">
                     
                     <a href="../..">OpenAPI V1</a>
                     
@@ -80,7 +80,7 @@
        <!--   <div class="toolbar clearfix">
   <ol class="breadcrumb pull-left">
     <li><a href="">文档</a></li>
-    <li>获取ACCESS_TOKEN</li>
+    <li>Create</li>
   </ol>
 
   
@@ -94,71 +94,6 @@
     <ul class="nav bs-sidenav">
      
       
-        
-          
-
-              <li class="">
-                <a class="itm-l1" href="../..">创建集成应用</a>
-                
-              </li>
-
-          
-
-              <li class="active">
-                <a class="itm-l1" href="./">获取ACCESS_TOKEN</a>
-                
-                  <ul class="nav">
-                  
-                    <li class="active "><a href="#access_token">获取access_token</a></li>
-                    
-                  
-                  </ul>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../customer/">客户信息</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../customerevent/">客户事件</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../tag/">客户标签</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../list/">客户群组</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../deal/">客户交易</a>
-                
-              </li>
-
-          
-
-              <li class="">
-                <a class="itm-l1" href="../third_party_data/">媒体数据</a>
-                
-              </li>
-
-          
         
       
 
@@ -183,75 +118,15 @@
         <div class="col-md-9 content-body" role="main">
              
 
-<h1>获取ACCESS_TOKEN</h1>
+<h1>Create</h1>
 
-<h2 id="access_token">获取access_token</h2>
-<p>通过appid和appsecret获取access token, 并用于其它功能性API的请求。</p>
-<p><strong>调用请求</strong></p>
-<pre><code>HTTP请求方式: GET
-https://api.convertlab.com/security/accesstoken?grant_type=client_credentials&amp;appid={appid}&amp;secret={secret}
-</code></pre>
-
-<p><strong>参数说明</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必填</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grant_type</td>
-<td>是</td>
-<td>必须是client_credential</td>
-</tr>
-<tr>
-<td>appid</td>
-<td>是</td>
-<td>在上一步中创建的应用的appid</td>
-</tr>
-<tr>
-<td>secret</td>
-<td>是</td>
-<td>在上一步中创建的应用的secret</td>
-</tr>
-</tbody>
-</table>
-<p><strong>返回说明</strong></p>
-<pre><code>{
-    &quot;error_code&quot;: 0,
-  &quot;access_token&quot;: &quot;47c010ea********d30db952ac&quot;,
-  &quot;expires_in&quot;: 7200
-}
-</code></pre>
-
-<p><strong>返回字段说明</strong></p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>access_token</td>
-<td>获取到的API调用凭证</td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>凭证有效时间，单位：秒</td>
-</tr>
-<tr>
-<td>error_code</td>
-<td>错误码，0表示返回正常</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意</strong>: 记住access_token留备后用。</p>
-            <div class="ds-thread" data-thread-key="获取ACCESS_TOKEN" data-title="获取ACCESS_TOKEN" data-url=""></div>
+<p><strong>注意</strong>: DM Hub API只支持TLSv1.2及以上协议，在尝试连接DM Hub API发生连接问题之后，请确认使用的协议为TLSv1.2。</p>
+<p>登录DM Hub系统，点击菜单<strong>设置&gt;开发与集成</strong>， 点击<strong>新建</strong>，创建一个应用。
+<img src="../resources/create1.png" width="400"/>
+<img src="../resources/create2.png" width="400"/>
+保存之后，选择所需权限，点击更新。记住<strong>appid</strong>和<strong>secret</strong>留备后用。
+<img src="../resources/create3.png" width="400"/></p>
+            <div class="ds-thread" data-thread-key="Create" data-title="Create" data-url=""></div>
         </div>
         
     </div>
