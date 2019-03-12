@@ -6,7 +6,7 @@
           {% for nav_item in nav_item.children %}
 
               <li class="{% if nav_item.active %}active{% endif %}">
-                <a class="itm-l1" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                <a class="itm-l1" href="{{ nav_item.url | url }}">{{ nav_item.title }}</a>
                 {% if nav_item == page %}
                   <ul class="nav">
                   {% for toc_item in page.toc %}

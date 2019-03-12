@@ -10,7 +10,7 @@ Convertlab公司DM Hub产品的开发API文档
 - - - - 
 
 配置需求:
-- mkdocs 0.16.3
+- mkdocs 1.0.4
 
 ## 部署到github pages上的方法
 1. 安装mkdocs, apt-get/homebrew。
