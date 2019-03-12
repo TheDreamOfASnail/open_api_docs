@@ -64,6 +64,7 @@ DM Hub系统中所有交易信息都可以被记录下来。这里的交易可�
 
 ## 创建业务订单的API
 订单物品放在订单的line字段中一起创建。
+customerId和customerIdentities选填一项。
 
 **调用请求**
 ```
@@ -104,6 +105,18 @@ POST请求示例：
       "priceUnit": 69.0,
       "priceSubTotal": 69.0
     }
+  ],
+  "customerIdentities": [
+      {
+          "identityType": "wechat",
+          "identityValue": "o123456...",
+          "identityName": "微信昵称"
+      },
+      {
+          "identityType": "your-system-account",
+          "identityValue": "user123",
+          "identityName": "您系统里的用户名"
+      }
   ]
 }
 ```
@@ -384,7 +397,6 @@ https://api.convertlab.com/v1/dealService/cancel?access_token={access_token}
 
 POST请求示例：
 {
-  "customerId": 8888,
   "orderNo": "11122233344455"
 }
 ```
@@ -453,9 +465,7 @@ POST请求示例：
     }
   ],
   "refundTotal": 69.0,   // 退款金额
-  "orderNo": "11122233344455",
-  "customerId": 8888
-
+  "orderNo": "11122233344455"
 }
 ```
 
@@ -495,6 +505,41 @@ POST请求示例：
 
 ```
 
+## 删除退货订单的API
+删除退货订单
+
+**调用请求**
+```
+http请求方式：POST
+https://api.convertlab.com/v1/dealService/deleteRefund?access_token={access_token}
+
+POST请求示例：
+{
+  "orderNo": "E20180115140107"
+}
+```
+
+**参数说明**
+
+|参数|	是否必填|	说明|
+| ------------ | ------- |-------- |
+|access_token|	是|	请求凭证|
+
+**返回结果**
+```
+{
+	"dateRefund": null,
+	"dateCreated": "2018-12-20T03:14:02Z",
+	"orderNo": "E20180115140107",
+	"refundTotal": 69,
+	"lastUpdated": "2018-12-20T03:14:02Z",
+	"customerId": 8888,
+	"reason": null,
+	"id": 2100032073,
+	"refundLines": []
+}
+
+```
 
 ## 删除业务订单的API
 **调用请求**

@@ -822,7 +822,56 @@ DM Hub内置了几个身份类型
 }
 ```
 
-### 11.2. 取消订单
+### 11.2. 修改订单
+- HTTP请求方式: `POST`
+- `/loyalty/v1/dealService/update/?access_token={token}`
+- Payload
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "dealLines": [
+    {
+      "lineId": "11111"
+    },
+    {
+    "lineId": "22222"
+    }
+  ]
+}
+
+```
+
+- Response
+
+成功
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "id": "1",
+  "dealLines": [
+    {
+      "lineId": "11111"
+    },
+    {
+      "lineId": "22222"
+    }
+  ],
+  "state": "已付款"
+}
+```
+失败
+```json
+{
+  "error": {
+  "code":"409000",
+  "message": "error info"
+  }
+}
+```
+
+### 11.3. 取消订单
 - HTTP请求方式: `POST`
 - ` /loyalty/v1/dealService/cancel?access_token={token}`
 - Payload
@@ -851,7 +900,7 @@ DM Hub内置了几个身份类型
 }
 ```
 
-### 11.3. 退单
+### 11.4. 退单
 - HTTP请求方式: `POST`
 - ` /loyalty/v1/dealService/refund?access_token={token}`
 - Payload
@@ -899,6 +948,61 @@ DM Hub内置了几个身份类型
   ]
 }
 ```
+
+### 11.4. 删除退单
+- HTTP请求方式: `POST`
+- ` /loyalty/v1/dealService/deleteRefund?access_token={token}`
+- Payload
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456"
+}
+```
+
+- Response
+```json
+{
+  "refundTotal": 3333,
+  "orderNo": "123456",
+  "membershipId": 1,
+  "dateRefund":"2017-04-22T12:56:47Z",
+  "refundLines": [
+    {
+      "lineId": "123456-2"
+    }
+  ]
+}
+```
+
+### 11.5. 删除订单
+- HTTP请求方式: `POST`
+- ` /loyalty/v1/dealService/delete?access_token={token}`
+- Payload
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456"
+}
+```
+
+- Response
+```json
+{
+  "membershipId": 1,
+  "orderNo": "123456",
+  "id": "1",
+  "dealLines": [
+    {
+      "lineId": "11111"
+    },
+    {
+      "lineId": "22222"
+    }
+  ]
+}
+```
+
 ## 12. 会员注册推送设备信息
 
 请求方式：`POST`
