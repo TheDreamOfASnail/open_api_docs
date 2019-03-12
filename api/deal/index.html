@@ -169,10 +169,13 @@
                     <li class=""><a href="#api_5">退货订单的API</a></li>
                     
                   
-                    <li class=""><a href="#api_6">删除业务订单的API</a></li>
+                    <li class=""><a href="#api_6">删除退货订单的API</a></li>
                     
                   
-                    <li class=""><a href="#api_7">根据订单号查询订单详情的API</a></li>
+                    <li class=""><a href="#api_7">删除业务订单的API</a></li>
+                    
+                  
+                    <li class=""><a href="#api_8">根据订单号查询订单详情的API</a></li>
                     
                   
                   </ul>
@@ -503,7 +506,8 @@
 </tbody>
 </table>
 <h2 id="api">创建业务订单的API</h2>
-<p>订单物品放在订单的line字段中一起创建。</p>
+<p>订单物品放在订单的line字段中一起创建。
+customerId和customerIdentities选填一项。</p>
 <p><strong>调用请求</strong></p>
 <pre><code>http请求方式：POST
 https://api.convertlab.com/v1/deals?access_token=&lt;access_token&gt;
@@ -542,6 +546,18 @@ POST请求示例：
       &quot;priceUnit&quot;: 69.0,
       &quot;priceSubTotal&quot;: 69.0
     }
+  ],
+  &quot;customerIdentities&quot;: [
+      {
+          &quot;identityType&quot;: &quot;wechat&quot;,
+          &quot;identityValue&quot;: &quot;o123456...&quot;,
+          &quot;identityName&quot;: &quot;微信昵称&quot;
+      },
+      {
+          &quot;identityType&quot;: &quot;your-system-account&quot;,
+          &quot;identityValue&quot;: &quot;user123&quot;,
+          &quot;identityName&quot;: &quot;您系统里的用户名&quot;
+      }
   ]
 }
 </code></pre>
@@ -1036,7 +1052,6 @@ https://api.convertlab.com/v1/dealService/cancel?access_token={access_token}
 
 POST请求示例：
 {
-  &quot;customerId&quot;: 8888,
   &quot;orderNo&quot;: &quot;11122233344455&quot;
 }
 </code></pre>
@@ -1113,9 +1128,7 @@ POST请求示例：
     }
   ],
   &quot;refundTotal&quot;: 69.0,   // 退款金额
-  &quot;orderNo&quot;: &quot;11122233344455&quot;,
-  &quot;customerId&quot;: 8888
-
+  &quot;orderNo&quot;: &quot;11122233344455&quot;
 }
 </code></pre>
 
@@ -1165,7 +1178,51 @@ POST请求示例：
 
 </code></pre>
 
-<h2 id="api_6">删除业务订单的API</h2>
+<h2 id="api_6">删除退货订单的API</h2>
+<p>删除退货订单</p>
+<p><strong>调用请求</strong></p>
+<pre><code>http请求方式：POST
+https://api.convertlab.com/v1/dealService/deleteRefund?access_token={access_token}
+
+POST请求示例：
+{
+  &quot;orderNo&quot;: &quot;E20180115140107&quot;
+}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>请求凭证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+    &quot;dateRefund&quot;: null,
+    &quot;dateCreated&quot;: &quot;2018-12-20T03:14:02Z&quot;,
+    &quot;orderNo&quot;: &quot;E20180115140107&quot;,
+    &quot;refundTotal&quot;: 69,
+    &quot;lastUpdated&quot;: &quot;2018-12-20T03:14:02Z&quot;,
+    &quot;customerId&quot;: 8888,
+    &quot;reason&quot;: null,
+    &quot;id&quot;: 2100032073,
+    &quot;refundLines&quot;: []
+}
+
+</code></pre>
+
+<h2 id="api_7">删除业务订单的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>http请求方式：DELETE
 https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
@@ -1188,7 +1245,7 @@ https://api.convertlab.com/v1/deals/{id}?access_token={access_token}
 </tr>
 </tbody>
 </table>
-<h2 id="api_7">根据订单号查询订单详情的API</h2>
+<h2 id="api_8">根据订单号查询订单详情的API</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>http请求方式：GET
 https://api.convertlab.com/v1/dealService/getDealByOrderNo?access_token={access_token}&amp;orderNo={orderNo}

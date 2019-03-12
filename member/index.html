@@ -163,11 +163,23 @@
                       </ul>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#112">11.2. 取消订单</a></li>
+                        <li><a class="itm-l2" href="#112">11.2. 修改订单</a></li>
                       </ul>
                     
                       <ul class="nav nav-l2">
-                        <li><a class="itm-l2" href="#113">11.3. 退单</a></li>
+                        <li><a class="itm-l2" href="#113">11.3. 取消订单</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#114">11.4. 退单</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#114_1">11.4. 删除退单</a></li>
+                      </ul>
+                    
+                      <ul class="nav nav-l2">
+                        <li><a class="itm-l2" href="#115">11.5. 删除订单</a></li>
                       </ul>
                     
                   
@@ -1462,7 +1474,57 @@
 }
 </code></pre>
 
-<h3 id="112">11.2. 取消订单</h3>
+<h3 id="112">11.2. 修改订单</h3>
+<ul>
+<li>HTTP请求方式: <code>POST</code></li>
+<li><code>/loyalty/v1/dealService/update/?access_token={token}</code></li>
+<li>Payload</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;dealLines&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    },
+    {
+    &quot;lineId&quot;: &quot;22222&quot;
+    }
+  ]
+}
+
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+<p>成功</p>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;id&quot;: &quot;1&quot;,
+  &quot;dealLines&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    },
+    {
+      &quot;lineId&quot;: &quot;22222&quot;
+    }
+  ],
+  &quot;state&quot;: &quot;已付款&quot;
+}
+</code></pre>
+
+<p>失败</p>
+<pre><code class="json">{
+  &quot;error&quot;: {
+  &quot;code&quot;:&quot;409000&quot;,
+  &quot;message&quot;: &quot;error info&quot;
+  }
+}
+</code></pre>
+
+<h3 id="113">11.3. 取消订单</h3>
 <ul>
 <li>HTTP请求方式: <code>POST</code></li>
 <li><code>/loyalty/v1/dealService/cancel?access_token={token}</code></li>
@@ -1493,7 +1555,7 @@
 }
 </code></pre>
 
-<h3 id="113">11.3. 退单</h3>
+<h3 id="114">11.4. 退单</h3>
 <ul>
 <li>HTTP请求方式: <code>POST</code></li>
 <li><code>/loyalty/v1/dealService/refund?access_token={token}</code></li>
@@ -1598,6 +1660,64 @@
   &quot;refundLines&quot;: [
     {
       &quot;lineId&quot;: &quot;11111&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="114_1">11.4. 删除退单</h3>
+<ul>
+<li>HTTP请求方式: <code>POST</code></li>
+<li><code>/loyalty/v1/dealService/deleteRefund?access_token={token}</code></li>
+<li>Payload</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;
+}
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+<pre><code class="json">{
+  &quot;refundTotal&quot;: 3333,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;membershipId&quot;: 1,
+  &quot;dateRefund&quot;:&quot;2017-04-22T12:56:47Z&quot;,
+  &quot;refundLines&quot;: [
+    {
+      &quot;lineId&quot;: &quot;123456-2&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="115">11.5. 删除订单</h3>
+<ul>
+<li>HTTP请求方式: <code>POST</code></li>
+<li><code>/loyalty/v1/dealService/delete?access_token={token}</code></li>
+<li>Payload</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;
+}
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+<pre><code class="json">{
+  &quot;membershipId&quot;: 1,
+  &quot;orderNo&quot;: &quot;123456&quot;,
+  &quot;id&quot;: &quot;1&quot;,
+  &quot;dealLines&quot;: [
+    {
+      &quot;lineId&quot;: &quot;11111&quot;
+    },
+    {
+      &quot;lineId&quot;: &quot;22222&quot;
     }
   ]
 }
