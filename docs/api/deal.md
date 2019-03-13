@@ -274,6 +274,7 @@ https://api.convertlab.com/v1/deals?access_token={access_token}&rows={rows}&page
 |参数	|是否必填|	说明|
 | ------------ | ------- |--------- |
 |access_token|	是|	请求凭证|
+|customer_id| 否	|	只查询某个客户的订单|
 |rows|	否|	每页的记录数|
 |page	|否	|起始页数，以1开始|
 |sidx|	否|	排序的字段，默认按id排序|
