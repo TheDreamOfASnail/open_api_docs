@@ -1513,3 +1513,29 @@ access_token  根据appid请求的token
   }
 }
 ```
+## 14.删除会员身份
+
+如果被删除的身份为此会员唯一身份则不允许删除，如果删除的身份类型为mobile则会清空对应会员的号码，身份的删除会同步到对应的客户身份
+
+- HTTP请求方式: `DELETE`
+
+- `/loyalty/v1/membership/identity/$identityId`
+
+- Request
+
+access_token  根据appid请求的token
+
+- Response
+
+成功
+```json
+{"result":"success"}
+```
+失败：唯一身份
+```json
+{"error":{"code":409224,"message":"Identity is last one"}}
+```
+失败：未找到对应身份
+```json
+{"error":{"code":409225,"message":"Identity not found"}}
+```
