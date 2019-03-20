@@ -221,6 +221,9 @@
                       </ul>
                     
                   
+                    <li class=""><a href="#14">14. 删除会员身份</a></li>
+                    
+                  
                   </ul>
                 
               </li>
@@ -2438,6 +2441,35 @@ status 筛选membershipCoupon状态，normal为可使用，used为已使用</p>
     &quot;amountLimit&quot;: null
   }
 }
+</code></pre>
+
+<h2 id="14">14. 删除会员身份</h2>
+<p>如果被删除的身份为此会员唯一身份则不允许删除，如果删除的身份类型为mobile则会清空对应会员的号码，身份的删除会同步到对应的客户身份</p>
+<ul>
+<li>
+<p>HTTP请求方式: <code>DELETE</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/membership/identity/$identityId</code></p>
+</li>
+<li>
+<p>Request</p>
+</li>
+</ul>
+<p>access_token  根据appid请求的token</p>
+<ul>
+<li>Response</li>
+</ul>
+<p>成功</p>
+<pre><code class="json">{&quot;result&quot;:&quot;success&quot;}
+</code></pre>
+
+<p>失败：唯一身份</p>
+<pre><code class="json">{&quot;error&quot;:{&quot;code&quot;:409224,&quot;message&quot;:&quot;Identity is last one&quot;}}
+</code></pre>
+
+<p>失败：未找到对应身份</p>
+<pre><code class="json">{&quot;error&quot;:{&quot;code&quot;:409225,&quot;message&quot;:&quot;Identity not found&quot;}}
 </code></pre>
             <div class="ds-thread" data-thread-key="Api接口" data-title="Api接口" data-url=""></div>
         </div>
