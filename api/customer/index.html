@@ -1188,7 +1188,7 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 <h2 id="_4">查询客户的统计信息</h2>
 <p><strong>调用请求</strong></p>
 <pre><code>GET
-/v1/customerStatistics?access_token={access_token}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}&amp;customerId={customerId}
+/v1/customerStatistics?access_token={access_token}&amp;rows={rows}&amp;page={page}&amp;sidx={sidx}&amp;sord={sord}&amp;customerId={customerId}&amp;needTotal={true}
 </code></pre>
 
 <p><strong>请求参数说明</strong></p>
@@ -1229,7 +1229,7 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 <td>query</td>
 <td>no</td>
 <td>string</td>
-<td>用于排序的字段，默认为“id”</td>
+<td>用于排序的字段，默认为“id”,支持"totalScore"字段</td>
 </tr>
 <tr>
 <td>sord</td>
@@ -1244,6 +1244,13 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
 <td>no</td>
 <td>number</td>
 <td>精确查询某个客户的记录</td>
+</tr>
+<tr>
+<td>needTotal</td>
+<td>query</td>
+<td>no</td>
+<td>boolean</td>
+<td>返回结果是否需要包含总数，默认为false，不返回总数</td>
 </tr>
 </tbody>
 </table>
