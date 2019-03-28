@@ -604,7 +604,7 @@ status: 200 OK
 **调用请求**
 ```
 GET
-/v1/customerStatistics?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}&customerId={customerId}
+/v1/customerStatistics?access_token={access_token}&rows={rows}&page={page}&sidx={sidx}&sord={sord}&customerId={customerId}&needTotal={true}
 ```
 
 **请求参数说明**
@@ -614,9 +614,10 @@ GET
 |access_token|query|yes|string|用从“获取身份权限”节拿到的access_token替换|
 |rows	     |query|no |number|一页包含多少条记录，默认值为5|
 |page        |query|no |number|取第几页的数据，默认值为1|
-|sidx        |query|no |string|用于排序的字段，默认为“id”|
+|sidx        |query|no |string|用于排序的字段，默认为“id”,支持"totalScore"字段|
 |sord        |query|no |string|排序方式，asc表示升序，desc表示降序，默认为asc|
 |customerId  |query|no |number|精确查询某个客户的记录|
+|needTotal  |query|no |boolean|返回结果是否需要包含总数，默认为false，不返回总数|
 
 **返回数据**
 ```
