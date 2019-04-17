@@ -19,23 +19,25 @@ app.cl_tracker.push({
     identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id或unionid
 });
 ```
+身份设置请参考：http://help.convertlab.com/hc/kb/article/1108635
 
-如果有多个身份: (最多支持3个身份)
+如果有多个身份: (最多同时支持3个身份)
+
 ```
 var app = getApp();
 
 app.cl_tracker.push({
     identityType: 'wechat',
     identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM',   // identityValue 是用户的open_id
-    identityType2: 'face_id_type',
-    identityValue2: 'faceID',
-    identityType3: 'maya_member_type',
-    identityValue3: 'maya_member_ID',
+    identityType2: 'wechat-unionid',
+    identityValue2: 'o7QvZ1TT5oo1F8rNJvchn1GGv5t8',
+    identityType3: 'customer_identity1',
+    identityValue3: 'the_customer_identity_value1',
 });
 ```
 
 如果不是同时拿到所有的身份， 可以分别push identityType
-```$xslt
+```
 app.cl_tracker.push({
     identityType: 'wechat',
     identityValue: 'openId_openId_openId',
@@ -50,14 +52,14 @@ app.cl_tracker.push({
 
 注意：同一个identityType应该永远对应一种身份类型。
 如果使用
-```$xslt
+```
 app.cl_tracker.push({
     identityType: 'wechat',
     identityValue: 'openId_openId_openId',
 });
 ```
 又使用
-```$xslt
+```
 app.cl_tracker.push({
     identityType: 'wechat-unionid',
     identityValue: 'openId_openId_openId',
@@ -75,13 +77,16 @@ app.cl_tracker.push({
 ## 标识用户
 在没有identityValue之前，事件将一直是匿名的。
 当获得用户的openId后，请将它设置在全局参数中
+
 ```
 cl_tracker.push({
    identityType:'wechat',
    identityValue:'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'
 });
 ```
+
 ## 记录事件
+
 ```
 cl_tracker.track(
     'mini_program_open', 
