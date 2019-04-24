@@ -285,41 +285,7 @@ DM Hub内置了几个身份类型
 }
 ```
 
-## 5.1. 修改会员等级
-- HTTP请求方式: `PUT`
-
-- `/loyalty/v1/membership/${membershipId}/level?access_token={access_token}`
-
-- Request Payload
-
-```json
-
-    {
-        "level": 8
-    }
-
-```
-- Response
-
-```json
-
-    {
-            "dateCreated": "2017-10-31T06:54:01Z",
-            "id": 3,
-            "lastUpdated": "2017-10-31T06:54:01Z",
-            "levelType": 0,
-            "levelUpdateStatus": 1,
-            "membershipId": 1,
-            "newLevel": 8,
-            "oldLevel": 0,
-            "remark": null,
-            "rule": null,
-            "tenantId": 11
-    }
-
-```
-
-## 5.2. 增减会员积分
+## 5. 增减会员积分
 
 - `POST`
 
