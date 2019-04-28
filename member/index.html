@@ -135,10 +135,7 @@
                     <li class=""><a href="#4">4. 修改一个会员</a></li>
                     
                   
-                    <li class=""><a href="#51">5.1. 修改会员等级</a></li>
-                    
-                  
-                    <li class=""><a href="#52">5.2. 增减会员积分</a></li>
+                    <li class=""><a href="#5">5. 增减会员积分</a></li>
                     
                   
                     <li class=""><a href="#6">6. 绑定会员身份</a></li>
@@ -718,46 +715,7 @@
 }
 </code></pre>
 
-<h2 id="51">5.1. 修改会员等级</h2>
-<ul>
-<li>
-<p>HTTP请求方式: <code>PUT</code></p>
-</li>
-<li>
-<p><code>/loyalty/v1/membership/${membershipId}/level?access_token={access_token}</code></p>
-</li>
-<li>
-<p>Request Payload</p>
-</li>
-</ul>
-<pre><code class="json">
-    {
-        &quot;level&quot;: 8
-    }
-
-</code></pre>
-
-<ul>
-<li>Response</li>
-</ul>
-<pre><code class="json">
-    {
-            &quot;dateCreated&quot;: &quot;2017-10-31T06:54:01Z&quot;,
-            &quot;id&quot;: 3,
-            &quot;lastUpdated&quot;: &quot;2017-10-31T06:54:01Z&quot;,
-            &quot;levelType&quot;: 0,
-            &quot;levelUpdateStatus&quot;: 1,
-            &quot;membershipId&quot;: 1,
-            &quot;newLevel&quot;: 8,
-            &quot;oldLevel&quot;: 0,
-            &quot;remark&quot;: null,
-            &quot;rule&quot;: null,
-            &quot;tenantId&quot;: 11
-    }
-
-</code></pre>
-
-<h2 id="52">5.2. 增减会员积分</h2>
+<h2 id="5">5. 增减会员积分</h2>
 <ul>
 <li>
 <p><code>POST</code></p>
@@ -1469,13 +1427,6 @@
 <p>成功</p>
 <pre><code class="json">{
   &quot;membershipId&quot;: 1,
-  &quot;identities&quot;: [
-        {
-            &quot;type&quot;: &quot;wechat&quot;,
-            &quot;value&quot;: &quot;123456&quot;,
-            &quot;name&quot;: &quot;cm_test&quot;
-        }
-    ],
   &quot;orderNo&quot;: &quot;123456&quot;,
   &quot;id&quot;: &quot;1&quot;,
   &quot;dealLines&quot;: [
@@ -1526,6 +1477,13 @@
 <p>成功</p>
 <pre><code class="json">{
   &quot;membershipId&quot;: 1,
+  &quot;identities&quot;: [
+        {
+            &quot;type&quot;: &quot;wechat&quot;,
+            &quot;value&quot;: &quot;123456&quot;,
+            &quot;name&quot;: &quot;cm_test&quot;
+        }
+    ],
   &quot;orderNo&quot;: &quot;123456&quot;,
   &quot;id&quot;: &quot;1&quot;,
   &quot;dealLines&quot;: [
