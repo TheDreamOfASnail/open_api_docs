@@ -229,9 +229,11 @@ DM Hub内置了几个身份类型
 
 ## 4. 修改一个会员
 
+如需强制修改会员的来源，来源内容，营销活动信息，forceUpdate字段取true
+
 - HTTP请求方式: `PUT`
 
-- `/loyalty/v1/membership/${membershipId}?access_token={access_token}`
+- `/loyalty/v1/membership/${membershipId}?access_token={access_token}&forceUpdate=false`
 
 - Request Payload
 
@@ -705,6 +707,13 @@ DM Hub内置了几个身份类型
 ```json
 {
   "membershipId": 1,
+  "identities": [
+        {
+            "type": "wechat",
+            "value": "123456",
+            "name": "cm_test"
+        }
+    ],
   "orderNo": "123456",
   "dealLines": [
     {
@@ -727,7 +736,8 @@ DM Hub内置了几个身份类型
 |orderNo| 订单号 |  String|  是|  |
 |type| 订单类型 |  String|  |  |
 |dateOrder| 订单时间 |  DateTime|  是| 时间格式为 “2016-11-11T11:11:11”, UTC时间 |
-|membershipId| 会员ID |  Number|  是|  |
+|membershipId| 会员ID |  Number|  是| 和会员身份字段选填一项 |
+|identities| 会员身份 |  JsonArray| 是 | 和会员ID字段选填一项 |
 |amountDiscount| 订单折扣 |  Number|  是|  |
 |couponCode| 优惠券Code |  String|  |  |
 |groupId| 团购ID |  String|  |  |
@@ -814,6 +824,13 @@ DM Hub内置了几个身份类型
 ```json
 {
   "membershipId": 1,
+  "identities": [
+        {
+            "type": "wechat",
+            "value": "123456",
+            "name": "cm_test"
+        }
+    ],
   "orderNo": "123456",
   "id": "1",
   "dealLines": [
