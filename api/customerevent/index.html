@@ -289,6 +289,12 @@
 <td>DM Hub创建的营销活动的名称</td>
 </tr>
 <tr>
+<td>referrer</td>
+<td>推广人ID</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
 <td>summary</td>
 <td>摘要</td>
 <td>String</td>
@@ -377,6 +383,12 @@
 <td>DM Hub创建的营销活动的名称</td>
 </tr>
 <tr>
+<td>referrer</td>
+<td>推广人ID</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
 <td>lastUpdated</td>
 <td>事件记录进入在DM Hub系统的时间</td>
 <td>String</td>
@@ -463,7 +475,8 @@ POST请求示例：
   &quot;contentName&quot;: null,
   &quot;externalId&quot;: null,
   &quot;lastUpdated&quot;: &quot;2017-06-07T05:38:52Z&quot;,
-  &quot;touter&quot;: &quot;t00001&quot;
+  &quot;touter&quot;: &quot;t00001&quot;,
+  &quot;referrer&quot;: null
 }
 </code></pre>
 
@@ -585,7 +598,8 @@ https://api.convertlab.com/v1/customerevents/{id}?access_token={access_token}&am
   &quot;contentName&quot;: null,
   &quot;externalId&quot;: null,
   &quot;lastUpdated&quot;: &quot;2017-06-07T05:38:52Z&quot;,
-  &quot;touter&quot;: &quot;t00001&quot;
+  &quot;touter&quot;: &quot;t00001&quot;,
+  &quot;referrer&quot;: &quot;1&quot;
 }
 </code></pre>
 
@@ -679,7 +693,8 @@ https://api.convertlab.com/v1/customerevents?access_token={access_token}&amp;cus
     &quot;contentName&quot;: null,
     &quot;externalId&quot;: null,
     &quot;lastUpdated&quot;: &quot;2017-06-07T06:43:29Z&quot;,
-    &quot;touter&quot;: &quot;t00003&quot;
+    &quot;touter&quot;: &quot;t00003&quot;,
+    &quot;referrer&quot;: &quot;1&quot; 
   }
 ]
 </code></pre>
