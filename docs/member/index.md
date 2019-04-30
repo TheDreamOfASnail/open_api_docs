@@ -1502,11 +1502,15 @@ access_token  根据appid请求的token
 
 - HTTP请求方式: `DELETE`
 
-- `/loyalty/v1/membership/identity/$identityId`
+- `/loyalty/v1/membership/identity/$membershipId?type=mobile&value=133xxxx0592`
 
 - Request
 
 access_token  根据appid请求的token
+
+type 会员身份类型
+
+value 会员身份值
 
 - Response
 
@@ -1521,4 +1525,105 @@ access_token  根据appid请求的token
 失败：未找到对应身份
 ```json
 {"error":{"code":409225,"message":"Identity not found"}}
+```
+
+## 15.查看会员积分明细
+
+
+- HTTP请求方式: `GET`
+
+- `/loyalty/v1/membership/$membershipId/point?rows=20&page=1&sord=asc&needTotal=true`
+
+- Request
+
+access_token  根据appid请求的token
+
+rows 每页记录数
+
+page 当前页号
+
+sord 记录排序顺序 asc/desc
+
+needTotal 是否返回总记录数
+
+- Response
+
+ records 记录总数
+ 
+ total 页数
+
+```json
+{
+    "rows": [
+        {
+            "id": 248,
+            "contentName": null,
+            "campaignId": null,
+            "date": "2018-07-11T09:55:35Z",
+            "dateCreated": "2018-07-11T09:55:35Z",
+            "leftPoint": 114,
+            "lastUpdated": "2018-07-11T09:55:35Z",
+            "pattern": 3,
+            "source": null,
+            "newPoint": 114,
+            "tenantId": 26,
+            "membershipId": 399,
+            "point": 5,
+            "oldPoint": 119,
+            "type": -1,
+            "status": -1,
+            "expireDate": null,
+            "remark": null,
+            "externalId": "wechat_leave_message"
+        }
+    ],
+    "records": 1,
+    "total": 1
+}
+```
+## 16.查看会员经验明细
+
+
+- HTTP请求方式: `GET`
+
+- `/loyalty/v1/membership/$membershipId/exp/changeLogs?rows=20&page=1&sord=asc&needTotal=true`
+
+- Request
+
+access_token  根据appid请求的token
+
+rows 每页记录数
+
+page 当前页号
+
+sord 记录排序顺序 asc/desc
+
+needTotal 是否返回总记录数
+
+- Response
+
+records 记录总数
+ 
+ total 页数
+```json
+{
+    "rows": [
+        {
+            "id": 256,
+            "tenantId": 26,
+            "dateCreated": "2018-01-22T10:09:18Z",
+            "membershipId": 667,
+            "lastUpdated": "2018-01-22T10:09:18Z",
+            "expType": 1,
+            "expValue": 10,
+            "oldExp": 0,
+            "remark": null,
+            "dateObtain": "2018-01-22T10:09:17Z",
+            "externalId": "1d09ca04-0c80-4d43-8db7-3d9c4f89f47d",
+            "newExp": 10
+        }
+    ],
+    "records": 1,
+    "total": 1
+}
 ```
