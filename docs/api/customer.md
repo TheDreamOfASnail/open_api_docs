@@ -599,6 +599,55 @@ status: 200 OK
 }
 ```
 
+## 根据md5查询客户身份的API
+可以根据md5查询对应的客户身份
+
+**调用请求**
+```
+HTTP请求方式: GET
+http://api.dmhub.cn/v1/customerService/getCustomerIdentityByMd5?access_token={access_token}&md5type={md5type}&md5value={md5value}
+```
+
+**参数说明**
+
+|参数|  是否必填| 说明|
+|-----|----|----|
+|access_token|  是 |访问API的令牌|
+|md5type  |是| md5类型，通用md5取common,天猫md5取tmall|
+|md5value|  是 |md5值|
+
+**返回结果**
+```
+{
+    "id": 13,
+    "dateCreated": "2019-04-01T05:50:27Z",
+    "lastUpdated": "2019-04-01T05:55:09Z",
+    "md5type": "common",
+    "value": "MD100002",
+    "type": "mobile",
+    "customerId": 418615942793357312,
+    "customerIdStr": "418615942793357312",
+    "md5value": "1010cd3d89afa26a3d85c2605edc519a"
+}
+```
+**返回参数说明**
+
+- type 客户身份类型
+- value 客户身份值
+- customerId 客户的id
+- customerIdStr 客户id字串
+
+**找不到身份-返回结果**
+```
+status: 200 OK
+{
+    "error": {
+        "code": "409200",
+        "message": "Not found"
+    }
+}
+```
+
 ## 查询客户的统计信息
 
 **调用请求**

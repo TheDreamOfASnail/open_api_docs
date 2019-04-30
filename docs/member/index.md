@@ -1627,3 +1627,52 @@ records 记录总数
     "total": 1
 }
 ```
+
+## 17.根据md5查询会员身份的API
+可以根据md5查询对应的会员身份
+
+**调用请求**
+```
+HTTP请求方式: GET
+http://api.dmhub.cn/loyalty/v1/membershipService/getMembershipIdentityByMd5?access_token={access_token}&md5type={md5type}&md5value={md5value}
+```
+
+**参数说明**
+
+|参数|  是否必填| 说明|
+|-----|----|----|
+|access_token|  是 |访问API的令牌|
+|md5type  |是| md5类型，通用md5取common,天猫md5取tmall|
+|md5value|  是 |md5值|
+
+**返回结果**
+```
+{
+    "id": 8,
+    "tenantId": 26,
+    "dateCreated": "2019-04-03T06:09:04Z",
+    "membershipId": 12427,
+    "lastUpdated": "2019-04-03T06:09:04Z",
+    "md5type": "common",
+    "value": "13817704167",
+    "type": "mobile",
+    "md5value": "66f2a37ccdb1933d821ffb51d4922d1c"
+}
+```
+**返回参数说明**
+
+- type 会员身份类型
+- value 会员身份值
+- membershipId 会员的id
+
+**找不到身份-返回结果**
+```
+status: 200 OK
+{
+    "error": {
+        "code": "409200",
+        "message": "Not found"
+    }
+}
+```
+
