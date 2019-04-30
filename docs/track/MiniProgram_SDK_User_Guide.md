@@ -15,7 +15,7 @@ require('./utils/cl_tracker.js');
 var app = getApp();
 
 app.cl_tracker.push({ 
-    identityType: 'wechat', //如果identityValue使用unionid,identityType请设置为"wechat-unionid"
+    identityType: 'applet-wechat', //如果identityValue使用unionid,identityType请设置为"wechat-unionid"
     identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id或unionid
 });
 ```
@@ -27,7 +27,7 @@ app.cl_tracker.push({
 var app = getApp();
 
 app.cl_tracker.push({
-    identityType: 'wechat',
+    identityType: 'applet-wechat',
     identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM',   // identityValue 是用户的open_id
     identityType2: 'wechat-unionid',
     identityValue2: 'o7QvZ1TT5oo1F8rNJvchn1GGv5t8',
@@ -39,7 +39,7 @@ app.cl_tracker.push({
 如果不是同时拿到所有的身份， 可以分别push identityType
 ```
 app.cl_tracker.push({
-    identityType: 'wechat',
+    identityType: 'applet-wechat',
     identityValue: 'openId_openId_openId',
 });
 
@@ -54,7 +54,7 @@ app.cl_tracker.push({
 如果使用
 ```
 app.cl_tracker.push({
-    identityType: 'wechat',
+    identityType: 'applet-wechat',
     identityValue: 'openId_openId_openId',
 });
 ```
@@ -65,7 +65,7 @@ app.cl_tracker.push({
     identityValue: 'openId_openId_openId',
 });
 ```
-结果是第一个identityType: 'wechat' 是无效的。
+结果是第一个identityType: 'applet-wechat' 是无效的。
 
 注意: 请在微信开发设置，服务器域名的 request 合法域名内，
 需要把服务器地址加上. 
@@ -80,7 +80,7 @@ app.cl_tracker.push({
 
 ```
 cl_tracker.push({
-   identityType:'wechat',
+   identityType:'applet-wechat',
    identityValue:'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'
 });
 ```
