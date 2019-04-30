@@ -154,6 +154,9 @@
                     <li class=""><a href="#api_8">查询客户身份的API</a></li>
                     
                   
+                    <li class=""><a href="#md5api">根据md5查询客户身份的API</a></li>
+                    
+                  
                     <li class=""><a href="#_4">查询客户的统计信息</a></li>
                     
                   
@@ -1181,6 +1184,71 @@ https://api.convertlab.com/v1/customeridentities?access_token={access_token}&amp
                 &quot;message&quot;: &quot;customer id should be a number&quot;
             }
         ]
+    }
+}
+</code></pre>
+
+<h2 id="md5api">根据md5查询客户身份的API</h2>
+<p>可以根据md5查询对应的客户身份</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+http://api.dmhub.cn/v1/customerService/getCustomerIdentityByMd5?access_token={access_token}&amp;md5type={md5type}&amp;md5value={md5value}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>md5type</td>
+<td>是</td>
+<td>md5类型，通用md5取common,天猫md5取tmall</td>
+</tr>
+<tr>
+<td>md5value</td>
+<td>是</td>
+<td>md5值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+    &quot;id&quot;: 13,
+    &quot;dateCreated&quot;: &quot;2019-04-01T05:50:27Z&quot;,
+    &quot;lastUpdated&quot;: &quot;2019-04-01T05:55:09Z&quot;,
+    &quot;md5type&quot;: &quot;common&quot;,
+    &quot;value&quot;: &quot;MD100002&quot;,
+    &quot;type&quot;: &quot;mobile&quot;,
+    &quot;customerId&quot;: 418615942793357312,
+    &quot;customerIdStr&quot;: &quot;418615942793357312&quot;,
+    &quot;md5value&quot;: &quot;1010cd3d89afa26a3d85c2605edc519a&quot;
+}
+</code></pre>
+
+<p><strong>返回参数说明</strong></p>
+<ul>
+<li>type 客户身份类型</li>
+<li>value 客户身份值</li>
+<li>customerId 客户的id</li>
+<li>customerIdStr 客户id字串</li>
+</ul>
+<p><strong>找不到身份-返回结果</strong></p>
+<pre><code>status: 200 OK
+{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;409200&quot;,
+        &quot;message&quot;: &quot;Not found&quot;
     }
 }
 </code></pre>

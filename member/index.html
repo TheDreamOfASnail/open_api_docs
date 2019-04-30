@@ -227,6 +227,9 @@
                     <li class=""><a href="#16">16.查看会员经验明细</a></li>
                     
                   
+                    <li class=""><a href="#17md5api">17.根据md5查询会员身份的API</a></li>
+                    
+                  
                   </ul>
                 
               </li>
@@ -2552,6 +2555,70 @@ status 筛选membershipCoupon状态，normal为可使用，used为已使用</p>
     ],
     &quot;records&quot;: 1,
     &quot;total&quot;: 1
+}
+</code></pre>
+
+<h2 id="17md5api">17.根据md5查询会员身份的API</h2>
+<p>可以根据md5查询对应的会员身份</p>
+<p><strong>调用请求</strong></p>
+<pre><code>HTTP请求方式: GET
+http://api.dmhub.cn/loyalty/v1/membershipService/getMembershipIdentityByMd5?access_token={access_token}&amp;md5type={md5type}&amp;md5value={md5value}
+</code></pre>
+
+<p><strong>参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>是</td>
+<td>访问API的令牌</td>
+</tr>
+<tr>
+<td>md5type</td>
+<td>是</td>
+<td>md5类型，通用md5取common,天猫md5取tmall</td>
+</tr>
+<tr>
+<td>md5value</td>
+<td>是</td>
+<td>md5值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回结果</strong></p>
+<pre><code>{
+    &quot;id&quot;: 8,
+    &quot;tenantId&quot;: 26,
+    &quot;dateCreated&quot;: &quot;2019-04-03T06:09:04Z&quot;,
+    &quot;membershipId&quot;: 12427,
+    &quot;lastUpdated&quot;: &quot;2019-04-03T06:09:04Z&quot;,
+    &quot;md5type&quot;: &quot;common&quot;,
+    &quot;value&quot;: &quot;13817704167&quot;,
+    &quot;type&quot;: &quot;mobile&quot;,
+    &quot;md5value&quot;: &quot;66f2a37ccdb1933d821ffb51d4922d1c&quot;
+}
+</code></pre>
+
+<p><strong>返回参数说明</strong></p>
+<ul>
+<li>type 会员身份类型</li>
+<li>value 会员身份值</li>
+<li>membershipId 会员的id</li>
+</ul>
+<p><strong>找不到身份-返回结果</strong></p>
+<pre><code>status: 200 OK
+{
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;409200&quot;,
+        &quot;message&quot;: &quot;Not found&quot;
+    }
 }
 </code></pre>
             <div class="ds-thread" data-thread-key="Api接口" data-title="Api接口" data-url=""></div>
