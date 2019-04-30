@@ -221,6 +221,12 @@
                     <li class=""><a href="#14">14.删除会员身份</a></li>
                     
                   
+                    <li class=""><a href="#15">15.查看会员积分明细</a></li>
+                    
+                  
+                    <li class=""><a href="#16">16.查看会员经验明细</a></li>
+                    
+                  
                   </ul>
                 
               </li>
@@ -2430,13 +2436,15 @@ status 筛选membershipCoupon状态，normal为可使用，used为已使用</p>
 <p>HTTP请求方式: <code>DELETE</code></p>
 </li>
 <li>
-<p><code>/loyalty/v1/membership/identity/$identityId</code></p>
+<p><code>/loyalty/v1/membership/identity/$membershipId?type=mobile&amp;value=133xxxx0592</code></p>
 </li>
 <li>
 <p>Request</p>
 </li>
 </ul>
 <p>access_token  根据appid请求的token</p>
+<p>type 会员身份类型</p>
+<p>value 会员身份值</p>
 <ul>
 <li>Response</li>
 </ul>
@@ -2450,6 +2458,101 @@ status 筛选membershipCoupon状态，normal为可使用，used为已使用</p>
 
 <p>失败：未找到对应身份</p>
 <pre><code class="json">{&quot;error&quot;:{&quot;code&quot;:409225,&quot;message&quot;:&quot;Identity not found&quot;}}
+</code></pre>
+
+<h2 id="15">15.查看会员积分明细</h2>
+<ul>
+<li>
+<p>HTTP请求方式: <code>GET</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/membership/$membershipId/point?rows=20&amp;page=1&amp;sord=asc&amp;needTotal=true</code></p>
+</li>
+<li>
+<p>Request</p>
+</li>
+</ul>
+<p>access_token  根据appid请求的token</p>
+<p>rows 每页记录数</p>
+<p>page 当前页号</p>
+<p>sord 记录排序顺序 asc/desc</p>
+<p>needTotal 是否返回总记录数</p>
+<ul>
+<li>Response</li>
+</ul>
+<p>records 记录总数</p>
+<p>total 页数</p>
+<pre><code class="json">{
+    &quot;rows&quot;: [
+        {
+            &quot;id&quot;: 248,
+            &quot;contentName&quot;: null,
+            &quot;campaignId&quot;: null,
+            &quot;date&quot;: &quot;2018-07-11T09:55:35Z&quot;,
+            &quot;dateCreated&quot;: &quot;2018-07-11T09:55:35Z&quot;,
+            &quot;leftPoint&quot;: 114,
+            &quot;lastUpdated&quot;: &quot;2018-07-11T09:55:35Z&quot;,
+            &quot;pattern&quot;: 3,
+            &quot;source&quot;: null,
+            &quot;newPoint&quot;: 114,
+            &quot;tenantId&quot;: 26,
+            &quot;membershipId&quot;: 399,
+            &quot;point&quot;: 5,
+            &quot;oldPoint&quot;: 119,
+            &quot;type&quot;: -1,
+            &quot;status&quot;: -1,
+            &quot;expireDate&quot;: null,
+            &quot;remark&quot;: null,
+            &quot;externalId&quot;: &quot;wechat_leave_message&quot;
+        }
+    ],
+    &quot;records&quot;: 1,
+    &quot;total&quot;: 1
+}
+</code></pre>
+
+<h2 id="16">16.查看会员经验明细</h2>
+<ul>
+<li>
+<p>HTTP请求方式: <code>GET</code></p>
+</li>
+<li>
+<p><code>/loyalty/v1/membership/$membershipId/exp/changeLogs?rows=20&amp;page=1&amp;sord=asc&amp;needTotal=true</code></p>
+</li>
+<li>
+<p>Request</p>
+</li>
+</ul>
+<p>access_token  根据appid请求的token</p>
+<p>rows 每页记录数</p>
+<p>page 当前页号</p>
+<p>sord 记录排序顺序 asc/desc</p>
+<p>needTotal 是否返回总记录数</p>
+<ul>
+<li>Response</li>
+</ul>
+<p>records 记录总数</p>
+<p>total 页数</p>
+<pre><code class="json">{
+    &quot;rows&quot;: [
+        {
+            &quot;id&quot;: 256,
+            &quot;tenantId&quot;: 26,
+            &quot;dateCreated&quot;: &quot;2018-01-22T10:09:18Z&quot;,
+            &quot;membershipId&quot;: 667,
+            &quot;lastUpdated&quot;: &quot;2018-01-22T10:09:18Z&quot;,
+            &quot;expType&quot;: 1,
+            &quot;expValue&quot;: 10,
+            &quot;oldExp&quot;: 0,
+            &quot;remark&quot;: null,
+            &quot;dateObtain&quot;: &quot;2018-01-22T10:09:17Z&quot;,
+            &quot;externalId&quot;: &quot;1d09ca04-0c80-4d43-8db7-3d9c4f89f47d&quot;,
+            &quot;newExp&quot;: 10
+        }
+    ],
+    &quot;records&quot;: 1,
+    &quot;total&quot;: 1
+}
 </code></pre>
             <div class="ds-thread" data-thread-key="Api接口" data-title="Api接口" data-url=""></div>
         </div>
