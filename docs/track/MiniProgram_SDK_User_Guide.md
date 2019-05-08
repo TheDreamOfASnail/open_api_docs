@@ -19,7 +19,7 @@ app.cl_tracker.push({
     identityValue: 'oI_M5xC_YlVhrGe5kcYhkzEQM6wM'   // identityValue 是用户的open_id或unionid
 });
 ```
-身份设置请参考：http://help.convertlab.com/hc/kb/article/1108635
+身份设置请参考：<a href="http://help.convertlab.com/hc/kb/article/1108635">身份设置</a>
 
 如果有多个身份: (最多同时支持3个身份)
 
@@ -69,7 +69,7 @@ app.cl_tracker.push({
 
 注意: 请在微信开发设置，服务器域名的 request 合法域名内，
 需要把服务器地址加上. 
-详情参考https://developers.weixin.qq.com/miniprogram/dev/api/api-network.html
+详情参考<a href="https://developers.weixin.qq.com/miniprogram/dev/api/api-network.html">微信服务器域名设置</a>
 
 服务器地址通常是cbe.convertlab.com，
 如果是私有部署，请询问对接人员
@@ -107,6 +107,8 @@ cl_tracker.track(
     callback // 事件回调，可以不传
 );
 ```
-埋点使用详情请参考 http://help.convertlab.com/hc/kb/article/159033/
+若需要其他事件请先在系统中添加自定义事件。
+
+埋点使用详情请参考 <a href="http://help.convertlab.com/hc/kb/article/159033/">埋点使用</a>
 
 __注意：小程序只能使用javascript来提交事件__
